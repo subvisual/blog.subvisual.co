@@ -1,0 +1,92 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+/*
+* 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+* 2. Force vertical scrollbar in non-IE
+* 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+*/
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body { margin: 0; font-size: 13px; line-height: 1.231; }
+body{
+	width: 960px;
+	margin: 0 auto;
+}
+/*
+Header
+*/
+header{
+	height: 50px;
+	padding-top: 15px;
+	width: 940px;
+}
+.logo{
+	margin-left: 80px
+}
+.menu{
+	float: right;
+	margin-right: 80px;
+}
+
+/*Typography*/
+h1{
+	width: 940px;
+	padding-top: 30px;
+	color: #ccc;
+	font: normal 1.5em "Raleway";
+	text-align: center;
+}
+h2{
+	font: bold 2.3em/1px "Raleway";
+	color: #333;
+}
+
+span{
+	font: italic 1em/1px "Raleway";
+	color: #ccc;
+}
+
+/*Content*/
+article{
+	padding-top: 50px;
+	width:700px;
+	margin-left: 80px;
+	clear: both;
+	}
+
+.icon{
+	float: left;
+}
+.post{
+	float: left;
+	margin-left: 40px;
+	width: 620px;
+}
+p.info{
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font: italic 1.4em "Proxima Nova Soft";
+	color: #999;
+	text-indent: 0;
+}
+
+p{
+	font: normal 20px "Proxima Nova Soft";
+	line-height: 35px;
+	color: #333;
+	text-indent: 20px;
+	text-align: left;
+}
+
+.options{
+	overflow: auto;
+	margin-top: 50px;
+	height: 20px;
+}
+
+footer{
+	padding-top: 50px;
+	height: 100px;
+}
