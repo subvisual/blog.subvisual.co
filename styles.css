@@ -1,92 +1,135 @@
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
-audio:not([controls]) { display: none; }
-[hidden] { display: none; }
-/*
-* 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
-* 2. Force vertical scrollbar in non-IE
-* 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
-*/
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; }
-body{
-	width: 960px;
-	margin: 0 auto;
-}
-/*
-Header
-*/
-header{
-	height: 50px;
-	padding-top: 15px;
-	width: 940px;
-}
-.logo{
-	margin-left: 80px
-}
-.menu{
-	float: right;
-	margin-right: 80px;
-}
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
 
-/*Typography*/
-h1{
-	width: 940px;
-	padding-top: 30px;
-	color: #ccc;
-	font: normal 1.5em "Raleway";
-	text-align: center;
-}
-h2{
-	font: bold 2.3em/1px "Raleway";
-	color: #333;
-}
+audio:not([controls]) {
+  display: none; }
 
-span{
-	font: italic 1em/1px "Raleway";
-	color: #ccc;
-}
+[hidden] {
+  display: none; }
 
-/*Content*/
-article{
-	padding-top: 50px;
-	width:700px;
-	margin-left: 80px;
-	clear: both;
-	}
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
 
-.icon{
-	float: left;
-}
-.post{
-	float: left;
-	margin-left: 40px;
-	width: 620px;
-}
-p.info{
-	padding-top: 30px;
-	padding-bottom: 30px;
-	font: italic 1.4em "Proxima Nova Soft";
-	color: #999;
-	text-indent: 0;
-}
+body {
+  font-size: 13px;
+  line-height: 1.25em;
+  width: 960px;
+  margin: 0 auto; }
 
-p{
-	font: normal 20px "Proxima Nova Soft";
-	line-height: 35px;
-	color: #333;
-	text-indent: 20px;
-	text-align: left;
-}
+/*Typography */
+h1 {
+  font-size: 1.5em;
+  line-height: 1.7em;
+  padding-top: 100px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: "Proxima Nova";
+  color: #cccccc; }
 
-.options{
-	overflow: auto;
-	margin-top: 50px;
-	height: 20px;
-}
+article h1 {
+  padding-top: 0px;
+  text-align: left;
+  padding-bottom: 30px;
+  color: #333333;
+  font-size: 35px; }
 
-footer{
-	padding-top: 50px;
-	height: 100px;
-}
+h2 {
+  margin-top: 0px;
+  font-size: 1.4em;
+  font-family: "Proxima Nova";
+  color: #333333; }
+
+span {
+  font-size: 16px;
+  font-family: "Proxima Nova";
+  color: #cccccc; }
+
+p {
+  text-indent: 20px;
+  font-size: 1.5em;
+  line-height: 1.8em;
+  font-family: "Proxima Nova";
+  color: #333333; }
+
+.about p {
+  font-size: 1.3em;
+  line-height: 1.6em; }
+
+/*Header */
+.logo {
+  float: left;
+  margin-top: 20px; }
+
+.menu {
+  width: 40px;
+  height: 40px;
+  float: right;
+  margin-top: 20px;
+  padding-bottom: 20px; }
+
+/*Navbar */
+nav {
+  width: 100%;
+  text-align: center;
+  clear: both;
+  padding-top: 20px;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 50px;
+  background-color: #cccccc;
+  box-shadow: inset 0px 0px 12px #999999;
+  display: none; }
+
+li {
+  float: left;
+  margin: 20px;
+  list-style-type: none;
+  list-style-position: outside;
+  opacity: 0.8; }
+
+section {
+  clear: both;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+article {
+  margin: 0 auto;
+  width: 100%;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 50px;
+  overflow: auto;
+  padding-top: 50px; }
+
+.icon {
+  float: left; }
+
+.post {
+  float: left;
+  width: 70%;
+  margin-left: 50px; }
+
+.comments {
+  overflow: auto;
+  width: 100%;
+  border-bottom: 1px dotted #cccccc;
+  padding-bottom: 20px;
+  margin-top: 30px; }
+
+aside {
+  margin-top: 50px; }
+
+.foto {
+  width: 80px;
+  height: 80px;
+  float: left; }
+
+.about {
+  float: left;
+  width: 80%;
+  margin-left: 50px; }
