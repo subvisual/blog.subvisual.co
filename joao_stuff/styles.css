@@ -23,45 +23,65 @@ body {
   width: 960px;
   margin: 0 auto; }
 
+/* Mixins */
+/* Links */
+a {
+  text-decoration: underline;
+  color: #cccccc; }
+  a:hover {
+    color: #0091da; }
+
 /*Typography */
 h1 {
-  font-size: 1.5em;
-  line-height: 1.2em;
   padding-top: 100px;
   text-align: center;
   margin: 0 auto;
-  font-family: "Proxima Nova";
-  color: #cccccc; }
+  font-weight: normal;
+  font-size: 1.5em;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: #cccccc;
+  line-height: 1.4em; }
 
 article h1 {
   padding-top: 0px;
   text-align: left;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 2.2em;
+  font-family: "Proxima Nova", Arial, sans-serif;
   color: #333333;
-  font-size: 35px; }
+  line-height: 1.4em; }
 
 h2 {
   margin-top: 0px;
-  font-size: 1.4em;
-  font-family: "Proxima Nova";
-  color: #333333; }
+  font-size: 1.5em;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: #333333;
+  line-height: 1.7em; }
 
 span {
-  font-size: 16px;
-  font-family: "Proxima Nova";
+  font-size: 1.2em;
+  font-family: "Proxima Nova", Arial, sans-serif;
   color: #cccccc;
-  padding-bottom: 30px;
+  line-height: 1.4em;
+  font-style: italic;
+  padding-bottom: 20px;
   display: block; }
 
+.about span {
+  padding-top: 30px;
+  padding-bottom: 10px; }
+
 p {
-  text-indent: 20px;
   font-size: 1.5em;
-  line-height: 1.8em;
-  font-family: "Proxima Nova";
-  color: #333333; }
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: #333333;
+  line-height: 1.8em; }
 
 .about p {
   font-size: 1.3em;
+  font-family: "Proxima Nova", Arial, sans-serif;
+  color: #333333;
   line-height: 1.6em; }
 
 /*Header */
@@ -104,7 +124,7 @@ article {
   margin: 0 auto;
   width: 100%;
   border-bottom: 1px solid #cccccc;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
   overflow: auto;
   padding-top: 50px; }
 
