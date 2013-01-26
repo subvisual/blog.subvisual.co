@@ -1,12 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '~> 3.2.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'citygate', :git => 'git@github.com:zamith/citygate.git'
+gem 'boss', :git => 'git@github.com:zamith/Boss.git'
+gem 'rails_engine_decorators'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +20,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  # Better errors on the browser
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'jquery-rails'

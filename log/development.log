@@ -1,0 +1,1636 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130125171503)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "citygate_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (2.9ms)[0m  [1mCREATE UNIQUE INDEX "index_citygate_users_on_email" ON "citygate_users" ("email")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_citygate_users_on_reset_password_token" ON "citygate_users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171503')[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+Migrating to AddNameToUsers (20130125171504)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (30.2ms)[0m  ALTER TABLE "citygate_users" ADD "first_name" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "citygate_users" ADD "last_name" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130125171504')
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddConfirmableToUsers (20130125171505)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "citygate_users" ADD "confirmation_token" varchar(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "citygate_users" ADD "confirmed_at" datetime
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "citygate_users" ADD "confirmation_sent_at" datetime[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "citygate_users" ADD "unconfirmed_email" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171505')[0m
+  [1m[35m (2.4ms)[0m  commit transaction
+Migrating to DeviseInvitableAddToUsers (20130125171506)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "citygate_users" ADD "invitation_token" varchar(60)
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "citygate_users" ADD "invitation_sent_at" datetime[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "citygate_users" ADD "invitation_accepted_at" datetime
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "citygate_users" ADD "invitation_limit" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "citygate_users" ADD "invited_by_id" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "citygate_users" ADD "invited_by_type" varchar(255)[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_email')
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_citygate_users_on_invitation_token" ON "citygate_users" ("invitation_token")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+  [1m[35m (0.5ms)[0m  CREATE INDEX "index_citygate_users_on_invited_by_id" ON "citygate_users" ("invited_by_id")
+  [1m[36m (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_citygate_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar(255), "invitation_token" varchar(60), "invitation_sent_at" datetime, "invitation_accepted_at" datetime, "invitation_limit" integer, "invited_by_id" integer, "invited_by_type" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invited_by_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_invitation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_email')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_citygate_users")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "temp_index_altered_citygate_users_on_invited_by_id" ON "altered_citygate_users" ("invited_by_id")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_citygate_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_citygate_users_on_invited_by_id')
+  [1m[36m (0.1ms)[0m  [1mCREATE INDEX "temp_index_altered_citygate_users_on_invitation_token" ON "altered_citygate_users" ("invitation_token")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_citygate_users_on_invited_by_id')
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "temp_index_altered_citygate_users_on_reset_password_token" ON "altered_citygate_users" ("reset_password_token")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_citygate_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_citygate_users_on_invitation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_citygate_users_on_invited_by_id')[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "temp_index_altered_citygate_users_on_email" ON "altered_citygate_users" ("email")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "citygate_users"[0m
+  [1m[35m (41.3ms)[0m  DROP TABLE "citygate_users"
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "citygate_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '', "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar(255), "invitation_token" varchar(60), "invitation_sent_at" datetime, "invitation_accepted_at" datetime, "invitation_limit" integer, "invited_by_id" integer, "invited_by_type" varchar(255)) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_citygate_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('temp_index_altered_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('temp_index_altered_citygate_users_on_invited_by_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("citygate_users")[0m
+  [1m[35m (11.2ms)[0m  CREATE UNIQUE INDEX "index_citygate_users_on_email" ON "citygate_users" ("email")
+  [1m[36m (0.6ms)[0m  [1mPRAGMA index_list("citygate_users")[0m
+  [1m[35m (0.7ms)[0m  PRAGMA index_info('index_citygate_users_on_email')
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_citygate_users_on_reset_password_token" ON "citygate_users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_email')
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_citygate_users_on_invitation_token" ON "citygate_users" ("invitation_token")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_citygate_users_on_invited_by_id" ON "citygate_users" ("invited_by_id")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_citygate_users"[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "altered_citygate_users"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171506')[0m
+  [1m[35m (38.8ms)[0m  commit transaction
+Migrating to AddOmniauthToDevise (20130125171507)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invited_by_id')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_invitation_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_reset_password_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_email')
+  [1m[36m (17.2ms)[0m  [1mCREATE UNIQUE INDEX "index_citygate_users_on_confirmation_token" ON "citygate_users" ("confirmation_token")[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "citygate_users" ADD "password_salt" varchar(255)
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "citygate_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "provider" varchar(255), "uid" varchar(255), "user_id" integer, "token" varchar(255), "secret" varchar(255), "name" varchar(255), "link" varchar(255), "image_url" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130125171507')
+  [1m[36m (21.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRoles (20130125171508)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "citygate_roles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "citygate_users" ADD "role_id" integer
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171508')[0m
+  [1m[35m (24.2ms)[0m  commit transaction
+Migrating to AddUsernameToUsers (20130125171509)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  ALTER TABLE "citygate_users" ADD "username" varchar(255)
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171509')[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+Migrating to MakeUsernameUnique (20130125171510)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("citygate_users")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_confirmation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_invited_by_id')
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_citygate_users_on_username" ON "citygate_users" ("username")
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130125171510')[0m
+  [1m[35m (2.9ms)[0m  commit transaction
+  [1m[36m (0.5ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("citygate_authorizations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("citygate_roles")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("citygate_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_username')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_confirmation_token')[0m
+  [1m[35m (0.2ms)[0m  PRAGMA index_info('index_citygate_users_on_invited_by_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mCitygate::Role Load (0.2ms)[0m  SELECT "citygate_roles".* FROM "citygate_roles" WHERE "citygate_roles"."name" = 'Member' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (44.5ms)[0m  INSERT INTO "citygate_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 25 Jan 2013 20:49:29 UTC +00:00], ["name", "Member"], ["updated_at", Fri, 25 Jan 2013 20:49:29 UTC +00:00]]
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mCitygate::Role Load (0.2ms)[0m  SELECT "citygate_roles".* FROM "citygate_roles" WHERE "citygate_roles"."name" = 'Admin' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "citygate_roles" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 25 Jan 2013 20:49:29 UTC +00:00], ["name", "Admin"], ["updated_at", Fri, 25 Jan 2013 20:49:29 UTC +00:00]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130125171503)
+Migrating to AddNameToUsers (20130125171504)
+Migrating to AddConfirmableToUsers (20130125171505)
+Migrating to DeviseInvitableAddToUsers (20130125171506)
+Migrating to AddOmniauthToDevise (20130125171507)
+Migrating to CreateRoles (20130125171508)
+Migrating to AddUsernameToUsers (20130125171509)
+Migrating to MakeUsernameUnique (20130125171510)
+Migrating to CreateBossPosts (20130126180936)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "boss_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "body" text NOT NULL, "start_date" datetime, "draft" boolean DEFAULT 't', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130126180936')[0m
+  [1m[35m (3.3ms)[0m  commit transaction
+Migrating to CreateResourcesTable (20130126180937)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "boss_resources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "resource_file_name" varchar(255), "resource_content_type" varchar(255), "resource_file_size" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130126180937')[0m
+  [1m[35m (3.1ms)[0m  commit transaction
+Migrating to AddContentTypeIndexToResources (20130126180938)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("boss_resources")
+  [1m[36m (0.4ms)[0m  [1mCREATE INDEX "index_boss_resources_on_resource_content_type" ON "boss_resources" ("resource_content_type")[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130126180938')
+  [1m[36m (3.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddExtensionColumnToResources (20130126180939)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "boss_resources" ADD "extension" varchar(255)[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("boss_resources")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_boss_resources_on_resource_content_type')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_boss_resources_on_extension" ON "boss_resources" ("extension")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("boss_resources")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_boss_resources_on_extension')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_boss_resources_on_resource_content_type')[0m
+  [1m[35m (0.4ms)[0m  DROP INDEX "index_boss_resources_on_resource_content_type"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130126180939')[0m
+  [1m[35m (2.6ms)[0m  commit transaction
+Migrating to ChangeStartDateToPublishedDate (20130126180940)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "altered_boss_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "body" text NOT NULL, "published_date" datetime, "draft" boolean DEFAULT 't', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("boss_posts")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "boss_posts"
+  [1m[36m (19.5ms)[0m  [1mDROP TABLE "boss_posts"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "boss_posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) NOT NULL, "body" text NOT NULL, "published_date" datetime, "draft" boolean DEFAULT 't', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_boss_posts")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_boss_posts"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "altered_boss_posts"[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130126180940')
+  [1m[36m (2.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateBanners (20130126180941)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "boss_banners" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "boss_resource_id" integer, "finish_date" date, "link" varchar(255), "start_date" date, "title" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130126180941')
+  [1m[36m (32.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCategories (20130126180942)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "boss_categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "boss_posts" ADD "category_id" integer DEFAULT 1
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("boss_posts")[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_boss_posts_on_category_id" ON "boss_posts" ("category_id")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130126180942')[0m
+  [1m[35m (3.0ms)[0m  commit transaction
+Migrating to ActsAsTaggableOnMigration (20130126180943)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(128), "created_at" datetime) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("taggings")
+  [1m[36m (0.2ms)[0m  [1mCREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("taggings")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [1m[35m (0.1ms)[0m  CREATE INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130126180943')[0m
+  [1m[35m (36.4ms)[0m  commit transaction
+  [1m[36m (0.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("boss_banners")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("boss_categories")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("boss_posts")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_boss_posts_on_category_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("boss_resources")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_info('index_boss_resources_on_extension')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("citygate_authorizations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("citygate_roles")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("citygate_users")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_username')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_confirmation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_invited_by_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_invitation_token')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_citygate_users_on_reset_password_token')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_citygate_users_on_email')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("taggings")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type_and_context')[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_info('index_taggings_on_tag_id')
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("tags")[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35mCitygate::Role Load (9.0ms)[0m  SELECT "citygate_roles".* FROM "citygate_roles" WHERE "citygate_roles"."name" = 'Member' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mCitygate::Role Load (0.2ms)[0m  [1mSELECT "citygate_roles".* FROM "citygate_roles" WHERE "citygate_roles"."name" = 'Admin' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mBoss::Category Load (0.1ms)[0m  SELECT "boss_categories".* FROM "boss_categories" WHERE "boss_categories"."name" = 'Default' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (29.4ms)[0m  INSERT INTO "boss_categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Sat, 26 Jan 2013 18:10:52 UTC +00:00], ["name", "Default"], ["updated_at", Sat, 26 Jan 2013 18:10:52 UTC +00:00]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2013-01-26 18:16:28 +0000
+Served asset /rails.png - 200 OK (24ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:16:42 +0000
+Processing by Citygate::HomeController#index as HTML
+Completed 500 Internal Server Error in 9ms
+
+NameError (uninitialized constant Citygate::ApplicationController::Ability):
+  /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/controllers/citygate/application_controller.rb:19:in `current_ability'
+  cancan (1.6.8) lib/cancan/controller_additions.rb:333:in `authorize!'
+  cancan (1.6.8) lib/cancan/controller_resource.rb:41:in `authorize_resource'
+  cancan (1.6.8) lib/cancan/controller_resource.rb:10:in `block in add_before_filter'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:429:in `_run__931173676181408351__process_action__3390443315541240929__callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.11) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `block in instrument'
+  activesupport (3.2.11) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (3.2.11) lib/active_support/notifications.rb:123:in `instrument'
+  actionpack (3.2.11) lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  actionpack (3.2.11) lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  activerecord (3.2.11) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (3.2.11) lib/abstract_controller/base.rb:121:in `process'
+  actionpack (3.2.11) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.11) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.11) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.11) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:36:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.11) lib/action_dispatch/routing/route_set.rb:601:in `call'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:168:in `call!'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:148:in `call'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:168:in `call!'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:148:in `call'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:168:in `call!'
+  omniauth (1.0.3) lib/omniauth/strategy.rb:148:in `call'
+  warden (1.2.1) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.1) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.1) lib/warden/manager.rb:34:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.4) lib/rack/etag.rb:23:in `call'
+  rack (1.4.4) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.4) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.4) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  activerecord (3.2.11) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.11) lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `_run__3015622005886535048__call__1654382411959996902__callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.11) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.11) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.7ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:17:32 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[36mCitygate::User Load (0.2ms)[0m  [1mSELECT "citygate_users".* FROM "citygate_users" [0m
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (19.1ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (28.3ms)
+Compiled application.css  (0ms)  (pid 32507)
+Compiled jquery.js  (2ms)  (pid 32507)
+Compiled jquery_ujs.js  (0ms)  (pid 32507)
+Compiled citygate/home.js  (979ms)  (pid 32507)
+Compiled citygate.js  (1066ms)  (pid 32507)
+Compiled application.js  (1161ms)  (pid 32507)
+Completed 200 OK in 1760ms (Views: 1646.4ms | ActiveRecord: 51.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /jquery.js - 200 OK (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /citygate/home.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /application.js - 200 OK (16ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:17:34 +0000
+Served asset /citygate.js - 200 OK (8ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:19:31 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 75ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:19:31 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[35mCitygate::User Load (0.2ms)[0m  SELECT "citygate_users".* FROM "citygate_users" 
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (1.6ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 19ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:19:31 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:19:31 +0000
+Served asset /citygate/home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:19:31 +0000
+Served asset /citygate.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:19:32 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[36mCitygate::User Load (0.2ms)[0m  [1mSELECT "citygate_users".* FROM "citygate_users" [0m
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (1.3ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Served asset /citygate/home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Served asset /citygate.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:20:33 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:21:57 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[36mCitygate::User Load (0.2ms)[0m  [1mSELECT "citygate_users".* FROM "citygate_users" [0m
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (19.8ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (76.7ms)
+Completed 200 OK in 229ms (Views: 111.0ms | ActiveRecord: 49.2ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:21:57 +0000
+Served asset /citygate.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:21:57 +0000
+Served asset /jquery.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:21:57 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:21:58 +0000
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:21:58 +0000
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:21:58 +0000
+Served asset /citygate/home.js - 304 Not Modified (62ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[35mCitygate::User Load (0.3ms)[0m  SELECT "citygate_users".* FROM "citygate_users" 
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (1.8ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 23ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /citygate.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /citygate/home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:22:00 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[36mCitygate::User Load (0.2ms)[0m  [1mSELECT "citygate_users".* FROM "citygate_users" [0m
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (19.1ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 227ms (Views: 113.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /application.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /citygate/home.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:21 +0000
+Served asset /citygate.js - 304 Not Modified (7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Processing by Citygate::HomeController#index as HTML
+  [1m[35mCitygate::User Load (0.2ms)[0m  SELECT "citygate_users".* FROM "citygate_users" 
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/shared/_navigation.html.erb (1.5ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/citygate/home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 17ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /citygate/home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /citygate.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:28:22 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:30:17 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 112ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:17 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 83ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Boss::PostsController#index as HTML
+Access denied on index Boss::Post(id: integer, title: string, body: text, published_date: datetime, draft: boolean, created_at: datetime, updated_at: datetime, category_id: integer)
+Redirected to http://localhost:3000/?controller=citygate%2Fhome
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/?controller=citygate%2Fhome" for 127.0.0.1 at 2013-01-26 18:30:18 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:30:47 +0000
+Processing by Boss::PostsController#index as HTML
+  [1m[36mBoss::Post Load (0.2ms)[0m  [1mSELECT "boss_posts".* FROM "boss_posts" WHERE "boss_posts"."draft" = 'f' LIMIT 15[0m
+  Rendered collection (0.0ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/Boss-481584d495e9/app/views/boss/posts/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 228ms (Views: 95.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/citygate/home.js?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /citygate/home.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/citygate.js?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /citygate.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/boss/ajax-loader.gif" for 127.0.0.1 at 2013-01-26 18:30:48 +0000
+Served asset /boss/ajax-loader.gif - 200 OK (31ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:31:07 +0000
+Processing by Boss::PostsController#index as HTML
+  [1m[35mBoss::Post Load (0.2ms)[0m  SELECT "boss_posts".* FROM "boss_posts" WHERE "boss_posts"."draft" = 'f' LIMIT 15
+  Rendered collection (0.0ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/Boss-481584d495e9/app/views/boss/posts/index.html.erb within layouts/application (1.7ms)
+Compiled redactor/redactor.js  (1ms)  (pid 33453)
+Compiled jQueryFileUpload/tmpl.min.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/load-image.min.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/jquery.fileupload.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/jquery.fileupload-fp.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/jquery.fileupload-ui.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/jquery.iframe-transport.js  (0ms)  (pid 33453)
+Compiled jQueryFileUpload/locale.js  (0ms)  (pid 33453)
+Compiled slides/slides.min.jquery.js  (0ms)  (pid 33453)
+Compiled boss/utils.js  (204ms)  (pid 33453)
+Compiled boss/banners.js  (193ms)  (pid 33453)
+Compiled boss/better-pagination.js  (227ms)  (pid 33453)
+Compiled boss/resources.js  (190ms)  (pid 33453)
+Compiled boss/posts.js  (216ms)  (pid 33453)
+Compiled boss.js  (1961ms)  (pid 33453)
+Compiled application.js  (2078ms)  (pid 33453)
+Completed 200 OK in 2349ms (Views: 2339.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 200 OK (5ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 200 OK (101ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /redactor/redactor.js - 200 OK (5ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 200 OK (5ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 200 OK (8ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 200 OK (5ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 200 OK (4ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jQueryFileUpload/locale.js - 200 OK (8ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /slides/slides.min.jquery.js - 200 OK (6ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/utils.js - 200 OK (8ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/banners.js - 200 OK (4ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/better-pagination.js - 200 OK (4ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss.js - 200 OK (22ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/posts.js - 200 OK (7ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/resources.js - 200 OK (74ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /application.js - 304 Not Modified (23ms)
+
+
+Started GET "/assets/boss/ajax-loader.gif" for 127.0.0.1 at 2013-01-26 18:31:10 +0000
+Served asset /boss/ajax-loader.gif - 304 Not Modified (0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:31:25 +0000
+Processing by Boss::PostsController#index as HTML
+  [1m[36mBoss::Post Load (0.3ms)[0m  [1mSELECT "boss_posts".* FROM "boss_posts" WHERE "boss_posts"."draft" = 'f' LIMIT 15[0m
+  Rendered collection (0.0ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/Boss-481584d495e9/app/views/boss/posts/index.html.erb within layouts/application (2.8ms)
+Compiled jQueryFileUpload/jquery.fileupload-ui.css  (0ms)  (pid 33453)
+Compiled smoothness/jquery-ui-1.8.23.custom.css  (0ms)  (pid 33453)
+Compiled boss/structure.css  (52ms)  (pid 33453)
+Compiled boss/style.css  (7ms)  (pid 33453)
+Compiled boss.css  (248ms)  (pid 33453)
+Compiled application.css  (282ms)  (pid 33453)
+Completed 200 OK in 451ms (Views: 439.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.css - 200 OK (20ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.23.custom.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /smoothness/jquery-ui-1.8.23.custom.css - 200 OK (5ms)
+
+
+Started GET "/assets/boss/style.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/style.css - 200 OK (4ms)
+
+
+Started GET "/assets/boss.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss.css - 200 OK (18ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /application.css - 200 OK (10ms)
+
+
+Started GET "/assets/boss/structure.css?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/structure.css - 200 OK (4ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (78ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/ajax-loader.gif" for 127.0.0.1 at 2013-01-26 18:31:26 +0000
+Served asset /boss/ajax-loader.gif - 304 Not Modified (0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2013-01-26 18:31:43 +0000
+
+ActionController::RoutingError (No route matches [GET] "/admin"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/devise/shared/_links.erb (4.3ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/devise/sessions/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 30ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:32:11 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/devise/shared/_links.erb (2.5ms)
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/bundler/gems/citygate-4053184ee03c/app/views/devise/sessions/new.html.erb within layouts/application (6.3ms)
+Compiled styles.css  (0ms)  (pid 33453)
+Compiled application.css  (35ms)  (pid 33453)
+Completed 200 OK in 150ms (Views: 149.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.23.custom.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /smoothness/jquery-ui-1.8.23.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/style.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /boss/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/structure.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /boss/structure.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /styles.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/boss.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /boss.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:25 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:26 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Processing by Citygate::HomeController#index as HTML
+Redirected to http://localhost:3000/blog
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Processing by Boss::PostsController#index as HTML
+  Rendered boss/posts/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 26ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.23.custom.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /smoothness/jquery-ui-1.8.23.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/style.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /boss/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/structure.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /boss/structure.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /boss.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:29 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/img/logo.png" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+
+ActionController::RoutingError (No route matches [GET] "/img/logo.png"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/img/heart.png" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+
+ActionController::RoutingError (No route matches [GET] "/img/heart.png"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/img/roberto.png" for 127.0.0.1 at 2013-01-26 18:36:30 +0000
+
+ActionController::RoutingError (No route matches [GET] "/img/roberto.png"):
+  actionpack (3.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.11) lib/rails/rack/logger.rb:32:in `call_app'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `block in call'
+  activesupport (3.2.11) lib/active_support/tagged_logging.rb:22:in `tagged'
+  railties (3.2.11) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.4) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.4) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.11) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.4) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.11) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.11) lib/rails/engine.rb:479:in `call'
+  railties (3.2.11) lib/rails/application.rb:223:in `call'
+  rack (1.4.4) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.11) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.4) lib/rack/handler/webrick.rb:59:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/luis/.rvm/rubies/ruby-1.9.3-p125/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/luis/.rvm/gems/ruby-1.9.3-p125@gb/gems/actionpack-3.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:38:21 +0000
+Processing by Boss::PostsController#index as HTML
+  Rendered boss/posts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 33ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/boss.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:21 +0000
+Served asset /boss.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.23.custom.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /smoothness/jquery-ui-1.8.23.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/structure.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/structure.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/style.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /logo.png - 200 OK (22ms)
+
+
+Started GET "/assets/heart.png" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /heart.png - 200 OK (109ms)
+
+
+Started GET "/assets/roberto.png" for 127.0.0.1 at 2013-01-26 18:38:22 +0000
+Served asset /roberto.png - 200 OK (18ms)
+
+
+Started GET "/blog" for 127.0.0.1 at 2013-01-26 18:38:39 +0000
+Processing by Boss::PostsController#index as HTML
+  Rendered boss/posts/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/boss.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:39 +0000
+Served asset /boss.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:39 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/smoothness/jquery-ui-1.8.23.custom.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:39 +0000
+Served asset /smoothness/jquery-ui-1.8.23.custom.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/structure.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:39 +0000
+Served asset /boss/structure.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/style.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/style.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/styles.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /styles.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/redactor/redactor.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /redactor/redactor.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/tmpl.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/tmpl.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/load-image.min.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/load-image.min.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/jquery.fileupload.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-ui.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.fileupload-fp.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/jquery.fileupload-fp.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/locale.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/locale.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jQueryFileUpload/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /jQueryFileUpload/jquery.iframe-transport.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/slides/slides.min.jquery.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /slides/slides.min.jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/utils.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/utils.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/better-pagination.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/better-pagination.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/resources.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/resources.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/posts.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/posts.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/boss/banners.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /boss/banners.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /logo.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/heart.png" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /heart.png - 304 Not Modified (0ms)
+
+
+Started GET "/assets/roberto.png" for 127.0.0.1 at 2013-01-26 18:38:40 +0000
+Served asset /roberto.png - 304 Not Modified (0ms)

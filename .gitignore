@@ -1,0 +1,27 @@
+### Rails ignores
+
+.bundle
+tmp/*
+db/*.sqlite3
+db/schema.rb
+log/*
+brakeman.html
+coverage
+.jhw-cache/*
+target/jscoverage
+config/thin.yml
+public/system
+config/database.yml
+coverage/*
+.swp
+
+### OS files
+
+*.DS_Store
+._*
+
+### Backups
+
+*~
+
+
