@@ -34,7 +34,7 @@ group :development do
 end
 
 gem 'jquery-rails'
-
+gem 'jquery-ui-rails'
 # Template language
 gem "slim-rails"
 
