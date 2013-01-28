@@ -1,0 +1,206 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section  
+  display: block 
+audio, canvas, video  
+  display: inline-block 
+  *display: inline 
+  *zoom: 1 
+audio:not([controls])  
+  display: none 
+[hidden]  
+  display: none 
+
+html  
+  font-size: 100% 
+  -webkit-text-size-adjust: 100% 
+  -ms-text-size-adjust: 100% 
+
+body  
+  font-size: 13px 
+  line-height: 1.25em 
+  width: 100%
+  margin: 0 auto
+
+
+body > header, article, section, nav
+  max-width: 960px
+  margin: 0 auto
+
+/* Mixins */
+= base_font ($size, $line-height, $color)
+  font-size: $size
+  font-family: "Proxima Nova", Arial, sans-serif
+  color: $color
+  line-height: $line-height
+
+= letterpress
+  text-shadow: 1px 1px 1px #fff
+
+= shadow
+  box-shadow: inset 1px 1px 6px #ccc
+
+
+/* Links */
+a
+  text-decoration: underline
+  color: #ccc
+  &:hover
+    color: #0091DA
+
+.gb
+  color: #0091DA
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+nav
+  a
+    color: #333
+    text-decoration: none
+    &:hover
+      color: #0091DA
+      text-decoration: underline
+
+/*Typography*/
+h1
+  padding-top: 80px
+  text-align: center
+  margin: 0 auto
+  font-weight: normal
+  +base_font(1.5em, 1.4em, #ccc)
+
+article
+  h1
+    padding-top: 0px
+    text-align: left
+    padding-bottom: 20px
+    font-weight: bold
+    +base_font(2.2em, 1.4em, #333)
+
+
+h2
+  margin-top: 0px
+  +base_font(1.5em, 1.7em, #333)
+
+span
+  +base_font(1.2em, 1.4em, #ccc)
+  font-style: italic
+  padding-bottom: 20px
+  display: block
+
+.about
+  span
+    padding-top: 30px
+    padding-bottom: 10px
+
+p
+  +base_font(1.5em, 1.8em, #333)
+
+.about
+  p
+    +base_font(1.3em, 1.6em, #333)
+
+
+/*Header*/
+
+.logo
+  float: left
+  margin-top: 20px
+
+.menu
+  width: 40px
+  height: 40px
+  float: right
+  margin-top: 20px
+  padding-bottom: 20px
+
+/*Navbar*/
+
+#main_nav
+  max-width: 100%
+  +shadow
+  +letterpress
+
+nav
+  text-align: center
+  clear: both
+  padding-top: 20px
+  padding-bottom: 20px
+  background-color: #F6F6F8
+  display: none
+  +base_font(1.2em, 1.5em, #333)
+
+li
+  display: inline
+  margin: 2px
+  list-style-type: none
+  list-style-position: outside
+
+
+section
+  clear: both
+  padding-top: 50px
+  padding-bottom: 50px
+
+
+article
+  margin: 0 auto
+  border-bottom: 1px solid #ccc
+  padding-bottom: 30px
+  overflow: auto
+  padding-top: 50px
+
+.icon
+  float: left
+
+.post
+  float: left
+  width: 70%
+  margin-left: 50px
+
+.comments
+  overflow: auto
+  width: 100%
+  border-bottom: 1px dotted #ccc
+  padding-bottom: 50px
+  margin-top: 30px
+
+aside
+  margin-top: 50px
+
+.foto
+  width: 80px
+  height: 80px
+  float: left
+
+.about
+  float: left
+  width: 80%
+  margin-left: 50px
+
+footer
+  margin-top: 110px
+  padding-top: 30px
+  background-color: #F6F6F8
+  box-shadow: inset 1px 1px 6px #ccc
+
+.moto
+  border-bottom: 1px dotted #ccc
+  text-align: center
+  +base_font(1.1em, 1.3em, #333)
+  +letterpress
+
+footer
+  header
+    +letterpress
+    +base_font(1.8em, 1em, #ccc)
+    text-align: center
+
+
+footer
+  nav
+    display: block
+    +base_font(1.2em, 1.5em, #333)
+    background-color: none
+    box-shadow: none
+    border: 0
+    +letterpress
