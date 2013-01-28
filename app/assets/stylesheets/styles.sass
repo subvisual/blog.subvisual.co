@@ -25,6 +25,10 @@ body > header, article, section, nav
   max-width: 960px
   margin: 0 auto
 
+body > header
+  overflow: auto
+  clear: both
+
 /* Mixins */
 = base_font ($size, $line-height, $color)
   font-size: $size
@@ -62,7 +66,7 @@ nav
 
 /*Typography*/
 h1
-  padding-top: 80px
+  padding-top: 20px
   text-align: center
   margin: 0 auto
   font-weight: normal
@@ -115,19 +119,28 @@ p
 
 /*Navbar*/
 
-#main_nav
-  max-width: 100%
-  +shadow
-  +letterpress
-
 nav
   text-align: center
   clear: both
   padding-top: 20px
   padding-bottom: 20px
   background-color: #F6F6F8
-  display: none
+  
   +base_font(1.2em, 1.5em, #333)
+
+#main_nav
+  max-width: 100%
+  display: none
+  +shadow
+  +letterpress
+  padding: 0 !important
+  margin: 0 !important
+  
+  
+  ul
+    
+    padding: 20px
+    margin: 0
 
 li
   display: inline
