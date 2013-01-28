@@ -17,6 +17,8 @@ class Ability
   def member
     can :read, Citygate::User
     can :update, Citygate::User, id: @user.id
+    can :manage, Boss::Post
+    can :manage, Boss::Banner
   end
 
   def admin
