@@ -12,6 +12,12 @@
 </head>
 <body>
 
+<% flash.each do |type, value| %>
+  <div class="alert-box #{type.to_s}">
+    <%= value %>
+  </div>
+<% end %>
+
 <%= yield %>
 
 </body>

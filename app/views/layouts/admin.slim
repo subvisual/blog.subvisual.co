@@ -10,14 +10,9 @@ html
   body
 
     - if current_user
-      = render "admin_nav"
+      = render "layouts/admin_nav"
 
-    - flash.each do |type, value|
-      .row
-        .twelve.columns
-          .flash class="alert-box #{type.to_s}"
-            = value 
-            a.close &times;
+    = render "layouts/flash"
 
     = yield
 
