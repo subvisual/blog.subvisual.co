@@ -1,3 +1,3 @@
-Admin::Boss::ApplicationController.class_eval do
+Boss::Admin::ApplicationController.class_eval do
   layout "admin"
 end
