@@ -20,15 +20,23 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # Frontend helpers and shit
+  gem 'compass-rails'
+  gem 'zurb-foundation'
 end
 
 group :development do
   # Better errors on the browser
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 gem 'jquery-rails'
+
+# Template language
+gem "slim-rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

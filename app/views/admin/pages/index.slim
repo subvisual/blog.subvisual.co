@@ -1,0 +1,48 @@
+section.row
+  .twelve.columns
+    h1 Administration Panel
+    p lorem
+section.row
+  article.six.columns
+    h1 Last 5 posts
+    -if @posts.empty?
+      .panel
+        p There are no posts.
+    -else
+      table.twelve
+        thead
+          tr
+            th Date
+            th Title
+            th User
+        tbody
+          - @posts.each do |post|
+            tr
+              td= post.created_at.strftime("%Y-%m-%d")
+              td= post.title
+              td= post.user.firstname
+
+    ul.button-group.even.two-up
+      li= link_to "View all Posts", boss.posts_path, class: "small secondary button"
+      li= link_to "Create a new Post", boss.new_admin_post_path, class: "small secondary button"
+
+
+  article.six.columns
+    h1 Last 5 banners
+    table.twelve
+      thead
+        tr
+          th Date
+          th Title
+          th User
+      tbody
+        - @posts.each do |post|
+          tr
+            td= post.created_at.strftime("%Y-%m-%d")
+            td= post.title
+            td= post.user.firstname
+
+    ul.button-group.even.two-up
+      li= link_to "View all Banners", boss.admin_banners_path, class: "small secondary button"
+      li= link_to "Create a new Banner", boss.new_admin_banner_path, class: "small secondary button"
+

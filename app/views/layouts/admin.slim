@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title Blog Admin
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = favicon_link_tag
+    = stylesheet_link_tag    "admin", :media => "all"
+    = javascript_include_tag "admin"
+    = csrf_meta_tags
+  body
+
+    - if current_user
+      = render "admin_nav"
+
+    - flash.each do |type, value|
+      .row
+        .twelve.columns
+          .flash class="alert-box #{type.to_s}"
+            = value 
+            a.close &times;
+
+    = yield
+
+    - if current_user
+      footer.row
+        .twelve.columns
+          hr
+          p Lorem...
