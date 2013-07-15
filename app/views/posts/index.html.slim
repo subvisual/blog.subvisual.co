@@ -1,0 +1,7 @@
+table
+  tr
+    th Title
+
+  - @posts.each do |post|
+    tr
+      td = link_to post.title, post

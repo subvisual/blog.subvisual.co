@@ -1,0 +1,47 @@
+#header
+
+  #top-row
+    +grid-row()
+
+    #main-logo
+      +grid-column($columns: 3, $collapse: true)
+
+    #top-saying
+      +grid-column($columns: 6, $collapse: true)
+
+    #heart
+      +grid-column($columns: 2, $offset: 1, $collapse: true)
+
+  #main-nav-row
+    width: 100%
+
+  #saying-row
+    +grid-row
+
+#content
+  article
+    +grid-row
+
+  .blog-post
+    .icon
+      +grid-column($columns: 1, $collapse: true)
+    .post
+      +grid-column($columns: 10, $collapse: true)
+
+    .author
+      +grid-row
+      .photo
+        +grid-column($columns: 2, $collapse: true)
+      .about
+        +grid-column($columns: 9, $collapse: true)
+
+  .gb-separator
+    +grid-row
+
+
+#footer
+  .motto
+    +grid-row
+
+  #footer-nav
+    +grid-row
