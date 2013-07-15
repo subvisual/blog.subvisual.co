@@ -35,6 +35,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.10)
+    bcrypt-ruby (3.1.1)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -43,6 +44,10 @@ GEM
     builder (3.1.4)
     callsite (0.0.11)
     chunky_png (1.2.8)
+    clearance (1.0.0.rc7)
+      bcrypt-ruby
+      email_validator
+      rails (>= 3.0)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -56,6 +61,8 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     debug_inspector (0.0.2)
+    email_validator (1.4.0)
+      activemodel
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -157,6 +164,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  clearance (= 1.0.0.rc7)
   coffee-rails (~> 4.0.0)
   compass-rails!
   jquery-rails

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.0'
 
+gem 'clearance', '1.0.0.rc7'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'slim-rails'
