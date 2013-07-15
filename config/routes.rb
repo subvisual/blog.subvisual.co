@@ -1,6 +1,5 @@
-Blog::Application.routes.draw do
-  #mount Citygate::Engine => "/"
-  mount Boss::Engine => "/"
-  match "/admin" => "admin/pages#index", as: "admin_root"
-  root to: "boss/posts#index"
+GbBlog::Application.routes.draw do
+  root to: "application#teste"
+
+  resource :users, controller: :users, only: [:create]
 end
