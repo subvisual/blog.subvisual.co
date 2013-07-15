@@ -15,5 +15,3 @@
 //= require jquery.turbolinks
 //= require foundation
 //= require blog
-
-$(document).foundation();

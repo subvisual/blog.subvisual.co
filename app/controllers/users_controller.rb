@@ -1,13 +1,13 @@
 class UsersController < Clearance::UsersController
+  before_filter :handle_disabled_registration, only: [:new, :create]
+
   def new
-    handle_disabled_registration
   end
 
   def create
-    handle_disabled_registration
   end
 
-  protected
+  private
 
   def handle_disabled_registration
     redirect_to sign_in_path, notice: t('flashes.registration_disabled')
