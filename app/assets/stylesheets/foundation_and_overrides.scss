@@ -1,4 +1,5 @@
 // Required global settings and mixins for Foundation
+
 @import "foundation/foundation-global";
 
 // Settings file to override Foundation variables
@@ -28,7 +29,7 @@
 // $text-direction: ltr;
 
 // We use these as default colors throughout
-// $primary-color: #0091da;
+// $primary-color: #2ba6cb;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
 // $success-color: #5da423;
@@ -985,6 +986,5 @@
 // $topbar-transition-speed: 300ms;
 // $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width "#{$topbar-breakpoint}")";
-
 
 @import 'foundation';

@@ -1,7 +1,5 @@
 -if flash
   - flash.each do |type, value|
-    .row
-      .twelve.columns
-        .flash class="alert-box #{type.to_s}"
-          = value 
-          a.close &times;
+    .flash class="alert-box #{type.to_s}"
+      = value
+      a.close &times;
