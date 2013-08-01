@@ -3,7 +3,7 @@
     .icon = image_tag 'icons/development.png'
     .post
       header
-        h1 = post_presenter.title
+        h1.title = post_presenter.title
       .info
         | Written by&nbsp;
         = link_to post_presenter.author.first_name, '#'

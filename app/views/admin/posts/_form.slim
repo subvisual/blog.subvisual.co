@@ -1,11 +1,14 @@
-
-= form_for post, url: admin_posts_path do |f|
-  .post-header
-    = f.collection_select :category_id, Category.all, :id, :name
-    = f.text_field :title, placeholder: :title
-
-  .post-content
-    = f.text_area :body, placeholder: 'Your thoughs...'
+= form_for post, method: post.form_method, html: {class: 'custom'} do |f|
+  .blog-post
+    .icon = f.collection_select :category_id, present(Category.all), :id, :name, class: 'custom dropdown'
+    .post
+      header
+        = f.text_field :title, placeholder: 'Title', class: 'title', autocomplete: :off
+      .info
+        | Being written by&nbsp;
+        = current_user.first_name
+        |  Right now!
+      .body= f.text_area :body, placeholder: 'Your thoughs...', cass: 'body', id: 'redactor'
 
   .actions
-    = f.submit
+    = f.submit class: 'button submit'

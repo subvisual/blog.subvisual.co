@@ -3,3 +3,4 @@
 //= require jquery.turbolinks
 //= require foundation
 //= require blog
+//= require redactor
