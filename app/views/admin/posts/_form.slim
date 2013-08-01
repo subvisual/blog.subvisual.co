@@ -1,10 +1,11 @@
+
 = form_for post, url: admin_posts_path do |f|
-  = f.collection_select :category_id, Category.all, :id, :name
+  .post-header
+    = f.collection_select :category_id, Category.all, :id, :name
+    = f.text_field :title, placeholder: :title
 
-  = f.label :title
-  = f.text_field :title
+  .post-content
+    = f.text_area :body, placeholder: 'Your thoughs...'
 
-  = f.label :body
-  = f.text_area :body
-
-  = f.submit
+  .actions
+    = f.submit
