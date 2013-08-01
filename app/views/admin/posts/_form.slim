@@ -1,0 +1,19 @@
+= form_for [:admin, post], method: post.form_method, html: {class: 'custom'} do |f|
+  .blog-post
+    .icon = f.collection_select :category_id, present(Category.all), :id, :name, class: 'custom dropdown'
+    .post
+      header
+        = f.text_field :title, placeholder: 'Title', class: 'title', autocomplete: :off
+      .info
+        | Being written by&nbsp;
+        = current_user.first_name
+        |  Right now!
+      .body
+        = f.text_area :body, placeholder: 'Your thoughs...', cass: 'body', id: 'redactor'
+
+  .actions
+    = f.submit class: 'button submit'
+    - if post.published?
+      = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
+    - else
+      = link_to 'Publish', admin_post_publish_path(post), method: :patch

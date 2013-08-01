@@ -1,8 +1,1 @@
-p#notice = notice
-
-h2 = @post.title
-
-div
-  = @post.body
-
-= link_to 'Back', posts_path
+= render 'post', post: @post

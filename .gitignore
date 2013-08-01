@@ -19,3 +19,7 @@
 *.sublime-project
 *.sublime-workspace
 .rvmrc
+coverage
+.spring-project
+bin/cucumber
+bin/rake

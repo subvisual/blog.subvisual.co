@@ -19,7 +19,9 @@
     +grid-row
 
 #content
-  article
+  article,
+  section,
+  #content_title
     +grid-row
 
   .blog-post
@@ -45,3 +47,15 @@
 
   #footer-nav
     +grid-row
+
+#admin
+  #content
+    .posts-actions
+      .new
+        +grid-column($columns: 2)
+
+    .actions
+      +grid-row
+
+      .submit
+        +grid-column($columns: 2, $offset: 9)
