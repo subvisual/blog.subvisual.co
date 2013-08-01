@@ -1,19 +1,25 @@
-- present post do |post|
+- present post do |post_presenter|
   article.blog-post
     .icon = image_tag 'icons/development.png'
     .post
       header
-        h1.title = post.title
+        h1.title = post_presenter.title
       .info
         | Written by&nbsp;
-        = link_to post.author.first_name, '#'
+        = link_to post_presenter.author.first_name, '#'
         |  on&nbsp;
-        = post.publish_date
+        = post_presenter.publish_date
       .body
-        = post.body
+        = post_presenter.body
 
-      /.comments 11 comments / Share this on Twitter
+      .comments 11 comments / Share this on Twitter
 
-      = render 'author', author: post.author
+      aside.author
+        .photo = image_tag "roberto.png"
+        .about
+          header
+            h2 = "About #{post_presenter.author.first_name}"
+          p Jason co-founded 37signals back in 1999. He also co-authored REWORK, the New York Times bestselling book on running a “right-sized” business. Co-founded, co-authored... Can he do anything on his own?
+          .more Read more from <a href="#">Roberto</a> or follow him on <a href="#">Twitter</a>.
 
 .gb-separator
