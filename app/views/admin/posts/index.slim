@@ -1,0 +1,19 @@
+section.posts-actions
+  .new = link_to 'New Post', new_admin_post_path
+section
+  table.posts
+    thead
+      tr
+        td Title
+        td Author
+        td Date
+        td Published
+        td
+    tbody
+      - present(@posts).each do |post_presenter|
+        tr
+          td = link_to post_presenter.title, post_path(post_presenter)
+          td = post_presenter.author.email
+          td = post_presenter.created_at
+          td = post_presenter.published?
+          td = link_to 'Edit', edit_admin_post_path(post_presenter)

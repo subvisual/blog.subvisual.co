@@ -1,23 +1,35 @@
 doctype html
-html
+/! paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/![if lt IE 7 ] <html class="ie6" lang="en">
+/![if IE 7 ] <html class="ie7" lang="en">
+/![if IE 8 ] <html class="ie8" lang="en">
+/! [if (gte IE 9)|!(IE)]><!
+html lang="en"
+  /! <![endif]
   head
-    title Blog Admin
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
-    = favicon_link_tag
-    = stylesheet_link_tag    "admin", :media => "all"
-    = javascript_include_tag "admin"
+    meta charset="utf-8"
+    /! Uncomment to make IE8 render like IE7
+    /! <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    /! Set the viewport width to device width for mobile
+    meta content="width=device-width, initial-scale=1.0" name="viewport"
+    title= content_for?(:title) ? yield(:title) : "(Admin) GroupBuddies"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
-  body
 
-    - if current_user
-      = render "layouts/admin_nav"
+  body#admin
 
-    = render "layouts/flash"
+    = render '/layouts/header'
 
-    = yield
+    section#content
+      - if content_for?(:content_title)
+        #content_title
+          h1 = yield(:content_title)
+      = yield
 
-    - if current_user
-      footer.row
-        .twelve.columns
-          hr
-          p Lorem...
+    = render '/layouts/footer'
+
+    = javascript_include_tag "application"
+    script src="//use.typekit.net/mge0hvg.js"
+    javascript:
+      try { Typekit.load(); } catch(e) { }

@@ -1,27 +1,25 @@
-- @posts.each do |post|
+- present post do |post_presenter|
   article.blog-post
     .icon = image_tag 'icons/development.png'
     .post
       header
-        h1 = post.title
+        h1 = post_presenter.title
       .info
         | Written by&nbsp;
-        = link_to post.user.first_name, '#'
-        |  on January, 25th.
+        = link_to post_presenter.author.first_name, '#'
+        |  on&nbsp;
+        = post_presenter.publish_date
       .body
-        p I’d be happy if 37signals is the last place I work. In an industry so focused on the booms and busts, I find myself a kindred spirit with the firms of old. Places where people happily reported to work for 40 years, picking up a snazzy gold watch at the end as a token of life-long loyalty.
+        = post_presenter.body
 
-
-
-        p Today we launch Basecamp Personal.
       .comments 11 comments / Share this on Twitter
 
       aside.author
         .photo = image_tag "roberto.png"
         .about
           header
-            h2 About Roberto
+            h2 = "About #{post_presenter.author.first_name}"
           p Jason co-founded 37signals back in 1999. He also co-authored REWORK, the New York Times bestselling book on running a “right-sized” business. Co-founded, co-authored... Can he do anything on his own?
           .more Read more from <a href="#">Roberto</a> or follow him on <a href="#">Twitter</a>.
 
-  .gb-separator
+.gb-separator

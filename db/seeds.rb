@@ -10,9 +10,21 @@ users.each do |user_data|
   end
 end
 
+categories = [
+  { name: "Development" },
+  { name: "Design" },
+  { name: "Business" },
+  { name: "Sys Admin" },
+  { name: "Miscellanea" }
+]
+
+categories.each do |category_data|
+  Category.where(category_data).first_or_create!
+end
+
 posts = [
-  { user_id: 1, title: "OMG a post", body: "This isn't really a good post"},
-  { user_id: 2, title: "And another, better, post", body: "Now this i like!"}
+  { author_id: 1, title: "OMG a post",                body: "This isn't really a good post", category_id: 1 },
+  { author_id: 2, title: "And another, better, post", body: "Now this i like!",              category_id: 2, published_at: Time.now }
 ]
 
 posts.each do |post_data|
