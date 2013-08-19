@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def teste
+    @posts = Post.all
   end
 end

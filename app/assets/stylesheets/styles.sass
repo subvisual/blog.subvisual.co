@@ -1,243 +1,112 @@
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section  
-  display: block 
-audio, canvas, video  
-  display: inline-block 
-  *display: inline 
-  *zoom: 1 
-audio:not([controls])  
-  display: none 
-[hidden]  
-  display: none 
+body
+  +base-font($size: 13px, $line-height: 1.25em)
 
-html  
-  font-size: 100% 
-  -webkit-text-size-adjust: 100% 
-  -ms-text-size-adjust: 100% 
-
-body  
-  font-size: 13px 
-  line-height: 1.25em 
-  width: 100%
-  margin: 0 auto
-
-
-body > header, article, section, nav
-  max-width: 960px
-  margin: 0 auto
-
-body > header
-  overflow: auto
-  clear: both
-
-/* Mixins */
-= base_font ($size, $line-height, $color)
-  font-size: $size
-  font-family: "Proxima Nova", Arial, sans-serif
-  color: $color
-  line-height: $line-height
-
-= letterpress
-  text-shadow: 1px 1px 1px #fff
-
-= shadow
-  box-shadow: inset 1px 1px 6px #ccc
-
-
-/* Links */
-a
-  text-decoration: underline
-  color: #ccc
-  &:hover
-    color: #0091DA
-
-.gb
-  color: #0091DA
-  text-decoration: none
-  &:hover
-    text-decoration: underline
-
-nav
-  a
-    color: #333
-    text-decoration: none
-    &:hover
-      color: #0091DA
-      text-decoration: underline
-
-/*Typography*/
 h1
-  padding-top: 20px
-  text-align: center
-  margin: 0 auto
-  font-weight: normal
-  +base_font(1.5em, 1.4em, #ccc)
-
-article
-  h1
-    padding-top: 0px
-    text-align: left
-    padding-bottom: 20px
-    font-weight: bold
-    +base_font(2.2em, 1.4em, #333)
-
+  +base-font($size: 2em, $line-height: 1.5em, $color: #333, $weight: bold)
 
 h2
-  margin-top: 0px
-  +base_font(1.5em, 1.7em, #333)
-
-span
-  +base_font(1.2em, 1.4em, #ccc)
-  font-style: italic
-  padding-bottom: 20px
-  display: block
-
-.about
-  span
-    padding-top: 30px
-    padding-bottom: 10px
+  +base-font($size: 1.1em, $weight: bold, $color: #666)
 
 p
-  +base_font(1.5em, 1.8em, #333)
-
-.about
-  p
-    +base_font(1.3em, 1.6em, #333)
+  +base-font
 
 
-/*Header*/
+a
+  color: $link-color
+  text-decoration: underline
+  &:hover
+    color: $link-hover-color
 
-.logo
-  float: left
-  margin-top: 20px
 
-.menu
-  width: 40px
-  height: 40px
-  float: right
-  margin-top: 20px
-  padding-bottom: 20px
+h2, h3
+  +title-font
+  margin: 0
 
-/*Navbar*/
+
+.gb
+  color: $gb-color
+
+
+.saying
+  text-align: center
+
 
 nav
+  +base_font(1.1em, 1.5em, #333, 700)
+  +letterpress
   text-align: center
-  clear: both
-  padding-top: 20px
-  padding-bottom: 20px
-  background-color: #F6F6F8
-  
-  +base_font(1.2em, 1.5em, #333)
+  ul
+    margin-bottom: 0
+    li
+      display: inline
+    li + li:before
+      font-weight: 300
+      color: #bbb
+      content: "/"
+      padding: 0 5px
+  a
+    color: $nav-link-color
+    text-decoration: none
+    &:hover
+      color: $nav-link-hover-color
+      text-decoration: underline
 
-#main_nav
-  max-width: 100%
-  display: none
+
+
+#header
+  margin-top: 20px
+  text-align: center
+
+  #main-logo, #top-saying, #heart
+    margin-bottom: 10px
+
+  #main-logo
+    padding-top: 8px
+    text-align: left
+
+  #top-saying
+    padding-top: 10px
+
+  #heart a
+    float: right
+
+  #main-nav-row
+    +shadow
+    background-color: $light-gray
+    display: none
+    padding: 20px 0
+
+
+
+#saying-row
+  .saying
+    +base-font(1.5em, 1.4em, $gray)
+    padding-top: 20px
+
+
+#content
+  margin-top: 20px
+  article
+
+  .gb-separator
+    background: url(image_path('gb-separator.png')) center no-repeat, url(image_path('gb-separator-line.png')) repeat-x
+    height: 25px
+    margin-bottom: 80px
+
+
+#footer
   +shadow
   +letterpress
-  padding: 0 !important
-  margin: 0 !important
-  
-  
-  ul
-    
-    padding: 20px
-    margin: 0
-
-li
-  display: inline
-  margin: 2px
-  list-style-type: none
-  list-style-position: outside
-
-/* Content */
-section
-  clear: both
-  padding-top: 50px
-  padding-bottom: 50px
-
-.quote
-  +base_font(4em, 1em, #0091DA)
-  font-weight: bold
-  font-style: italic
-  padding: 0px
-  float: left
-
-.twitter
-  margin: auto
-  margin-left: 80px
-  margin-right: 80px
-  padding-bottom: 100px
-  p
-    font-style: italic
-    font-size : 20px
-    text-align: left
-    margin-left: 40px
-  span
-    text-align: left
-    padding: 0px
-    float: left
-
-.twitter_link
-  margin-left: 40px
-
-article
-  margin: 0 auto
-  border-bottom: 1px solid #ccc
-  padding-bottom: 30px
-  overflow: auto
-  padding-top: 50px
-
-.icon
-  float: left
-
-.post
-  float: left
-  width: 70%
-  margin-left: 50px
-
-.comments
-  overflow: auto
-  width: 100%
-  border-bottom: 1px dotted #ccc
-  padding-bottom: 50px
-  margin-top: 30px
-
-aside
-  margin-top: 50px
-
-.foto
-  width: 80px
-  height: 80px
-  float: left
-
-.about
-  float: left
-  width: 80%
-  margin-left: 50px
-
-footer
-  margin-top: 110px
-  padding-top: 30px
-  background-color: #F6F6F8
-  box-shadow: inset 1px 1px 6px #ccc
-
-.moto
-  border-bottom: 1px dotted #ccc
+  background-color: $light-gray
   text-align: center
-  +base_font(1.1em, 1.3em, #333)
-  +letterpress
-
-footer
-  header
-    +letterpress
-    +base_font(1.8em, 1em, #ccc)
-    text-align: center
-
-
-footer
-  nav
-    display: block
-    +base_font(1.2em, 1.5em, #333)
-    background-color: none
-    box-shadow: none
-    border: 0
-    +letterpress
+  .motto
+    +base-font($size: 1.1em, $line-height: 1.3em, $color: #333, $weight: bold)
+    margin-bottom: 0
+    padding: 40px 0
+  #footer-nav
+    padding: 40px 0
+    border-top: solid 1px #eee
+    h3
+      +letterpress
+      +base-font($size: 1.5em, $color: #999, $weight: bold)
+      padding-bottom: 30px

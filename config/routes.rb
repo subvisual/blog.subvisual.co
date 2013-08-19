@@ -1,5 +1,8 @@
 GbBlog::Application.routes.draw do
+
   root to: "application#teste"
 
-  resource :users, controller: :users, only: [:create]
+  resources :users, controller: :users, only: [:create]
+
+  resources :posts, only: [:index, :show]
 end
