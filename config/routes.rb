@@ -6,6 +6,9 @@ GbBlog::Application.routes.draw do
   resources :posts, only: [:index, :show]
 
   namespace :admin do
-    resources :posts, only: [:index, :show, :new, :create, :edit, :update]
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update] do
+      patch :publish
+      patch :unpublish
+    end
   end
 end

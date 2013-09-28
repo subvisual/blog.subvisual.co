@@ -34,10 +34,22 @@ module Admin
       end
     end
 
+    def publish
+      @post = Post.find params[:post_id]
+      @post.update_attribute :published_at, Time.now
+      redirect_to admin_posts_path, alert: 'Post successfully published'
+    end
+
+    def unpublish
+      @post = Post.find params[:post_id]
+      @post.update_attribute :published_at, nil
+      redirect_to admin_posts_path, alert: 'Post successfully unpublished'
+    end
+
     private
 
     def post_params
-      params.require(:post).permit(:category, :title, :body)
+      params.require(:post).permit(:category_id, :title, :body)
     end
 
   end

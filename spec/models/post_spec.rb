@@ -7,7 +7,7 @@ describe Post do
       unpublished_posts = create_list(:post, 2)
       published_posts   = create_list(:published_post, 2)
 
-      Post.published.should match_array(published_posts)
+      Post.all_published.should match_array(published_posts)
     end
   end
 

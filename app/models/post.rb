@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
             :title,
             presence: true
 
-  def self.published
+  def self.all_published
     self.where("published_at IS NOT NULL")
   end
 
