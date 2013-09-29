@@ -1,5 +1,5 @@
 module Admin
-  class PostsController < Admin::ApplicationController
+  class PostsController < Admin::AdminController
 
     def index
       @posts = Post.all

@@ -1,6 +1,6 @@
 class PostPresenter < RailsPresenter::Base
 
-  present :category
+  present :category, :author
 
   def self.model_name
     Post.model_name
@@ -8,6 +8,10 @@ class PostPresenter < RailsPresenter::Base
 
   def publish_date
     h.l(published_at, format: h.t('post.publish_date')) if published?
+  end
+
+  def author_photo
+    author.photo
   end
 
   def body

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130801113146) do
+ActiveRecord::Schema.define(version: 20130929001433) do
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20130801113146) do
     t.string   "remember_token",     limit: 128,              null: false
     t.string   "first_name",                     default: "", null: false
     t.string   "last_name",                      default: "", null: false
+    t.string   "twitter_handle"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
