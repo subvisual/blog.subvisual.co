@@ -15,11 +15,15 @@
       .comments 11 comments / Share this on Twitter
 
       aside.author
-        .photo = image_tag "roberto.png"
+        .photo = post_presenter.author.photo
         .about
           header
             h2 = "About #{post_presenter.author.first_name}"
-          p Jason co-founded 37signals back in 1999. He also co-authored REWORK, the New York Times bestselling book on running a “right-sized” business. Co-founded, co-authored... Can he do anything on his own?
-          .more Read more from <a href="#">Roberto</a> or follow him on <a href="#">Twitter</a>.
+            p = post_presenter.author.bio
+          .more
+            ' Read more from
+            a = link_to post_presenter.author.first_name, '#'
+            '  or follow him on
+            a = link_to 'Twitter', post_presenter.author.twitter_url
 
 .gb-separator

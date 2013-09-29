@@ -1,6 +1,6 @@
 class PostPresenter < RailsPresenter::Base
 
-  present :category
+  present :category, :author
 
   def self.model_name
     Post.model_name

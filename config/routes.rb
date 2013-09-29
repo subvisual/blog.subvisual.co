@@ -6,9 +6,13 @@ GbBlog::Application.routes.draw do
   resources :posts, only: [:index, :show]
 
   namespace :admin do
+    get '/', to: 'admin#dashboard', as: :dashboard
+
     resources :posts, only: [:index, :show, :new, :create, :edit, :update] do
       patch :publish
       patch :unpublish
     end
+
+    resources :users, only: [:index, :update]
   end
 end

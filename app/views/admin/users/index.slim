@@ -1,0 +1,3 @@
+section.users
+  - present(@users).each do |user_presenter|
+    = render 'admin/users/user', user: user_presenter
