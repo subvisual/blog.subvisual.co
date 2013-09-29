@@ -14,16 +14,6 @@
 
       .comments 11 comments / Share this on Twitter
 
-      aside.author
-        .photo = post_presenter.author.photo
-        .about
-          header
-            h2 = "About #{post_presenter.author.first_name}"
-            p = post_presenter.author.bio
-          .more
-            ' Read more from
-            a = link_to post_presenter.author.first_name, '#'
-            '  or follow him on
-            a = link_to 'Twitter', post_presenter.author.twitter_url
+      = render 'author', author_presenter: post_presenter.author
 
 .gb-separator

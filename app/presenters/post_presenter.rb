@@ -10,6 +10,10 @@ class PostPresenter < RailsPresenter::Base
     h.l(published_at, format: h.t('post.publish_date')) if published?
   end
 
+  def author_photo
+    author.photo
+  end
+
   def body
     h.raw(super)
   end
