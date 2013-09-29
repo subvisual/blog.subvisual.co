@@ -1,6 +1,6 @@
 users = [
-  { first_name: "Roberto", last_name: "Machado", email: "rmdmachado@groupbuddies.com"},
-  { first_name: "Miguel",  last_name: "Palhas",  email: "mpalhas@groupbuddies.com"}
+  { first_name: "Roberto", last_name: "Machado", email: "rmdmachado@groupbuddies.com", twitter_handle: 'rmdgb', bio: 'Nothing to say...'},
+  { first_name: "Miguel",  last_name: "Palhas",  email: "mpalhas@groupbuddies.com", twitter_handle: 'naps62', bio: 'Nothing to say yet...'}
 ]
 
 users.each do |user_data|

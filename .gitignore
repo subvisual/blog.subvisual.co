@@ -8,7 +8,6 @@
 /.bundle
 
 # Ignore the default SQLite database.
-/config/database.yml
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
@@ -23,3 +22,4 @@ coverage
 .spring-project
 bin/cucumber
 bin/rake
+.ruby-gemset

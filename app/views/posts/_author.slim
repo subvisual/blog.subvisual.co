@@ -1,0 +1,11 @@
+aside.author
+  .photo = author.photo
+  .about
+    header
+      h2 = "About #{author.first_name}"
+      p = author.bio
+    .more
+      ' Read more from
+      a = link_to author.first_name, '#'
+      '  or follow him on
+      a = link_to 'Twitter', author.twitter_url
