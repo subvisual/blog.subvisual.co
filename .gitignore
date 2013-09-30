@@ -22,3 +22,4 @@ coverage
 .spring-project
 bin/cucumber
 bin/rake
+.ruby-gemset

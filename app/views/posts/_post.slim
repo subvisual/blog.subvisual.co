@@ -1,19 +1,19 @@
-- present post do |post_presenter|
+- present post do |post|
   article.blog-post
     .icon = image_tag 'icons/development.png'
     .post
       header
-        h1.title = post_presenter.title
+        h1.title = post.title
       .info
         | Written by&nbsp;
-        = link_to post_presenter.author.first_name, '#'
+        = link_to post.author.first_name, '#'
         |  on&nbsp;
-        = post_presenter.publish_date
+        = post.publish_date
       .body
-        = post_presenter.body
+        = post.body
 
       .comments 11 comments / Share this on Twitter
 
-      = render 'author', author_presenter: post_presenter.author
+      = render 'author', author: post.author
 
 .gb-separator
