@@ -12,4 +12,5 @@ ul
   li
     a href="#" Miscellanea
   - if current_user
-    li = link_to '(Admin)', admin_dashboard_path
+    li = link_to 'Admin', admin_dashboard_path, class: 'admin-action'
+    li = link_to 'Logout', sign_in_path, class: 'admin-action'
