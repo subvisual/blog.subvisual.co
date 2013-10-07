@@ -14,7 +14,6 @@ html lang="en"
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     title= content_for?(:title) ? yield(:title) : "(Admin) GroupBuddies"
     = stylesheet_link_tag    "application"
-    = javascript_include_tag "vendor/custom.modernizr"
     = csrf_meta_tags
 
   body#admin
