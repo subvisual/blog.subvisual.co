@@ -28,11 +28,7 @@ group :development do
 end
 
 group :test do
-<<<<<<< HEAD
   gem 'database_cleaner', '<= 1.1.0', require: false
-=======
-  gem 'database_cleaner', require: false
->>>>>>> Admin posts actions
   gem 'factory_girl_rails', '~> 4.0', require: false
   gem 'faker', require: false
   gem 'simplecov', require: false
