@@ -28,7 +28,7 @@ before "deploy", "deploy:setup"
 after "deploy:update_code", "deploy:migrate"
 # after "deploy:update", "unicorn:restart"
 after "deploy:update", "deploy:cleanup"
-before "deploy:assets:precompile","deploy:config_symlink"
+after "deploy:finalize_update","deploy:config_symlink"
 
 namespace :deploy do
   task :config_symlink do
