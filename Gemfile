@@ -16,7 +16,7 @@ gem 'slim-rails'
 gem 'sqlite3'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
-gem 'zurb-foundation', '~> 4.0.0'
+gem 'susy'
 
 group :development do
   gem 'better_errors'
