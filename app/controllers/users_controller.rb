@@ -1,9 +1,6 @@
 class UsersController < Clearance::UsersController
   before_filter :handle_disabled_registration, only: [:new, :create]
 
-  def new
-  end
-
   def create
   end
 

@@ -13,4 +13,4 @@ ul
     a href="#" Miscellanea
   - if current_user
     li = link_to 'Admin', admin_dashboard_path, class: 'admin-action'
-    li = link_to 'Logout', sign_in_path, class: 'admin-action'
+    li = link_to 'Logout', sign_out_path, method: :delete, class: 'admin-action'
