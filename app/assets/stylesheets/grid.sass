@@ -1,29 +1,29 @@
 @import "susy"
 
 $total-columns: 12
+$column-width: 5.2em
 $gutter-width: 0em
 
-body
+#container
   +container
 
 #header
+  +container
 
-  #top-row
+  #main-logo
+    +span-columns(3)
 
-    #main-logo
-      +span-columns(3)
+  #top-saying
+    +span-columns(6)
 
-    #top-saying
-      +span-columns(7)
+  #heart
+    +span-columns(2 omega)
 
-    #heart
-      +span-columns(2 omega)
+#saying-container
+  +container
 
-  #main-nav-row
-    width: 100%
-
-  #saying-row
-    ////+grid-row
+  .saying
+    +span-columns(12 omega)
 
 #content
   article,

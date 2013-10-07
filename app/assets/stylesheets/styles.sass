@@ -25,7 +25,6 @@ a.admin-action
 
 h2, h3
   +title-font
-  margin: 0
 
 
 .gb
@@ -60,10 +59,8 @@ nav
 
 #header
   margin-top: 20px
+  margin-bottom: 10px
   text-align: center
-
-  #main-logo, #top-saying, #heart
-    margin-bottom: 10px
 
   #main-logo
     padding-top: 8px
@@ -71,19 +68,22 @@ nav
 
   #top-saying
     padding-top: 10px
+    p
+      margin-top: 0
 
   #heart a
     float: right
 
-  #main-nav-row
-    +shadow
-    background-color: $light-gray
-    display: none
-    padding: 20px 0
+
+#nav
+  +shadow
+  width: 100%
+  background-color: $light-gray
+  display: none
+  padding: 20px 0
 
 
-
-#saying-row
+#saying-container
   .saying
     +base-font(1.5em, 1.4em, $gray)
     padding-top: 20px

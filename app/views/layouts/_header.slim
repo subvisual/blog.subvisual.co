@@ -1,18 +1,17 @@
 header#header
-  section#top-row
-    #main-logo
-      a href="/"
-        = image_tag 'logo.png', alt: 'GroupBuddies'
+  #main-logo
+    a href="/"
+      = image_tag 'logo.png', alt: 'GroupBuddies'
 
-    #top-saying
-      p.saying A place to say pretty things about pretty stuff.
+  #top-saying
+    p.saying A place to say pretty things about pretty stuff.
 
-    #heart
-      a.js-menu-toggle href="#"
-        = image_tag 'icons/heart-small.png', alt: 'Menu'
+  #heart
+    a.js-menu-toggle href="#"
+      = image_tag 'icons/heart-small.png', alt: 'Menu'
 
-  nav#main-nav-row
-    = render '/layouts/nav'
+nav#nav
+  = render '/layouts/nav'
 
-  section#saying-row
-    p.saying Keep your head when all around you are losing theirs.
+section#saying-container
+  p.saying Keep your head when all around you are losing theirs.
