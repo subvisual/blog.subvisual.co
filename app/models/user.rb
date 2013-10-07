@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
 
   has_many :posts, as: :author
 
+  def has_twitter?
+    twitter_handle.present?
+  end
+
 end
