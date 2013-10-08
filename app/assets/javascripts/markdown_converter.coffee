@@ -15,15 +15,16 @@ class window.MarkdownConverter
     @showdown = new Showdown.converter({ extensions: ['github', 'twitter', 'table', 'prettify'] })
     @listen()
 
+  convert: ->
+    input = @src.val()
+    @output = $(@showdown.makeHtml(input))
+
+  display: ->
+    @dst.html(@output)
+
   listen: ->
     @src.on 'keyup', (event) =>
       @convert()
       @display()
     @src.trigger 'keyup'
 
-  convert: ->
-    input = @src.val()
-    @output = @showdown.makeHtml(input)
-
-  display: ->
-    @dst.html(@output)
