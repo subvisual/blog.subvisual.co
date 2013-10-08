@@ -3,6 +3,8 @@ module Admin
 
     layout 'admin'
 
+    authorize_resource
+
     def dashboard
     end
 
