@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.0.0'
 
+gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'clearance', '1.0.0.rc7'
