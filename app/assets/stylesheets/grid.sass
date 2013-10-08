@@ -4,9 +4,6 @@ $total-columns: 12
 $column-width: 5.2em
 $gutter-width: 0em
 
-#container
-  +container
-
 #header
   +container
   #main-logo
@@ -27,41 +24,18 @@ $gutter-width: 0em
 #content
   article,
   section,
-  #content_title
-    ////+grid-row
 
-  .blog-post
     .icon
-      //+grid-column($columns: 1, $collapse: true)
+      +span-columns(1)
+      margin-right: 20px
     .post
-      //+grid-column($columns: 10, $collapse: true)
-
-    .author
-      //+grid-row
-      .photo
-        //+grid-column($columns: 2, $collapse: true)
-      .about
-        //+grid-column($columns: 9, $collapse: true)
-
+      float: left
+      +span-columns(10)
+      .author
+        +span-columns(12 omega)
+        .photo
+          +span-columns(2)
+        .about
+          +span-columns(10 omega)
   .gb-separator
-    //+grid-row
-
-
-#footer
-  .motto
-    //+grid-row
-
-  #footer-nav
-    //+grid-row
-
-#admin
-  #content
-    .posts-actions
-      .new
-        //+grid-column($columns: 2)
-
-    .actions
-      //+grid-row
-
-      .submit
-        //+grid-column($columns: 2, $offset: 9)
+    +span-columns(12 omega)
