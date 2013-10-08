@@ -9,7 +9,9 @@
         = current_user.first_name
         |  Right now!
       .body
-        = f.text_area :body, placeholder: 'Your thoughs...', cass: 'body', id: 'redactor'
+        = f.text_area :body, placeholder: 'Your thoughs...', cass: 'body', id: 'js-markdown-input'
+
+      .preview#js-markdown-output
 
   .actions
     = f.submit class: 'button submit'
@@ -17,3 +19,10 @@
       = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
     - else
       = link_to 'Publish', admin_post_publish_path(post), method: :patch
+
+- content_for :page_script
+  = javascript_include_tag 'markdown_converter'
+  javascript:
+    $(function() {
+      new window.MarkdownConverter($('#js-markdown-input'), $('#js-markdown-output'))
+    });
