@@ -15,4 +15,6 @@ GbBlog::Application.routes.draw do
 
     resources :users, only: [:index, :update]
   end
+
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 end
