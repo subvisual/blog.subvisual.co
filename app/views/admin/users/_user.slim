@@ -1,4 +1,4 @@
-= form_for [:admin, user], method: :patch, html: {class: 'custom'} do |f|
+= form_for [:admin, user], method: :patch do |f|
   = user.photo
 
   = f.label :first_name
