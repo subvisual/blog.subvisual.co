@@ -3,7 +3,7 @@
     .icon = f.collection_select :category_id, present(Category.all), :id, :name
     .post
       header
-        = f.text_field :title, placeholder: 'Title', class: 'title', autocomplete: :off
+        = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
       .info
         | Being written by&nbsp;
         = current_user.first_name
