@@ -30,3 +30,6 @@ html lang="en"
     script src="//use.typekit.net/mge0hvg.js"
     javascript:
       try { Typekit.load(); } catch(e) { }
+
+    - if content_for?(:page_script)
+      = yield(:page_script)

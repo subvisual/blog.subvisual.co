@@ -1,9 +1,3 @@
-#= require showdown
-#= require showdown/github
-#= require showdown/twitter
-#= require showdown/table
-#= require showdown/prettify
-
 class window.MarkdownConverter
   showdown:  undefined
   src:       undefined
