@@ -25,7 +25,6 @@ a.admin-action
 
 h2, h3
   +title-font
-  margin: 0
 
 
 .gb
@@ -57,44 +56,38 @@ nav
       text-decoration: underline
 
 
-
 #header
   margin-top: 20px
+  margin-bottom: 10px
   text-align: center
 
-  #main-logo, #top-saying, #heart
-    margin-bottom: 10px
+#main-logo
+  padding-top: 8px
+  text-align: left
 
-  #main-logo
-    padding-top: 8px
-    text-align: left
+#top-saying
+  padding-top: 10px
+  p
+    margin-top: 0
 
-  #top-saying
-    padding-top: 10px
+#heart a
+  float: right
 
-  #heart a
-    float: right
+#nav
+  +shadow
+  width: 100%
+  background-color: $light-gray
+  padding: 20px 0
+  display: none
 
-  #main-nav-row
-    +shadow
-    background-color: $light-gray
-    display: none
-    padding: 20px 0
-
-
-
-#saying-row
+#saying-container
   .saying
     +base-font(1.5em, 1.4em, $gray)
     padding-top: 20px
 
-
 #content
   margin-top: 20px
   article
-
-  #content_title
-    text-align: center
 
   .gb-separator
     background: url(image_path('gb-separator.png')) center no-repeat, url(image_path('gb-separator-line.png')) repeat-x
@@ -111,10 +104,11 @@ nav
     +base-font($size: 1.1em, $line-height: 1.3em, $color: #333, $weight: bold)
     margin-bottom: 0
     padding: 40px 0
-  #footer-nav
-    padding: 40px 0
-    border-top: solid 1px #eee
-    h3
-      +letterpress
-      +base-font($size: 1.5em, $color: #999, $weight: bold)
-      padding-bottom: 30px
+
+#footer-nav
+  padding: 40px 0
+  border-top: solid 1px #eee
+  h3
+    +letterpress
+    +base-font($size: 1.5em, $color: #999, $weight: bold)
+    padding-bottom: 30px
