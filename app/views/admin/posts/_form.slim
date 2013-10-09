@@ -21,7 +21,6 @@
       = link_to 'Publish', admin_post_publish_path(post), method: :patch
 
 - content_for :page_script
-  = javascript_include_tag 'markdown_converter'
   javascript:
     $(function() {
       new window.MarkdownConverter($('#js-markdown-input'), $('#js-markdown-output'))
