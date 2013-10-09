@@ -1,4 +1,4 @@
-describe window.MarkdownConverter, ->
+describe "MarkdownConverter", ->
 
   beforeEach ->
     fixture = $('<div id="fixture" style=""> <textarea id="input"></textarea> <div id="output"></div> </div>')

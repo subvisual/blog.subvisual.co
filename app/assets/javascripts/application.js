@@ -2,4 +2,9 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require blog
+//= require showdown
+//= require showdown/github
+//= require showdown/twitter
+//= require showdown/table
+//= require showdown/prettify
 //= require markdown_converter
