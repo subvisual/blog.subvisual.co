@@ -1,7 +1,18 @@
 @import "susy"
 
-#header
+// container types
+%container
+  $container-style: magic
   +container
+
+%fluid-container
+  $container-style: fluid
+  +container
+
+// grid
+
+#header
+  @extend %container
   #main-logo
     +span-columns(3)
   #top-saying
@@ -10,28 +21,34 @@
     +span-columns(2 omega)
 
 #saying-container
-  +container
+  @extend %container
   .saying
     +span-columns(12 omega)
 
-#content
-  +container
+.post-show
+  @extend %container
 
-#content
-  article,
-  section,
-
-    .icon
-      +span-columns(1)
-      margin-right: 20px
-    .post
-      float: left
-      +span-columns(10)
-      .author
-        +span-columns(12 omega)
-        .photo
-          +span-columns(2)
-        .about
-          +span-columns(10 omega)
-  .gb-separator
+.post-edit
+  @extend %fluid-container
+  .body
+    +span-columns(6)
+  .preview-container
+    +span-columns(6 omega)
+  .actions
     +span-columns(12 omega)
+
+.blog-post
+  .icon
+    +span-columns(1)
+    margin-right: 20px
+  .post
+    float: left
+    +span-columns(10)
+    .author
+      +span-columns(12 omega)
+      .photo
+        +span-columns(2)
+      .about
+        +span-columns(10 omega)
+.gb-separator
+  +span-columns(12 omega)

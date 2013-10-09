@@ -1,5 +1,5 @@
-= form_for [:admin, post], method: post.form_method do |f|
-  .blog-post
+.blog-post.post-edit
+  = form_for [:admin, post], method: post.form_method do |f|
     .icon = f.collection_select :category_id, present(Category.all), :id, :name
     .post
       header
@@ -9,19 +9,20 @@
         = current_user.first_name
         |  Right now!
       .body
-        = f.text_area :body, placeholder: 'Your thoughs...', cass: 'body', id: 'js-markdown-input'
+        h2 Editor
+        = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
+      .preview-container
+        h2 Live Preview
+        .preview#js-markdown-output
 
-      .preview#js-markdown-output
-
-  .actions
-    = f.submit class: 'button submit'
-    - if post.published?
-      = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
-    - else
-      = link_to 'Publish', admin_post_publish_path(post), method: :patch
+    .actions
+      = f.submit class: 'button submit'
+      - if post.published?
+        = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
+      - else
+        = link_to 'Publish', admin_post_publish_path(post), method: :patch
 
 - content_for :page_script
-  javascript:
-    $(function() {
-      new window.MarkdownConverter($('#js-markdown-input'), $('#js-markdown-output'))
-    });
+  coffee:
+    $ ->
+      new window.MarkdownConverter $('#js-markdown-input'), $('#js-markdown-output')

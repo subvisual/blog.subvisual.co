@@ -15,7 +15,9 @@ class PostPresenter < RailsPresenter::Base
   end
 
   def body
-    h.raw(super)
+    renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+    rendered_post = renderer.render(super)
+    h.raw(rendered_post)
   end
 
   def form_method

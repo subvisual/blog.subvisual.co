@@ -1,7 +1,9 @@
 module Admin
   class AdminController < ::ApplicationController
 
-    layout 'admin'
+    def is_admin_controller?
+      true
+    end
 
     authorize_resource
 
