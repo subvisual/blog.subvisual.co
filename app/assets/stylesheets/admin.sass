@@ -1,11 +1,31 @@
-#admin
+.admin
   .posts
     width: 100%
 
-  form .blog-post
+  .post-edit
     .icon select
       width: 100%
     .title
       border-width: 0 0 2px 0
-    .body
+      width: 100%
+    textarea
+      width: 100%
+    h2
+      text-align: center
+
+    .body,
+    .preview-container
+      background-color: $light-gray
+      padding-bottom: 0
       min-height: 300px
+
+    .preview
+      border: solid 5px $light-gray
+      border-top: 0
+      padding: 10px
+      background: #fff
+
+    textarea,
+    .preview
+      min-height: 300px
+

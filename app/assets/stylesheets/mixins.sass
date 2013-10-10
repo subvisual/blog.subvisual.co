@@ -5,6 +5,13 @@
   font-weight: $weight
   line-height: $line-height
 
+@mixin monospace-font ($size: $main-font-size, $line-height: $main-line-height, $color: $main-font-color, $weight: normal)
+  color: $color
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
+  font-size: $size
+  font-weight: $weight
+  line-height: $line-height
+
 @mixin title-font
   font-family: "proxima-nova", Arial, sans-serif
 
