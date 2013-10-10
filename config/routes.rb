@@ -3,7 +3,9 @@ GbBlog::Application.routes.draw do
   root to: "posts#index"
 
   resources :users, controller: :users, only: [:create]
-  resources :posts, only: [:index, :show]
+  get '(/:category_id)', to: 'posts#index', as: :posts
+  resources :posts, only: [:show] do
+  end
 
   namespace :admin do
     get '/', to: 'admin#dashboard', as: :dashboard

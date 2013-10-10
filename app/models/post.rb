@@ -13,6 +13,10 @@ class Post < ActiveRecord::Base
     self.where("published_at IS NOT NULL")
   end
 
+  def self.by_category(category)
+    self.where(category: category)
+  end
+
   def published?
     published_at.present?
   end
