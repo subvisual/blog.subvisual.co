@@ -1,16 +1,6 @@
 ul
-  li
-    a href="#" All
-  li
-    a href="#" Development
-  li
-    a href="#" Design
-  li
-    a href="#" Business
-  li
-    a href="#" Sys Admin
-  li
-    a href="#" Miscellanea
+  - present(@categories).each do |category|
+    li = link_to category.name, root_path(category_id: category)
   - if current_user
     li = link_to 'Admin', admin_dashboard_path, class: 'admin-action'
     li = link_to 'Logout', sign_out_path, method: :delete, class: 'admin-action'
