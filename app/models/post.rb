@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   end
 
   def self.by_category(category)
-    self.where(category: category)
+    self.where(category_id: category)
   end
 
   def published?
