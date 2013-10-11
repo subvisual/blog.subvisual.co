@@ -54,7 +54,7 @@ class PostPresenter < RailsPresenter::Base
   private
 
   def format_date(date, format = :publish_date)
-    h.l(date, format: h.t("post.#{format}"))
+    h.l(date, format: format)
   end
 
 end

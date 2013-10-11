@@ -1,6 +1,7 @@
 en:
   flashes:
     registration_disabled: Registrations are disabled
-  post:
-    publish_date: '%d, %B %Y'
-    timestamp: '%d, %B %Y at %H:%M'
+  time:
+    formats:
+      publish_date: '%d, %B %Y'
+      timestamp: '%d, %B %Y at %H:%M'
