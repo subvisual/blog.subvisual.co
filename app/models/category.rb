@@ -13,7 +13,7 @@ class Category < ActiveRecord::Base
   end
 
   def self.find_by_name(name)
-    where('lower(name) = ?', name.downcase)
+    where('lower(name) = ?', name.downcase).first
   end
 
 end
