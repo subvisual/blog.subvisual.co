@@ -7,7 +7,29 @@ class PostPresenter < RailsPresenter::Base
   end
 
   def publish_date
-    h.l(published_at, format: h.t('post.publish_date')) if published?
+    format_date(published_at) if published?
+  end
+
+  def creation_date
+    format_date(created_at)
+  end
+
+  def update_date
+    format_date(updated_at, :timestamp)
+  end
+
+  def info
+    h.raw(
+      if published?
+        "Writen by #{author_link} on #{publish_date}"
+      else
+        "Being drafted by #{author_link} since #{creation_date} (last updated at #{update_date})"
+      end
+    )
+  end
+
+  def author_link
+    h.link_to author.first_name, '#'
   end
 
   def author_photo
@@ -28,5 +50,11 @@ class PostPresenter < RailsPresenter::Base
     end
   end
 
+
+  private
+
+  def format_date(date, format = :publish_date)
+    h.l(date, format: format)
+  end
 
 end

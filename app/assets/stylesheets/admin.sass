@@ -2,30 +2,29 @@
   .posts
     width: 100%
 
-  .post-edit
-    .icon select
-      width: 100%
-    .title
-      border-width: 0 0 2px 0
-      width: 100%
-    textarea
-      width: 100%
-    h2
+.post-edit
+  .icon select
+    width: 100%
+  .title
+    border-width: 0 0 2px 0
+    width: 100%
+  textarea
+    width: 100%
+
+  .editor,
+  .preview
+    background-color: $light-gray
+    padding-bottom: 0
+    min-height: 300px
+    > h2
       text-align: center
 
-    .editor,
-    .preview
-      background-color: $light-gray
-      padding-bottom: 0
-      min-height: 300px
+  .body
+    border: solid 5px $light-gray
+    border-top: 0
+    padding: 10px
+    background: #fff
 
-    .body
-      border: solid 5px $light-gray
-      border-top: 0
-      padding: 10px
-      background: #fff
-
-    textarea,
-    .body
-      min-height: 300px
-
+  textarea,
+  .body
+    min-height: 300px

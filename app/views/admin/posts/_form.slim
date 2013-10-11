@@ -4,11 +4,8 @@
     .post
       header
         = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
-      .info
-        | Being written by&nbsp;
-        = current_user.first_name
-        |  Right now!
-      .editor
+      .info = post.info
+      .body
         h2 Editor
         = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
       .preview

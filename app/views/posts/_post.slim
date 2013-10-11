@@ -4,11 +4,7 @@
     .post
       header
         h1.title = post.title
-      .info
-        | Written by&nbsp;
-        = link_to post.author.first_name, '#'
-        |  on&nbsp;
-        = post.publish_date
+      .info = post.info
       .body
         = post.body
 
