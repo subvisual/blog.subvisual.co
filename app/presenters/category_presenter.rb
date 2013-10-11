@@ -14,6 +14,6 @@ class CategoryPresenter < RailsPresenter::Base
   end
 
   def image
-    h.image_path("icons/#{name.downcase}.png")
+    h.image_path("icons/#{to_param}.png")
   end
 end

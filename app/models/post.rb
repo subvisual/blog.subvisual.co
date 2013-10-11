@@ -17,6 +17,10 @@ class Post < ActiveRecord::Base
     self.where(category_id: category)
   end
 
+  def to_param
+    "#{id}-#{title}".parameterize
+  end
+
   def published?
     published_at.present?
   end

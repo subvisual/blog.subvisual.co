@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all_published
     if params[:category]
-      @category = Category.find_by_name(params[:category])
+      @category = Category.from_param(params[:category])
       @posts = @posts.by_category(@category)
     end
   end
