@@ -6,7 +6,7 @@ module Admin
     end
 
     def new
-      @post = Post.new
+      @post = Post.new author: current_user
     end
 
     def edit
