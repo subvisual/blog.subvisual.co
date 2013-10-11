@@ -17,7 +17,6 @@ describe Post do
       green_category = create :category, name: :green
       red_posts   = create_list(:post, 2, category: red_category)
       green_posts = create_list(:post, 2, category: green_category)
-      all_posts = red_posts + green_posts
 
       Post.by_category(red_category).should =~ red_posts
     end
