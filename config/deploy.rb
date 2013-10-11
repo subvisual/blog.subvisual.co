@@ -30,6 +30,9 @@ after "deploy:update_code", "deploy:migrate"
 after "deploy:update", "deploy:cleanup"
 after "deploy:finalize_update","deploy:config_symlink"
 
+before "deploy", "puma:stop"
+after "deploy", "puma:start"
+
 namespace :deploy do
   task :config_symlink do
     run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
