@@ -40,6 +40,12 @@ namespace :deploy do
   end
 end
 
+namespace :puma do
+  task :restart do
+    # empty task, we do not want this task to do stuff
+  end
+end
+
 desc "tail production log files"
 task :tail, :roles => :app do
   trap("INT") { puts 'Interupted'; exit 0; }

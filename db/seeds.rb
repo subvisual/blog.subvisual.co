@@ -1,5 +1,5 @@
 users = [
-  { first_name: 'Roberto', last_name: 'Machado', email: 'rmdmachado@groupbuddies.com', twitter_handle: 'rmdgb' },
+  { first_name: 'Roberto', last_name: 'Machado', email: 'roberto@groupbuddies.com', twitter_handle: 'rmdgb' },
   { first_name: 'Miguel',  last_name: 'Palhas',  email: 'mpalhas@groupbuddies.com',    twitter_handle: 'naps62' },
   { first_name: 'Luis',    last_name: 'Zamith',  email: 'zamith@groupbuddies.com',     twitter_handle: 'zamith' },
   { first_name: 'João',    last_name: 'Ferreira', email: 'joao@groupbuddies.com',      twitter_handle: 'jferreiradzn' },
