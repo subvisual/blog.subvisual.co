@@ -8,12 +8,12 @@
         | Being written by&nbsp;
         = current_user.first_name
         |  Right now!
-      .body
+      .editor
         h2 Editor
         = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
-      .preview-container
+      .preview
         h2 Live Preview
-        .preview#js-markdown-output
+        .body#js-markdown-output
 
     .actions
       = f.submit class: 'button submit'
