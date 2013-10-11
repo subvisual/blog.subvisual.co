@@ -7,7 +7,7 @@ class PostPresenter < RailsPresenter::Base
   end
 
   def publish_date
-    format_date(published_at)
+    format_date(published_at) if published?
   end
 
   def creation_date
