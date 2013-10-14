@@ -6,7 +6,7 @@ class window.MarkdownConverter
   output:    undefined
 
   constructor: (@src, @dst) ->
-    @showdown = new Showdown.converter({ extensions: ['github', 'twitter', 'table', 'prettify'] })
+    @showdown = new Showdown.converter({ extensions: [] })
     @listen()
 
   convert: ->
