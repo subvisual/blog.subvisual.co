@@ -6,6 +6,8 @@ GbBlog::Application.routes.draw do
   get 'category/:category', to: 'posts#index', as: :category
   resources :posts, only: [:show]
 
+  get '/feed' => 'posts#feed'
+
   namespace :admin do
     get '/', to: 'admin#dashboard', as: :dashboard
 

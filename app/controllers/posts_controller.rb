@@ -8,6 +8,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def feed
+    @posts = Post.all_published
+    if params[:category]
+      @category = Category.from_param(params[:category])
+      @posts = @posts.by_category(@category)
+    end
+
+    respond_to do |format|
+      format.rss { render layout: false }
+    end
+  end
+
   def show
     @post = Post.find(params[:id])
     authorize! :read, @post
