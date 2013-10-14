@@ -38,10 +38,8 @@ class PostPresenter < RailsPresenter::Base
     author.photo
   end
 
-  def body
-    renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
-    rendered_post = renderer.render(super)
-    h.raw(rendered_post)
+  def processed_body
+    h.raw(super)
   end
 
   def form_method

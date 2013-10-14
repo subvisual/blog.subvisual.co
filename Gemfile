@@ -11,8 +11,9 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'puma'
+gem 'pygmentize', require: false
 gem 'rails_presenter', github: 'dfmonaco/rails_presenter'#, ref: '43159592a86e12a99da2682a77b7341fe5e04eb0'
-gem 'redcarpet'
+gem 'redcarpet', require: false
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'sqlite3'
@@ -34,6 +35,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.0', require: false
   gem 'faker', require: false
   gem 'simplecov', require: false
+  gem 'rspec-html-matchers', require: false
 end
 
 group :development, :test do
