@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
             :title,
             presence: true
 
+  before_validation :preprocess
+
   def self.all_published
     self.where("published_at IS NOT NULL")
   end
@@ -23,6 +25,10 @@ class Post < ActiveRecord::Base
 
   def published?
     published_at.present?
+  end
+
+  def preprocess
+    Services::PostProcessor.new(self).process
   end
 
 end

@@ -25,6 +25,15 @@ textarea
   outline: none
   padding: 10px
 
+code, pre
+  font-family: $code-font
+  background-color: $code-background
+  font-size: $code-font-size
+  line-height: $code-font-height
+pre
+  padding: $code-padding
+  display: block
+
 a
   color: $link-color
   text-decoration: underline
@@ -117,6 +126,8 @@ nav
       color: $link-hover-color
       &:hover
         text-decoration: underline
+    .highlight
+      margin-bottom: 20px
 
 .author
   font-size: $post-author-size
