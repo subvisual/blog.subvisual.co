@@ -1,7 +1,21 @@
 body
+  font-family: $sans-serif-font
+  color: $black
+  font-size: $base-font-size
+  line-height: $base-line-height
 
-h1, h2, h3
-  font-family: 'adobe-garamond-pro', serif
+h1, h2, h3, h4, h5, h6
+  font-family: $serif-font
+
+h1
+  font-size: $title-size
+h2, h3
+  font-size: $subtitle-size
+  font-weight: bold
+
+ul, ol
+  padding-left: 1em
+  margin-bottom: 10px
 
 textarea
   +box-sizing(border-box)
@@ -19,16 +33,17 @@ a
   &.admin-action
     color: $admin-link-color
 
+p
+  padding-bottom: $paragraph-spacing
 
 nav
   text-align: center
   ul
-    margin-bottom: 0
     li
       display: inline
     li + li:before
       font-weight: 300
-      color: #bbb
+      color: $gray
       content: "/"
       padding: 0 5px
   a
@@ -38,46 +53,88 @@ nav
       color: $nav-link-hover-color
       text-decoration: underline
 
+h1.saying
+  text-align: center
+  font-family: $sans-serif-font
+  font-size: $saying-size
+  color: $gray
+  margin-bottom: 50px
+
+aside
+  font-size: $info-size
+  font-style: italic
+  color: $gray
 
 #header
   margin-top: 20px
-  margin-bottom: 10px
-  text-align: center
 
 #main-logo
   padding-top: 8px
-  text-align: left
 
 #heart a
   float: right
 
-#nav
+nav
   width: 100%
+  font-weight: bold
   background-color: $light-gray
-  padding: 20px 0
+  padding: $nav-padding
+
+.js-nav
   display: none
 
-#content
-  margin-top: 20px
-  article
+.blog-post
+  margin-bottom: $post-margins
+  .icon
+    margin-right: 20px
+    width: 60px
+  .photo
+    margin-right: 20px
+    width: 80px
+  .title
+    font-size: $title-size
+    margin: $post-title-margins
+    font-weight: bold
+  .body
+    font-size: $post-font-size
+    line-height: $post-line-height
+    margin: $post-body-margins
+    h1, h2, h3
+      font-family: $sans-serif-font
+      font-weight: bold
+    h1
+      font-size: $post-title-size
+      padding-top: $post-title-top
+      padding-bottom: $post-title-bottom
+    h2, h3
+      font-size: $post-subtitle-size
+    img
+      width: 100%
+    a
+      text-decoration: none
+      color: $link-hover-color
+      &:hover
+        text-decoration: underline
 
-  .gb-separator
-    background: url(image_path('gb-separator.png')) center no-repeat, url(image_path('gb-separator-line.png')) repeat-x
-    height: 25px
-    margin-bottom: 80px
-    &:last-child
-      display: none
+.author
+  font-size: $post-author-size
+  h2
+    font-size: $subtitle-size
+    color: $gb-color
 
+.gb-separator
+  background: url(image_path('gb-separator.png')) center no-repeat, url(image_path('gb-separator-line.png')) repeat-x
+  height: 25px
+  margin-bottom: 50px
+  &:last-child
+    display: none
 
 #footer
   background-color: $light-gray
   text-align: center
   .motto
-    margin-bottom: 0
-    padding: 40px 0
+    font-size: 18px
+    color: $white
     background-color: $gb-color
-
-#footer-nav
-  border-top: solid 1px #eee
-  h3
-    padding-bottom: 30px
+    padding: $nav-padding
+    margin-bottom: 0
