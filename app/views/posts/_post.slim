@@ -3,8 +3,8 @@
     .icon = post.category.icon
     .post
       header
-        h1.title = post.title
-      aside.info = post.info
+        h1.title = link_to post.title, post_path(post)
+        aside.info = post.info
       .body
         = post.processed_body
 
