@@ -21,22 +21,6 @@ describe "MarkdownConverter", ->
       set_input '# title'
       expect(@converter.convert()).toBe 'h1'
 
-    describe 'twitter extension', ->
-      it 'converts twitter handles to urls', ->
-        set_input '@naps62'
-        expect(@converter.convert()).toContain 'a[href="http://twitter.com/naps62"]'
-
-    describe 'github extension', ->
-      it 'handles deleted text', ->
-        set_input '~~deleted text~~'
-        expect(@converter.convert()).toContain 'del'
-
-    describe 'table extension', ->
-      it 'handles tables', ->
-        set_input '|col1|col2|\n|===|===|'
-        expect(@converter.convert()).toBe 'table'
-
-
   describe '#display', ->
     it 'shows the output', ->
       set_input 'foo bar'
