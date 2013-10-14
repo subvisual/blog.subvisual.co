@@ -5,12 +5,7 @@
       header
         = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
       .info = post.info
-      .editor
-        h2 Editor
-        = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
-      .preview
-        h2 Live Preview
-        .body#js-markdown-output
+      .editor#js-livemark
 
     .actions
       = f.submit class: 'button submit'
@@ -20,6 +15,10 @@
         = link_to 'Publish', admin_post_publish_path(post), method: :patch
 
 - content_for :page_script
-  coffee:
-    $ ->
-      new window.MarkdownConverter $('#js-markdown-input'), $('#js-markdown-output')
+  javascript:
+    $(function() {
+      new Livemark('#js-livemark');
+      $('#js-livemark textarea')
+        .attr('name', 'post[body]')
+        .val("#{post.target.body.gsub("\n", '\\n').gsub("\r", '')}");
+    });

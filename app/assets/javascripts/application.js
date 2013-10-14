@@ -7,4 +7,4 @@
 //= require showdown/twitter
 //= require showdown/table
 //= require showdown/prettify
-//= require markdown_converter
+//= require livemark.min
