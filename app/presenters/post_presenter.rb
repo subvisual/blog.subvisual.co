@@ -21,7 +21,7 @@ class PostPresenter < RailsPresenter::Base
   def info
     h.raw(
       if published?
-        "Writen by #{author_link} on #{publish_date}"
+        "Written by #{author_link} on #{publish_date}"
       elsif persisted?
         "Being drafted by #{author_link} since #{creation_date} (last updated at #{update_date})"
       else

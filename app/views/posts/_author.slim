@@ -1,10 +1,10 @@
-aside.author
+section.author
   .photo = author.photo
   .about
     header
       h2 = "About #{author.first_name}"
       p = author.bio
-    .more
+    aside.more
       ' Read more from
       a = link_to author.first_name, '#'
       - if author.has_twitter?

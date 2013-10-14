@@ -1,19 +1,10 @@
 body
-  +base-font($size: 13px, $line-height: 1.25em)
 
-h1
-  +base-font($size: 2em, $line-height: 1.5em, $color: #333, $weight: bold)
-
-h2
-  +base-font($size: 1.1em, $weight: bold, $color: #666)
-
-p
-  +base-font
-  padding-bottom: $paragraph-spacing
+h1, h2, h3
+  font-family: 'adobe-garamond-pro', serif
 
 textarea
   +box-sizing(border-box)
-  +monospace-font($size: 1em)
   background-color: $light-gray
   border: 0
   resize: vertical
@@ -25,27 +16,11 @@ a
   text-decoration: underline
   &:hover
     color: $link-hover-color
-
-a.admin-action
-  color: $admin-link-color
-  &:hover
-    color: $admin-link-hover-color
-
-
-h2, h3
-  +title-font
-
-
-.gb
-  color: $gb-color
-
-
-.saying
-  text-align: center
+  &.admin-action
+    color: $admin-link-color
 
 
 nav
-  +base_font(1.1em, 1.5em, #333, 700)
   text-align: center
   ul
     margin-bottom: 0
@@ -82,10 +57,6 @@ nav
   padding: 20px 0
   display: none
 
-.saying
-  +base-font(1.5em, 1.4em, $gray)
-  padding-top: 20px
-
 #content
   margin-top: 20px
   article
@@ -102,14 +73,11 @@ nav
   background-color: $light-gray
   text-align: center
   .motto
-    +base-font($size: 1.3em, $line-height: 1.3em, $color: $white)
     margin-bottom: 0
     padding: 40px 0
     background-color: $gb-color
 
 #footer-nav
-  padding: 40px 0
   border-top: solid 1px #eee
   h3
-    +base-font($size: 1.5em, $color: #999, $weight: bold)
     padding-bottom: 30px
