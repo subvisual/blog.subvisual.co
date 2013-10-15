@@ -8,8 +8,11 @@
       .body
         = post.processed_body
 
-      /.comments 11 comments / Share this on Twitter
+      - if show_comments
+        = render 'shared/disqus', post: post
+      - else
+        aside = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
+
+      hr
 
       = render 'author', author: post.author
-
-.gb-separator
