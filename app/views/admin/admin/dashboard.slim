@@ -1,2 +1,12 @@
-= link_to 'Manage Posts', admin_posts_path
-= link_to 'Manage Authors', admin_users_path
+.admin-dashboard
+  .admin-options
+    .admin-option
+      .admin-action = link_to 'Posts', admin_posts_path
+      = render 'admin/posts/posts', posts: @posts
+
+    .gb-separator
+
+    .admin-option
+      .admin-action = link_to 'Myself', admin_me_path
+      = render 'admin/users/form'
+

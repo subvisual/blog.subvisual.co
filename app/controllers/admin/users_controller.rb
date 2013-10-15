@@ -1,15 +1,15 @@
 module Admin
   class UsersController < Admin::AdminController
 
-    def index
-      @users = User.all
+    def show
+      @users = current_user
     end
 
     def update
-      @user = User.find params[:id]
+      @user = current_user
 
       if @user.update(user_params)
-        redirect_to admin_users_path, alert: 'Author successfully saved'
+        redirect_to admin_dashboard_path, alert: 'Author successfully saved'
       else
         redirect_to :index
       end

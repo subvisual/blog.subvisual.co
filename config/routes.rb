@@ -16,7 +16,9 @@ GbBlog::Application.routes.draw do
       patch :unpublish
     end
 
-    resources :users, only: [:index, :update]
+    get 'me', to: 'users#show', as: :me
+    patch 'me', to: 'users#update', as: :update_me
+    resources :users, only: [:show, :update]
   end
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

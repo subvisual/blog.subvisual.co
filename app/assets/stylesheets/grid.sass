@@ -1,6 +1,5 @@
 @import "susy"
 
-// container types
 %container
   $container-style: magic
   +container
@@ -9,7 +8,6 @@
   $container-style: fluid
   +container
 
-// grid
 
 #header
   @extend %container
@@ -26,7 +24,10 @@
 #footer
   @extend %fluid-container
 
-.post-show
+.post-show,
+.admin-dashboard,
+.admin-user,
+.posts-actions
   @extend %container
 
 .post-edit
@@ -45,11 +46,11 @@
   .post
     float: left
     +span-columns(10)
-    .author
-      +span-columns(12 omega)
-      .photo
-        +span-columns(2)
-      .about
-        +span-columns(10 omega)
-.gb-separator
+.author
   +span-columns(12 omega)
+  .photo
+    +span-columns(2)
+  .about
+    +span-columns(10 omega)
+.gb-separator
+  +container
