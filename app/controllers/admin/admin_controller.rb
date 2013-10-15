@@ -8,6 +8,7 @@ module Admin
     authorize_resource
 
     def dashboard
+      @posts = Post.all
     end
 
   end

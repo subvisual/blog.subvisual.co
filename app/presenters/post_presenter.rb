@@ -42,6 +42,10 @@ class PostPresenter < RailsPresenter::Base
     h.raw(super)
   end
 
+  def created_at
+    super.to_formatted_s(:long)
+  end
+
   def form_method
     if persisted?
       :patch

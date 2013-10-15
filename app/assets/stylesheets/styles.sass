@@ -45,9 +45,18 @@ a
 p
   padding-bottom: $paragraph-spacing
 
+thead
+  font-weight: bold
+tbody
+  tr:nth-child(odd)
+    background-color: $light-gray
+
 nav
   text-align: center
-  margin-bottom: 20px
+  width: 100%
+  font-weight: bold
+  background-color: $light-gray
+  padding: $nav-padding
   ul
     margin-bottom: 0
     li
@@ -63,6 +72,12 @@ nav
     &:hover
       color: $nav-link-hover-color
       text-decoration: underline
+
+#nav
+  margin-bottom: 20px
+
+.js-nav
+  display: none
 
 h1.saying
   text-align: center
@@ -85,14 +100,8 @@ aside
 #heart a
   float: right
 
-nav
-  width: 100%
-  font-weight: bold
-  background-color: $light-gray
-  padding: $nav-padding
-
-.js-nav
-  display: none
+#content
+  margin-bottom: 100px
 
 .blog-post
   margin-bottom: $post-margins
@@ -104,8 +113,8 @@ nav
     width: 80px
   .title
     font-size: $title-size
-    margin: $post-title-margins
     font-weight: bold
+    line-height: 60px
     a
       text-decoration: none
       color: $black
@@ -140,14 +149,15 @@ nav
 
 .author
   font-size: $post-author-size
-  h2
+  header
+    font-family: $serif-font
     font-size: $subtitle-size
     color: $gb-color
 
 .gb-separator
   background: url(image_path('gb-separator.png')) center no-repeat
   height: 25px
-  margin-bottom: 50px
+  margin-bottom: 100px
   &:last-child
     display: none
 

@@ -1,0 +1,24 @@
+section.admin-user
+  - present(current_user) do |user|
+    = form_for [:admin, user], method: :patch do |f|
+      .author
+        .photo
+          = user.photo
+        .about
+          header
+            .field.name
+              = f.text_field :first_name, placeholder: 'John'
+              = f.text_field :last_name, placeholder: 'Doe'
+
+          .field = f.text_area :bio
+
+          .field.twitter
+            = f.label :twitter_handle
+            = f.text_field :twitter_handle, placeholder: '@twitter'
+
+          .field.password
+            = f.label :password
+            = f.password_field :password, placeholder: 'Change yout password'
+
+          .actions
+            = f.submit class: 'button submit'

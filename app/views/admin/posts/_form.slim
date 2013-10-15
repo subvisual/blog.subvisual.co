@@ -1,23 +1,22 @@
 .blog-post.post-edit
   = form_for [:admin, post], method: post.form_method do |f|
-    .icon = f.collection_select :category_id, present(Category.all), :id, :name
-    .post
-      header
-        = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
-      .info = post.info
-      .editor
-        h2 Editor
-        = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
-      .preview
-        h2 Live Preview
-        .body#js-markdown-output
-
     .actions
       = f.submit class: 'button submit'
       - if post.published?
-        = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
+        = button_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
       - else
-        = link_to 'Publish', admin_post_publish_path(post), method: :patch
+        = button_to 'Publish', admin_post_publish_path(post), method: :patch
+    .post
+      header
+        = f.collection_select :category_id, present(Category.all), :id, :name
+        = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
+      aside
+        .info = post.info
+      .editor
+        = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
+      .preview
+        .body#js-markdown-output
+
 
 - content_for :page_script
   coffee:
