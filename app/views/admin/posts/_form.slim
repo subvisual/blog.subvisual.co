@@ -3,9 +3,9 @@
     .actions
       = f.submit class: 'button submit'
       - if post.published?
-        = button_to 'Unpublish', admin_post_unpublish_path(post), method: :patch
+        = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'button'
       - else
-        = button_to 'Publish', admin_post_publish_path(post), method: :patch
+        = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'button'
     .post
       header
         = f.collection_select :category_id, present(Category.all), :id, :name
