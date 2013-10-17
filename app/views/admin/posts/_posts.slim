@@ -7,10 +7,12 @@ section.posts-actions
         td Author
         td Date
         td Published
+        td
     tbody
       - present(posts).each do |post|
         tr
-          td = link_to post.title, edit_admin_post_path(post)
+          td = link_to post.title, post_path(post)
           td = post.author.full_name
           td = post.created_at
           td = post.published? ? 'Published' : 'Draft'
+          td = link_to 'Edit', edit_admin_post_path(post)

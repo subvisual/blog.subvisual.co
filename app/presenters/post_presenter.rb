@@ -25,7 +25,7 @@ class PostPresenter < RailsPresenter::Base
       elsif persisted?
         "Being drafted by #{author_link} since #{creation_date} (last updated at #{update_date})"
       else
-        "Being drafter by #{author_link} (never saved)"
+        "Being drafted by #{author_link} (never saved)"
       end
     )
   end
