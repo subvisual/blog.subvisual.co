@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require 'puma/capistrano'
+require 'capistrano/local_precompile'
 
 set :application, "gb-blog"
 set :repository,  "git@github.com:groupbuddies/gb-blog.git"

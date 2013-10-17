@@ -24,6 +24,7 @@ gem 'susy'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'capistrano-local-precompile', require: false
   gem 'guard'
   gem 'guard-rspec'
   gem 'meta_request'
