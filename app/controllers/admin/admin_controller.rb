@@ -11,5 +11,11 @@ module Admin
       @posts = Post.all
     end
 
+    def create_saying
+      saying_params = params.require(:saying).permit(:saying)
+      Saying.create!(saying_params)
+      redirect_to admin_dashboard_path
+    end
+
   end
 end

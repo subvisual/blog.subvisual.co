@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :load_categories
+  before_filter :load_saying
 
   helper_method :is_admin_controller?
 
@@ -16,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   def load_categories
     @categories = Category.all
+  end
+
+  def load_saying
+    @saying = Saying.current
   end
 
 end

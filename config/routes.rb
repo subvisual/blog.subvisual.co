@@ -19,6 +19,8 @@ GbBlog::Application.routes.draw do
     get 'me', to: 'users#show', as: :me
     patch 'me', to: 'users#update', as: :update_me
     resources :users, only: [:show, :update]
+
+    post 'saying', to: 'admin#create_saying', as: :create_saying
   end
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)

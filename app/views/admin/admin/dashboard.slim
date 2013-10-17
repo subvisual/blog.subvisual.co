@@ -7,6 +7,12 @@
     .gb-separator
 
     .admin-option
+      .admin-action = link_to 'Top Phrase', '#'
+      = render 'admin/admin/saying'
+
+    .gb-separator
+
+    .admin-option
       .admin-action = link_to 'Myself', admin_me_path
       = render 'admin/users/form'
 
