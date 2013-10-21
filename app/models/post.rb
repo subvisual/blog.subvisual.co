@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
 
+  default_scope order('published_at DESC')
+
   belongs_to :author, class_name: 'User'
   belongs_to :category
 
