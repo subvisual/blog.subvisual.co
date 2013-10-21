@@ -1,7 +1,7 @@
 .blog-post.post-edit
   = form_for [:admin, post], method: post.form_method do |f|
     .actions
-      = f.submit postSave Draft', class: 'button submit'
+      = f.submit 'Save Draft', class: 'button submit'
       - if post.published?
         = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'button'
       - else
