@@ -19,6 +19,9 @@ html lang="en"
 
     = auto_discovery_link_tag :rss, root_url
 
+    - if Rails.env.production? || Rails.env.staging?
+      = javascript_include_tag "google_analytics"
+
   body class=(:admin if is_admin_controller?)
 
     = render '/layouts/header'
