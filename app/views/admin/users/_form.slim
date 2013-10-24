@@ -2,8 +2,7 @@ section.admin-user
   - present(current_user) do |user|
     = form_for [:admin, user], method: :patch do |f|
       .author
-        .photo
-          = user.photo
+        .photo = image_tag user.photo_url
         .about
           header
             .field.name

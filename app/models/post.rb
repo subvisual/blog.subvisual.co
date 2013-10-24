@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
 
-  default_scope order('published_at DESC')
+  default_scope  { order('published_at DESC') }
 
   belongs_to :author, class_name: 'User'
   belongs_to :category
@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{title}".parameterize
+    "#{id} #{title}".parameterize
   end
 
   def published?

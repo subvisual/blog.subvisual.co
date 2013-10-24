@@ -6,6 +6,10 @@ class PostPresenter < RailsPresenter::Base
     Post.model_name
   end
 
+  def page_title
+    "#{title}, by #{author.full_name} of Group Buddies"
+  end
+
   def publish_date
     format_date(published_at) if published?
   end
@@ -40,6 +44,10 @@ class PostPresenter < RailsPresenter::Base
 
   def processed_body
     h.raw(super)
+  end
+
+  def description
+    h.strip_tags(target.processed_body).gsub(/\n+/, ' ')[0...150].strip
   end
 
   def form_method

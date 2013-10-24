@@ -5,3 +5,7 @@ en:
     formats:
       publish_date: '%d, %B %Y'
       timestamp: '%d, %B %Y at %H:%M'
+
+  meta:
+    description: This is the Group Buddies blog. Sharing ideas can change the world. It definitely changes us.
+    title: Group Buddies Blog

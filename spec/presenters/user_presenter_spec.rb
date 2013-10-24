@@ -15,7 +15,7 @@ describe UserPresenter do
     it "returns an image tag based on user first name" do
       user_presenter = UserPresenter.new(build(:user, first_name: :foo, last_name: :bar), view)
 
-      user_presenter.photo.should include 'foo_bar.png'
+      user_presenter.photo_url.should include 'foo_bar.png'
     end
   end
 
