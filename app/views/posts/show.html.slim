@@ -1,1 +1,7 @@
+- present @post do |post|
+  - content_for :title, post.page_title
+  - content_for :url, post_url(post)
+  - content_for :image_url, post.author.photo_url
+  - content_for :description, post.description
+
 = render 'post', post: @post, show_comments: true

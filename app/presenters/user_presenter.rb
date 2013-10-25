@@ -8,8 +8,8 @@ class UserPresenter < RailsPresenter::Base
     "#{first_name} #{last_name}".strip
   end
 
-  def photo
-    h.image_tag "authors/#{photo_name}.png"
+  def photo_url
+    "#{h.root_url[0...-1]}#{h.image_path(photo_name)}"
   end
 
   def twitter_url
@@ -19,7 +19,7 @@ class UserPresenter < RailsPresenter::Base
   private
 
   def photo_name
-    full_name.downcase.parameterize.underscore
+    "authors/#{full_name.downcase.parameterize.underscore}.png"
   end
 
 end

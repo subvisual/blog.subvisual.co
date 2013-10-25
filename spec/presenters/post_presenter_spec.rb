@@ -24,4 +24,18 @@ describe PostPresenter do
     end
   end
 
+  context "#description" do
+    it "returns the body without html tags" do
+      post_presenter = PostPresenter.new(create(:post, body: '# title'), view)
+
+      post_presenter.description.should eq 'title'
+    end
+
+    it "removes new lines" do
+      post_presenter = PostPresenter.new(create(:post, body: "title.\n\ntext"), view)
+
+      post_presenter.description.should eq 'title. text'
+    end
+  end
+
 end
