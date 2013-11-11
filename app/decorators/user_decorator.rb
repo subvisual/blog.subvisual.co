@@ -1,8 +1,5 @@
-class UserPresenter < RailsPresenter::Base
-
-  def self.model_name
-    User.model_name
-  end
+class UserDecorator < Draper::Decorator
+  delegate :first_name, :last_name, :bio, :has_twitter?, :twitter_handle
 
   def full_name
     "#{first_name} #{last_name}".strip
@@ -21,5 +18,4 @@ class UserPresenter < RailsPresenter::Base
   def photo_name
     "authors/#{full_name.downcase.parameterize.underscore}.png"
   end
-
 end

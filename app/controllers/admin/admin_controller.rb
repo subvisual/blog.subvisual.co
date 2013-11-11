@@ -1,5 +1,6 @@
 module Admin
   class AdminController < ::ApplicationController
+    decorates_assigned :posts, :user
 
     def is_admin_controller?
       true
@@ -9,6 +10,7 @@ module Admin
 
     def dashboard
       @posts = Post.all
+      @user  = current_user
     end
 
     def create_saying

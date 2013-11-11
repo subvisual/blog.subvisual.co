@@ -1,6 +1,6 @@
 ul
   li = link_to 'All', root_path
-  - present(@categories).each do |category|
+  - categories.each do |category|
     li = link_to category.name, category_path(category: category)
   - if current_user
     li = link_to 'Admin', admin_dashboard_path, class: 'admin-action'

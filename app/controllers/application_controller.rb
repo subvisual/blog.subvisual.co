@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_saying
 
   helper_method :is_admin_controller?
+  decorates_assigned :categories
 
   def is_admin_controller?
     false

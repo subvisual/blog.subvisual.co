@@ -1,5 +1,5 @@
 .blog-post.post-edit
-  = form_for [:admin, post], method: post.form_method do |f|
+  = form_for [:admin, post.object], method: post.form_method do |f|
     .actions
       = f.submit 'Save Draft', class: 'button submit'
       - if post.published?
@@ -8,7 +8,7 @@
         = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'button'
     .post
       header
-        = f.collection_select :category_id, present(Category.all), :id, :name
+        = f.collection_select :category_id, Category.all, :id, :name
         = f.text_field :title, placeholder: 'Title', class: :title, autocomplete: :off
       aside
         .info = post.info
