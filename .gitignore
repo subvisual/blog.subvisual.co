@@ -20,7 +20,8 @@
 .rvmrc
 coverage
 .spring-project
-bin/cucumber
-bin/rake
+bin
+bin
 .ruby-gemset
 spec/tmp
+.envrc

@@ -9,7 +9,7 @@ section.posts-actions
         td Published
         td
     tbody
-      - present(posts).each do |post|
+      - posts.each do |post|
         tr
           td = link_to post.title, post_path(post)
           td = post.author.full_name

@@ -1,10 +1,7 @@
-class PostPresenter < RailsPresenter::Base
-
-  present :category, :author
-
-  def self.model_name
-    Post.model_name
-  end
+class PostDecorator < Draper::Decorator
+  decorates_association :category
+  decorates_association :author
+  delegate :title, :published?, :published_at, :created_at, :updated_at, :persisted?, :id
 
   def page_title
     "#{title}, by #{author.full_name} of Group Buddies"
@@ -43,11 +40,11 @@ class PostPresenter < RailsPresenter::Base
   end
 
   def processed_body
-    h.raw(super)
+    h.raw(object.processed_body)
   end
 
   def description
-    h.strip_tags(target.processed_body).gsub(/\n+/, ' ')[0...150].strip
+    h.strip_tags(object.processed_body).gsub(/\n+/, ' ')[0...150].strip
   end
 
   def form_method
@@ -64,5 +61,4 @@ class PostPresenter < RailsPresenter::Base
   def format_date(date, format = :publish_date)
     h.l(date, format: format)
   end
-
 end

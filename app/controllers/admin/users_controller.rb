@@ -1,8 +1,9 @@
 module Admin
   class UsersController < Admin::AdminController
+    decorates_assigned :user
 
     def show
-      @users = current_user
+      @user = current_user
     end
 
     def update

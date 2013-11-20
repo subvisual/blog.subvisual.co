@@ -7,12 +7,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'clearance', '1.0.0.rc7'
 gem 'capistrano'
+gem 'draper', '~> 1.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'puma'
 gem 'pygmentize', require: false
-gem 'rails_presenter', github: 'dfmonaco/rails_presenter'#, ref: '43159592a86e12a99da2682a77b7341fe5e04eb0'
 gem 'redcarpet', require: false
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'

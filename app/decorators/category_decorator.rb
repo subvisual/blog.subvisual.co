@@ -1,4 +1,6 @@
-class CategoryPresenter < RailsPresenter::Base
+class CategoryDecorator < Draper::Decorator
+  decorates_association :posts
+  delegate :name, :id
 
   def name_with_icon
     h.content_tag :span do
@@ -9,11 +11,12 @@ class CategoryPresenter < RailsPresenter::Base
     end
   end
 
+  def image
+    h.image_path("icons/#{to_param}.png")
+  end
+
   def icon
     h.image_tag image
   end
 
-  def image
-    h.image_path("icons/#{to_param}.png")
-  end
 end

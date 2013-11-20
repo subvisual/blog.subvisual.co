@@ -2,7 +2,7 @@
   .admin-options
     .admin-option
       .admin-action = link_to 'Posts', admin_posts_path
-      = render 'admin/posts/posts', posts: @posts
+      = render 'admin/posts/posts', posts: posts
 
     .gb-separator
 
@@ -14,5 +14,5 @@
 
     .admin-option
       .admin-action = link_to 'Myself', admin_me_path
-      = render 'admin/users/form'
+      = render 'admin/users/form', user: user
 

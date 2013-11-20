@@ -1,5 +1,6 @@
 module Admin
   class PostsController < Admin::AdminController
+    decorates_assigned :posts, :post
 
     def index
       @posts = Post.all

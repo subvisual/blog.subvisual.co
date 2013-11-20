@@ -1,18 +1,21 @@
 class PostsController < ApplicationController
+  decorates_assigned :category, :posts, :post
 
   def index
-    @posts = Post.all_published
     if params[:category]
       @category = Category.from_param(params[:category])
-      @posts = @posts.by_category(@category)
+      @posts = Post.by_category(@category)
+    else
+      @posts = Post.all_published
     end
   end
 
   def feed
-    @posts = Post.all_published
     if params[:category]
       @category = Category.from_param(params[:category])
       @posts = @posts.by_category(@category)
+    else
+      @posts = Post.all_published
     end
 
     respond_to do |format|

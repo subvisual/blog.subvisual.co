@@ -7,15 +7,13 @@ xml.rss version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
     xml.link feed_url
     xml.tag! 'atom:link', rel: 'self', type: 'application/rss+xml', href: feed_url
 
-    @posts.each do |post|
+    posts.each do |post|
       xml.item do
-        present post do |post|
-          xml.title post.title
-          xml.description post.body
-          xml.pubDate post.published_at.to_s(:rfc822)
-          xml.link post_url(post)
-          xml.guid post_url(post)
-        end
+        xml.title post.title
+        xml.description post.body
+        xml.pubDate post.published_at.to_s(:rfc822)
+        xml.link post_url(post)
+        xml.guid post_url(post)
       end
     end
   end
