@@ -24,8 +24,7 @@ class Post < ActiveRecord::Base
   def self.visible_by(author)
     table = arel_table
     where(table[:published_at].not_eq(nil)
-          .or(table[:author_id].eq(author.id)
-              .and(table[:published_at].eq(nil))))
+          .or(table[:author_id].eq(author.id)))
   end
 
   def to_param
