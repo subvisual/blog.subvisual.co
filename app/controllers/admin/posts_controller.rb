@@ -3,7 +3,7 @@ module Admin
     decorates_assigned :posts, :post
 
     def index
-      @posts = Post.all
+      @posts = Post.visible_by current_user
     end
 
     def new

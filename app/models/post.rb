@@ -21,6 +21,10 @@ class Post < ActiveRecord::Base
     self.where(category_id: category)
   end
 
+  def self.visible_by(author)
+    all_published + where(author_id: author.id, published_at: nil)
+  end
+
   def to_param
     "#{id} #{title}".parameterize
   end
