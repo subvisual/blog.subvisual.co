@@ -15,8 +15,8 @@ describe Post do
     it 'returns only posts from the given category' do
       red_category = create :category, name: :red
       green_category = create :category, name: :green
-      red_posts   = create_list(:post, 2, category: red_category)
-      green_posts = create_list(:post, 2, category: green_category)
+      red_posts   = create_list(:post, 2, category: red_category, published_at: Time.now)
+      green_posts = create_list(:post, 2, category: green_category, published_at: Time.now)
 
       Post.by_category(red_category).should =~ red_posts
     end
