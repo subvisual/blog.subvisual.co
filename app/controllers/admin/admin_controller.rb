@@ -9,7 +9,7 @@ module Admin
     authorize_resource
 
     def dashboard
-      @posts = Post.all
+      @posts = Post.visible_by current_user
       @user  = current_user
     end
 

@@ -21,6 +21,12 @@ class Post < ActiveRecord::Base
     self.where(category_id: category)
   end
 
+  def self.visible_by(author)
+    table = arel_table
+    where(table[:published_at].not_eq(nil)
+          .or(table[:author_id].eq(author.id)))
+  end
+
   def to_param
     "#{id} #{title}".parameterize
   end
