@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def author_index
     author = User.where(first_name: params[:author]).first
-    @posts = Post.all_published.by_author(author.id)
+    @posts = Post.all_published.by_author(author)
 
     render :index
   end

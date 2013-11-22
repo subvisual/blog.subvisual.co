@@ -21,8 +21,8 @@ class Post < ActiveRecord::Base
     all_published.where(category_id: category)
   end
 
-  def self.by_author(author_id)
-    all_published.where(author_id: author_id)
+  def self.by_author(author)
+    all_published.where(author_id: author)
   end
 
   def self.visible_by(author)
