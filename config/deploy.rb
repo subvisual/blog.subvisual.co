@@ -5,8 +5,6 @@ set :scm, :git
 set :ssh_options, { forward_agent: true, port: 22 }
 set :keep_releases, 3
 
-server '37.139.7.70', user: 'deploy', roles: %w{db web app}
-
 # set :format, :pretty
 # set :log_level, :info
 # set :pty, true
