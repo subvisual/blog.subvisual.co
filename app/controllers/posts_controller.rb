@@ -10,6 +10,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def author_index
+    author = User.where(first_name: params[:author]).first
+    @posts = Post.all_published.by_author(author)
+
+    render :index
+  end
+
   def feed
     if params[:category]
       @category = Category.from_param(params[:category])

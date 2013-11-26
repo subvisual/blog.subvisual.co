@@ -21,6 +21,10 @@ class Post < ActiveRecord::Base
     all_published.where(category_id: category)
   end
 
+  def self.by_author(author)
+    all_published.where(author_id: author)
+  end
+
   def self.visible_by(author)
     table = arel_table
     where(table[:published_at].not_eq(nil)

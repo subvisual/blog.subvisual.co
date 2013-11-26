@@ -32,7 +32,7 @@ class PostDecorator < Draper::Decorator
   end
 
   def author_link
-    h.link_to author.first_name, '#'
+    h.link_to author.first_name, h.author_path(author: author.first_name)
   end
 
   def author_photo
@@ -54,7 +54,6 @@ class PostDecorator < Draper::Decorator
       :post
     end
   end
-
 
   private
 
