@@ -1,6 +1,8 @@
 language: ruby
 rvm:
-  - 2.0.0
+- 2.0.0
 script:
-  - bundle exec rake travis
-
+- bundle exec rake travis
+notifications:
+  hipchat:
+    secure: aEGB8ZlFCBDb0q4l8Erv3Z83gmbaYh4x8l04k11x2J6LVynBclNOncPoL4IOVAtDX/aAMh0lj53estEAxIK+Et3fobLu/BjI+aYFWC2Xhzgt5SaNgzZuEHQNGsXyl1BzIhHXYwdGnnrusUV6CYNtshMjfoJ3p4aiEMgopVxpvdM=
