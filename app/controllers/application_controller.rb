@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
   helper_method :is_admin_controller?
   decorates_assigned :categories
 
+  rescue_from
+    CanCan::AccessDenied,
+    ActionController::RoutingError,
+    ActionController::UnknownController.
+    ActionController::UnknownAction,
+    ActiveRecord::RecordNotFound,
+    with :render_404
+
   def is_admin_controller?
     false
   end
@@ -22,6 +30,11 @@ class ApplicationController < ActionController::Base
 
   def load_saying
     @saying = Saying.current
+  end
+
+  def render_404(exception)
+    logger.info exception.backtrace.join '\n'
+    redirect_to root_url unless current_user
   end
 
 end
