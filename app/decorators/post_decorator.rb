@@ -11,6 +11,10 @@ class PostDecorator < Draper::Decorator
     format_date(published_at) if published?
   end
 
+  def short_publish_date
+    format_date(published_at, :short_month_and_day) if published?
+  end
+
   def creation_date
     format_date(created_at)
   end
@@ -32,7 +36,7 @@ class PostDecorator < Draper::Decorator
   end
 
   def author_link
-    h.link_to author.first_name, h.author_path(author: author.first_name)
+    h.link_to author.first_name, h.archive_path(author: author.first_name)
   end
 
   def author_photo
