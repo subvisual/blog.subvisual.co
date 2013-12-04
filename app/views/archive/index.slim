@@ -1,0 +1,7 @@
+.archive
+  h2.archive-title Archives
+  hr.archive-title-separator
+
+  - posts.each do |post|
+    = render 'post_summary', post: post
+

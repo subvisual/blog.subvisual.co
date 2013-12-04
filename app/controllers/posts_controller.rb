@@ -10,6 +10,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def archive
+    @posts = Post.all_published
+    filter_by_category
+    filter_by_author
+  end
+
   def author_index
     author = User.where(first_name: params[:author]).first
     @posts = Post.all_published.by_author(author)

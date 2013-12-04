@@ -25,6 +25,8 @@
   @extend %fluid-container
 
 .post-show,
+.archive,
+.archive-post,
 .admin-dashboard,
 .admin-user,
 .posts-actions,
@@ -55,6 +57,14 @@
     +span-columns(10 omega)
 #disqus_thread
   +span-columns(12 omega)
+
+.archive-post
+  .icon
+    +span-columns(1)
+  .photo
+    +span-columns(1)
+  .post
+    +span-columns(10 omega)
 
 hr
   +span-columns(12 omega)
