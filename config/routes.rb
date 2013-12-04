@@ -7,6 +7,8 @@ GbBlog::Application.routes.draw do
   get 'author/:author', to: 'posts#author_index', as: :author
   resources :posts, only: [:show]
 
+  get '/archive', to: 'archive#index', as: :archive
+
   get '/feed' => 'posts#feed'
 
   namespace :admin do
