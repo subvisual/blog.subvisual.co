@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.0'
+gem 'rails', '~> 4.0.2'
 
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
