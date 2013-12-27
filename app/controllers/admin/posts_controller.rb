@@ -1,5 +1,4 @@
-module Admin
-  class PostsController < Admin::AdminController
+  class Admin::PostsController < Admin::ApplicationController
     decorates_assigned :posts, :post
 
     def index
@@ -52,6 +51,4 @@ module Admin
     def post_params
       params.require(:post).permit(:category_id, :title, :body)
     end
-
   end
-end

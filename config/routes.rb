@@ -16,6 +16,7 @@ GbBlog::Application.routes.draw do
       patch :publish
       patch :unpublish
     end
+    resources :post_images, only: [:create]
 
     get 'me', to: 'users#show', as: :me
     patch 'me', to: 'users#update', as: :update_me

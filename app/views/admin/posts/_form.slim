@@ -1,4 +1,8 @@
 .blog-post.post-edit
+  = form_for :post_image, url: admin_post_images_path  do |form|
+    = form.submit "Add Image", class: "button"
+    = form.file_field :image
+
   = form_for [:admin, post.object], method: post.form_method do |f|
     .actions
       = f.submit 'Save Draft', class: 'button submit'
