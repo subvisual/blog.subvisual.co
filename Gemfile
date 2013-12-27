@@ -4,7 +4,7 @@ gem 'rails', '~> 4.0.2'
 
 gem 'cancan'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'compass-rails', '~> 2.0.alpha.0'
+gem 'compass-rails', '~> 1.1.3'
 gem 'clearance', '1.0.0.rc7'
 gem 'capistrano'
 gem 'draper', '~> 1.3'
