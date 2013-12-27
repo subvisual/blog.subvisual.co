@@ -1,57 +1,37 @@
-require "bundler/capistrano"
-require 'puma/capistrano'
+set :repo_url, 'git@github.com:groupbuddies/gb-blog.git'
+set :application, 'gb-blog'
+set :stage, :production
+set :branch, :master
+set :rails_env, :production
 
-set :application, "gb-blog"
-set :repository,  "git@github.com:groupbuddies/gb-blog.git"
+set :format, :pretty
+set :pty, true
+set :default_shell, 'bash -l'
 
-set :scm, :git
-set :ssh_options, { :forward_agent => true, :port => 22 }
-set :branch, "master"
-set :deploy_via, :remote_cache
-set :keep_releases, 3
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
-server = "37.139.7.70"
-
-role :web, server
-role :app, server
-role :db,  server, :primary => true # This is where Rails migrations will run
-
-set :user, "deploy"
-
-set :deploy_to, "/home/#{user}/#{application}"
-set :use_sudo, false
-
-default_run_options[:shell] = '/bin/bash --login'
-default_environment["RAILS_ENV"] = 'production'
-
-before "deploy", "deploy:setup"
-after "deploy:update_code", "deploy:migrate"
-# after "deploy:update", "unicorn:restart"
-after "deploy:update", "deploy:cleanup"
-after "deploy:finalize_update","deploy:config_symlink"
-
-before "deploy", "puma:stop"
-after "deploy", "puma:start"
+ set :keep_releases, 3
 
 namespace :deploy do
-  task :config_symlink do
-    run "ln -nfs #{shared_path}/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/accounts.yml #{release_path}/config/accounts.yml"
-  end
-end
 
-namespace :puma do
+  desc 'Restart application'
   task :restart do
-    # empty task, we do not want this task to do stuff
+    on roles(:app), in: :sequence, wait: 5 do
+      # Your restart mechanism here, for example:
+      # execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
-end
 
-desc "tail production log files"
-task :tail, :roles => :app do
-  trap("INT") { puts 'Interupted'; exit 0; }
-  run "tail -f #{shared_path}/log/production.log" do |channel, stream, data|
-    puts  # for an extra line break before the host name
-    puts "#{channel[:host]}: #{data}"
-    break if stream == :err
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
   end
+
+  after :finishing, 'deploy:cleanup'
+
 end
