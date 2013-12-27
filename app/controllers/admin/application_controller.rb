@@ -7,8 +7,6 @@ class Admin::ApplicationController < ::ApplicationController
     true
   end
 
-  authorize_resource
-
   def dashboard
     @posts = Post.visible_by current_user
     @user  = current_user

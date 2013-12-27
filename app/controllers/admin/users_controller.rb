@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::ApplicationController
+  authorize_resource
   decorates_assigned :user
 
   def show
