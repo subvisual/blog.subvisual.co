@@ -47,6 +47,10 @@ class PostDecorator < Draper::Decorator
     h.strip_tags(object.processed_body).gsub(/\n+/, ' ')[0...150].strip
   end
 
+  def new?
+    !persisted?
+  end
+
   def form_method
     if persisted?
       :patch
