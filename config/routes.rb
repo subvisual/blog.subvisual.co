@@ -3,9 +3,8 @@ GbBlog::Application.routes.draw do
   root to: "posts#index"
 
   resources :users, controller: :users, only: [:create]
-  get 'category/:category', to: 'posts#index', as: :category
-  get 'author/:author', to: 'posts#author_index', as: :author
   resources :posts, only: [:show]
+  resource :archive, only: [:show]
 
   get '/feed' => 'posts#feed'
 

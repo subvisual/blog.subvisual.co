@@ -2,19 +2,7 @@ class PostsController < ApplicationController
   decorates_assigned :category, :posts, :post
 
   def index
-    if params[:category]
-      @category = Category.from_param(params[:category])
-      @posts = Post.by_category(@category)
-    else
-      @posts = Post.all_published
-    end
-  end
-
-  def author_index
-    author = User.where(first_name: params[:author]).first
-    @posts = Post.all_published.by_author(author)
-
-    render :index
+    @posts = Post.all_published
   end
 
   def feed

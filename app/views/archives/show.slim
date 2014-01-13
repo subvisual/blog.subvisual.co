@@ -1,0 +1,14 @@
+.archive
+  h1.archive-title Archives
+  hr.archive-title-separator
+
+  - @archive.years.each do |year|
+    h2.archive-year = year
+    - @archive.posts_from_year(year).each do |post|
+      .archive-post
+        .date = post.short_publish_date
+        .post
+          h2.title = link_to post.title, post_path(post)
+          aside.info = post.info
+
+
