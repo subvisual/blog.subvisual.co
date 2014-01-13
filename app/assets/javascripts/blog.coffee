@@ -1,2 +1,2 @@
-$('#heart').on 'click', '.js-menu-toggle', ->
-  $('.js-nav').slideToggle()
+$('#js-menu-toggle').on 'click', ->
+  $('#nav').slideToggle()

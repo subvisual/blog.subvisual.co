@@ -1,0 +1,18 @@
+.nav
+  text-align: center
+  background-color: $light-gray
+  padding: $nav-padding
+  font-size: $nav-font-size
+  font-weight: bold
+  li
+    display: inline
+  li + li:before
+    color: $gray
+    content: "/"
+    padding: 0 5px
+  a
+    color: $nav-link-color
+    text-decoration: none
+    &:hover
+      color: $nav-link-hover-color
+      text-decoration: underline

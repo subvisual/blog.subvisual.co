@@ -1,5 +1,5 @@
 .saying-edit
   = form_for @saying, url: admin_create_saying_path, method: :post do |f|
-    = f.submit class: 'button'
-    .field
-      = f.text_field :saying
+    .admin-inline-field
+      .input = f.text_field :saying
+      .submit = f.submit

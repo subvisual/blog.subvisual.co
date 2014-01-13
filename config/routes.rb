@@ -24,5 +24,9 @@ GbBlog::Application.routes.draw do
     post 'saying', to: 'application#create_saying', as: :create_saying
   end
 
+  scope controller: :pages do
+    get :ui_kit
+  end
+
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
 end
