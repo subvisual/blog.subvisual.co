@@ -7,6 +7,7 @@ set :rails_env, :production
 set :format, :pretty
 set :pty, true
 set :default_shell, 'bash -l'
+set :log_level, :info
 
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

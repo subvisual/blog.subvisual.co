@@ -49,8 +49,8 @@ GEM
     capistrano-rvm (0.1.0)
       capistrano (~> 3.0)
       sshkit (~> 1.2.0)
-    capistrano3-puma (0.1.2)
-      capistrano (~> 3.0.0)
+    capistrano3-monit (0.1.0)
+      capistrano (~> 3.0)
     chunky_png (1.2.8)
     clearance (1.0.0.rc7)
       bcrypt-ruby
@@ -256,7 +256,7 @@ DEPENDENCIES
   cancan
   capistrano-rails
   capistrano-rvm
-  capistrano3-puma
+  capistrano3-monit
   clearance (= 1.0.0.rc7)
   coffee-rails (~> 4.0.0)
   compass-rails (~> 1.1.3)

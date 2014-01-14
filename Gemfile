@@ -24,7 +24,7 @@ group :development do
   gem 'better_errors'
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-monit'
   gem 'binding_of_caller'
   gem 'guard'
   gem 'guard-rspec'
