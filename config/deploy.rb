@@ -33,6 +33,7 @@ namespace :deploy do
     end
   end
 
-  after :finishing, ['deploy:cleanup', 'monit:restart']
+  after :finishing, 'deploy:cleanup'
+  after :finishing, 'monit:restart'
 
 end
