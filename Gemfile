@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.0.2'
 
 gem 'cancan'
+gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1.3'
 gem 'clearance', '1.0.0.rc7'
@@ -13,10 +14,10 @@ gem 'jquery-turbolinks'
 gem 'puma'
 gem 'pygmentize', require: false
 gem 'redcarpet', require: false
+gem 'rmagick'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'sqlite3'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 gem 'susy'
 
@@ -30,6 +31,7 @@ group :development do
   gem 'guard-rspec'
   gem 'meta_request'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 group :test do

@@ -9,18 +9,19 @@ GbBlog::Application.routes.draw do
   get '/feed' => 'posts#feed'
 
   namespace :admin do
-    get '/', to: 'admin#dashboard', as: :dashboard
+    get '/', to: 'application#dashboard', as: :dashboard
 
     resources :posts, only: [:index, :show, :new, :create, :edit, :update] do
       patch :publish
       patch :unpublish
     end
+    resources :post_images, only: [:create]
 
     get 'me', to: 'users#show', as: :me
     patch 'me', to: 'users#update', as: :update_me
     resources :users, only: [:show, :update]
 
-    post 'saying', to: 'admin#create_saying', as: :create_saying
+    post 'saying', to: 'application#create_saying', as: :create_saying
   end
 
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
