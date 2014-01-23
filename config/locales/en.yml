@@ -3,7 +3,7 @@ en:
     registration_disabled: Registrations are disabled
   time:
     formats:
-      publish_date: '%d, %B %Y'
+      publish_date: '%d, %b %Y'
       short_month_and_day: '%b %d'
       timestamp: '%d, %B %Y at %H:%M'
 

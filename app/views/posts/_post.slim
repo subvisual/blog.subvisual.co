@@ -1,16 +1,13 @@
-article.blog-post.post-show
-  .icon = link_to post.category.icon, archive_path(category: post.category)
-  .post
-    header
-      h1.title = link_to post.title, post_path(post)
-      aside.info = post.info
-    .body
-      = post.processed_body
-    - unless show_comments
-      aside = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
-    hr
+article.post
+  .post-icon = link_to post.category.icon, archive_path(category: post.category)
+  header.post-header
+    h1.huge = link_to post.title, post_path(post)
+    aside.info = post.info
+  .post-body
+    = post.processed_body
+  - unless show_comments
+    aside.info = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
+  = render 'author', author: post.author
 
-    = render 'author', author: post.author
-
-    - if show_comments
-      = render 'shared/disqus', post: post
+  - if show_comments
+    = render 'shared/disqus', post: post

@@ -1,0 +1,70 @@
+.post-icon
+  width: $post-icon-size
+
+.post
+  .post-icon
+    display: inline-block
+    position: absolute
+    margin-left: calc(0px - #{$post-icon-size} - #{$post-icon-spacing})
+  .title
+    line-height: $post-icon-size
+    vertical-align: middle
+
+.post-body
+  margin-top: $default-spacing * 2
+  line-height: $post-line-height
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+  h1
+    font-size: $post-title-size
+    padding-top: $post-title-top
+    padding-bottom: $post-title-bottom
+  h2
+    font-size: $post-subtitle-size
+    padding-top: $post-subtitle-top
+    padding-bottom: $post-subtitle-bottom
+  h3
+    font-size: $post-subsubtitle-size
+    padding-bottom: $post-subsubtitle-bottom
+  p
+    margin-bottom: $post-paragraph-margin
+  img
+    width: 100%
+  a
+    color: $black
+    text-decoration: underline
+  strong
+    font-weight: bold
+  em
+    font-style: italic
+  blockquote
+    font-style: italic
+    border-left: solid 5px $gb-blue
+    padding-left: 20px
+    margin-left: -20px
+    color: $black
+    cite, cite a
+      font-style: italic
+      font-weight: normal
+      color: $dark-gray
+  .highlight
+    margin-bottom: 20px
+  code, pre
+    font-family: $code-font
+    background-color: $code-background
+    line-height: $code-line-height
+  code
+    font-size: $inline-code-font-size
+  pre
+    display: block
+    font-size: $code-font-size
+    padding: $code-padding
+  ol, ul
+    list-style-position: inside
+    margin-bottom: $post-list-bottom
+  ul li
+    list-style-type: none
+  ul li:before
+    content: "-"
+    margin-right: 10px
+

@@ -1,0 +1,58 @@
+@import 'variables'
+
+#ui_kit
+  > h1
+    margin-bottom: 30px
+    text-align: center
+  > section
+    padding: 1rem
+    margin-bottom: 30px
+    > h2
+      border-top: solid 1px $black
+      border-bottom: solid 1px $black
+      padding: 0.5rem 0
+      text-align: center
+    > h3
+      padding-top: 5rem
+      border-bottom: solid 1px $gray
+      text-align: right
+  > section:not(:last-child)
+    // border-bottom: 1px solid $brown
+  .example
+    margin-top: 0.5rem
+    + a
+      display: block
+      color: blue
+  pre.language-markup
+    margin-bottom: 2rem
+    padding: 1rem
+    font-family: $code-font
+    background-color: $code-background
+    font-size: $code-font-size
+
+  .colors
+    li
+      display: inline-block
+      width: 120px
+      height: 120px
+      margin: 15px 15px
+      // border: solid 1px $light-brown
+      color: white
+      line-height: 120px
+      text-align: center
+      vertical-align: middle
+      list-style: none
+
+    $colors: "gb-blue" $gb-blue, "black" $black, "white" $white, "gray" $gray, "light-gray" $light-gray, "dark-gray" $dark-gray
+    @each $color in $colors
+      .#{nth($color, 1)}-color
+        background-color: nth($color,2)
+
+    .white-color,
+    .gray-color,
+    .light-gray-color
+      color: $black
+
+  .buttons
+    [class^='btn']
+      margin: 20px 20px 20px 0

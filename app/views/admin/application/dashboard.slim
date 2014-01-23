@@ -1,18 +1,13 @@
-.admin-dashboard
-  .admin-options
-    .admin-option
-      .admin-action = link_to 'Posts', admin_posts_path
-      = render 'admin/posts/posts', posts: posts
+.default-page.admin-page
+  .admin-section
+    header.admin-header = link_to 'Posts', admin_posts_path
+    = render 'admin/posts/posts', posts: posts
 
-    .gb-separator
+  .admin-section
+    header.admin-header = link_to 'Top Phrase', '#'
+    = render 'admin/admin/saying'
 
-    .admin-option
-      .admin-action = link_to 'Top Phrase', '#'
-      = render 'admin/application/saying'
-
-    .gb-separator
-
-    .admin-option
-      .admin-action = link_to 'Myself', admin_me_path
-      = render 'admin/users/form', user: user
+  .admin-section
+    header.admin-header = link_to 'Myself', admin_me_path
+    = render 'admin/users/form', user: user
 

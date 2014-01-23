@@ -1,12 +1,11 @@
 section.author
   .photo = image_tag author.photo_url
-  .about
-    header
-      h2 = "About #{author.first_name}"
-    p = author.bio
-    aside.more
-      ' Read more from
-      a = link_to author.first_name, '#'
-      - if author.has_twitter?
-        '  or follow him on
-        a = link_to 'Twitter', author.twitter_url
+  .author-info
+      h2.author-title = "About #{author.full_name}"
+      p.author-bio = author.bio
+      aside.info.small
+        ' Read more from
+        a = link_to author.first_name, '#'
+        - if author.has_twitter?
+          '  or follow him on
+          a = link_to 'Twitter', author.twitter_url

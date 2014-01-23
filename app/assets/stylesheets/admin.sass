@@ -1,120 +1,85 @@
-.admin
-  .posts
-    width: 100%
+.admin-page
+  font-family: $sans-serif-font
 
-  input
-    border: none
-    border-bottom: solid 1px $light-gray
-    outline: none
-    &[type='file']
-      float: right
-
-.admin-action
-  margin-bottom: 10px
-
-.admin-option
   a
-    color: $gb-color
-
-.saying-edit
-  .field input
-    width: 100%
-    font-size: 20px
-    text-align: center
-
-.post-edit
-  .post
-    width: 100%
-  .icon select
-    width: 100%
-  .title
-    border-width: 0 0 2px 0
-    width: 80%
-    margin-left: 20px
-    font-family: $serif-font
-  aside
-    margin: 20px
-  textarea
-    width: 100%
-    height: 2000px
-    font-family: $sans-serif-font
-    font-size: 20px
-  .editor,
-  .preview
-    background-color: $light-gray
-    padding-bottom: 0
-    min-height: 300px
-    > h2
-      font-size: 20px
-      text-align: center
-  .body
-    border: solid 5px $light-gray
-    border-top: 0
-    padding: 10px
-    background: #fff
-    margin-top: 5px
-    margin-bottom: 0
-  textarea,
-  .body
-    min-height: 300px
-
-
-.admin-option
-  margin-bottom: 50px
-
-
-.admin-action
-  a
-    display: block
-    width: 100%
-    text-align: center
-    font-size: 22px
     font-weight: bold
-    line-height: 50px
+  a:hover
+    color: $link-color
+
+  input,
+  textarea
+    border: none
+    height: $post-line-height
+
+  .admin-bio-field textarea
+    width: 100%
+    height: 100px
+
+  .admin-field
+    width: 100%
+    label,
+    input
+      display: inline-block
+      width: 50%
+    input:hover
+      background-color: $light-gray
+
+
+  .admin-section
+    padding-bottom: 5px
+    border-bottom: dotted 1px $dark-gray
+
+  .admin-header
+    text-align: center
+
+  .admin-actions
+    text-align: right
+
+  .admin-link
+    display: block
+    font-weight: bold
+    padding: 0 5px
+    margin: 5px
+    text-decoration: none
     &:hover
       background-color: $light-gray
 
-.admin-user
-  .field
-    width: 100%
-    input,
-    textarea
-      width: 60%
-      line-height: 30px
-      font-family: inherit
-      color: inherit
-      &:hover
-        background-color: $light-gray
-    textarea
-      height: 100px
-      background-color: $white
-      font-family: $sans-serif-font
-    &.name input
-      width: 30%
-      margin-right: 10px
-  .twitter, .password
-    label
-      display: block
-      float: left
-      width: 20%
-      align: right
-    input
-      width: 40%
-
-  .actions
-    width: 60%
-    margin-top: 20px
-    input
-      width: 100%
-
-  a
-  input[type="button"],
-  input[type="submit"]
-    padding: 10px
+  .admin-button
+    display: inline-block
     font-weight: bold
-    width: 60%
+    font-family: $code-font
+    font-size: $code-font-size
+    line-height: $post-line-height
+    padding: 0 5px
+    margin: 5px
     background-color: $light-gray
+    text-decoration: none
     &:hover
-      background-color: $gb-color
-      cursor: pointer
+      background-color: $gb-blue
+      color: $white
 
+  .admin-post-row
+    font-size: $small-font-size
+    @extend %row
+    line-height: $post-line-height
+    > div
+      vertical-align: middle
+    .admin-post-title
+      width: 50%
+    .admin-post-author
+      width: 20%
+    .admin-post-timestamp
+      width: 20%
+      text-align: right
+    .admin-post-actions
+      width: 10%
+      text-align: right
+
+  .admin-inline-field
+    @extend %row
+    .input
+      width: 80%
+      input
+        width: 100%
+    .submit
+      width: 20%

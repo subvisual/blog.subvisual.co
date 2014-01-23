@@ -1,22 +1,20 @@
-section.admin-user
+.admin-user
   = form_for [:admin, user.object], method: :patch do |f|
     .author
       .photo = image_tag user.photo_url
       .about
         header
-          .field.name
-            = f.text_field :first_name, placeholder: 'John'
-            = f.text_field :last_name, placeholder: 'Doe'
+          = f.text_field :first_name, placeholder: 'John'
+          = f.text_field :last_name, placeholder: 'Doe'
 
-        .field = f.text_area :bio
+        .admin-bio-field = f.text_area :bio
 
-        .field.twitter
-          = f.label :twitter_handle
+        .admin-field.twitter
+          = f.label :twitter_handle, 'Twitter'
           = f.text_field :twitter_handle, placeholder: '@twitter'
 
-        .field.password
+        .admin-field.password
           = f.label :password
           = f.password_field :password, placeholder: 'Change yout password'
 
-        .actions
-          = f.submit class: 'button submit'
+        = f.submit class: 'button submit'

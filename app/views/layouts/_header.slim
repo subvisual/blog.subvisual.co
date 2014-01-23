@@ -1,14 +1,13 @@
-header#header
-  #main-logo
+header.header
+  .main-logo
     a href="http://groupbuddies.com"
       = image_tag 'logo.png', alt: 'GroupBuddies'
-
-  #heart
-    a.js-menu-toggle href="#"
+  .heart
+    a#js-menu-toggle href="#"
       = image_tag 'icons/heart-small.png', alt: 'Menu'
 
-nav#nav.js-nav
+#nav
   = render '/layouts/nav'
 
-section#saying-container
+section
   h1.saying = @saying.saying

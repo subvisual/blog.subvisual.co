@@ -3,4 +3,5 @@
 - content_for :image_url, post.author.photo_url
 - content_for :description, post.description
 
-= render 'post', post: post, show_comments: true
+.default-page
+  = render 'post', post: post, show_comments: true
