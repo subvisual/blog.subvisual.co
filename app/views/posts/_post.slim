@@ -7,6 +7,9 @@ article.post
     = post.processed_body
   - unless show_comments
     aside.info = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
+  .hire-us
+    ' Want to work with us?
+    a href='https://groupbuddies.typeform.com/to/tgcrRI' target='blank' Get in touch
   = render 'author', author: post.author
 
   - if show_comments
