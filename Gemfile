@@ -23,12 +23,12 @@ gem 'susy'
 
 group :development do
   gem 'better_errors'
-  gem 'capistrano-rvm'
-  gem 'capistrano-rails'
-  gem 'capistrano3-monit'
+  gem 'capistrano',         '~> 3.1.0', require: false
+  gem 'capistrano-rvm',     '~> 0.1.1', require: false
+  gem 'capistrano-rails',   '~> 1.1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1.1', require: false
+  gem 'capistrano3-monit', require: false
   gem 'binding_of_caller'
-  gem 'guard'
-  gem 'guard-rspec'
   gem 'meta_request'
   gem 'pry-rails'
   gem 'quiet_assets'
