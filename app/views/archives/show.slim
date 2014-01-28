@@ -6,7 +6,7 @@
     - @archive.posts_from_year(year).each do |post|
       .archive-post
         .date = post.short_publish_date
-        div
+        div.title-and-info
           h2.title = link_to post.title, post_path(post)
           aside.info.small = post.info
 
