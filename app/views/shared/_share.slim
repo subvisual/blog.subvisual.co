@@ -2,9 +2,3 @@
   a.twitter-share-button href="https://twitter.com/share" data-url="#{post_url(post)}" data-text="#{post.title}" data-via="groupbuddies" Tweet
   javascript:
     !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-
-  .fb-share-button data-href="#{post_url(post)}" data-type="button_count"
-
-  a.buffer-add-button data-text="#{post.title}" data-url="#{post_url(post)}" data-count="horizontal" data-via="groupbuddies" data-picture="#{post.author.photo_url}" Buffer
-  script type="text/javascript" src="http://static.bufferapp.com/js/button.js"
-
