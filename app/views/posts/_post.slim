@@ -1,5 +1,5 @@
 article.post
-  .post-icon = link_to post.category.icon, archive_path(category: post.category)
+  .post-icon = link_to post.category.icon, category_path(post.category)
   header.post-header
     h1.huge = link_to post.title, post_path(post)
     aside.info = post.info

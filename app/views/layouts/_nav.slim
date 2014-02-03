@@ -2,7 +2,7 @@ nav.nav
   ul
     li = link_to 'All', root_path
     - categories.each do |category|
-      li = link_to category.name, archive_path(category: category)
+      li = link_to category.name, category_path(category)
     li = link_to 'Archive', archive_path
     - if current_user
       li = link_to 'ADMIN', admin_dashboard_path, class: 'admin-action'

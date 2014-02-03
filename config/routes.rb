@@ -4,7 +4,12 @@ GbBlog::Application.routes.draw do
 
   resources :users, controller: :users, only: [:create]
   resources :posts, only: [:show]
-  resource :archive, only: [:show]
+
+  scope controller: :archive do
+    get '/archive' => 'archives#show', as: :archive
+    get '/archive/author/:author' => 'archives#show', as: :author
+    get '/archive/category/:category' => 'archives#show', as: :category
+  end
 
   get '/feed' => 'posts#feed'
 
