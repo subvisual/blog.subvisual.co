@@ -15,7 +15,7 @@ describe UserDecorator do
     it "returns an image tag based on user first name" do
       user_decorator = build(:user, first_name: :foo, last_name: :bar).decorate
 
-      user_decorator.photo_url.should include 'foo_bar.png'
+      user_decorator.photo_url.should include 'foo-bar.png'
     end
   end
 
