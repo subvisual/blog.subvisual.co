@@ -1,6 +1,4 @@
 class Admin::ApplicationController < ::ApplicationController
-  layout 'application'
-
   decorates_assigned :posts, :user
 
   def is_admin_controller?
