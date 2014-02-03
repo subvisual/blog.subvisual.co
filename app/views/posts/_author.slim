@@ -1,5 +1,5 @@
 section.author
-  .photo = image_tag author.photo_url
+  .photo = image_tag author.photo_url, alt: author.full_name
   .author-info
       h2.author-title = "About #{author.full_name}"
       p.author-bio = author.bio

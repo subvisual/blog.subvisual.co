@@ -1,7 +1,7 @@
 .admin-user
   = form_for [:admin, user.object], method: :patch do |f|
     .author
-      .photo = image_tag user.photo_url
+      .photo = image_tag user.photo_url, alt: user.full_name
       .about
         header
           = f.text_field :first_name, placeholder: 'John'

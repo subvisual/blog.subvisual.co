@@ -16,7 +16,7 @@ class CategoryDecorator < Draper::Decorator
   end
 
   def icon
-    h.image_tag image
+    h.image_tag image, alt: name
   end
 
 end

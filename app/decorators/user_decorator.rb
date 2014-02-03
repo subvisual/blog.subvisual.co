@@ -16,6 +16,6 @@ class UserDecorator < Draper::Decorator
   private
 
   def photo_name
-    "authors/#{full_name.downcase.parameterize.underscore}.png"
+    "authors/#{full_name.downcase.parameterize}.png"
   end
 end
