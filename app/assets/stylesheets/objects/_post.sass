@@ -59,7 +59,17 @@
     background-color: $code-background
     line-height: $code-line-height
   code
+    background-color: $light-gray
+    border: 1px solid $medium-gray
+    border-radius: 3px
+    display: inline-block
     font-size: $inline-code-font-size
+    line-height: $inline-code-line-height
+    vertical-align: middle
+    white-space: nowrap
+    &:before, &:after
+      content: "\00a0"
+      letter-spacing: -0.2em
   pre
     display: block
     font-size: $code-font-size
