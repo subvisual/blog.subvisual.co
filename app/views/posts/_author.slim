@@ -5,7 +5,7 @@ section.author
       p.author-bio = author.bio
       aside.info.small
         ' Read more from
-        a = link_to author.first_name, '#'
+        a = post.author_link
         - if author.has_twitter?
           '  or follow him on
           a = link_to 'Twitter', author.twitter_url

@@ -10,7 +10,7 @@ article.post
   .hire-us
     ' Want to hire us?
     a href='https://groupbuddies.typeform.com/to/tgcrRI' target='blank' Get in touch
-  = render 'author', author: post.author
+  = render 'author', author: post.author, post: post
 
   - if show_comments
     = render 'shared/disqus', post: post
