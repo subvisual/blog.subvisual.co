@@ -13,6 +13,8 @@ class Post < ActiveRecord::Base
 
   before_validation :preprocess
 
+  delegate :name, to: :author, prefix: true
+
   def self.all_published
     self.where("published_at IS NOT NULL")
   end

@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
     twitter_handle.present?
   end
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
