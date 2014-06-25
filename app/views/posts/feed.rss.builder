@@ -10,7 +10,6 @@ xml.rss version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
     posts.each do |post|
       xml.item do
         xml.title post.title
-        xml.author post.author_name
         xml.description post.processed_body
         xml.pubDate post.published_at.to_s(:rfc822)
         xml.link post_url(post)
