@@ -36,7 +36,7 @@ class PostDecorator < Draper::Decorator
   end
 
   def author_link
-    h.link_to author.first_name, h.author_path(author.full_name.parameterize)
+    h.link_to author.first_name, h.author_path(author.full_name.gsub(' ', '-'))
   end
 
   def author_photo
