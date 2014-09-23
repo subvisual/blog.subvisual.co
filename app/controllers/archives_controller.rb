@@ -21,7 +21,8 @@ class ArchivesController < ApplicationController
 
   def filter_by_author
     if archive_params[:author]
-      author = User.where(first_name: params[:author]).first
+      first_name, last_name = params[:author].split('-')
+      author = User.where(first_name: first_name, last_name: last_name).first
       @posts = @posts.by_author(author)
     end
   end
