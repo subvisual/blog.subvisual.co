@@ -1,4 +1,5 @@
 .default-page
   - posts.each do |post|
     = render 'post', post: post, show_comments: false
-  = link_to 'Load more', archive_path
+  .align-center
+    = link_to "Want to read more? Check all of our posts here", archive_path, class: 'color-blue'
