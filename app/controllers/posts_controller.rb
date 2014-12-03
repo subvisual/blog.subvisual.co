@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
+  POSTS_LIMIT = 5
+
   decorates_assigned :category, :posts, :post
 
   def index
-    @posts = Post.all_published
+    @posts = Post.all_published.limit(POSTS_LIMIT)
   end
 
   def feed
