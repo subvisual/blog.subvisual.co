@@ -18,7 +18,8 @@ set :keep_releases, 3
 
 set :foreman_export_path, '/home/deploy/.init'
 set :foreman_options, {
-  user: 'deploy'
+  user: 'deploy',
+  procfile: 'config/Procfile.production'
 }
 
 namespace :deploy do
