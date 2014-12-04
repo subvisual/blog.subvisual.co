@@ -1,0 +1,6 @@
+#!/bin/sh
+
+rvm install $(cat .ruby-version)
+bundle install
+bundle exec rake db:create
+bundle exec rake db:setup
