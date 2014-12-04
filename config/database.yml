@@ -1,12 +1,20 @@
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+common: &common
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
   pool: 5
   timeout: 5000
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+development:
+  <<: *common
+  database: gb-blog_development
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *common
+  database: gb-blog_test
 
+production:
+  <<: *common
+  database: gb-blog
