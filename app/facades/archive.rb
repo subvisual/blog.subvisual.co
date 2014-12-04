@@ -1,6 +1,5 @@
 module Facades
   class Archive
-
     def initialize(posts = [])
       @posts = posts
     end
@@ -14,11 +13,11 @@ module Facades
     end
 
     private
+
     attr_reader :posts
 
     def publication_year(post)
       post.published_at.year
     end
-
   end
 end

@@ -35,6 +35,8 @@ group :test do
   gem 'faker', require: false
   gem 'simplecov', require: false
   gem 'rspec-html-matchers', require: false
+  gem 'rubocop', require: false
+  gem 'pippi'
 end
 
 group :development, :test do

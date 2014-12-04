@@ -13,18 +13,18 @@ class ArchivesController < ApplicationController
   private
 
   def filter_by_category
-    if archive_params[:category]
-      category = Category.from_param(params[:category])
-      @posts = @posts.by_category(category)
-    end
+    return unless archive_params[:category]
+
+    category = Category.from_param(params[:category])
+    @posts = @posts.by_category(category)
   end
 
   def filter_by_author
-    if archive_params[:author]
-      first_name, last_name = params[:author].split('-')
-      author = User.where(first_name: first_name, last_name: last_name).first
-      @posts = @posts.by_author(author)
-    end
+    return unless archive_params[:author]
+
+    first_name, last_name = params[:author].split('-')
+    author = User.where(first_name: first_name, last_name: last_name).first
+    @posts = @posts.by_author(author)
   end
 
   def archive_params

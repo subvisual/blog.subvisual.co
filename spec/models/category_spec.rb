@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Category do
+RSpec.describe Category, type: :model do
 
   context '.find_by_name' do
     it 'is case insensitive' do

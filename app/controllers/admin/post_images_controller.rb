@@ -8,6 +8,7 @@ class Admin::PostImagesController < Admin::ApplicationController
   end
 
   private
+
   def image_params
     params.require(:post_image).permit(:image)
   end

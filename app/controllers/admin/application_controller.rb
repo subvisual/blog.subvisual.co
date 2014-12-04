@@ -1,7 +1,7 @@
 class Admin::ApplicationController < ::ApplicationController
   decorates_assigned :posts, :user
 
-  def is_admin_controller?
+  def admin_controller?
     true
   end
 

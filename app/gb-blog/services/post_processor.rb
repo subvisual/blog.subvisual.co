@@ -3,11 +3,9 @@ require 'redcarpet'
 
 module Services
   class PostProcessor
-
     def initialize(post)
       @post = post
     end
-
 
     def process
       extensions = { autolink: true, fenced_code_blocks: true }
@@ -24,6 +22,5 @@ module Services
         Pygmentize.process(code, language)
       end
     end
-
   end
 end

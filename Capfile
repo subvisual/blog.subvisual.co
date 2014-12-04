@@ -5,4 +5,4 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/foreman'
 
-Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

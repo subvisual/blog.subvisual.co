@@ -7,7 +7,7 @@ class CategoryDecorator < Draper::Decorator
       h.raw([
         icon,
         h.content_tag(:span, name, class: :name)
-        ].join)
+      ].join)
     end
   end
 
@@ -18,5 +18,4 @@ class CategoryDecorator < Draper::Decorator
   def icon
     h.image_tag image, alt: name
   end
-
 end

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe User do
+RSpec.describe User, type: :model do
 
-  context "#has_twitter?" do
+  context '#twitter_handle?' do
     it "is false if user doesn't have twitter" do
-      user = build :user, twitter_handle: ""
+      user = build :user, twitter_handle: ''
 
-      user.has_twitter?.should be_false
+      user.twitter_handle?.should_not be
     end
   end
 end

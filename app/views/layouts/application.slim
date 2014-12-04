@@ -13,12 +13,12 @@ html lang="en"
 
     = auto_discovery_link_tag :rss, feed_url(:rss), title: 'GroupBuddies Blog'
 
-    - if Rails.env.production? && !is_admin_controller?
+    - if Rails.env.production? && !admin_controller?
       = javascript_include_tag "google_analytics"
 
     = content_for :head
 
-  body class=(:admin if is_admin_controller?)
+  body class=(:admin if admin_controller?)
     = render '/layouts/header'
 
     section.content

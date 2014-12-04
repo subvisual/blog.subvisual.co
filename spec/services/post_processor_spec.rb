@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Services::PostProcessor do
+RSpec.describe Services::PostProcessor do
 
   context '#process' do
 
@@ -31,10 +31,10 @@ describe Services::PostProcessor do
 end
 
 def markdown_code_block
-"""
+  '''
 ```ruby
 def x
 end
 ```
-"""
+  '''
 end

@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
   before_filter :load_categories
   before_filter :load_saying
 
-  helper_method :is_admin_controller?
+  helper_method :admin_controller?
   decorates_assigned :categories
 
-  def is_admin_controller?
+  def admin_controller?
     false
   end
 
@@ -23,5 +23,4 @@ class ApplicationController < ActionController::Base
   def load_saying
     @saying = Saying.current
   end
-
 end

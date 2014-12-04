@@ -6,6 +6,6 @@ section.author
       aside.info.small
         ' Read more from
         a = link_to author.first_name, author_path(author.full_name.gsub(' ', '-'))
-        - if author.has_twitter?
+        - if author.twitter_handle?
           '  or follow him on
           a = link_to 'Twitter', author.twitter_url

@@ -24,7 +24,8 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params[:post]
-    end
+
+  def post_params
+    params[:post]
+  end
 end

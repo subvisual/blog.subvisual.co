@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Post do
+RSpec.describe Post, type: :model do
 
   context '.all_published' do
     it 'returns only posts that are published' do
-      unpublished_posts = create_list(:post, 2)
+      create_list(:post, 2)
       published_posts   = create_list(:published_post, 2)
 
       Post.all_published.should match_array(published_posts)
@@ -16,7 +16,7 @@ describe Post do
       red_category = create :category, name: :red
       green_category = create :category, name: :green
       red_posts   = create_list(:published_post, 2, category: red_category)
-      green_posts = create_list(:published_post, 2, category: green_category)
+      create_list(:published_post, 2, category: green_category)
 
       Post.by_category(red_category).should =~ red_posts
     end
