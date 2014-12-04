@@ -1,7 +1,7 @@
 set :repo_url, 'git@github.com:groupbuddies/gb-blog.git'
 set :application, 'gb-blog'
 set :stage, :production
-set :branch, 'mp-yoda'
+set :branch, :master
 set :rails_env, :production
 
 set :format, :pretty
