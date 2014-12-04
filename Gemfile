@@ -13,13 +13,13 @@ gem 'draper', '~> 1.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'pg'
 gem 'puma'
 gem 'pygmentize', require: false
 gem 'redcarpet', require: false
 gem 'rmagick'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.0.3'
 gem 'susy'
 
@@ -47,7 +47,6 @@ end
 
 group :production do
   gem 'dotenv-rails'
-  gem 'pg'
   gem 'foreman'
 end
 
