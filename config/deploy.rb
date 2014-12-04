@@ -5,35 +5,38 @@ set :branch, :master
 set :rails_env, :production
 
 set :format, :pretty
+set :log_level, :debug
 set :pty, true
-set :default_shell, 'bash -l'
-set :log_level, :info
 
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :rvm_ruby_version, '2.1.5'
 
- set :keep_releases, 3
+set :linked_files, %w{.env}
+set :linked_dirs, %w{log public/system public/uploads}
+
+set :bundle_without, %w(development test deploy).join(' ')
+set :keep_releases, 3
+
+set :foreman_export_path, '/home/deploy/.init'
+set :foreman_options, {
+  user: 'deploy',
+  procfile: 'config/Procfile.production'
+}
 
 namespace :deploy do
+  task :stop do
+    begin
+      invoke 'foreman:stop'
+    rescue
+    end
+  end
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
-    end
-  end
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
-    end
+    invoke 'deploy:stop'
+    invoke 'foreman:export'
+    invoke 'foreman:start'
   end
 
   after :finishing, 'deploy:cleanup'
-  after :finishing, 'monit:restart'
-
+  after :finishing, 'deploy:restart'
 end

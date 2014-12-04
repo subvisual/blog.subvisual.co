@@ -11,23 +11,18 @@ gem 'draper', '~> 1.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'pg'
 gem 'puma'
 gem 'pygmentize', require: false
 gem 'redcarpet', require: false
 gem 'rmagick'
 gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.0.3'
 gem 'susy'
 
 group :development do
   gem 'better_errors'
-  gem 'capistrano',         '~> 3.1.0', require: false
-  gem 'capistrano-rvm',     '~> 0.1.1', require: false
-  gem 'capistrano-rails',   '~> 1.1.1', require: false
-  gem 'capistrano-bundler', '~> 1.1.1', require: false
-  gem 'capistrano3-monit', require: false
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'pry-rails'
@@ -49,5 +44,14 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'dotenv-rails'
+  gem 'foreman'
+end
+
+group :deploy do
+  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
 end
