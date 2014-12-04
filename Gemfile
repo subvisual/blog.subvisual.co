@@ -46,6 +46,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'dotenv-rails'
   gem 'pg'
   gem 'foreman'
 end
