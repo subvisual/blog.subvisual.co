@@ -47,6 +47,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'foreman'
 end
 
 group :deploy do
