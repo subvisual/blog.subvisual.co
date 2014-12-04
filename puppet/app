@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+
+# read host
+read -p "server (i.e exampe.com): " host
+host=deploy@${host}
+
+# read port
+read -p "ssh port [default=22]: " port
+port=${port:-22}
+
+# manifest file
+read -p "manifest file path [default=./manifest.pp]: " manifest
+manifest=${manifest:-./manifest.pp}
+
+# hiera data
+read -p "secret hiera data [default=./manifest.yaml]: " data
+data=${data:-./manifest.yaml}
+
+hiera="
+---
+:logger: console
+
+:backends:
+  - yaml
+
+:hierarchy:
+  - manifest
+
+:yaml:
+  :datadir: '.'"
+
+scp -P $port $manifest $host:manifest.pp
+scp -P $port $data     $host:manifest.yaml
+ssh $host -p $port "echo \"$hiera\" > hiera.yaml"
+ssh $host -t -p $port 'sudo puppet apply manifest.pp --hiera_config=hiera.yaml'
+
+echo "All done!"
