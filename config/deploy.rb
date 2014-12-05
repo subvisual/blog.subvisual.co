@@ -1,7 +1,7 @@
 set :repo_url, 'git@github.com:groupbuddies/gb-blog.git'
 set :application, 'gb-blog'
 set :stage, :production
-set :branch, :master
+set :branch, (ENV['DEPLOY_BRANCH'] || :master)
 set :rails_env, :production
 
 set :format, :pretty

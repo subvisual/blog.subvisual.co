@@ -48,6 +48,7 @@ end
 group :production do
   gem 'dotenv-rails'
   gem 'foreman'
+  gem 'opbeat'
 end
 
 group :deploy do
