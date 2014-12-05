@@ -48,7 +48,6 @@ end
 group :production do
   gem 'dotenv-rails'
   gem 'foreman'
-  gem 'opbeat'
 end
 
 group :deploy do
@@ -57,4 +56,8 @@ group :deploy do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
+end
+
+group :deploy, :production do
+  gem 'opbeat'
 end
