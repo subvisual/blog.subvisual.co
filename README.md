@@ -4,17 +4,22 @@
 
 Our blog. Live @ [blog.groupbuddies.com](blog.groupbuddies.com)
 
-# Development Setup
+# Development Guide
+
+## Setting up
 
     git clone git@github.com/groupbuddies/gb-blog
     cd gb-blog
     bin/setup
 
-    # running the server
+## Development server
+
     bin/server
 
-    # running the test suite
+## Test suite (rubocop + RSpec)
+
     bundle exec rake
 
-    # deploy
+## Deployment
+
     bundle exec cap production deploy
