@@ -59,5 +59,5 @@ group :deploy do
 end
 
 group :deploy, :production do
-  gem 'opbeat'
+  gem 'opbeat', github: 'groupbuddies/opbeat_ruby'
 end
