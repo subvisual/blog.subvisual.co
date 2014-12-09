@@ -1,3 +1,5 @@
+require 'opbeat'
+
 if %w(production staging).include? Rails.env
   Opbeat.configure do |config|
     config.organization_id = ENV['OPBEAT_ORGANIZATION_ID']
