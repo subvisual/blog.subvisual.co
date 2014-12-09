@@ -58,7 +58,3 @@ group :deploy do
   gem 'capistrano-bundler'
   gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
 end
-
-group :deploy, :production do
-  gem 'opbeat', github: 'groupbuddies/opbeat_ruby'
-end
