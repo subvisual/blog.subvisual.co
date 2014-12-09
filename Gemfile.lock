@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/groupbuddies/opbeat_ruby.git
-  revision: 424759592ac84de102de55b0bec9bfabec14387a
+  revision: 4ce6486ba7a01ea784ca7d4982228d0171b3a11d
   specs:
     opbeat (0.9.1)
       faraday (>= 0.8, < 0.10)
