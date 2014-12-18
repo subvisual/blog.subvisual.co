@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     it "is false if user doesn't have twitter" do
       user = build :user, twitter_handle: ''
 
-      user.twitter_handle?.should_not be
+      expect(user).not_to have_twitter
     end
   end
 end

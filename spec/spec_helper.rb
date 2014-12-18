@@ -34,6 +34,9 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.use_transactional_fixtures = false
   config.infer_base_class_for_anonymous_controllers = false
+  config.expect_with :rspec do |c|
+    c.syntax = [:should, :expect]
+  end
 
-  config.include ActionView::TestCase::Behavior, example_group: { file_path: %r{spec/presenters} }
+  config.include ActionView::TestCase::Behavior, file_path: %r{spec/presenters}
 end
