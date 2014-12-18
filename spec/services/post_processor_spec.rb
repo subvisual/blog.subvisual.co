@@ -1,9 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Services::PostProcessor do
-
   context '#process' do
-
     it 'sets the processed body of a post' do
       post = build :post, processed_body: nil
 

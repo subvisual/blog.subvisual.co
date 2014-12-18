@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Post, type: :model do
-
   context '.all_published' do
     it 'returns only posts that are published' do
       create_list(:post, 2)
@@ -35,5 +34,4 @@ RSpec.describe Post, type: :model do
       post.should be_published
     end
   end
-
 end
