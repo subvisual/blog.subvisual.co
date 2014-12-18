@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe PostDecorator do
-
   context '#publish_date' do
     it 'returns nothing if post is not published' do
       post_decorator = build(:post).decorate
@@ -37,5 +36,4 @@ RSpec.describe PostDecorator do
       post_decorator.description.should eq 'title. text'
     end
   end
-
 end

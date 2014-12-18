@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :author, class_name: 'User'
   belongs_to :category
 
-  validates :author, :body, :category, :title, presence: true
+  validates :author_id, :body, :category_id, :title, presence: true
 
   before_validation :preprocess
 

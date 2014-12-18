@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'uri'
 
 RSpec.describe UserDecorator do
-
   context '#full_name' do
     it 'strips leading or trailing whitespace' do
       user_decorator = build(:user, first_name: ' first', last_name: 'last ').decorate

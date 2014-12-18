@@ -1,5 +1,5 @@
 class Saying < ActiveRecord::Base
   def self.current
-    last order: 'created_at DESC', limit: 1
+    order('created_at DESC').limit(1).last
   end
 end
