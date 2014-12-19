@@ -4,11 +4,17 @@ RSpec.describe API::PostsController, type: :controller do
   it 'creates a post with the correct params' do
     new_post = spy('post')
     allow(Post).to receive(:new).and_return(new_post)
-    post_params = { category_id: '1', title: 'A post', body: "# Post\n With markdown", author_id: '1' }
+    category = create(:category, name: 'development')
+    author = create(:user)
 
-    post :create, post: post_params
+    post :create, post: { category: 'development', title: 'A post', body: "# Post\n With markdown", author: author.email }
 
-    expect(Post).to have_received(:new).with(post_params)
+    expect(Post).to have_received(:new).with({
+      category_id: category.id,
+      title: 'A post',
+      body: "# Post\n With markdown",
+      author_id: author.id
+    })
     expect(new_post).to have_received(:save)
   end
 end
