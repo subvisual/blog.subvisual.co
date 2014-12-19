@@ -9,12 +9,12 @@ RSpec.describe API::PostsController, type: :controller do
 
     post :create, post: { category: 'development', title: 'A post', body: "# Post\n With markdown", author: author.email }
 
-    expect(Post).to have_received(:new).with({
+    expect(Post).to have_received(:new).with(
       category_id: category.id,
       title: 'A post',
       body: "# Post\n With markdown",
       author_id: author.id
-    })
+    )
     expect(new_post).to have_received(:save)
   end
 end
