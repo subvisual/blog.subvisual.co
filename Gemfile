@@ -20,7 +20,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.0.3'
 gem 'susy'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 group :development do
   gem 'better_errors'
