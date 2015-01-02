@@ -3,7 +3,27 @@ class API::PostsController < API::ApplicationController
     post = Post.new post_params
 
     if post.save
-      render json: :nothing, status: 200
+      render json: { id: post.id }, status: 200
+    else
+      render json: { errors: post.errors.full_messages }.to_json, status: 422
+    end
+  end
+
+  def update
+    post = Post.find(params[:id])
+
+    if post.published?
+      render json: "Already published".to_json, status: 422
+    else
+      update_post(post)
+    end
+  end
+
+  private
+
+  def update_post(post)
+    if post.update(post_params)
+      render json: { id: post.id }, status: 200
     else
       render json: { errors: post.errors.full_messages }.to_json, status: 422
     end

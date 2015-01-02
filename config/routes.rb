@@ -30,7 +30,7 @@ GbBlog::Application.routes.draw do
   end
 
   namespace :api, defaults: { format: :json }, constraints: { format: :json } do
-    resources :posts, only: [:create]
+    resources :posts, only: [:create, :update]
   end
 
   scope controller: :pages do
