@@ -13,7 +13,7 @@ class API::PostsController < API::ApplicationController
     post = Post.find(params[:id])
 
     if post.published?
-      render json: "Already published".to_json, status: 422
+      render json: 'Already published'.to_json, status: 422
     else
       update_post(post)
     end
