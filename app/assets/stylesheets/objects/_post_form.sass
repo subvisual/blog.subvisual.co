@@ -9,30 +9,25 @@
     .info
       font-family: $text-font
 
-.editor-and-body
-  font-family: $text-font
-  @extend %row
-  box-sizing: border-box
-  .editor,
-  .preview
-    width: 50%
-    min-height: 300px
-    box-sizing: border-box
+.markdown-editor
+  margin: 0
+  height: 100%
+  color: #333
 
-  .editor textarea,
-  .preview .post-body
-    margin-top: 0
-    padding-top: $default-spacing
-
-  .editor textarea
-    width: 98%
-    margin-left: 1%
+  .editor
     border: none
-    font-family: $text-font
-    font-size: $post-font-size
-    height: 1000px
-    resize: vertical
+    border-right: 1px solid #ccc
+    resize: none
+    outline: none
+    padding: 20px
 
-  .preview .post-body
-    margin: $default-spacing / 2
-
+  .preview,
+  .editor
+    display: inline-block
+    width: 49%
+    height: 100%
+    vertical-align: top
+    box-sizing: border-box
+    margin-top: 0
+    min-height: 1000px
+    padding: 0 20px
