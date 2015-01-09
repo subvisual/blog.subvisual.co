@@ -20,14 +20,18 @@
       = f.text_field :title, placeholder: 'Title', class: 'huge-font', autocomplete: :off
       aside
         .info = post.info
-    .editor-and-body
-      .editor
-        = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input'
-      .preview
-        .post-body#js-markdown-output
+    .markdown-editor#markdown-editor
+      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'editor'
+      .post-body.preview v-html='input | marked'
 
 
 - content_for :page_script
-  coffee:
-    $ ->
-      new window.MarkdownConverter $('#js-markdown-input'), $('#js-markdown-output')
+  javascript:
+    $(function() {
+      new Vue({
+        el: '#markdown-editor',
+        filters: {
+          marked: marked
+        }
+      })
+    });
