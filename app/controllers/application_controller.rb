@@ -7,12 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_categories
   before_filter :load_saying
 
-  helper_method :admin_controller?
   decorates_assigned :categories
-
-  def admin_controller?
-    false
-  end
 
   private
 
