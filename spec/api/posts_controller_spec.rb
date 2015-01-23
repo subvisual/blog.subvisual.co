@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe API::PostsController, type: :controller do
   it 'creates a post with the correct params' do
-    new_post = spy('post')
+    new_post = double('post', id: 1, save: true)
     allow(Post).to receive(:new).and_return(new_post)
     category = create(:category, name: 'development')
     author = create(:user)
