@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  POSTS_LIMIT = 5
+
   default_scope  { order('published_at DESC') }
 
   belongs_to :author, class_name: 'User'
@@ -10,16 +12,20 @@ class Post < ActiveRecord::Base
 
   delegate :name, to: :author, prefix: true
 
-  def self.all_published
+  def self.published
     where('published_at IS NOT NULL')
   end
 
+  def self.recent
+    limit(POSTS_LIMIT)
+  end
+
   def self.by_category(category)
-    all_published.where(category_id: category)
+    published.where(category_id: category)
   end
 
   def self.by_author(author)
-    all_published.where(author_id: author)
+    published.where(author_id: author)
   end
 
   def self.visible_by(author)

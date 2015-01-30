@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 RSpec.describe Post, type: :model do
-  context '.all_published' do
+  context '.published' do
     it 'returns only posts that are published' do
       create_list(:post, 2)
       published_posts   = create_list(:published_post, 2)
 
-      Post.all_published.should match_array(published_posts)
+      Post.published.should match_array(published_posts)
     end
   end
 

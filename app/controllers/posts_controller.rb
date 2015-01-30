@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
-  POSTS_LIMIT = 5
-
   decorates_assigned :category, :posts, :post
 
   def index
-    @posts = Post.all_published.limit(POSTS_LIMIT)
+    @posts = Post.published.recent
   end
 
   def feed
     if params[:category]
       @category = Category.from_param(params[:category])
-      @posts = @posts.by_category(@category)
+      @posts = @posts.by_category(@category).recent
     else
-      @posts = Post.all_published
+      @posts = Post.published.recent
     end
 
     respond_to do |format|
