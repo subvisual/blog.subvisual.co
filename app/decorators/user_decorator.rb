@@ -6,7 +6,8 @@ class UserDecorator < Draper::Decorator
   end
 
   def photo_url
-    "#{h.root_url[0...-1]}#{h.image_path(photo_name)}"
+    root = h.root_url[0...-1].split(':').last
+    "#{root}#{h.image_path(photo_name)}"
   end
 
   def twitter_url
