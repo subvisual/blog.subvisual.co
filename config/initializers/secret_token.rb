@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-GbBlog::Application.config.secret_key_base = '844e2974e9a910e5c8f8ee20d0d3c4ef1731ee8753a14e3820f0b20981dde0d8e213b96d0e4fab52c9200dc1e73dd7988fb32bffe00dd83b524c8b68a0ad3bbe'
+GbBlog::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || '844e2974e9a910e5c8f8ee20d0d3c4ef1731ee8753a14e3820f0b20981dde0d8e213b96d0e4fab52c9200dc1e73dd7988fb32bffe00dd83b524c8b68a0ad3bbe'
