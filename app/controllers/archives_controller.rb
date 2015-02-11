@@ -4,7 +4,7 @@ class ArchivesController < ApplicationController
   decorates_assigned :posts
 
   def show
-    @posts = Post.published.recent
+    @posts = Post.published
     filter_by_category
     filter_by_author
     @archive = Facades::Archive.new(@posts.decorate)
