@@ -16,6 +16,6 @@ class ApplicationController < ActionController::Base
   end
 
   def load_saying
-    @saying = Saying.current
+    @saying = Saying.current || NullSaying.new
   end
 end
