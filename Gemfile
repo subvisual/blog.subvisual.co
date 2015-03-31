@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'pg'
+gem 'piet'
+gem 'piet-binary'
 gem 'puma'
 gem 'pygmentize', require: false
 gem 'redcarpet', require: false
