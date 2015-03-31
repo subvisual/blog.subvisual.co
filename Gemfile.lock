@@ -36,9 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    airbrake (4.1.0)
-      builder
-      multi_json
     appsignal (0.11.7)
       rack
       thread_safe
@@ -292,7 +289,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake
   appsignal
   better_errors
   binding_of_caller
