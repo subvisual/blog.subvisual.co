@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.0'
 
-gem 'appsignal'
+gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
 gem 'cancan'
 gem 'carrierwave'
