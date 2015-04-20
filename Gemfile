@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.0'
 
+gem 'appsignal'
 gem 'autoprefixer-rails'
 gem 'cancan'
 gem 'carrierwave'
@@ -25,7 +26,6 @@ gem 'uglifier', '>= 1.0.3'
 gem 'susy'
 
 group :production do
-  gem 'appsignal'
   gem 'newrelic_rpm'
 end
 
