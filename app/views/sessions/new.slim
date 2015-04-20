@@ -1,4 +1,17 @@
-.default-page.admin-page#clearance.sign-in
-  h2 = t '.title'
+/* .default-page.admin-page#clearance.sign-in */
+.default-page.admin-page
+  .SignIn#clearance
+    h2 = t '.title'
 
-  = render '/sessions/form'
+    = form_for :session, :url => session_path do |form|
+      .SignIn-field
+        = form.label :email, class: 'SignIn-fieldLabel'
+        = form.text_field :email, type: 'email', class: 'SignIn-fieldInput'
+
+      .SignIn-field
+        = form.label :password, class: 'SignIn-fieldLabel'
+        = form.password_field :password, class: 'SignIn-fieldInput'
+
+      .SignIn-actions
+        = form.submit class: 'Btn Btn--submit'
+        = link_to 'Forgot Password', new_password_path, class: 'Btn'

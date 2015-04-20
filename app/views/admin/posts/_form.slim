@@ -4,18 +4,18 @@
       span Here's the url to the image:
       span = url
   = form_for :post_image, url: admin_post_images_path  do |form|
-    = form.submit "Add Image", class: "button"
+    = form.submit "Add Image", class: "Btn"
     = form.file_field :image
 
   = form_for [:admin, post.object], method: post.form_method do |f|
     header.post-header
       .actions
-        = f.submit 'Save Draft', class: 'admin-button'
+        = f.submit 'Save Draft', class: 'Btn'
         - unless post.new?
           - if post.published?
-            = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'admin-button'
+            = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'Btn'
           - else
-            = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'admin-button'
+            = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'Btn'
       .post-icon = f.collection_select :category_id, Category.all, :id, :name
       = f.text_field :title, placeholder: 'Title', class: 'huge-font', autocomplete: :off
       aside

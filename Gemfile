@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.0'
 
+gem 'autoprefixer-rails'
 gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
