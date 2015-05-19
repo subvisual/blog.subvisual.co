@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/groupbuddies/appsignal.git
-  revision: 12b6dcd531aaf2934a59bfd4c1ac0cd7fb99d8e7
+  revision: 706fe9a3651005be9db913d8872a87da9daf51b2
   branch: server-notify
   specs:
     appsignal (0.11.9)
