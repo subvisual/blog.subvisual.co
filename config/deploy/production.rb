@@ -1,3 +1,3 @@
-server 'blog.groupbuddies.com', user: 'deploy', roles: %w{web app db}, primary: true
-set :deploy_to, '/var/www/gb-blog'
+server 'blog.subvisual.co', user: 'deploy', roles: %w{web app db}, primary: true
+set :deploy_to, '/apps/blog.subvisual.co'
 
