@@ -17,4 +17,4 @@ test:
 
 production:
   <<: *common
-  database: gb-blog
+  database: blog.subvisual.co
