@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.1'
 
 gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
@@ -8,7 +8,7 @@ gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails', '~> 1.1.3'
-gem 'clearance', '1.0.0.rc7'
+gem 'clearance', '1.10.1'
 gem 'draper', '~> 1.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -47,6 +47,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'jasmine-jquery-rails'
   gem 'jasmine-rails'
   gem 'pry-rails'
@@ -54,7 +55,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'dotenv-rails'
   gem 'foreman'
 end
 

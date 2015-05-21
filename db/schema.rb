@@ -16,22 +16,22 @@ ActiveRecord::Schema.define(version: 20141218154711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_keys", force: true do |t|
+  create_table "api_keys", force: :cascade do |t|
     t.string   "name"
     t.string   "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "post_images", force: true do |t|
+  create_table "post_images", force: :cascade do |t|
     t.string "image"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.integer  "author_id"
     t.string   "title",          null: false
     t.text     "body",           null: false
@@ -42,13 +42,13 @@ ActiveRecord::Schema.define(version: 20141218154711) do
     t.text     "processed_body", null: false
   end
 
-  create_table "sayings", force: true do |t|
+  create_table "sayings", force: :cascade do |t|
     t.string   "saying"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
     t.string   "email",                                       null: false

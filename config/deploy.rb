@@ -1,5 +1,5 @@
-set :repo_url, 'git@github.com:groupbuddies/gb-blog.git'
-set :application, 'gb-blog'
+set :repo_url, 'git@github-blog.subvisual.co:groupbuddies/gb-blog.git'
+set :application, 'blog.subvisual.co'
 set :stage, :production
 set :branch, (ENV['DEPLOY_BRANCH'] || :master)
 set :rails_env, :production
@@ -8,7 +8,7 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :rvm_ruby_version, '2.2.0'
+set :rvm_ruby_version, '2.2.2'
 set :appsignal_bin, %i(foreman run appsignal)
 
 set :linked_files, %w{.env}
