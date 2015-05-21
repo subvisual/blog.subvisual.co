@@ -47,7 +47,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'jasmine-jquery-rails'
   gem 'jasmine-rails'
   gem 'pry-rails'
@@ -55,6 +54,7 @@ group :development, :test do
 end
 
 group :production do
+  gem 'dotenv-rails'
   gem 'foreman'
 end
 
