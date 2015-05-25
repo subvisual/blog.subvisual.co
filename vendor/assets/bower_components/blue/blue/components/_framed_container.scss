@@ -1,0 +1,36 @@
+// FramedContainer
+//
+// A container for displaying content in a framed/bordered grid.
+//
+// markup:
+// <div class="FramedContainer">
+//   <div class="FramedContainer-cell">Content</div>
+// </div>
+// <div class="FramedContainer">
+//   <div class="FramedContainer-cell">Content 1</div>
+//   <div class="FramedContainer-cell">Content 2</div>
+// </div>
+//
+// Styleguide 1.15
+
+@import '../reset';
+@import '../theme_vars';
+
+.FramedContainer {
+  display: flex;
+
+  border-top: 2px solid $Theme-color-white;
+  border-bottom: 2px solid $Theme-color-white;
+
+  .FramedContainer-cell {
+    flex: 1;
+
+    padding: 0 $Theme-spacing-small;
+
+    border-left: 2px solid $Theme-color-white;
+  }
+
+  .FramedContainer-cell:last-child {
+    border-right: 2px solid $Theme-color-white;
+  }
+}

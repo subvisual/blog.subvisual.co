@@ -15,15 +15,3 @@ users.each do |user_data|
     user.save!
   end
 end
-
-categories = [
-  { name: 'Development' },
-  { name: 'Design' },
-  { name: 'Business' },
-  { name: 'Sys Admin' },
-  { name: 'Miscellanea' }
-]
-
-categories.each do |category_data|
-  Category.where(category_data).first_or_create!
-end

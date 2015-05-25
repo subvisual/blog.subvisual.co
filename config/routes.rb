@@ -25,7 +25,6 @@ GbBlog::Application.routes.draw do
     scope controller: :archive do
       get '/archive' => 'archives#show', as: :archive
       get '/author/:author' => 'archives#show', as: :author
-      get '/category/:category' => 'archives#show', as: :category
     end
 
     get '/feed' => 'posts#feed'

@@ -1,0 +1,55 @@
+// Heading
+//
+// Styles heading's font and color properties.
+//
+// default - Most commonly used heading
+// .Heading--small - Smaller font
+// .Heading--large - Larger font
+// .Heading--brand - Subvisual font
+// .Heading--uvp - To be used as a sub heading in the UVP section
+//
+// markup:
+// <div class="Heading {$modifiers} styleguide-grid-unit">
+//   Lorem Ipsum <span class="Heading-highlight">is simply dummy text</span> of the printing and <span class="Heading-light">typesetting industry</span>.
+// </div>
+//
+// Styleguide 1.5
+
+@import '../reset';
+@import '../theme_vars';
+
+.Heading {
+  @include font-properties(heading, base);
+  width: 100%;
+
+  color: $Theme-color-horizon;
+
+  font-weight: $Theme-typography-fontWeight-bold;
+}
+
+.Heading.Heading--uvp {
+  color: $Theme-color-white;
+
+  font-weight: $Theme-typography-fontWeight-regular;
+}
+
+.Heading.Heading--small {
+  @include font-properties(heading, small);
+}
+
+.Heading.Heading--brand {
+  @include font-properties(subvisual, base);
+  text-transform: uppercase;
+}
+
+.Heading.Heading--brand.Heading--large {
+  @include font-properties(subvisual, large);
+}
+
+.Heading-highlight {
+  color: $Theme-color-brightTurquoise;
+}
+
+.Heading-light {
+  color: $Theme-color-white;
+}

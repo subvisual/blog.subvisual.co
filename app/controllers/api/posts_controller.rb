@@ -33,11 +33,7 @@ class API::PostsController < API::ApplicationController
     params.
       require(:post).
       permit(:title, :body).
-      merge(category_id: category_id, author_id: author_id)
-  end
-
-  def category_id
-    Category.find_by_name(params[:post].delete(:category)).try(:id)
+      merge(author_id: author_id)
   end
 
   def author_id

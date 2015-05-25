@@ -1,0 +1,12 @@
+{
+  "name": "blue",
+  "_release": "fd76f20b9f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "fd76f20b9f5ad69580d5e84c91ae46dcf49d2442"
+  },
+  "_source": "file:///home/naps62/gb/subvisual/blue/.git/",
+  "_target": "*",
+  "_originalSource": "file:///home/naps62/gb/subvisual/blue/.git/"
+}

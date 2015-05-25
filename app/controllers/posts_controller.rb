@@ -6,12 +6,7 @@ class PostsController < ApplicationController
   end
 
   def feed
-    if params[:category]
-      @category = Category.from_param(params[:category])
-      @posts = @posts.by_category(@category).recent
-    else
-      @posts = Post.published.recent
-    end
+    @posts = Post.published.recent
 
     respond_to do |format|
       format.rss { render layout: false }

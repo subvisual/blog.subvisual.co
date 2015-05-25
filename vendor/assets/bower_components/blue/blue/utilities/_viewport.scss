@@ -1,0 +1,35 @@
+// Viewport
+//
+// Utilities that apply a rule based on some media query.
+//
+// Styleguide 4.2
+
+// u-onlySmall
+//
+// Shows its content only on small resolutions.
+//
+// markup:
+// <div class="u-onlySmall">I only show on small resolutions</div>
+//
+// Styleguide 4.2.1
+
+.u-onlySmall {
+  @include media(">tablet") {
+    display: none;
+  }
+}
+
+// u-exceptSmall
+//
+// Shows its content only on large resolutions.
+//
+// markup:
+// <div class="u-exceptSmall">I only show on large resolutions</div>
+//
+// Styleguide 4.2.2
+
+.u-exceptSmall {
+  @include media("<=tablet") {
+    display: none;
+  }
+}

@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.1'
 
+gem 'acts-as-taggable-on'
 gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
-gem 'bower'
 gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'

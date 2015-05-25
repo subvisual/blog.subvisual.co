@@ -5,19 +5,11 @@ class ArchivesController < ApplicationController
 
   def show
     @posts = Post.published
-    filter_by_category
     filter_by_author
     @archive = Facades::Archive.new(@posts.decorate)
   end
 
   private
-
-  def filter_by_category
-    return unless archive_params[:category]
-
-    category = Category.from_param(params[:category])
-    @posts = @posts.by_category(category)
-  end
 
   def filter_by_author
     return unless archive_params[:author]
@@ -28,6 +20,6 @@ class ArchivesController < ApplicationController
   end
 
   def archive_params
-    params.permit(:category, :author)
+    params.permit(:author)
   end
 end

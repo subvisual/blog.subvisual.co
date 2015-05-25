@@ -5,8 +5,9 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User'
   belongs_to :category
+  acts_as_taggable
 
-  validates :author_id, :body, :category_id, :title, presence: true
+  validates :author_id, :body, :title, presence: true
 
   before_validation :preprocess
 
@@ -18,10 +19,6 @@ class Post < ActiveRecord::Base
 
   def self.recent
     limit(POSTS_LIMIT)
-  end
-
-  def self.by_category(category)
-    published.where(category_id: category)
   end
 
   def self.by_author(author)

@@ -16,7 +16,7 @@
             = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'Btn'
           - else
             = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'Btn'
-      .post-icon = f.collection_select :category_id, Category.all, :id, :name
+      .post-icon
       = f.text_field :title, placeholder: 'Title', class: 'huge-font', autocomplete: :off
       aside
         .info = post.info

@@ -1,0 +1,18 @@
+// Alignment
+//
+// Utilities for aligning content.
+//
+// Styleguide 4.1
+
+// u-textAlignCenter
+//
+// Applies the rule ```text-align: center```.
+//
+// markup:
+// <div class="u-textAlignCenter">Learn more</div>
+//
+// Styleguide 4.1.1
+
+.u-textAlignCenter {
+  text-align: center;
+}
