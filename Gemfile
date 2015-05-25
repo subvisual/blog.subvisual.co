@@ -4,6 +4,7 @@ gem 'rails', '~> 4.2.1'
 
 gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
+gem 'bower'
 gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
