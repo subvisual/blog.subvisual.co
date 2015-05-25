@@ -12,18 +12,14 @@ html lang="en"
     = csrf_meta_tags
     = favicon_link_tag 'favicon.ico'
 
-    = auto_discovery_link_tag :rss, feed_url(:rss), title: 'GroupBuddies Blog'
+    = auto_discovery_link_tag :rss, feed_url(:rss), title: 'Subvisual Blog'
 
     - if Rails.env.production?
       = render 'layouts/google_analytics'
 
   body
-    = render '/layouts/header'
-
     section.content
       = yield
-
-    = render '/layouts/footer'
 
     = javascript_include_tag "application"
     script src="//use.typekit.net/jgi4btu.js"
