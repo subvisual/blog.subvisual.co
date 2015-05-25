@@ -9,11 +9,11 @@ common: &common
 
 development:
   <<: *common
-  database: gb-blog_development
+  database: blog-subvisual-co_dev
 
 test:
   <<: *common
-  database: gb-blog_test
+  database: blog-subvisual-co_test
 
 production:
   <<: *common

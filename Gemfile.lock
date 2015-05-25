@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/groupbuddies/appsignal.git
-  revision: 706fe9a3651005be9db913d8872a87da9daf51b2
+  revision: 8f4ef669d3ca5e5d1804a007b80551d4fbf16762
   branch: server-notify
   specs:
-    appsignal (0.11.9)
+    appsignal (0.11.11)
       rack
       thread_safe
 
