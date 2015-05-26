@@ -5,7 +5,8 @@
     h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
     .Layout-smallMargin
     = post.processed_intro
+    .Layout-smallMargin
     div = render 'tag_list', tag_list: post.tag_list
     .Layout-smallMargin
-    div = post.info
+    div = render 'author', post: post
     .Layout-defaultMargin

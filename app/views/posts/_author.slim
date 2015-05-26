@@ -1,11 +1,20 @@
-section.author
-  .photo = image_tag author.photo_url, alt: author.full_name
-  .author-info
-      h2.author-title = "About #{author.full_name}"
-      p.author-bio = author.bio
-      aside.info.small
-        ' Read more from
-        a = link_to author.first_name, author_path(author.full_name.gsub(' ', '-'))
-        - if author.twitter_handle?
-          '  or follow him on
-          a = link_to 'Twitter', author.twitter_url
+/* section.author */
+/*   .photo = image_tag author.photo_url, alt: author.full_name */
+/*   .author-info */
+/*       h2.author-title = "About #{author.full_name}" */
+/*       p.author-bio = author.bio */
+/*       aside.info.small */
+/*         ' Read more from */
+/*         a = link_to author.first_name, author_path(author.full_name.gsub(' ', '-')) */
+/*         - if author.twitter_handle? */
+/*           '  or follow him on */
+/*           a = link_to 'Twitter', author.twitter_url */
+
+.PostAuthor
+  .PostAuthor-picture = image_tag post.author.photo_url, alt: post.author.full_name
+  .PostAuthor-info
+    ' Written by
+    =<> link_to post.author.full_name, '#', class_name: 'Link'
+    ' on
+    = l post.published_at, format: :publish_date
+
