@@ -8,6 +8,13 @@ GIT
       thread_safe
 
 GIT
+  remote: git://github.com/groupbuddies/capistrano-bower.git
+  revision: 677032ddfe301616d52a7ab63b87acb398dcf040
+  specs:
+    capistrano-bower (1.0.0)
+      capistrano (~> 3.0)
+
+GIT
   remote: git://github.com/groupbuddies/capistrano-foreman.git
   revision: 724e157c664674637797a066a2ddd7176ce1eb21
   branch: master
@@ -318,6 +325,7 @@ DEPENDENCIES
   bower
   cancan
   capistrano (~> 3.2.1)
+  capistrano-bower!
   capistrano-bundler
   capistrano-foreman!
   capistrano-rails
