@@ -19,10 +19,7 @@ html lang="en"
 
     = render '/layouts/footer'
 
-    = javascript_include_tag "admin"
-    script src="//use.typekit.net/jgi4btu.js"
-    javascript:
-      try { Typekit.load(); } catch(e) { }
+    = javascript_include_tag "application"
 
     - if content_for?(:page_script)
       = yield(:page_script)

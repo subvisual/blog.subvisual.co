@@ -49,10 +49,6 @@ GbBlog::Application.routes.draw do
       resources :posts, only: [:create, :update]
     end
 
-    scope controller: :pages do
-      get :ui_kit
-    end
-
     mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   end
 end

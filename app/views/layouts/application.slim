@@ -12,12 +12,14 @@ html.Theme lang="en"
     = auto_discovery_link_tag :rss, feed_url(:rss), title: 'Subvisual Blog'
 
     - if Rails.env.production?
-      = render 'layouts/google_analytics'
+      = render 'layouts/analytics'
 
   body
     section.content
       = render '/layouts/nav'
+      = render '/layouts/hero'
       = yield
+      = render '/layouts/sitemap'
       = render '/layouts/footer'
 
     = javascript_include_tag "application"
