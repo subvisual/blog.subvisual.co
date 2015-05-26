@@ -6,7 +6,8 @@ class UserDecorator < Draper::Decorator
   end
 
   def photo_url
-    root = h.root_url[0...-1].split(':').last
+    binding.pry
+    root = h.root_url.gsub(%r{^https?:}, '')
     "#{root}#{h.image_path(photo_name)}"
   end
 

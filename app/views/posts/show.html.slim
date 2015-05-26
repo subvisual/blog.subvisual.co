@@ -3,5 +3,19 @@
 - content_for :image_url, post.author.photo_url
 - content_for :description, post.description
 
-.default-page
-  = render 'post', post: post, show_comments: true
+.Layout
+  .Layout-smallMargin
+  .Post
+    span TAGS HERE
+    .Layout-defaultMargin
+    = post.processed_intro
+    .Layout-largeMargin
+    = render 'author', author: post.author
+    .Layout-largeMargin
+    aside.info.comment = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
+    = render '/shared/share', post: post
+    .hire-us
+      ' Want to hire us?
+      a href='https://groupbuddies.typeform.com/to/tgcrRI' target='blank' Get in touch
+
+  = render 'shared/disqus', post: post

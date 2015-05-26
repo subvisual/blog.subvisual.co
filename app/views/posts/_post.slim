@@ -5,12 +5,3 @@ article.post
     aside.info = post.info
   .post-body
     = post.processed_body
-  aside.info.comment = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
-  = render '/shared/share', post: post
-  .hire-us
-    ' Want to hire us?
-    a href='https://groupbuddies.typeform.com/to/tgcrRI' target='blank' Get in touch
-  = render 'author', author: post.author
-
-  - if show_comments
-    = render 'shared/disqus', post: post
