@@ -1,0 +1,28 @@
+@import 'blue/theme_vars';
+
+$fa-font-path: "../assets";
+$Color-catskillWhite: #eef4f8;
+$Theme-palette-text-body-default: $Theme-color-limedSpruce;
+
+$Theme-font-sizes-extra: (
+  mobile: (
+    heading: (
+      large: (
+        font-size: 40px,
+        line-height: 52px
+      )
+    )
+  ),
+  desktop: (
+    heading: (
+      large: (
+        font-size: 40px,
+        line-height: 52px
+      )
+    )
+  )
+);
+
+// @debug $Theme-font-sizes;
+// $Theme-font-sizes: map-extend($Theme-font-sizes, $Theme-font-sizes-extra, true);
+// @debug $Theme-font-sizes;

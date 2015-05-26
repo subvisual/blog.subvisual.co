@@ -2,7 +2,7 @@
   .Layout-defaultMargin
 
   .Post
-    h1 = link_to post.title, post_path(post)
+    h1.PostHeading = link_to post.title, post_path(post), class: 'Link'
     .Layout-smallMargin
     = post.processed_intro
     .Layout-smallMargin
