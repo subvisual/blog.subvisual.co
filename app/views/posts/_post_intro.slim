@@ -1,0 +1,7 @@
+article.post
+  .post-icon
+  header.post-header
+    h1.huge = link_to post.title, post_path(post)
+    aside.info = post.info
+  .post-body
+    = post.processed_intro

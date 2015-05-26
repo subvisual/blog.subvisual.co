@@ -1,5 +1,5 @@
 .default-page
   - posts.each do |post|
-    = render 'post', post: post, show_comments: false
+    = render 'post_intro', post: post, show_comments: false
   .align-center
     = link_to "Want to read more? Check all of our posts here", archive_path, class: 'color-blue'

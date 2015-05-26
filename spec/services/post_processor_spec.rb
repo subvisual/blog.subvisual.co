@@ -18,6 +18,15 @@ RSpec.describe Services::PostProcessor do
       post.processed_body.should have_tag 'h1'
     end
 
+    it 'parses the first paragraph' do
+      post = build :post, body: "First\r\n\r\nSecond"
+
+      Services::PostProcessor.new(post).process
+
+      post.processed_intro.should include 'First'
+      post.processed_intro.should_not include 'Second'
+    end
+
     it 'handles syntax highlighting' do
       post = build :post, body: markdown_code_block
 

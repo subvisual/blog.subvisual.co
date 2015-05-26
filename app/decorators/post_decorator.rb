@@ -47,6 +47,10 @@ class PostDecorator < Draper::Decorator
     h.raw(object.processed_body)
   end
 
+  def processed_intro
+    h.raw(object.processed_intro)
+  end
+
   def description
     h.strip_tags(object.processed_body).gsub(/\n+/, ' ')[0...150].strip
   end
