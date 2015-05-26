@@ -1,9 +1,10 @@
 .Layout
   .Layout-defaultMargin
 
-  h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
-  .Layout-smallMargin
-  = post.processed_intro
-  .Layout-smallMargin
-  div = post.info
-  .Layout-defaultMargin
+  .Post
+    h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
+    .Layout-smallMargin
+    = post.processed_intro
+    .Layout-smallMargin
+    div = post.info
+    .Layout-defaultMargin
