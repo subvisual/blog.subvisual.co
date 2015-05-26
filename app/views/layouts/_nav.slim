@@ -1,7 +1,11 @@
-nav.nav
-  ul
-    li = link_to 'All', root_path
-    li = link_to 'Archive', archive_path
-    - if current_user
-      li = link_to 'ADMIN', admin_dashboard_path, class: 'admin-action'
-      li = link_to 'LOGOUT', sign_out_path, method: :delete, class: 'admin-action'
+nav.Nav aria-label='Main navigation'
+  .Nav-logo Logo
+  ul.Nav-items
+    li.Nav-item
+    li.Nav-item
+      a.Nav-link href='#' Work
+    li.Nav-item
+      a.Nav-link href='#' Company
+    li.Nav-item
+      a.Nav-link.is-selected href='#' Blog
+

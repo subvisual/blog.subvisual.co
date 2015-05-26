@@ -1,15 +1,15 @@
 doctype html
-/! paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-/![if lt IE 7 ] <html class="ie6" lang="en">
-/![if IE 7 ] <html class="ie7" lang="en">
-/![if IE 8 ] <html class="ie8" lang="en">
-/! [if (gte IE 9)|!(IE)]><!
-html lang="en"
+html.Theme lang="en"
   /! <![endif]
   head
     = render '/layouts/meta'
-    = stylesheet_link_tag    "application"
     = csrf_meta_tags
+
+    = stylesheet_link_tag    "application"
+    script src="//use.typekit.net/jgi4btu.js"
+    javascript:
+      try { Typekit.load(); } catch(e) { }
+
     = favicon_link_tag 'favicon.ico'
 
     = auto_discovery_link_tag :rss, feed_url(:rss), title: 'Subvisual Blog'
@@ -19,12 +19,11 @@ html lang="en"
 
   body
     section.content
+      = render '/layouts/nav'
       = yield
+      = render '/layouts/footer'
 
     = javascript_include_tag "application"
-    script src="//use.typekit.net/jgi4btu.js"
-    javascript:
-      try { Typekit.load(); } catch(e) { }
 
     - if content_for?(:page_script)
       = yield(:page_script)

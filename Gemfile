@@ -3,12 +3,13 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.1'
 
 gem 'acts-as-taggable-on'
+gem 'analytics-ruby', require: 'segment/analytics'
 gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
+gem 'bower'
 gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
-# gem 'compass-rails', '~> 1.1.3'
 gem 'clearance', '1.10.1'
 gem 'draper', '~> 1.3'
 gem 'jquery-rails'
@@ -21,10 +22,10 @@ gem 'puma'
 gem 'pygmentize', require: false
 gem 'redcarpet', require: false
 gem 'rmagick'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 5.0.0'
+gem 'sass', '~> 3.4.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.0.3'
-gem 'susy'
 
 group :production do
   gem 'newrelic_rpm'
