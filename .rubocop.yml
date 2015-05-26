@@ -26,6 +26,3 @@ Style/DotPosition:
 
 Style/IfUnlessModifier:
   Enabled: false
-
-Style/RegexpLiteral:
-  MaxSlashes: 0
