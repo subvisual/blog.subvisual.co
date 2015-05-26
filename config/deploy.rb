@@ -23,6 +23,8 @@ set :foreman_options, {
   procfile: 'Procfile.production'
 }
 
+set :bower_bin, '/usr/bin/bower'
+
 namespace :deploy do
   task :stop do
     begin

@@ -65,5 +65,6 @@ group :deploy do
   gem 'capistrano-rvm'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
+  gem 'capistrano-bower', github: 'groupbuddies/capistrano-bower'
   gem 'capistrano-foreman', github: 'groupbuddies/capistrano-foreman', branch: :master
 end

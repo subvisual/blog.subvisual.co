@@ -11,3 +11,8 @@ gb::capistrano { 'blog.subvisual.co': }
 gb::nginx_conf { 'blog.subvisual.co':
   path => 'config/nginx.conf',
 }
+
+package { 'bower':
+  ensure   => present,
+  provider => 'npm',
+}
