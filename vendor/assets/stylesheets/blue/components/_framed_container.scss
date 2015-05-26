@@ -2,13 +2,19 @@
 //
 // A container for displaying content in a framed/bordered grid.
 //
+// default - The default container for using on dark backgrounds
+// .FramedContainer--alternative - The alternative container for using on light backgrounds
+// .FramedContainer--noTop - Doesn't have the top border
+//
 // markup:
-// <div class="FramedContainer">
-//   <div class="FramedContainer-cell">Content</div>
-// </div>
-// <div class="FramedContainer">
+// <div class="FramedContainer {$modifiers}">
 //   <div class="FramedContainer-cell">Content 1</div>
 //   <div class="FramedContainer-cell">Content 2</div>
+// </div>
+//
+// sg-wrapper:
+// <div class="styleguide-grid-unit">
+//   <sg-wrapper-content/>
 // </div>
 //
 // Styleguide 1.15
@@ -24,8 +30,11 @@
 
   .FramedContainer-cell {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
-    padding: 0 $Theme-spacing-small;
+    padding: 0 $Theme-spacing-default;
 
     border-left: 2px solid $Theme-color-white;
   }
@@ -33,4 +42,16 @@
   .FramedContainer-cell:last-child {
     border-right: 2px solid $Theme-color-white;
   }
+}
+
+.FramedContainer.FramedContainer--alternative {
+  border-color: $Theme-color-polar;
+
+  .FramedContainer-cell {
+    border-color: $Theme-color-polar;
+  }
+}
+
+.FramedContainer.FramedContainer--noTop {
+  border-top-width: 0;
 }

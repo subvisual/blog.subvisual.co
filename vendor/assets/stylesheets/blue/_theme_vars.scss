@@ -29,7 +29,7 @@ $Theme-color-yellowOrange: #fab23c;
 
 // styleguide:ignore:start
 // Color Usage
-$Theme-palette-text-body-default: $Theme-color-poloBlue;
+$Theme-palette-text-body-default: $Theme-color-poloBlue !default;
 
 // Spacing
 $Theme-spacing-default: 50px;

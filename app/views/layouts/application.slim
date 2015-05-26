@@ -14,6 +14,10 @@ html.Theme lang="en"
     - if Rails.env.production?
       = render 'layouts/analytics'
 
+    script src="//use.typekit.net/wbx6iwp.js"
+    javascript:
+      try{Typekit.load();}catch(e){}
+
   body
     section.content
       = render '/layouts/nav'
