@@ -19,8 +19,7 @@ module Services
     attr_reader :post
 
     def markdown_intro
-      accumulated_size = 0
-      post.body.split(%r(((\r)?\n){2}))[0]
+      post.body.split(/((\r)?\n){2}/)[0]
     end
 
     class HTMLPygmentizedRenderer < Redcarpet::Render::HTML
