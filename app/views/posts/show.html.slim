@@ -6,7 +6,7 @@
 .Layout
   .Layout-smallMargin
   .Post
-    div TAGS HERE
+    .TagList = render 'tag_list', tag_list: post.tag_list
     .Layout-defaultMargin
     = post.processed_body
     .Layout-largeMargin

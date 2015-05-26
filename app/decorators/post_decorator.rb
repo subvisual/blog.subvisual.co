@@ -1,7 +1,7 @@
 class PostDecorator < Draper::Decorator
   decorates_association :category
   decorates_association :author
-  delegate :title, :published?, :published_at, :created_at, :updated_at, :persisted?, :id
+  delegate :title, :published?, :published_at, :created_at, :updated_at, :persisted?, :id, :tag_list
 
   def page_title
     "#{title}, by #{author.full_name} of Group Buddies"

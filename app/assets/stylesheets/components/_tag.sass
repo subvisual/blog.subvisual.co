@@ -1,0 +1,11 @@
+.Tag
+  @include font-properties(subvisual, base)
+  text-transform: uppercase
+
+@each $tag, $color in $Blog-main-tags
+  .Tag--#{$tag}
+    color: $color
+
+.Tag:not(:last-child)
+  &:after
+    content: ', '
