@@ -1,7 +1,10 @@
 .Layout
   .Layout-defaultMargin
 
-- posts.each do |post|
-  = render 'post_intro', post: post, show_comments: false
+- posts.each_with_index do |post, post_index|
+  .Post
+    - if post_index > 0
+      .PostSeparator
+    = render 'post_intro', post: post, show_comments: false
 .align-center
   = link_to "Want to read more? Check all of our posts here", archive_path, class: 'color-blue'

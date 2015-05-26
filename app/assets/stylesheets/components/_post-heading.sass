@@ -1,0 +1,10 @@
+$PostHeading-color: $Theme-palette-text-body-default
+
+.PostHeading
+  @include font-properties(heading, large, $Theme-font-sizes-extra)
+
+.PostHeading-link
+  text-decoration: none
+  color: $PostHeading-color
+  &:hover
+    text-decoration: underline
