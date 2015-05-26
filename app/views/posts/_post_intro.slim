@@ -1,4 +1,10 @@
-.Post
-  h1 = link_to post.title, post_path(post)
-  div = post.info
-  = post.processed_intro
+.Layout
+  .Layout-defaultMargin
+
+  .Post
+    h1 = link_to post.title, post_path(post)
+    .Layout-smallMargin
+    = post.processed_intro
+    .Layout-smallMargin
+    div = post.info
+  .Layout-defaultMargin
