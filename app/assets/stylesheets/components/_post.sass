@@ -4,19 +4,20 @@ $Post-default-max-width: 600px
 $Post-code-max-width: 800px
 
 @mixin PostMaxWidth($width: $Post-default-max-width)
-  max-width: $width
-  margin-left: auto
-  margin-right: auto
+  max-width: $width !important
+  margin-left: auto !important
+  margin-right: auto !important
 
-.Post > :not(.highlight)
+.Post > :not(.Post-body),
+.Post-body > :not(.highlight)
   @include PostMaxWidth
 
-.Post
+.Post-body
   h1, h2, h3
     padding: $Theme-spacing-small 0
   a
     color: inherit
-  p
+  p:not(:last-child)
     margin-bottom: $Theme-spacing-small
 
   .highlight

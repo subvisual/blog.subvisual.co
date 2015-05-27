@@ -1,12 +1,9 @@
 .Author
   display: flex
   align-items: center
-  color: $Theme-palette-text-body-alt
-
 
 .Author-right
   flex: 1
-  margin-left: $Theme-spacing-small
 
 .Author--small
   .Author-left
@@ -23,6 +20,12 @@
     width: 140px
     display: flex
     justify-content: center
+
+  .Author-right
+    margin-left: $Theme-spacing-small
+    display: flex
+    flex-direction: column
+    justify-content: space-between
 
   .Author-picture
     width: 120px
