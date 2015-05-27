@@ -1,0 +1,93 @@
+// HorizontalGrid
+//
+// Lays out components side by side all in one row and each cell with equal width.<br>
+// Can limit its width to a threshold and center itself with the viewport.<br>
+// Can even add a border to the grid.
+//
+// default - Full width and borderless
+// .HorizontalGrid--limited - Limits the grid width to 1280px and centers itself
+// .HorizontalGrid--lightFrame - Adds a light colored border
+// .HorizontalGrid--darkFrame - Adds a dark colored border
+// .HorizontalGrid--noTopFrame - Removes the top border
+// .HorizontalGrid--withGutters - Applies gutters
+//
+// markup:
+// <div class="HorizontalGrid {$modifiers}">
+//   <div class="HorizontalGrid-cell">
+//     <div>Cell 1</div>
+//   </div>
+//   <div class="HorizontalGrid-cell">
+//     <div>Cell 2</div>
+//   </div>
+//   <div class="HorizontalGrid-cell">
+//     <div>Cell 3</div>
+//   </div>
+// </div>
+//
+// sg-wrapper:
+// <div class="styleguide-grid-unit">
+//   <sg-wrapper-content/>
+// </div>
+//
+// Styleguide 1.17
+
+@import '../reset';
+@import '../theme_vars';
+
+@mixin HorizontalGrid-frameStyles($color) {
+  border-top: 2px solid $color;
+  border-bottom: 2px solid $color;
+
+  .HorizontalGrid-cell {
+    border-left: 2px solid $color;
+  }
+
+  .HorizontalGrid-cell:last-child {
+    border-right: 2px solid $color;
+  }
+}
+
+.HorizontalGrid {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  @include media('>=tablet') {
+    flex-direction: row;
+  }
+}
+
+.HorizontalGrid.HorizontalGrid--limited {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.HorizontalGrid.HorizontalGrid--lightFrame {
+  @include HorizontalGrid-frameStyles($Theme-color-white);
+}
+
+.HorizontalGrid.HorizontalGrid--darkFrame {
+  @include HorizontalGrid-frameStyles($Theme-color-polar);
+}
+
+.HorizontalGrid.HorizontalGrid--noTopFrame {
+  border-top-width: 0;
+}
+
+.HorizontalGrid.HorizontalGrid--withGutters {
+  $halfGutterSize: $Theme-spacing-small;
+  padding: 0 $halfGutterSize;
+
+  border-top-width: 0;
+
+  .HorizontalGrid-cell {
+    padding: 0 $halfGutterSize;
+  }
+}
+
+.HorizontalGrid-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

@@ -6,7 +6,7 @@
 //
 // default - Nav with a transparent background
 // .Nav--filled - Nav with a filled background
-// .Nav--dark - Uses a darker color in the nav links
+// .Nav--light - Uses a lighter color in the nav links
 //
 // markup:
 // <nav aria-label="Main navigation" class="Nav {$modifiers}">
@@ -102,7 +102,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   transition: color 0.2s ease-in-out;
 }
 
-.Nav.Nav--dark {
+.Nav.Nav--light {
   &:not(.Nav--filled) {
     .Nav-link {
       color: $Theme-color-white;

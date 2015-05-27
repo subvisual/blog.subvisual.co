@@ -2,6 +2,9 @@
 - content_for :url, post_url(post)
 - content_for :image_url, post.author.photo_url
 - content_for :description, post.description
+- content_for :hero_class, 'Hero--large'
+- content_for :hero
+  h1.PostHeading.PostHeading--large = post.title
 
 .Layout
   .Layout-smallMargin

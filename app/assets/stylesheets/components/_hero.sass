@@ -1,5 +1,16 @@
-$Hero-height: 400px
+$Hero-default-height: 400px
+$Hero-large-height: 600px
 
 .Hero
-  height: $Hero-height
+  height: $Hero-default-height
   background-color: $Color-catskillWhite
+  display: flex
+  justify-content: center
+  align-items: center
+
+.Hero--large
+  height: $Hero-large-height
+
+.Hero-content
+  max-width: 600px
+  text-align: center

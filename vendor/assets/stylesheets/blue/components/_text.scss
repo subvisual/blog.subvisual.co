@@ -24,6 +24,10 @@
   font-weight: $Theme-typography-fontWeight-regular;
 }
 
+.Text.Text--large {
+  @include font-properties(bodyText, large);
+}
+
 .Text.Text--engagement {
   @include font-properties(heading, base);
   color: $Theme-color-white;

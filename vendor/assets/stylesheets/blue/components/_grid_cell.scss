@@ -1,0 +1,40 @@
+// GridCell
+//
+// Center its content and limits it to a threshold
+//
+// default - Aligns content to the left
+// .GridCell--alignCenter - Centers the content
+// .GridCell--alignRight - Aligns content to the right
+//
+// markup:
+// <div class="GridCell {$modifiers}">
+//   <div class="GridCell-content">
+//     <div>Cell 1</div>
+//     <div>Cell 3</div>
+//   </div>
+// </div>
+//
+// Styleguide 1.18
+
+@import '../reset';
+@import '../theme_vars';
+
+.GridCell {
+  display: flex;
+  justify-content: flex-start;
+
+  width: 100%;
+  padding: 0 $Theme-spacing-default;
+}
+
+.GridCell.GridCell--alignCenter {
+  justify-content: center;
+}
+
+.GridCell.GridCell--alignRight {
+  justify-content: flex-end;
+}
+
+.GridCell-content {
+  max-width: 565px;
+}

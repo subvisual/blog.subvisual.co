@@ -14,7 +14,7 @@
 // Styleguide 4.2.1
 
 .u-onlySmall {
-  @include media(">tablet") {
+  @include media('>tablet') {
     display: none;
   }
 }
@@ -29,7 +29,7 @@
 // Styleguide 4.2.2
 
 .u-exceptSmall {
-  @include media("<=tablet") {
+  @include media('<=tablet') {
     display: none;
   }
 }

@@ -4,8 +4,8 @@
 //
 // default - Most commonly used heading
 // .Heading--small - Smaller font
-// .Heading--large - Larger font
 // .Heading--brand - Subvisual font
+// .Heading--brandLarge - Larger Subvisual font
 // .Heading--uvp - To be used as a sub heading in the UVP section
 //
 // markup:
@@ -42,8 +42,9 @@
   text-transform: uppercase;
 }
 
-.Heading.Heading--brand.Heading--large {
+.Heading.Heading--brandLarge {
   @include font-properties(subvisual, large);
+  text-transform: uppercase;
 }
 
 .Heading-highlight {
