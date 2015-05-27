@@ -4,7 +4,7 @@
 - content_for :description, post.description
 - content_for :hero_class, 'Hero--large'
 - content_for :hero
-  h1.PostHeading.PostHeading--large = post.title
+  = render 'post_hero', post: post
 
 .Layout
   .Layout-smallMargin
@@ -12,9 +12,10 @@
     div = render 'tag_list', tag_list: post.tag_list
     .Layout-defaultMargin
     = post.processed_body
+    .Layout-doubleLargeMargin
+    .Separator.Separator--subvisual
     .Layout-largeMargin
-    = render 'author', author: post.author
-    .Layout-largeMargin
+    = render 'author_bio', author: post.author
     aside.info.comment = link_to 'Comment this post', post_path(post, anchor: 'disqus_thread')
     = render '/shared/share', post: post
     .hire-us

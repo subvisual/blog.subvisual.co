@@ -1,0 +1,7 @@
+.Author.Author--large
+  .Author-left = image_tag author.photo_url, alt: author.full_name, class: 'Author-picture'
+  .Author-right
+    h2
+      ' About
+      = author.full_name
+    div = author.bio

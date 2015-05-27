@@ -1,5 +1,5 @@
 nav.Nav aria-label='Main navigation'
-  .Nav-logo
+  = link_to 'https://subvisual.co', class: 'Nav-logo'
     = image_tag 'subvisual/logo_with_name.svg'
   ul.Nav-items
     li.Nav-item
@@ -12,5 +12,5 @@ nav.Nav aria-label='Main navigation'
     li.Nav-item
       = link_to 'Apprenticeship', 'https://subvisual.co/apprenticeship', class: 'Nav-link'
     li.Nav-item.is-selected
-      a.Nav-link href='#' Blog
+      = link_to 'Blog', root_url, class: 'Nav-link'
 

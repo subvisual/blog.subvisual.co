@@ -1,6 +1,6 @@
-.PostAuthor
-  .PostAuthor-pictureWrapper = image_tag post.author.photo_url, alt: post.author.full_name, class: 'PostAuthor-picture'
-  .PostAuthor-info
+.Author.Author--small
+  .Author-left = image_tag post.author.photo_url, alt: post.author.full_name, class: 'Author-picture'
+  .Author-right
     ' Written by
     =<> link_to post.author.full_name, '#', class_name: 'Link'
     ' on
