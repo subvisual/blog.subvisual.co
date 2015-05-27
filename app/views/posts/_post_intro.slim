@@ -2,12 +2,13 @@
   .Layout-defaultMargin
 
   .Post
-    h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
+    .PostWidthConstrainer
+      h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
     .Layout-smallMargin
     .Post-body
       = post.processed_intro
     .Layout-smallMargin
-    div = render 'tag_list', tag_list: post.tag_list
+    .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
     .Layout-smallMargin
     div = render 'author', post: post
     .Layout-defaultMargin
