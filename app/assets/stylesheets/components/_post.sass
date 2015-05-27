@@ -1,7 +1,6 @@
-@import pygments/github
-
-$Post-default-max-width: 600px
-$Post-code-max-width: 800px
+$Post-default-max-width: 600px + $Theme-spacing-small * 2
+$Post-code-max-width: 800px + $Theme-spacing-small * 2
+$Post-img-max-width: 800px + $Theme-spacing-small * 2
 
 @mixin PostMaxWidth($width: $Post-default-max-width)
   max-width: $width !important
@@ -13,12 +12,27 @@ $Post-code-max-width: 800px
   @include PostMaxWidth
 
 .Post-body
+  > *
+    padding-left: $Theme-spacing-small
+    padding-right: $Theme-spacing-small
+
   h1, h2, h3
-    padding: $Theme-spacing-small 0
+    padding-top: $Theme-spacing-small
+    padding-bottom: $Theme-spacing-small
   a
     color: inherit
-  p:not(:last-child)
+
+  > p:not(:last-child)
     margin-bottom: $Theme-spacing-small
+
+  > p img
+    display: block
+    margin: auto
+    @include media(">=#{$Post-img-max-width}")
+      max-width: $Post-img-max-width
+      transform: translateX(-($Post-img-max-width - $Post-default-max-width) * 0.5)
+    @include media("<#{$Post-img-max-width}")
+      max-width: 100%
 
   .highlight
     @include font-properties(code, base, $Theme-font-sizes-extra)
@@ -28,5 +42,34 @@ $Post-code-max-width: 800px
     margin-bottom: $Theme-spacing-default
     pre
       @include PostMaxWidth($Post-code-max-width)
+      padding-left: $Theme-spacing-small
+      padding-right: $Theme-spacing-small
+      max-width: 100%
       word-wrap: break-word
       white-space: pre-wrap
+
+  blockquote
+    &:before,
+    &:after
+      content: ''
+      display: block
+      height: 4px
+      width: 100px
+      margin: auto
+      background-color: $Color-catskillWhite
+    &:before
+      margin-top: $Theme-spacing-default
+      margin-bottom: $Theme-spacing-small
+    &:after
+      margin-top: $Theme-spacing-small
+
+  blockquote
+    @include font-properties(alt, large, $Theme-font-sizes-extra)
+    color: $Theme-palette-text-body-alt
+    font-style: italic
+    text-align: center
+
+  blockquote + p > strong
+    display: block
+    text-align: center
+    margin-bottom: $Theme-spacing-default

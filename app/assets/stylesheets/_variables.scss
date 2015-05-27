@@ -31,7 +31,7 @@ $Theme-font-sizes-extra: (
     ),
     code: (
       base: (
-        font-size: 16px,
+        font-size: 18px,
         line-height: 24px
       )
     ),
@@ -39,6 +39,10 @@ $Theme-font-sizes-extra: (
       base: (
         font-size: 16px,
         line-height: 24px
+      ),
+      large: (
+        font-size: 24px,
+        line-height: 36px
       )
     )
   ),
@@ -63,6 +67,10 @@ $Theme-font-sizes-extra: (
       base: (
         font-size: 16px,
         line-height: 24px
+      ),
+      large: (
+        font-size: 24px,
+        line-height: 36px
       )
     )
   )

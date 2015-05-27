@@ -8,23 +8,27 @@
 
 .Layout
   .Layout-smallMargin
+
+  .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
+  .Layout-defaultMargin
   .Post
-    div = render 'tag_list', tag_list: post.tag_list
-    .Layout-defaultMargin
     .Post-body = post.processed_body
+  .PostWidthConstrainer
     .Layout-doubleLargeMargin
     .Separator.Separator--subvisual
     .Layout-largeMargin
     = render 'author_bio', author: post.author
     .Layout-largeMargin
+
     .HireUs
       ' Like what you've read so far?
       = link_to "Let's work together.", '#', target: 'blank', class: 'HireUs-link'
     .Layout-defaultMargin
     .Separator.Separator--subvisual
     .Layout-largeMargin
-    = render '/shared/newsletter'
-    .Layout-largeMargin
+
+  = render '/shared/newsletter'
+  .Layout-largeMargin
 
     /* = render '/shared/share', post: post */
 
