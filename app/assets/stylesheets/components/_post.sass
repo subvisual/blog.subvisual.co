@@ -1,6 +1,31 @@
-.Post > :not(.Post--fullWidth)
-  max-width: 600px
-  margin: auto
+@import pygments/github
 
-.Post a
-  color: inherit
+$Post-default-max-width: 600px
+$Post-code-max-width: 800px
+
+@mixin PostMaxWidth($width: $Post-default-max-width)
+  max-width: $width
+  margin-left: auto
+  margin-right: auto
+
+.Post > :not(.highlight)
+  @include PostMaxWidth
+
+.Post
+  h1, h2, h3
+    padding: $Theme-spacing-small 0
+  a
+    color: inherit
+  p
+    margin-bottom: $Theme-spacing-small
+
+  .highlight
+    @include font-properties(code, base, $Theme-font-sizes-extra)
+    font-family: 'SourceCodePro-Regular'
+    background-color: $Color-catskillWhite
+    padding: $Theme-spacing-small 0
+    margin-bottom: $Theme-spacing-default
+    pre
+      @include PostMaxWidth($Post-code-max-width)
+      word-wrap: break-word
+      white-space: pre-wrap

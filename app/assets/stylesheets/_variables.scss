@@ -12,6 +12,11 @@ $Blog-main-tags: (
   community: #efaa37
 );
 
+@font-face {
+  font-family: 'SourceCodePro-Regular';
+  src: url('SourceCodePro-Regular.ttf') format('truetype'), url('SourceCodePro-Regular.woff') format('woff');
+}
+
 $Theme-font-sizes-extra: (
   mobile: (
     heading: (
@@ -22,6 +27,12 @@ $Theme-font-sizes-extra: (
       huge: (
         font-size: 60px,
         line-height: 72px
+      )
+    ),
+    code: (
+      base: (
+        font-size: 16px,
+        line-height: 24px
       )
     )
   ),
@@ -34,6 +45,12 @@ $Theme-font-sizes-extra: (
       huge: (
         font-size: 60px,
         line-height: 72px
+      )
+    ),
+    code: (
+      base: (
+        font-size: 18px,
+        line-height: 26px
       )
     )
   )
