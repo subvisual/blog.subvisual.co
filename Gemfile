@@ -25,6 +25,8 @@ gem 'rmagick'
 gem 'sass-rails', '~> 5.0.0'
 gem 'sass', '~> 3.4.0'
 gem 'slim-rails'
+gem 'sprockets'
+gem 'sprockets-es6', require: 'sprockets/es6'
 gem 'uglifier', '>= 1.0.3'
 
 group :production do
