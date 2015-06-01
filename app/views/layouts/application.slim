@@ -21,10 +21,10 @@ html.Theme lang="en"
   body
     section
       = render '/layouts/nav'
-      .BlogTheme
-        = render '/layouts/hero'
-        = yield
-      = render '/layouts/sitemap'
+      = render '/layouts/hero'
+      = yield
+      .SubvisualTheme
+        = render '/layouts/sitemap'
       = render '/layouts/footer'
 
     = javascript_include_tag "application"

@@ -1,13 +1,10 @@
-.Layout
-  .Layout-doubleLargeMargin
-  .Layout-smallMargin
-  .PostWidthConstrainer
-    h1.PostHeading.PostHeading--large = post.title
-    .PostInfo
-      .Layout-defaultMargin
-      .PostInfo-author
-        ' by
-        span.PostInfo-authorName = post.author.full_name
-      .PostInfo-date
-        ' on
-        = l(post.published_at, format: :publish_date)
+.PostWidthConstrainer
+  h1.PostHeading.PostHeading--large = post.title
+  .PostInfo
+    .u-defaultMargin
+    .PostInfo-author
+      ' by
+      span.PostInfo-authorName = post.author.full_name
+    .PostInfo-date
+      ' on
+      = l(post.published_at, format: :publish_date)

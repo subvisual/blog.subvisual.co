@@ -1,14 +1,13 @@
-.Layout
-  .Layout-defaultMargin
+.u-defaultMargin
 
-  .Post
-    .PostWidthConstrainer
-      h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
-    .Layout-smallMargin
-    .Post-body
-      = post.processed_intro
-    .Layout-smallMargin
-    .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
-    .Layout-smallMargin
-    .PostWidthConstrainer = render 'author', post: post
-    .Layout-defaultMargin
+.Post
+  .PostWidthConstrainer
+    h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
+  .u-smallMargin
+  .Post-body
+    = post.processed_intro
+  .u-smallMargin
+  .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
+  .u-smallMargin
+  .PostWidthConstrainer = render 'author', post: post
+  .u-defaultMargin

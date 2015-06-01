@@ -1,0 +1,33 @@
+// Tag
+//
+// Used to change the font properties and style the color
+//
+// default - Tag with default color.
+// .Tag--general - Tag with the default color. It's the same has not using a modifier.
+// .Tag--design - Tag with the design color.
+// .Tag--development - Tag with development color.
+// .Tag--community - Tag with the community color.
+//
+// markup:
+// <div class="Tag {$modifiers}">
+//   Lorem, Ipsum
+// </div>
+//
+// Styleguide 1.16
+
+
+.Tag {
+  @include font-properties(subvisual, small);
+
+  display: inline-block;
+
+  color: map-get($Theme-tags-color, general);
+
+  text-transform: uppercase;
+}
+
+@each $tag, $color in $Theme-tags-color {
+  .Tag.Tag--#{$tag} {
+    color: $color;
+  }
+}

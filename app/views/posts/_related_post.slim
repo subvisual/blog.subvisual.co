@@ -1,0 +1,7 @@
+.PostWidthConstrainer
+  h1.PostHeading.PostHeading--small = link_to post.title, post_path(post), class: 'PostHeading-link'
+.u-smallMargin
+.Post-body
+  = post.processed_intro
+.u-smallMargin
+.PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list

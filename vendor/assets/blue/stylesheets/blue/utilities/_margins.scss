@@ -1,0 +1,73 @@
+@import '../theme_vars';
+
+// Margins
+//
+// Creates vertical spaces between components using the ```margin-bottom``` rule.
+//
+// Styleguide 4.3
+
+// u-smallMargin
+//
+// Insert a small margin.
+//
+// markup:
+// <div class="u-smallMargin"></div>
+//
+// Styleguide 4.3.1
+
+.u-smallMargin {
+  margin-bottom: $Theme-spacing-small;
+}
+
+// u-defaultMargin
+//
+// Insert the height of the navbar. It's usefull has a placeholder on the top of the page.
+//
+// markup:
+// <div class="u-defaultMargin"></div>
+//
+// Styleguide 4.3.2
+
+.u-defaultMargin {
+  margin-bottom: $Theme-spacing-default;
+}
+
+// u-largeMargin
+//
+// Insert a large margin.
+//
+// markup:
+// <div class="u-largeMargin"></div>
+//
+// Styleguide 4.3.3
+
+.u-largeMargin {
+  margin-bottom: $Theme-spacing-large;
+}
+
+//
+// u-doubleLargeMargin
+//
+// Insert a double large margin.
+//
+// markup:
+// <div class="u-doubleLargeMargin"></div>
+//
+// Styleguide 4.3.4
+
+.u-doubleLargeMargin {
+  margin-bottom: $Theme-spacing-large * 2;
+}
+
+// u-navPlaceholder
+//
+// Insert the height of the navbar. It's usefull has a placeholder on the top of the page.
+//
+// markup:
+// <div class="u-navPlaceholder"></div>
+//
+// Styleguide 4.3.5
+
+.u-navPlaceholder {
+  margin-bottom: $Theme-nav-height;
+}

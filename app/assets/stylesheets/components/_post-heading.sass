@@ -1,10 +1,13 @@
 $PostHeading-color: $Theme-palette-text-body-default
 
 .PostHeading
-  @include font-properties(heading, large, $Theme-font-sizes-extra)
+  @include font-properties(heading, veryLarge, $Theme-font-sizes-extra)
 
 .PostHeading--large
   @include font-properties(heading, huge, $Theme-font-sizes-extra)
+
+.PostHeading--small
+  @include font-properties(heading, large, $Theme-font-sizes-extra)
 
 .PostHeading--regular
   padding: 0 $Theme-spacing-small

@@ -1,0 +1,181 @@
+// Nav
+//
+// Navigation element.
+// Shows only the first item and aligns it to the right when on a mobile resolution.
+// Lays out every element except the first (which is hidden) from right to left with equal spacing when on a desktop resolution.
+//
+// default - Nav with a transparent background
+// .Nav--light - Uses a lighter color in the nav links
+// .Nav--fixed - Affixes the nav to the top of the viewport and applies a background color for better readability
+// .Nav--topPositioned - Absolutely positions the nav to the top of its relative container
+// .Nav--hint - Affixes the nav to the top, adds a drop shadow to hint the user about the existence of the header
+//
+// markup:
+// <nav aria-label="Main navigation" class="Nav {$modifiers}">
+//   <div class="Nav-logoWrapper">
+//     <div class="Nav-logo">Logo</div>
+//   </div>
+//   <ul class="Nav-items">
+//     <li class="Nav-item"></li>
+//     <li class="Nav-item">
+//       <a class="Nav-link" href="#">Work</a>
+//     </li>
+//     <li class="Nav-item is-selected">
+//       <a class="Nav-link" href="#">Company</a>
+//     </li>
+//   </ul>
+// </nav>
+//
+// sg-wrapper:
+// <div style="background-color: rgba(0,0,0,0.1); height: 300px;">
+//   <sg-wrapper-content/>
+//   <div style="background-color: rgba(0,0,0,0.2); height: 400px;"></div>
+// </div>
+//
+// Styleguide 1.15
+
+@import '../reset';
+@import '../theme_vars';
+
+$Nav-item-color-hover: $Theme-color-yellowOrange;
+
+.Nav {
+  z-index: 1;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: $Theme-nav-height;
+  padding: 0 $Theme-spacing-default;
+
+  background: transparent;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+.Nav.Nav--topPositioned {
+  position: absolute; // TODO: see if this behaviour can be achieved without having it in the actual component
+  top: 0;
+}
+
+.Nav.Nav--fixed {
+  position: fixed;
+  top: 0;
+  z-index: $Theme-layer-stickyElement;
+
+  background: $Theme-color-white;
+  box-shadow: 0 2px 11px rgba(0, 0, 0, 0.1);
+
+  animation-duration: 0.3s;
+  animation-name: slidedown;
+
+  @keyframes slidedown {
+    from {
+      transform: translateY(-$Theme-nav-height);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  &.Nav--animateUp {
+    animation-duration: 0.3s;
+    animation-name: slideup;
+
+    @keyframes slideup {
+      from {
+        transform: translateY(0);
+      }
+
+      to {
+        transform: translateY(-$Theme-nav-height);
+      }
+    }
+  }
+}
+
+.Nav.Nav--hint {
+  position: fixed;
+  top: -$Theme-nav-height;
+
+  box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
+}
+
+.Nav-logoWrapper {
+  position: relative;
+
+  width: 202px; // width extracted from the actual logo
+}
+
+.Nav-logo {
+  position: absolute;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  &.is-hidden {
+    opacity: 0;
+  }
+}
+
+.Nav-items {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Nav-item {
+  display: flex;
+  align-items: center;
+
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  cursor: pointer;
+
+  transition: border-color 0.2s ease-in-out;
+
+  &:not(:first-child) {
+    display: none;
+    margin-left: $Theme-spacing-default;
+  }
+
+  &:hover,
+  &.is-selected {
+    border-bottom: 5px solid $Nav-item-color-hover;
+
+    .Nav-link {
+      color: $Nav-item-color-hover;
+    }
+  }
+}
+
+.Nav-link {
+  @include font-properties(subvisual, small);
+  color: $Theme-color-poloBlue;
+
+  font-weight: $Theme-typography-fontWeight-bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.Nav.Nav--light {
+  &:not(.Nav--fixed) {
+    .Nav-link {
+      color: $Theme-color-white;
+    }
+  }
+
+  .Nav-item:hover,
+  .Nav-item.is-selected {
+    .Nav-link {
+      color: $Nav-item-color-hover;
+    }
+  }
+}
+
+@include media('>=tablet') {
+  .Nav-item:not(:first-child) {
+    display: flex;
+  }
+}

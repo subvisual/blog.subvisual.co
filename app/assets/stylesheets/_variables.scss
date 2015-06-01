@@ -2,7 +2,8 @@
 
 $fa-font-path: "../assets";
 $Color-catskillWhite: #eef4f8;
-$Theme-palette-text-body-blog: $Theme-color-limedSpruce;
+$Theme-palette-text-body-default: $Theme-color-limedSpruce;
+$Theme-palette-text-body-subvisual: $Theme-color-poloBlue;
 $Theme-palette-text-body-alt: $Theme-color-horizon;
 
 $Blog-main-tags: (
@@ -21,6 +22,10 @@ $Theme-font-sizes-extra: (
   mobile: (
     heading: (
       large: (
+        font-size: 24px,
+        line-height: 36px
+      ),
+      veryLarge: (
         font-size: 40px,
         line-height: 52px
       ),
@@ -53,6 +58,10 @@ $Theme-font-sizes-extra: (
   desktop: (
     heading: (
       large: (
+        font-size: 24px,
+        line-height: 36px
+      ),
+      veryLarge: (
         font-size: 40px,
         line-height: 52px
       ),

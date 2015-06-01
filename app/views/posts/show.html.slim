@@ -6,30 +6,40 @@
 - content_for :hero
   = render 'post_hero', post: post
 
-.Layout
-  .Layout-smallMargin
+.u-smallMargin
 
-  .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
-  .Layout-defaultMargin
-  .Post
-    .Post-body = post.processed_body
-  .PostWidthConstrainer
-    .Layout-doubleLargeMargin
-    .Separator.Separator--subvisual
-    .Layout-largeMargin
-    = render 'author_bio', author: post.author
-    .Layout-largeMargin
+.PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
+.u-defaultMargin
+.Post
+  .Post-body = post.processed_body
+.PostWidthConstrainer
+  .u-doubleLargeMargin
+  .Separator.Separator--subvisual
+  .u-largeMargin
+  = render 'author_bio', author: post.author
+  .u-largeMargin
 
-    .HireUs
-      ' Like what you've read so far?
-      = link_to "Let's work together.", '#', target: 'blank', class: 'HireUs-link'
-    .Layout-defaultMargin
-    .Separator.Separator--subvisual
-    .Layout-largeMargin
+.RelatedPosts
+  .RelatedPosts-column
+    .AltText Read more from Francisco
+    .RelatedPosts-post = render 'related_post', post: post
+  .RelatedPosts-post
+    .AltText Read more from Francisco
+    .RelatedPosts-post = render 'related_post', post: post
+.u-largeMargin
 
-  = render '/shared/newsletter'
-  .Layout-largeMargin
+.HireUs
+  ' Like what you've read so far?
+  = link_to "Let's work together.", '#', target: 'blank', class: 'HireUs-link'
+.u-defaultMargin
 
-    /* = render '/shared/share', post: post */
+.Separator.Separator--subvisual
+.u-largeMargin
 
-  = render 'shared/disqus', post: post
+= render '/shared/newsletter'
+.u-largeMargin
+
+  /* = render '/shared/share', post: post */
+
+.PostWidthConstrainer = render 'shared/disqus', post: post
+.u-largeMargin
