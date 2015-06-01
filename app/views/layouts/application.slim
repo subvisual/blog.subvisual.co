@@ -19,10 +19,11 @@ html.Theme lang="en"
       try{Typekit.load();}catch(e){}
 
   body
-    section.content
+    section
       = render '/layouts/nav'
-      = render '/layouts/hero'
-      = yield
+      .BlogTheme
+        = render '/layouts/hero'
+        = yield
       = render '/layouts/sitemap'
       = render '/layouts/footer'
 
