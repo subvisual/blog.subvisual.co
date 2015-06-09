@@ -1,5 +1,5 @@
 <% if Rails.env.production? || Rails.env.development? %>
-  <div id="disqus_thread"></div>
+  <div class="PostWidthConstrainer" id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname = 'groupbuddiesblog';
     var disqus_identifier = "<%= post.id %>";

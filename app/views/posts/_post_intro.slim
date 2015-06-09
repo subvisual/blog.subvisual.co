@@ -7,7 +7,8 @@
   .Post-body
     = post.processed_intro
   .u-smallMargin
-  .PostWidthConstrainer = render 'tag_list', tag_list: post.tag_list
+  .PostWidthConstrainer
+    = render 'tag_list', tag_list: post.tag_list
   .u-smallMargin
-  .PostWidthConstrainer = render 'author', post: post
+  = render 'author', post: post
   .u-defaultMargin

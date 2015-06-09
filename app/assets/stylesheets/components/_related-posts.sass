@@ -1,7 +1,16 @@
-.RelatedPosts
+$RelatedPosts-border-color: $Color-catskillWhite
 
 .RelatedPosts-column
-  display: inline-block
-  width: 50%
+  padding: $Theme-spacing-default
 
-.RelatedPosts-post
+
+@include media('>=desktop')
+  .RelatedPosts-column
+    display: inline-block
+    width: 50%
+    border-top: solid 1px
+    border-bottom: solid 1px
+    border-color: $RelatedPosts-border-color
+
+  .RelatedPosts-column:not(:last-child)
+    border-right: solid 1px $RelatedPosts-border-color
