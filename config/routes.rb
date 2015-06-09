@@ -20,7 +20,11 @@ GbBlog::Application.routes.draw do
     get '/sign_up' => 'clearance/users#new', as: 'sign_up'
 
     resources :users, controller: :users, only: [:create]
-    resources :posts, only: [:show]
+    resources :posts, only: %i(index show) do
+      collection do
+        resources :tag, only: [:show], param: :tag
+      end
+    end
 
     scope controller: :archive do
       get '/archive' => 'archives#show', as: :archive

@@ -6,33 +6,33 @@
 - content_for :hero
   = render 'post_hero', post: post
 
-/* .u-smallMargin */
-/* .PostWidthConstrainer */
-/*   = render 'tag_list', tag_list: post.tag_list */
-/* .u-defaultMargin */
+.u-smallMargin
+.PostWidthConstrainer
+  = render 'shared/tag_list', tag_list: post.tag_list
+.u-defaultMargin
 
-/* .Post */
-/*   .Post-body = post.processed_body */
+.Post
+  .Post-body = post.processed_body
 
-/* .PostWidthConstrainer */
-/*   .u-doubleLargeMargin */
-/*   .Separator.Separator--subvisual */
-/*   .u-largeMargin */
+.PostWidthConstrainer
+  .u-doubleLargeMargin
+  .Separator.Separator--subvisual
+  .u-largeMargin
 
-/*   = render 'author_bio', author: post.author */
-/*   .u-largeMargin */
+  = render 'author_bio', author: post.author
+  .u-largeMargin
 
 = render 'related_posts', post: post
-/* .u-largeMargin */
+.u-largeMargin
 
-/* = render 'shared/hire_us' */
-/* .u-defaultMargin */
+= render 'shared/hire_us'
+.u-defaultMargin
 
-/* .Separator.Separator--subvisual */
-/* .u-largeMargin */
+.Separator.Separator--subvisual
+.u-largeMargin
 
-/* = render '/shared/newsletter' */
-/* .u-largeMargin */
+= render '/shared/newsletter'
+.u-largeMargin
 
-/* = render 'shared/disqus', post: post */
-/* .u-largeMargin */
+= render 'shared/disqus', post: post
+.u-largeMargin

@@ -8,7 +8,7 @@
     = post.processed_intro
   .u-smallMargin
   .PostWidthConstrainer
-    = render 'tag_list', tag_list: post.tag_list
+    = render 'shared/tag_list', tag_list: post.tag_list
   .u-smallMargin
-  = render 'author', post: post
+  = render 'shared/author', post: post
   .u-defaultMargin

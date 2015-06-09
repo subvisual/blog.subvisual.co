@@ -6,5 +6,9 @@ $Hero-large-height: 600px
   background-color: $Color-catskillWhite
   text-align: center
 
+@each $tag, $color in $Theme-tags-color
+  .Hero--#{$tag}
+    background-color: $color
+
 .Hero--large
   height: $Hero-large-height

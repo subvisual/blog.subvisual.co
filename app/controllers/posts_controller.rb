@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  decorates_assigned :category, :posts, :post
+  decorates_assigned :posts, :post
 
   def index
     @posts = Post.published.recent
