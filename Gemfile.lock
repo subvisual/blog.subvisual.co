@@ -374,3 +374,6 @@ DEPENDENCIES
   sprockets
   sprockets-es6
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.3
