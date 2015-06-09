@@ -52,6 +52,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   background: transparent;
 
   transition: background-color 0.2s ease-in-out;
+  -webkit-transform: translateZ(0);
 }
 
 .Nav.Nav--topPositioned {
