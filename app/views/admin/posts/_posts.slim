@@ -1,9 +1,0 @@
-section.admin-actions
-  .new = link_to 'New Post', new_admin_post_path, class: 'button'
-
-- posts.each do |post|
-  .admin-post-row
-    .admin-post-title = link_to post.title, post_path(post), class: 'admin-link'
-    .admin-post-author = post.author.full_name
-    .admin-post-timestamp.info = post.publish_date
-    .admin-post-actions = link_to 'Edit', edit_admin_post_path(post), class: 'admin-link'

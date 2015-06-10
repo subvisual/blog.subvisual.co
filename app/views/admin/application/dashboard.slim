@@ -1,7 +1,53 @@
-header.admin-header Posts
-= render 'admin/posts/posts', posts: posts
+.AdminWidthConstrainer
+  h1.Heading Your Drafts
 
-.admin-section
-header.admin-header Myself
-= render 'admin/users/form'
+  table
+    colgroup
+      col width="80"
+      col width="40"
+      col width="40"
+      col width="20"
+    thead
+      th Title
+      th &nbsp;
+      th Last edition
+      th &nbsp;
+    tbody
+      - @drafts.each do |draft|
+        tr
+          td = link_to draft.title, post_path(draft), class: 'Link'
+          td &nbsp;
+          td = l draft.updated_at, format: :publish_date
+          td = link_to 'Edit', edit_admin_post_path(draft), class: 'Link'
+
+  .u-defaultMargin
+
+  = link_to 'New post', new_admin_post_path, class: 'ButtonPrimary'
+
+  .u-largeMargin
+
+  h1.Heading All posts
+
+  table
+    colgroup
+      col width="80"
+      col width="40"
+      col width="40"
+      col width="20"
+    thead
+      th Title
+      th Author
+      th Published
+      th &nbsp;
+    tbody
+      - @posts.each do |post|
+        tr
+          td = link_to post.title, post_path(post), class: 'Link'
+          td = post.author.full_name
+          td = l post.published_at, format: :publish_date
+          td = link_to 'Edit', edit_admin_post_path(post), class: 'Link'
+
+  .admin-section
+  header.admin-header Myself
+  = render 'admin/users/form'
 

@@ -1,37 +1,42 @@
-.blog-post.post-edit
-  - if url = session.delete(:url)
-    .url
-      span Here's the url to the image:
-      span = url
+- if url = session.delete(:url)
+  .url
+    span Here's the url to the image:
+    span = url
+
+.AdminWidthConstrainer
   = form_for :post_image, url: admin_post_images_path  do |form|
-    = form.submit "Add Image", class: "Btn"
+    = form.submit "Add Image", class: "ButtonSecondary"
     = form.file_field :image
 
-  = form_for [:admin, post.object], method: post.form_method do |f|
-    header.post-header
-      .actions
-        = f.submit 'Save Draft', class: 'Btn'
-        - unless post.new?
-          - if post.published?
-            = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'Btn'
-          - else
-            = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'Btn'
-      .post-icon
-      = f.text_field :title, placeholder: 'Title', class: 'huge-font', autocomplete: :off
-      aside
-        .info = post.info
-    .markdown-editor#markdown-editor
-      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'editor'
-      .post-body.preview v-html='input | marked'
+.u-smallMargin
+
+= form_for [:admin, post.object], method: post.form_method do |f|
+  .AdminWidthConstrainer
+    = f.submit 'Save', class: 'ButtonPrimary'
+    - unless post.new?
+      - if post.published?
+        = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'
+      - else
+        = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'ButtonSecondary'
+
+  .u-smallMargin
+
+  .AdminWidthConstrainer
+    = f.text_field :title, placeholder: 'Title', class: 'Input', autocomplete: :off
+  .Editor#markdown-editor
+    = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'Editor-textarea'
+    .Editor-preview
+      .Post
+        .Post-body v-html='input | marked'
 
 
 - content_for :page_script
-  javascript:
-    $(function() {
-      new Vue({
-        el: '#markdown-editor',
-        filters: {
-          marked: marked
-        }
-      })
-    });
+javascript:
+  $(function() {
+    new Vue({
+      el: '#markdown-editor',
+      filters: {
+        marked: marked
+      }
+    })
+  });

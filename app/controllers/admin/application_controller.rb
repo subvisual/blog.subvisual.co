@@ -2,10 +2,10 @@ class Admin::ApplicationController < ::ApplicationController
   layout 'admin'
   before_filter :verify_admin
 
-  decorates_assigned :posts, :user
+  decorates_assigned :posts, :drafts, :user
 
   def dashboard
-    @drafs = current_user.posts.unpublished
+    @drafts = current_user.posts.unpublished
     @posts = Post.published
   end
 

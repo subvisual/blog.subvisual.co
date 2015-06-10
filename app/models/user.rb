@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
-  has_many :posts, as: :author
+  has_many :posts, foreign_key: :author_id
 
   def name
     "#{first_name} #{last_name}".strip

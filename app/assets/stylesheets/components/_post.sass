@@ -7,6 +7,11 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2
   margin-left: auto !important
   margin-right: auto !important
 
+.Post--noPadding
+  .Post-body > *
+    padding-left: 0
+    padding-right: 0
+
 .Post-body > :not(.highlight)
   @include PostMaxWidth
 
