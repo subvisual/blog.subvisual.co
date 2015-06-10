@@ -30,4 +30,8 @@ class Post < ActiveRecord::Base
   def preprocess
     Services::PostProcessor.new(self).process
   end
+
+  def publication_year
+    published_at.year
+  end
 end

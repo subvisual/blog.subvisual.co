@@ -11,9 +11,10 @@ module Services
       extensions = { autolink: true, fenced_code_blocks: true }
       redcarpet = Redcarpet::Markdown.new(HTMLPygmentizedRenderer, extensions)
       post.processed_body = redcarpet.render(post.body)
-      if post.respond_to?(:processed_intro=)
-        post.processed_intro = redcarpet.render(markdown_intro)
-      end
+
+      return unless post.respond_to?(:processed_intro=)
+
+      post.processed_intro = redcarpet.render(markdown_intro)
     end
 
     private

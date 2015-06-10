@@ -3,11 +3,11 @@ class User < ActiveRecord::Base
 
   has_many :posts, as: :author
 
-  def twitter_handle?
-    twitter_handle.present?
+  def name
+    "#{first_name} #{last_name}".strip
   end
 
-  def name
-    "#{first_name} #{last_name}"
+  def full_name
+    name
   end
 end

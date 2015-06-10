@@ -5,19 +5,15 @@ module Facades
     end
 
     def years
-      @posts.map { |post| publication_year(post) }.uniq
+      @posts.map(&:publication_year).uniq
     end
 
     def posts_from_year(year)
-      @posts.select { |post| publication_year(post) == year }
+      @posts.select { |post| post == year }
     end
 
     private
 
     attr_reader :posts
-
-    def publication_year(post)
-      post.published_at.year
-    end
   end
 end

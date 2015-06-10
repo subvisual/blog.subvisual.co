@@ -17,10 +17,4 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     authorize! :read, @post
   end
-
-  private
-
-  def post_params
-    params[:post]
-  end
 end

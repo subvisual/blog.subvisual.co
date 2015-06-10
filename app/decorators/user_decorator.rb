@@ -1,9 +1,5 @@
 class UserDecorator < Draper::Decorator
-  delegate :first_name, :last_name, :bio, :has_twitter?, :twitter_handle, :twitter_handle?
-
-  def full_name
-    "#{first_name} #{last_name}".strip
-  end
+  delegate :first_name, :last_name, :bio, :has_twitter?, :twitter_handle, :full_name
 
   def photo_url
     h.image_url(photo_name)
