@@ -1,5 +1,6 @@
 class Admin::ApplicationController < ::ApplicationController
   layout 'admin'
+  before_filter :verify_admin
 
   decorates_assigned :posts, :user
 
@@ -8,9 +9,9 @@ class Admin::ApplicationController < ::ApplicationController
     @user  = current_user
   end
 
-  def create_saying
-    saying_params = params.require(:saying).permit(:saying)
-    Saying.create!(saying_params)
-    redirect_to admin_dashboard_path
+  private
+
+  def verify_admin
+    redirect_to root_url unless current_user
   end
 end

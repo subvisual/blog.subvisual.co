@@ -4,10 +4,6 @@
     = render 'admin/posts/posts', posts: posts
 
   .admin-section
-    header.admin-header = link_to 'Top Phrase', '#'
-    = render 'admin/application/saying'
-
-  .admin-section
     header.admin-header = link_to 'Myself', admin_me_path
     = render 'admin/users/form', user: user
 
