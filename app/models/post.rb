@@ -14,23 +14,10 @@ class Post < ActiveRecord::Base
 
   delegate :name, to: :author, prefix: true
 
-  def self.published
-    where('published_at IS NOT NULL')
-  end
-
-  def self.recent
-    limit(POSTS_LIMIT)
-  end
-
-  def self.by_author(author)
-    published.where(author_id: author)
-  end
-
-  def self.visible_by(author)
-    table = arel_table
-    where(table[:published_at].not_eq(nil).
-          or(table[:author_id].eq(author.id)))
-  end
+  scope :published, -> { where('published_at IS NOT NULL') }
+  scope :unpublished, -> { where('published_at IS NULL') }
+  scope :recent, -> { limit(POSTS_LIMIT) }
+  scope :by_author, ->(author) { published.where(author_id: author) }
 
   def to_param
     "#{id} #{title}".parameterize

@@ -1,9 +1,7 @@
-.default-page.admin-page
-  .admin-section
-    header.admin-header = link_to 'Posts', admin_posts_path
-    = render 'admin/posts/posts', posts: posts
+header.admin-header Posts
+= render 'admin/posts/posts', posts: posts
 
-  .admin-section
-    header.admin-header = link_to 'Myself', admin_me_path
-    = render 'admin/users/form'
+.admin-section
+header.admin-header Myself
+= render 'admin/users/form'
 

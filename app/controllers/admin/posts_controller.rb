@@ -1,10 +1,6 @@
   class Admin::PostsController < Admin::ApplicationController
     decorates_assigned :posts, :post
 
-    def index
-      @posts = Post.visible_by current_user
-    end
-
     def new
       @post = Post.new author: current_user
     end
