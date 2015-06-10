@@ -31,12 +31,12 @@
 
 
 - content_for :page_script
-javascript:
-  $(function() {
-    new Vue({
-      el: '#markdown-editor',
-      filters: {
-        marked: marked
-      }
-    })
-  });
+  javascript:
+    $(function() {
+      a = new Vue({
+        el: '#markdown-editor',
+        filters: {
+          marked: marked
+        }
+      });
+    });

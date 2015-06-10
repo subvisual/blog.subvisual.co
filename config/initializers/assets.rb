@@ -5,4 +5,3 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bo
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components', 'font-awesome', 'fonts')
 
 Rails.application.config.assets.precompile += %w(admin.css admin.js)
-

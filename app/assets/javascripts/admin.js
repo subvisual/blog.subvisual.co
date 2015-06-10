@@ -1,1 +1,3 @@
-//= require markdown_converter
+//= require application
+//= require marked.min
+//= require vue
