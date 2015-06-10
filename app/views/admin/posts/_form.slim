@@ -4,7 +4,7 @@
     span = url
 
 .AdminWidthConstrainer
-  = form_for :post_image, url: admin_post_images_path  do |form|
+  = form_for :post_image, url: admin_images_path  do |form|
     = form.submit "Add Image", class: "ButtonSecondary"
     = form.file_field :image
 
@@ -23,21 +23,9 @@
 
   .AdminWidthConstrainer
     = f.text_field :title, placeholder: 'Title', class: 'Input', autocomplete: :off
-  .Editor#markdown-editor
+  .Editor#Editor
     .Editor-textareaWrapper
-      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'Editor-textarea'
+      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'Editor-textarea', 'v-model' => 'input', class: 'Editor-textarea'
     .Editor-preview
       .Post
         .Post-body v-html='input | marked'
-
-
-- content_for :page_script
-  javascript:
-    $(function() {
-      a = new Vue({
-        el: '#markdown-editor',
-        filters: {
-          marked: marked
-        }
-      });
-    });

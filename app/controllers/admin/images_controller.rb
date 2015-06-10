@@ -1,5 +1,6 @@
-class Admin::PostImagesController < Admin::ApplicationController
+class Admin::ImagesController < Admin::ApplicationController
   authorize_resource
+
   def create
     post = PostImage.create image_params
     session[:url] = request.env['HTTP_ORIGIN'] + post.image.url
