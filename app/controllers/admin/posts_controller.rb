@@ -1,5 +1,4 @@
   class Admin::PostsController < Admin::ApplicationController
-    authorize_resource
     decorates_assigned :posts, :post
 
     def index

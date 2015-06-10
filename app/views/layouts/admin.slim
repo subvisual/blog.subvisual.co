@@ -1,25 +1,31 @@
 doctype html
-/! paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
-/![if lt IE 7 ] <html class="ie6" lang="en">
-/![if IE 7 ] <html class="ie7" lang="en">
-/![if IE 8 ] <html class="ie8" lang="en">
-/! [if (gte IE 9)|!(IE)]><!
-html lang="en"
+html.Theme lang="en"
   /! <![endif]
   head
     = render '/layouts/meta'
-    = stylesheet_link_tag    'application'
     = csrf_meta_tags
 
-  body.admin
-    = render '/layouts/header'
+    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "admin"
 
-    section.content
+    = favicon_link_tag 'favicon.ico'
+
+    = auto_discovery_link_tag :rss, feed_url(:rss), title: 'Subvisual Blog'
+
+    - if Rails.env.production?
+      = render 'layouts/analytics'
+
+    script src="//use.typekit.net/wbx6iwp.js"
+    javascript:
+      try{Typekit.load();}catch(e){}
+
+  body
+    section
+      = render '/layouts/nav'
       = yield
 
-    = render '/layouts/footer'
-
     = javascript_include_tag "application"
+    = javascript_include_tag "admin"
 
     - if content_for?(:page_script)
       = yield(:page_script)

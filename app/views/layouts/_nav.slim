@@ -12,6 +12,10 @@ nav#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{conten
       = link_to 'Community', 'https://subvisual.co/community', class: 'Nav-link'
     li.Nav-item
       = link_to 'Apprenticeship', 'https://subvisual.co/apprenticeship', class: 'Nav-link'
-    li.Nav-item.is-selected
+    li.Nav-item class="#{'is-selected' unless admin_controller?}"
       = link_to 'Blog', root_url, class: 'Nav-link'
+    - if can? :manage, Post
+      li.Nav-item class="#{'is-selected' if admin_controller?}"
+        = link_to 'Admin', admin_dashboard_path, class: 'Nav-link'
+
 

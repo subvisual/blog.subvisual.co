@@ -5,4 +5,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   decorates_assigned :categories
+
+  def admin_controller?
+    false
+  end
+  helper_method :admin_controller?
 end
