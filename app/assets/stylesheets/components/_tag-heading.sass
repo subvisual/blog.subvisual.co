@@ -1,0 +1,12 @@
+$TagHeading-color: $Theme-palette-text-body-default
+
+.TagHeading
+  text-align: left
+  @include font-properties(heading, veryLarge, $Theme-font-sizes-extra)
+  color: $Theme-color-white
+
+.TagHeading-link
+  text-decoration: none
+  color: $TagHeading-color
+  &:hover
+    text-decoration: underline

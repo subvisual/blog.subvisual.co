@@ -2,7 +2,7 @@
 - content_for :url, post_url(post)
 - content_for :image_url, post.author.photo_url
 - content_for :description, post.description
-- content_for :hero_class, 'Hero--large'
+- content_for :hero_class, 'Hero--large Hero--center'
 - content_for :hero
   = render 'post_hero', post: post
 

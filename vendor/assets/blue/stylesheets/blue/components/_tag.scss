@@ -24,6 +24,7 @@
   color: map-get($Theme-tags-color, general);
 
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 @each $tag, $color in $Theme-tags-color {
