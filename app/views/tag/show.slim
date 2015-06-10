@@ -3,11 +3,4 @@
 - content_for :hero
   = render 'tag_hero', tag: @tag
 
-.u-defaultMargin
-
-- posts.each_with_index do |post, post_index|
-  - if post_index > 0
-    .Separator.Separator--simple
-  = render 'posts/post_intro', post: post, show_comments: false
-.align-center
-  = link_to "Want to read more? Check all of our posts here", archive_path, class: 'color-blue'
+= render '/shared/posts_page', posts: posts
