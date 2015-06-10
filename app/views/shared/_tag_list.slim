@@ -1,2 +1,2 @@
 - tag_list.each do |tag|
-  span.Tag class="Tag--#{tag}" = tag
+  = link_to tag, tag_path(tag), class: "Tag Tag--#{tag}"

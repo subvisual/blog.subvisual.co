@@ -1,8 +1,9 @@
 .Tag
   @include font-properties(subvisual, small)
   text-transform: uppercase
+  text-decoration: none
 
-@each $tag, $color in $Blog-main-tags
+@each $tag, $color in $Theme-tags-color
   .Tag--#{$tag}
     color: $color
 

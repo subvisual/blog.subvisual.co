@@ -6,13 +6,6 @@ $Theme-palette-text-body-default: $Theme-color-limedSpruce;
 $Theme-palette-text-body-subvisual: $Theme-color-poloBlue;
 $Theme-palette-text-body-alt: $Theme-color-horizon;
 
-$Blog-main-tags: (
-  design: #00c2b6,
-  development: #00a5d4,
-  general: #3b6e87,
-  community: #efaa37
-);
-
 @font-face {
   font-family: 'SourceCodePro-Regular';
   src: url('SourceCodePro-Regular.ttf') format('truetype'), url('SourceCodePro-Regular.woff') format('woff');

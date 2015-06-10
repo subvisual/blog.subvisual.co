@@ -5,7 +5,8 @@
 // Lays out every element except the first (which is hidden) from right to left with equal spacing when on a desktop resolution.
 //
 // default - Nav with a transparent background
-// .Nav--light - Uses a lighter color in the nav links
+// .Nav--light - Uses a lighter color in the nav link
+// .Nav--selectedWithBackground - To be used when there's one selected item, and a color or image background
 // .Nav--fixed - Affixes the nav to the top of the viewport and applies a background color for better readability
 // .Nav--topPositioned - Absolutely positions the nav to the top of its relative container
 // .Nav--hint - Affixes the nav to the top, adds a drop shadow to hint the user about the existence of the header
@@ -171,6 +172,24 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   .Nav-item.is-selected {
     .Nav-link {
       color: $Nav-item-color-hover;
+    }
+  }
+}
+
+.Nav.Nav--activeWithBackground:not(.Nav--fixed) {
+  .Nav-link {
+    color: $Theme-color-white;
+  }
+
+  .Nav-item:not(.is-selected) {
+    opacity: 0.6;
+  }
+
+  .Nav-item:hover,
+  .Nav-item.is-selected {
+    border-bottom-color: $Theme-color-white;
+    .Nav-link {
+      color: $Theme-color-white;
     }
   }
 }

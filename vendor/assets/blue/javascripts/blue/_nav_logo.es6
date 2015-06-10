@@ -13,7 +13,7 @@ $(function(){
     }
 
     function update($element) {
-      if ($element.hasClass('Nav--light')) {
+      if ($element.hasClass('Nav--light') || $element.hasClass('Nav--activeWithBackground')) {
         if ($element.hasClass('Nav--fixed')) {
           showColoredLogo($element);
         } else {
