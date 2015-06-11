@@ -1,15 +1,3 @@
-- if url = session.delete(:url)
-  .url
-    span Here's the url to the image:
-    span = url
-
-.AdminWidthConstrainer
-  = form_for :post_image, url: admin_images_path  do |form|
-    = form.submit "Add Image", class: "ButtonSecondary"
-    = form.file_field :image
-
-.u-smallMargin
-
 = form_for [:admin, post.object], method: post.form_method do |f|
   .AdminWidthConstrainer
     = f.submit 'Save', class: 'ButtonPrimary'
@@ -29,3 +17,9 @@
     .Editor-preview
       .Post
         .Post-body v-html='input | marked'
+
+- content_for :page_script
+  javascript:
+    $(function() {
+      $('#Editor-textarea').setupInlineAttachment($('meta[name="csrf-token"]').attr('content'))
+    });

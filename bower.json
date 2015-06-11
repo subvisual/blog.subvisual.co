@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "include-media": "~1.1.2",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "inline-attachment": "~2.0.1"
   }
 }

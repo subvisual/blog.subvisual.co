@@ -3,12 +3,21 @@ $(function() {
 
   new Vue({
     el: '#Editor',
+    data: {
+      input: '# Mark down your thoughts...'
+    },
     filters: {
       marked: marked
     }
   });
 
-  $('#Editor-textarea').inlineattachment({
-    uploadUrl: '/blog/'
-  })
+  $.fn.setupInlineAttachment = function(csrf_token) {
+    $(this).inlineattachment({
+      uploadUrl: '<%= Rails.application.routes.url_helpers.admin_post_images_path %>',
+      uploadFieldName: 'post_image[image]',
+      extraHeaders: {
+        'X-CSRF-Token': csrf_token
+      }
+    });
+  }
 });

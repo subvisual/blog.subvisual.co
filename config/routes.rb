@@ -41,10 +41,13 @@ GbBlog::Application.routes.draw do
         patch :publish
         patch :unpublish
       end
-      resources :images, only: [:create]
 
       patch 'me', to: 'users#update', as: :update_me
       resources :users, only: [:update]
+
+      defaults format: :json do
+        resources :post_images, only: [:create]
+      end
     end
 
     namespace :api, defaults: { format: :json }, constraints: { format: :json } do

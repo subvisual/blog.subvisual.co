@@ -1,11 +1,9 @@
-class Admin::ImagesController < Admin::ApplicationController
+class Admin::PostImagesController < Admin::ApplicationController
   authorize_resource
 
   def create
     post = PostImage.create image_params
-    session[:url] = request.env['HTTP_ORIGIN'] + post.image.url
-
-    redirect_to request.referer
+    render json: { filename: post.image.url }
   end
 
   private
