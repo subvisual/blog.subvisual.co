@@ -34,4 +34,12 @@ class Post < ActiveRecord::Base
   def publication_year
     published_at.year
   end
+
+  def related_by_author
+    author.posts.published.where('id != ?', id).sample
+  end
+
+  def related_by_tags
+    find_related_tags.published.limit(3).sample
+  end
 end

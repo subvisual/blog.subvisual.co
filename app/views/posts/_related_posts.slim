@@ -1,15 +1,17 @@
 .RelatedPosts
-  .RelatedPosts-column
-    .PostWidthConstrainer
-      .AltText
-        ' Read more from
-        = link_to 'Francisco', '#', class: 'AltText'
-      .u-smallMargin
-      = render 'related_post', post: post
-  .RelatedPosts-column
-    .PostWidthConstrainer
-      .AltText
-        ' Read a
-        = link_to 'related post', '#', class: 'AltText'
-      .u-smallMargin
-      = render 'related_post', post: post
+  - if post.related_by_author
+    .RelatedPosts-column
+      .PostWidthConstrainer
+        .AltText
+          ' Read more from
+          = link_to post.author.first_name, '#', class: 'AltText'
+        .u-smallMargin
+        = render 'related_post', post: post.related_by_author.decorate
+  - if post.related_by_tags
+    .RelatedPosts-column
+      .PostWidthConstrainer
+        .AltText
+          ' Read a
+          = link_to 'related post', '#', class: 'AltText'
+        .u-smallMargin
+        = render 'related_post', post: post.related_by_tags.decorate
