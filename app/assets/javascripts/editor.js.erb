@@ -19,5 +19,29 @@ $(function() {
         'X-CSRF-Token': csrf_token
       }
     });
+
+    $('#Editor-textarea').bind({
+      'dragenter': function() {
+        $(this).addClass('u-dragOver');
+      },
+      'drop dragleave': function() {
+        $(this).removeClass('u-dragOver');
+      }
+    });
   }
+
+  <%# $('#Editor').droppable({ %>
+  <%#   activeClass: 'dragover' %>
+  <%#   <1%# tolerance: 'pointer', %1> %>
+  <%#   <1%# over: function(event, ui) { %1> %>
+  <%#   <1%#   console.log('over'); %1> %>
+  <%#   <1%#   $(this).addClass('dragover'); %1> %>
+  <%#   <1%# }, %1> %>
+  <%#   <1%# over: function(event, ui) { %1> %>
+  <%#   <1%#   $(this).removeClass('dragover'); %1> %>
+  <%#   <1%# }, %1> %>
+  <%#   <1%# out: function(event, ui) { %1> %>
+  <%#   <1%#   $(this).removeClass('dragover'); %1> %>
+  <%#   <1%# } %1> %>
+  <%# }); %>
 });
