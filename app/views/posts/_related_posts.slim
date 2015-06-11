@@ -6,7 +6,11 @@
           ' Read more from
           = link_to post.author.first_name, '#', class: 'AltText'
         .u-smallMargin
-        = render 'related_post', post: post.related_by_author.decorate
+      .RelatedPosts-post
+        .PostWidthConstrainer
+          .u-defaultMargin
+          = render 'related_post', post: post.related_by_author.decorate
+          .u-defaultMargin
   - if post.related_by_tags
     .RelatedPosts-column
       .PostWidthConstrainer
@@ -14,4 +18,8 @@
           ' Read a
           = link_to 'related post', '#', class: 'AltText'
         .u-smallMargin
-        = render 'related_post', post: post.related_by_tags.decorate
+      .RelatedPosts-post
+        .PostWidthConstrainer
+          .u-defaultMargin
+          = render 'related_post', post: post.related_by_tags.decorate
+          .u-defaultMargin
