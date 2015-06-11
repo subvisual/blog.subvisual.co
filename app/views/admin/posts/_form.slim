@@ -24,7 +24,8 @@
   .AdminWidthConstrainer
     = f.text_field :title, placeholder: 'Title', class: 'Input', autocomplete: :off
   .Editor#markdown-editor
-    = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'Editor-textarea'
+    .Editor-textareaWrapper
+      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'js-markdown-input', 'v-model' => 'input', class: 'Editor-textarea'
     .Editor-preview
       .Post
         .Post-body v-html='input | marked'

@@ -6,6 +6,12 @@
     .PostInfo-author
       ' by
       span.PostInfo-authorName = post.author.full_name
-    .PostInfo-date
-      ' on
-      = l(post.published_at, format: :publish_date)
+    - if post.published?
+      .PostInfo-date
+        ' on
+        = l(post.published_at, format: :publish_date)
+    - else
+      .PostInfo-date
+        = '(draft)'
+        br
+        = link_to 'Edit', edit_admin_post_path(post), class: 'Link'

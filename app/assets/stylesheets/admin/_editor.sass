@@ -2,11 +2,17 @@
   width: 100%
   display: flex
 
-.Editor-textarea,
+.Editor-textareaWrapper,
 .Editor-preview
   width: 50%
 
 .Editor-textarea
+  @include font-properties(code, base, $Theme-font-sizes-extra)
   border: none
   resize: vertical
   min-height: 1000px
+  width: calc(100% - 2 * #{$Theme-spacing-small})
+  margin: $Theme-spacing-small
+
+.Editor-preview
+  margin-top: $Theme-spacing-small
