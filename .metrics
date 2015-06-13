@@ -1,0 +1,6 @@
+MetricFu::Configuration.run do |config|
+  config.configure_metric(:cane) do |cane|
+    cane.no_doc = 'n'
+    end
+  end
+end
