@@ -1,6 +1,13 @@
 MetricFu::Configuration.run do |config|
   config.configure_metric(:cane) do |cane|
-    cane.no_doc = 'n'
-    end
+    cane.no_doc = 'y'
+  end
+
+  config.configure_metric(:churn) do |churn|
+    churn.ignore_files = %w(Gemfile Gemfile.lock)
+  end
+
+  config.configure_metric(:reek) do |reek|
+    reek.config_file_pattern = '.metrics.reek'
   end
 end
