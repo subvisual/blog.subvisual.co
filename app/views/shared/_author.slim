@@ -3,7 +3,7 @@
   .Author-right
     .AltText
       ' Written by
-      =<> link_to post.author.full_name, '#', class: 'AltText AltText--link'
+      span.AltText.AltText--bold =<> post.author.full_name
       ' on
       = l post.published_at, format: :publish_date
 
