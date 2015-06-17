@@ -3,13 +3,11 @@ $(function(){
   window.subvisual.nav = window.subvisual.nav || {};
   window.subvisual.nav.logo = (function() {
     function showMonoLogo($element) {
-      $element.find('.Nav-logo[data-mono]').removeClass('is-hidden');
-      $element.find('.Nav-logo:not([data-mono])').addClass('is-hidden');
+      $element.find('.NavLogo').addClass('NavLogo--mono');
     }
 
     function showColoredLogo($element) {
-      $element.find('.Nav-logo[data-mono]').addClass('is-hidden');
-      $element.find('.Nav-logo:not([data-mono])').removeClass('is-hidden');
+      $element.find('.NavLogo').removeClass('NavLogo--mono');
     }
 
     function update($element) {

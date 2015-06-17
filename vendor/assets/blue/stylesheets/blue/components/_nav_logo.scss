@@ -1,0 +1,62 @@
+// NavLogo
+//
+// Logo element for Nav.<br>
+// Adapts for mobile and desktop version.
+//
+// default - Colored Subvisual Logo.
+// .NavLogo--mono - Monochromatic version of the logo.
+//
+// markup:
+// <div class="NavLogo {$modifiers}"></div>
+//
+// Styleguide 1.17
+
+$NavLogo-mobile-colored: '' !default;
+$NavLogo-mobile-mono: '' !default;
+$NavLogo-desktop-colored: '' !default;
+$NavLogo-desktop-mono: '' !default;
+
+$NavLogo-image: (
+  mobile: (
+    colored: $NavLogo-mobile-colored,
+    mono: $NavLogo-mobile-mono
+  ),
+  desktop: (
+    colored: $NavLogo-desktop-colored,
+    mono: $NavLogo-desktop-mono
+  )
+);
+
+.NavLogo {
+  width: 20px; // value extracted from the image
+  height: 30px; // value extracted from the image
+
+  // styleguide:ignore:start
+  background-image: url(map-get(map-get($NavLogo-image, 'mobile'), 'colored'));
+  // styleguide:ignore:end
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.NavLogo.NavLogo--mono {
+  // styleguide:ignore:start
+  background-image: url(map-get(map-get($NavLogo-image, 'mobile'), 'mono'));
+  // styleguide:ignore:end
+}
+
+@include media('>tablet') {
+  .NavLogo {
+    width: 202px; // value extracted from the image
+    height: 40px; // value extracted from the image
+
+    // styleguide:ignore:start
+    background-image: url(map-get(map-get($NavLogo-image, 'desktop'), 'colored'));
+    // styleguide:ignore:end
+  }
+
+  .NavLogo.NavLogo--mono {
+    // styleguide:ignore:start
+    background-image: url(map-get(map-get($NavLogo-image, 'desktop'), 'mono'));
+    // styleguide:ignore:end
+  }
+}

@@ -5,8 +5,8 @@
 // Lays out every element except the first (which is hidden) from right to left with equal spacing when on a desktop resolution.
 //
 // default - Nav with a transparent background
-// .Nav--light - Uses a lighter color in the nav link
-// .Nav--selectedWithBackground - To be used when there's one selected item, and a color or image background
+// .Nav--light - Uses a lighter color in the nav links
+// .Nav--activeWithBackground - Uses white for all nav links, with transparency for all but the active one. To be used when there's one selected item, and a strong color or image background
 // .Nav--fixed - Affixes the nav to the top of the viewport and applies a background color for better readability
 // .Nav--topPositioned - Absolutely positions the nav to the top of its relative container
 // .Nav--hint - Affixes the nav to the top, adds a drop shadow to hint the user about the existence of the header
@@ -98,6 +98,21 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   }
 }
 
+.Nav.Nav--light {
+  &:not(.Nav--fixed) {
+    .Nav-link {
+      color: $Theme-color-white;
+    }
+  }
+
+  .Nav-item:hover,
+  .Nav-item.is-selected {
+    .Nav-link {
+      color: $Nav-item-color-hover;
+    }
+  }
+}
+
 .Nav.Nav--hint {
   position: fixed;
   top: -$Theme-nav-height;
@@ -105,21 +120,9 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
 }
 
-.Nav-logoWrapper {
-  position: relative;
-
-  width: 202px; // width extracted from the actual logo
-}
-
 .Nav-logo {
-  position: absolute;
-  top: 50%;
-
-  transform: translateY(-50%);
-
-  &.is-hidden {
-    opacity: 0;
-  }
+  display: flex;
+  align-items: center;
 }
 
 .Nav-items {
@@ -159,21 +162,6 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   font-weight: $Theme-typography-fontWeight-bold;
   text-decoration: none;
   text-transform: uppercase;
-}
-
-.Nav.Nav--light {
-  &:not(.Nav--fixed) {
-    .Nav-link {
-      color: $Theme-color-white;
-    }
-  }
-
-  .Nav-item:hover,
-  .Nav-item.is-selected {
-    .Nav-link {
-      color: $Nav-item-color-hover;
-    }
-  }
 }
 
 .Nav.Nav--activeWithBackground:not(.Nav--fixed) {
