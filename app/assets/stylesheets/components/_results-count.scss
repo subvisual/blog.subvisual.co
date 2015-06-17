@@ -1,0 +1,13 @@
+.ResultsCount {
+  @include font-properties(subvisual, small);
+  font-weight: bold;
+  text-transform: uppercase;
+
+  color: $Theme-color-poloBlue;
+}
+
+@each $tag, $color in $Theme-tags-color {
+  .ResultsCount.ResultsCount--#{$tag} {
+    color: $color;
+  }
+}

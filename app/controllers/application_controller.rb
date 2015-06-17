@@ -4,10 +4,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :load_tags
+
   decorates_assigned :categories
 
   def admin_controller?
     false
   end
   helper_method :admin_controller?
+
+  def load_tags
+    @all_tags ||= Post.all_tags
+  end
 end

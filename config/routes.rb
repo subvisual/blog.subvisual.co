@@ -11,6 +11,7 @@ GbBlog::Application.routes.draw do
     resources :posts, only: %i(index show) do
       collection do
         resources :tag, only: [:show], param: :tag
+        get :search
       end
     end
 

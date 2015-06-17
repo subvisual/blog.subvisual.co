@@ -120,6 +120,15 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
 }
 
+.Nav-link {
+  @include font-properties(subvisual, small);
+  color: $Theme-color-poloBlue;
+
+  font-weight: $Theme-typography-fontWeight-bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .Nav-logo {
   display: flex;
   align-items: center;
@@ -140,11 +149,6 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
   transition: border-color 0.2s ease-in-out;
 
-  &:not(:first-child) {
-    display: none;
-    margin-left: $Theme-spacing-default;
-  }
-
   &:hover,
   &.is-selected {
     border-bottom: 5px solid $Nav-item-color-hover;
@@ -153,15 +157,15 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
       color: $Nav-item-color-hover;
     }
   }
+
+  &:not(:first-child) {
+    display: flex;
+    margin-left: $Theme-spacing-default;
+  }
 }
 
-.Nav-link {
-  @include font-properties(subvisual, small);
-  color: $Theme-color-poloBlue;
-
-  font-weight: $Theme-typography-fontWeight-bold;
-  text-decoration: none;
-  text-transform: uppercase;
+.Nav-menu {
+  display: none;
 }
 
 .Nav.Nav--transparent:not(.Nav--fixed) {
@@ -185,5 +189,25 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 @include media('>=tablet') {
   .Nav-item:not(:first-child) {
     display: flex;
+    align-items: center;
+  }
+}
+
+@include media('<=tablet') {
+  .Nav.is-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: $Theme-color-white;
+  }
+
+  .Nav-items {
+    display: none;
+  }
+
+  .Nav-menu {
+    display: flex;
+    align-items: center;
   }
 }

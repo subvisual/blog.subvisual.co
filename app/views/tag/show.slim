@@ -1,6 +1,13 @@
-- content_for :hero_class, "Hero--#{@tag}"
+- content_for :hero_class, "Hero--tag Hero--#{@tag}"
 - content_for :nav_class, 'Nav--transparent'
+- content_for :nav_logo_class, 'NavLogo--mono'
 - content_for :hero
   = render 'tag_hero', tag: @tag
+
+.PostWidthConstrainer
+  .u-smallMargin
+  .ResultsCount class="ResultsCount--#{@tag}"
+    => posts.count
+    | posts
 
 = render '/shared/posts_page', posts: posts

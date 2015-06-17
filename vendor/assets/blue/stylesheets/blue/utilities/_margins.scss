@@ -59,7 +59,7 @@
 //
 // Styleguide 4.3.4
 
-.u-smallThenDefault {
+.u-smallThenDefaultMargin {
   margin-bottom: $Theme-spacing-small;
 
   @include media('>tablet') {

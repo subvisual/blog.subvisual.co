@@ -25,6 +25,12 @@
 
   text-decoration: none;
   text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.Tag--alt {
+  color: $Theme-color-poloBlue;
 }
 
 @each $tag, $color in $Theme-tags-color {

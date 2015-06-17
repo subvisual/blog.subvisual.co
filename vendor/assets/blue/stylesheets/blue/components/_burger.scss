@@ -1,0 +1,87 @@
+// Burger
+//
+// A burger icon that transform into a close icon.
+//
+// default - Burger icon.
+// .is-open - Close icon.
+//
+// markup:
+// <div class="Burger {$modifiers}">
+//   <span class="Burger-line"></span>
+//   <span class="Burger-line"></span>
+//   <span class="Burger-line"></span>
+// </div>
+//
+// Styleguide 1.18
+
+.Burger {
+  position: relative;
+
+  width: 20px;
+  height: 22px;
+  margin: 50px auto;
+
+  cursor: pointer;
+
+  transform: rotate(0deg);
+
+  transition: .5s ease-in-out;
+
+  user-select: none;
+
+  .Burger-line {
+    position: absolute;
+    left: 0;
+
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    background: $Theme-color-poloBlue;
+    border-radius: 3px;
+    opacity: 1;
+
+    transform: rotate(0deg);
+
+    transition: .25s ease-in-out;
+  }
+
+  .Burger-line:nth-child(1) {
+    top: 3px;
+
+    transform-origin: left center;
+  }
+
+  .Burger-line:nth-child(2) {
+    top: 9.5px;
+
+    transform-origin: left center;
+  }
+
+  .Burger-line:nth-child(3) {
+    top: 16px;
+
+    transform-origin: left center;
+  }
+
+  &.is-open .Burger-line:nth-child(1) {
+    top: 3px;
+    left: 3px;
+
+    transform: rotate(45deg);
+  }
+
+  &.is-open .Burger-line:nth-child(2) {
+    width: 0%;
+
+    opacity: 0;
+  }
+
+  &.is-open .Burger-line:nth-child(3) {
+    top: 17px;
+    left: 3px;
+
+    transform: rotate(-45deg);
+  }
+}
+

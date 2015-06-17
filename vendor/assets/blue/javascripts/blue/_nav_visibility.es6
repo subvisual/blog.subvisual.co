@@ -14,7 +14,7 @@ $(function(){
 
     function unaffixNav(isAtTheTop, $element) {
       if (isAtTheTop) {
-        $element.removeClass('Nav--fixed')
+        $element.removeClass('Nav--fixed');
         $element.removeClass('Nav--hint');
       }
     }
@@ -39,10 +39,11 @@ $(function(){
     function update(scrollState, $element) {
       unaffixNav(scrollState.isAtTheTop(), $element);
 
-      if(scrollState.hasntScrolledEnough())
+      if (scrollState.hasntScrolledEnough())
         return;
 
       let hasPassedTheElement = scrollState.hasPassedTheElement($element.outerHeight());
+
       if (scrollState.hasScrolledDown()) {
         hideNav(hasPassedTheElement, $element);
       } else {

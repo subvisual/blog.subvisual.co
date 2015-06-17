@@ -6,6 +6,11 @@ $Theme-palette-text-body-default: $Theme-color-limedSpruce;
 $Theme-palette-text-body-subvisual: $Theme-color-poloBlue;
 $Theme-palette-text-body-alt: $Theme-color-horizon;
 
+$NavLogo-mobile-colored:  image-path('blue/subvisual_logo_no_name.svg');
+$NavLogo-mobile-mono:     image-path('blue/subvisual_logo_mono_no_name.svg');
+$NavLogo-desktop-colored: image-path('blue/subvisual_logo_with_name.svg');
+$NavLogo-desktop-mono:    image-path('blue/subvisual_logo_mono_with_name.svg');
+
 @font-face {
   font-family: 'SourceCodePro-Regular';
   src: url('SourceCodePro-Regular.ttf') format('truetype'), url('SourceCodePro-Regular.woff') format('woff');

@@ -1,0 +1,102 @@
+// NavOverlay
+//
+// Overlay component to display on mobile devices instead of header navigation.
+//
+// default - Hidden overlay.
+// .is-open - Show the hidden overlay bellow the nav header.
+//
+// markup:
+// <ul class="NavOverlay {$modifiers}">
+//   <li class="NavOverlay-item">
+//     <a class="NavOverlay-link" href="http://subvisual.co/company">Company</a>
+//   </li>
+//   <li class="NavOverlay-item is-selected">
+//     <a class="NavOverlay-link" href="http://subvisual.co/company">Company</a>
+//   </li>
+// </ul>
+//
+// sg-wrapper:
+// <div style="display: none">
+// </div>
+//
+// Styleguide 1.19
+
+$NavOverlay-item-border-height: 2px;
+$NavOverlay-item-border-width: 50px;
+$NavOverlay-item-space: $Theme-spacing-default;
+
+.NavOverlay {
+  position: fixed;
+  top: $Theme-nav-height;
+  left: 0;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  // addded extra 200px because the navigation bar, on mobile browsers, sometimes disappears,
+  // leaving an empty space on the bottom that the overlay doesn't cover
+  height: calc(100% - #{$Theme-nav-height} + 200px);
+  padding: $Theme-spacing-default 0;
+
+  opacity: 0;
+  z-index: -2;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.NavOverlay-link {
+  @include font-properties(subvisual, small);
+  color: $Theme-color-poloBlue;
+
+  font-weight: $Theme-typography-fontWeight-bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.NavOverlay-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  &:hover,
+  &.is-selected {
+    .NavOverlay-link {
+      color: $Nav-item-color-hover;
+    }
+  }
+
+  &:not(:last-child) {
+    padding-bottom: $NavOverlay-item-space;
+
+    &:after {
+      position: absolute;
+      // positions the divider in the middle of the space between each item
+      bottom: $NavOverlay-item-space / 2 - $NavOverlay-item-border-height / 2;
+      left: 50%;
+
+      display: block;
+      width: $NavOverlay-item-border-width;
+      height: $NavOverlay-item-border-height;
+
+      background-color: $Theme-color-polar;
+
+      transform: translateX(-50%);
+
+      content: ' ';
+    }
+  }
+}
+
+.NavOverlay.is-open {
+  z-index: $Theme-layer-stickyElement + 1;
+
+  background-color: $Theme-color-white;
+
+  opacity: 1;
+}

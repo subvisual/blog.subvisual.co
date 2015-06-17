@@ -1,0 +1,9 @@
+= render '/shared/search_form', query: @query
+
+.PostWidthConstrainer
+  .u-smallMargin
+  .ResultsCount
+    => posts.count
+    | results found
+
+= render '/shared/posts_page', posts: posts
