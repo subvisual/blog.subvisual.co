@@ -6,6 +6,37 @@
 //
 // Styleguide 4.3
 
+// u-xSmallMargin
+//
+// Insert a xSmall margin.
+//
+// markup:
+// <div class="u-xSmallMargin"></div>
+//
+// Styleguide 4.3.1
+
+.u-xSmallMargin {
+  margin-bottom: $Theme-spacing-xSmall;
+}
+
+// u-xSmallThenSmallMargin
+//
+// Insert a xSmall margin that turns into a small margin on desktop.
+//
+// markup:
+// <div class="u-xSmallThenSmallMargin"></div>
+//
+// Styleguide 4.3.2
+
+
+.u-xSmallThenSmallMargin {
+  margin-bottom: $Theme-spacing-xSmall;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-small;
+  }
+}
+
 // u-smallMargin
 //
 // Insert a small margin.
@@ -13,23 +44,57 @@
 // markup:
 // <div class="u-smallMargin"></div>
 //
-// Styleguide 4.3.1
+// Styleguide 4.3.3
 
 .u-smallMargin {
   margin-bottom: $Theme-spacing-small;
 }
 
+// u-smallThenDefault
+//
+// Insert a small margin that turns into a default margin on desktop.
+//
+// markup:
+// <div class="u-smallThenDefault"></div>
+//
+// Styleguide 4.3.4
+
+.u-smallThenDefault {
+  margin-bottom: $Theme-spacing-small;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-default;
+  }
+}
+
 // u-defaultMargin
 //
-// Insert the height of the navbar. It's usefull has a placeholder on the top of the page.
+// Insert the default margin.
 //
 // markup:
 // <div class="u-defaultMargin"></div>
 //
-// Styleguide 4.3.2
+// Styleguide 4.3.5
 
 .u-defaultMargin {
   margin-bottom: $Theme-spacing-default;
+}
+
+// u-defaultThenLargeMargin
+//
+// Insert a default margin that turns into a large margin on desktop.
+//
+// markup:
+// <div class="u-defaultThenLargeMargin"></div>
+//
+// Styleguide 4.3.6
+
+.u-defaultThenLargeMargin {
+  margin-bottom: $Theme-spacing-default;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large;
+  }
 }
 
 // u-largeMargin
@@ -39,13 +104,29 @@
 // markup:
 // <div class="u-largeMargin"></div>
 //
-// Styleguide 4.3.3
+// Styleguide 4.3.7
 
 .u-largeMargin {
   margin-bottom: $Theme-spacing-large;
 }
 
+// u-largeThenDoubleLargeMargin
 //
+// Insert a large margin that turns into a double large margin on desktop.
+//
+// markup:
+// <div class="u-largeThenDoubleLargeMargin"></div>
+//
+// Styleguide 4.3.8
+
+.u-largeThenDoubleLargeMargin {
+  margin-bottom: $Theme-spacing-large;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large * 2;
+  }
+}
+
 // u-doubleLargeMargin
 //
 // Insert a double large margin.
@@ -53,7 +134,7 @@
 // markup:
 // <div class="u-doubleLargeMargin"></div>
 //
-// Styleguide 4.3.4
+// Styleguide 4.3.9
 
 .u-doubleLargeMargin {
   margin-bottom: $Theme-spacing-large * 2;
@@ -66,7 +147,7 @@
 // markup:
 // <div class="u-navPlaceholder"></div>
 //
-// Styleguide 4.3.5
+// Styleguide 4.3.10
 
 .u-navPlaceholder {
   margin-bottom: $Theme-nav-height;

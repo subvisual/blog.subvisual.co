@@ -91,31 +91,31 @@ $Theme-font-families: (
   heading: ('merriweather', serif),
   bodyText: ('pt-serif', serif)
 );
+
 $Theme-font-sizes: (
   mobile: (
-    // TODO: add mobile measurements
     subvisual: (
+      small: (
+        font-size: 12px,
+        line-height: 24px
+      ),
+      base: (
+        font-size: 16px,
+        line-height: 28px
+      ),
+      large: (
+        font-size: 20px,
+        line-height: 32px
+      )
+    ),
+    heading: (
       small: (
         font-size: 16px,
         line-height: 28px
       ),
       base: (
-        font-size: 24px,
-        line-height: 36px
-      ),
-      large: (
-        font-size: 40px,
-        line-height: 52px
-      )
-    ),
-    heading: (
-      small: (
-        font-size: 20px,
-        line-height: 32px
-      ),
-      base: (
-        font-size: 24px,
-        line-height: 36px
+        font-size: 16px,
+        line-height: 28px
       )
     ),
     bodyText: (
@@ -124,8 +124,8 @@ $Theme-font-sizes: (
         line-height: 28px
       ),
       base: (
-        font-size: 20px,
-        line-height: 32px
+        font-size: 16px,
+        line-height: 28px
       ),
       large: (
         font-size: 24px,

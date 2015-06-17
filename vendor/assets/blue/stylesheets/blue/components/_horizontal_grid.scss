@@ -10,6 +10,7 @@
 // .HorizontalGrid--darkFrame - Adds a dark colored border
 // .HorizontalGrid--noTopFrame - Removes the top border
 // .HorizontalGrid--withGutters - Applies gutters
+// .HorizontalGrid--variableWidth - Each cell has the width defined by its content
 //
 // markup:
 // <div class="HorizontalGrid {$modifiers}">
@@ -74,6 +75,17 @@
 
 .HorizontalGrid.HorizontalGrid--noTopFrame {
   border-top-width: 0;
+}
+
+.HorizontalGrid.HorizontalGrid--variableWidth {
+  .HorizontalGrid-cell {
+    flex: none;
+  }
+}
+
+.HorizontalGrid.HorizontalGrid--centered {
+  align-items: center;
+  justify-content: center;
 }
 
 .HorizontalGrid.HorizontalGrid--withGutters {
