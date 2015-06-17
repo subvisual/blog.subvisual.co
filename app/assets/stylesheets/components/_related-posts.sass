@@ -1,14 +1,16 @@
 $RelatedPosts-border-color: $Color-catskillWhite
 
-.RelatedPosts
-  display: flex
-
-.RelatedPosts-column
-  margin-left: auto
-  margin-right: auto
 
 
 @include media('>=desktop')
+  .RelatedPosts
+    display: flex
+
+  .RelatedPosts-column
+    flex: 1 1 auto
+    margin-left: auto
+    margin-right: auto
+
   .RelatedPosts-column
     display: inline-block
     width: 50%

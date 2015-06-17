@@ -25,6 +25,8 @@
 
   text-decoration: none;
   text-transform: uppercase;
+
+  letter-spacing: 1px;
 }
 
 @each $tag, $color in $Theme-tags-color {

@@ -4,7 +4,7 @@
       .PostWidthConstrainer
         .AltText
           ' Read more from
-          = link_to post.author.first_name, '#', class: 'AltText'
+          span.AltText.AltText--bold = post.author.first_name
         .u-smallMargin
       .RelatedPosts-post
         .PostWidthConstrainer
@@ -16,7 +16,7 @@
       .PostWidthConstrainer
         .AltText
           ' Read a
-          = link_to 'related post', '#', class: 'AltText'
+          = link_to 'related post', '#', class: 'AltText AltText--link'
         .u-smallMargin
       .RelatedPosts-post
         .PostWidthConstrainer
