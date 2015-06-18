@@ -45,6 +45,6 @@
     private
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :extra_tags, tag_list: [])
     end
   end

@@ -38,12 +38,15 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2
     @include media("<#{$Post-img-max-width}")
       max-width: 100%
 
-  .highlight
+  .highlight,
+  > pre
     @include font-properties(code, base, $Theme-font-sizes-extra)
     font-family: 'SourceCodePro-Regular'
     background-color: $Color-catskillWhite
     padding: $Theme-spacing-small 0
     margin-bottom: $Theme-spacing-default
+
+  .highlight
     pre
       @include PostMaxWidth($Post-code-max-width)
       padding-left: $Theme-spacing-small

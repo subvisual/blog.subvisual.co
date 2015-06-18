@@ -17,8 +17,10 @@ class Post < ActiveRecord::Base
   validates :author_id, :body, :title, presence: true
 
   before_validation :preprocess
+  before_save :set_extra_tags
 
   delegate :name, to: :author, prefix: true
+
 
   scope :published, -> { where('published_at IS NOT NULL') }
   scope :unpublished, -> { where('published_at IS NULL') }
@@ -47,5 +49,18 @@ class Post < ActiveRecord::Base
 
   def related_by_tags
     find_related_tags.published.limit(3).sample
+  end
+
+  attr_accessor :extra_tags
+
+  def secondary_tags
+    tag_list.reject { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
+  end
+
+  private
+
+  def set_extra_tags
+    tag_list.remove(secondary_tags)
+    tag_list.add(extra_tags)
   end
 end

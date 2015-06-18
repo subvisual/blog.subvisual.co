@@ -10,6 +10,13 @@
   .u-smallMargin
 
   .AdminWidthConstrainer
+    - Post::PRIMARY_TAGS.each do |tag|
+      = f.check_box :tag_list, { multiple: true, checked: post.tag_list.include?(tag.to_s) }, tag
+      = f.label "tag_list_#{tag}", tag.to_s, class: "Tag Tag--#{tag}"
+      br
+
+    = f.text_field :extra_tags, placeholder: 'Extra tags', class: 'Input', autocomplete: :off, value: post.secondary_tags
+
     = f.text_field :title, placeholder: 'Title', class: 'Input', autocomplete: :off
   .Editor#Editor
     .Editor-textareaWrapper
