@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   helper_method :admin_controller?
 
   def load_tags
-    @all_tags ||= Post.all_tags
+    @all_tags ||= Post.all_tags.sort_by { |tag| Post::PRIMARY_TAGS.include?(tag.name.to_sym) ? 0 : 1 }.first(10)
   end
 end

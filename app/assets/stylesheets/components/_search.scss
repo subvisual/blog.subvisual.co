@@ -24,6 +24,11 @@ $Search-placeholder-color: #b5c9d6;
   right: 0;
   color: $Theme-palette-text-body-default;
   padding-right: $Theme-spacing-small;
+  color: $Theme-color-yellowOrange;
+
+  .fa:before {
+    font-size: 20px;
+  }
 }
 
 .Search:not(.is-focused) {

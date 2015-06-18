@@ -6,8 +6,7 @@
   .PostWidthConstrainer
     .u-doubleLargePadding
 
-      - form_class = "Search #{'is-focused' if query.present?}"
-    = form_for :search, url: search_posts_path, method: :get, html: { class: form_class, id: 'Search' } do |form|
+    = form_for :search, url: search_posts_path, method: :get, html: { class: 'Search', id: 'Search' } do |form|
       .Search-fieldWrapper
         = form.text_field :q, class: 'Search-field', placeholder: 'Search our blog', autocomplete: :off, value: query
         - if query.present?
@@ -17,7 +16,6 @@
       .Search-tagsWrapper#Search-tagsWrapper
         .Search-tags
           - @all_tags.each do |tag|
-            .Search-tag = link_to tag, tag_path(tag.name), class: "Tag Tag--alt Tag--#{tag}"
             .Search-tag = link_to tag, tag_path(tag.name), class: "Tag Tag--alt Tag--#{tag}"
 
       .u-defaultMargin
