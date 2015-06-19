@@ -34,8 +34,10 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     padding-bottom: $Theme-spacing-small;
   }
 
-  h1 {
+  h1:not(:first-child) {
     @include font-properties(heading, veryLarge, $Theme-font-sizes-extra);
+
+    margin-top: $Theme-spacing-small;
   }
 
   h2 {
