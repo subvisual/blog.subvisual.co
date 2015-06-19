@@ -7,13 +7,8 @@
 }
 
 .Newsletter-input {
+  flex: 2;
   margin-right: $Theme-spacing-small;
-  .Input {
-    width: 100%;
-    padding: $Theme-spacing-xSmall $Theme-spacing-small;
-    border: 1px solid $Theme-color-poloBlue;
-    border-radius: 4px;
-  }
 }
 
 @include media("<tablet") {
@@ -25,16 +20,10 @@
     width: 100%;
     margin: 0;
     padding: 0 $Theme-spacing-small;
-    .Input {
-      margin: 0;
-    }
   }
   .Newsletter-submit {
     width: 100%;
     padding: $Theme-spacing-small;
-    .ButtonPrimary {
-      width: 100%;
-    }
   }
 }
 
