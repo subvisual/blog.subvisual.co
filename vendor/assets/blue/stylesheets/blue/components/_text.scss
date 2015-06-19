@@ -44,11 +44,15 @@
   font-weight: $Theme-typography-fontWeight-bold;
 }
 
-.Text.Text--tag {
+.Text.Text--brand {
   @include font-properties(subvisual, small);
   color: $Theme-color-brightTurquoise;
 
   text-transform: uppercase;
+}
+
+.Text.Text--caption {
+  color: $Theme-color-silverChalice;
 }
 
 .Text.Text--light {

@@ -2,6 +2,8 @@
 
 $fa-font-path: "../assets";
 $Color-catskillWhite: #eef4f8;
+$Color-item-blue: #42bffe;
+$Color-info: #5a8aa3;
 $Theme-palette-text-body-default: $Theme-color-limedSpruce;
 $Theme-palette-text-body-subvisual: $Theme-color-poloBlue;
 $Theme-palette-text-body-alt: $Theme-color-horizon;
@@ -19,42 +21,46 @@ $NavLogo-desktop-mono:    image-path('blue/subvisual_logo_mono_with_name.svg');
 $Theme-font-sizes-extra: (
   mobile: (
     heading: (
-      large: (
-        font-size: 24px,
-        line-height: 36px
-      ),
-      veryLarge: (
-        font-size: 40px,
-        line-height: 52px
-      ),
-      huge: (
-        font-size: 60px,
-        line-height: 72px
-      ),
       base: (
         font-size: 16px,
-        line-height: 24px
+        line-height: 26px
+      ),
+      large: (
+        font-size: 20px,
+        line-height: 30px
+      ),
+      veryLarge: (
+        font-size: 24px,
+        line-height: 34px
+      ),
+      huge: (
+        font-size: 30px,
+        line-height: 40px
       )
     ),
     code: (
       base: (
-        font-size: 18px,
-        line-height: 24px
+        font-size: 12px,
+        line-height: 22px
       )
     ),
     alt: (
       base: (
-        font-size: 16px,
-        line-height: 24px
+        font-size: 12px,
+        line-height: 22px
       ),
       large: (
-        font-size: 24px,
-        line-height: 36px
+        font-size: 16px,
+        line-height: 26px
       )
     )
   ),
   desktop: (
     heading: (
+      base: (
+        font-size: 20px,
+        line-height: 32px
+      ),
       large: (
         font-size: 24px,
         line-height: 36px
@@ -66,10 +72,6 @@ $Theme-font-sizes-extra: (
       huge: (
         font-size: 60px,
         line-height: 72px
-      ),
-      base: (
-        font-size: 16px,
-        line-height: 24px
       )
     ),
     code: (
@@ -90,6 +92,17 @@ $Theme-font-sizes-extra: (
     )
   )
 );
+
+@mixin extra-font($family, $desktop, $mobile) {
+  font-family: map-get($Theme-font-families, $family);
+  font-size: $mobile;
+  line-height: $mobile + 10px;
+
+  @include media('>=tablet') {
+    font-size: $desktop;
+    line-height: $desktop + 12px;
+  }
+}
 
 // @debug $Theme-font-sizes;
 // $Theme-font-sizes: map-extend($Theme-font-sizes, $Theme-font-sizes-extra, true);

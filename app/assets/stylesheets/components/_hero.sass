@@ -1,8 +1,7 @@
-$Hero-default-height: 400px
-$Hero-large-height: 600px
+$Hero-fixed-height: 400px
+$Hero-fixed-height-mobile: 300px
 
 .Hero
-  height: $Hero-default-height
   background-color: $Color-catskillWhite
 
 .Hero--tag
@@ -12,8 +11,10 @@ $Hero-large-height: 600px
   .Hero--#{$tag}
     background-color: $color
 
-.Hero--large
-  height: $Hero-large-height
+.Hero--fixed
+  height: $Hero-fixed-height
+  @include media('<=tablet')
+    height: $Hero-fixed-height-mobile
 
 .Hero--center
   text-align: center

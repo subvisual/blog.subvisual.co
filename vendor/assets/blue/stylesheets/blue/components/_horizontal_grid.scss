@@ -39,12 +39,18 @@
   border-top: 2px solid $color;
   border-bottom: 2px solid $color;
 
-  .HorizontalGrid-cell {
-    border-left: 2px solid $color;
+  .HorizontalGrid-cell:not(:last-child) {
+    border-bottom: 2px solid $color;
   }
 
-  .HorizontalGrid-cell:last-child {
-    border-right: 2px solid $color;
+  @include media('>=tablet') {
+    .HorizontalGrid-cell {
+      border-left: 2px solid $color;
+    }
+
+    .HorizontalGrid-cell:last-child {
+      border-right: 2px solid $color;
+    }
   }
 }
 
@@ -90,6 +96,17 @@
 
 .HorizontalGrid.HorizontalGrid--withGutters {
   $halfGutterSize: $Theme-spacing-small;
+
+  padding: 0 $halfGutterSize;
+
+  .HorizontalGrid-cell {
+    padding: 0 $halfGutterSize;
+  }
+}
+
+.HorizontalGrid.HorizontalGrid--withLargeGutters {
+  $halfGutterSize: $Theme-spacing-default;
+
   padding: 0 $halfGutterSize;
 
   .HorizontalGrid-cell {

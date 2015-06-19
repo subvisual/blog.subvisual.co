@@ -11,7 +11,7 @@
 
 @import '../reset';
 @import '../theme_vars';
-// @import 'font-awesome';
+@import 'font-awesome';
 
 .EngagementLink {
   @include font-properties(subvisual, small);

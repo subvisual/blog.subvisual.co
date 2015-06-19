@@ -23,10 +23,16 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2
   h1, h2, h3
     padding-top: $Theme-spacing-small
     padding-bottom: $Theme-spacing-small
+  h1
+    @include font-properties(heading, veryLarge, $Theme-font-sizes-extra)
+  h2
+    @include font-properties(heading, large, $Theme-font-sizes-extra)
+  h3
+    @include font-properties(heading, base, $Theme-font-sizes-extra)
   a
     color: inherit
 
-  > p:not(:last-child)
+  > p:not(:last-child),
     margin-bottom: $Theme-spacing-small
 
   > p img
@@ -45,6 +51,7 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2
     background-color: $Color-catskillWhite
     padding: $Theme-spacing-small 0
     margin-bottom: $Theme-spacing-default
+    margin-top: $Theme-spacing-small
 
   .highlight
     pre
@@ -80,3 +87,19 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2
     display: block
     text-align: center
     margin-bottom: $Theme-spacing-default
+
+    @include media('<tablet')
+      font-size: 12px
+      line-height: 22px
+
+  // ul
+  //   list-style: initial
+
+  ol
+    counter-reset: post-ol-counter
+
+  ol li:before
+    content: counter(post-ol-counter) "."
+    counter-increment: post-ol-counter
+    margin-right: 5px
+    color: $Color-item-blue

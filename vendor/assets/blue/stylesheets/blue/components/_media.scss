@@ -2,8 +2,11 @@
 //
 // The media object is an image to the left, with descriptive content to the right.
 //
+// default - Default media component.
+// .Media--noImageSpace - Media without space around the image.
+//
 // markup:
-// <div class="Media">
+// <div class="Media {$modifiers}">
 //   <div class="Media-image">
 //     <img src="/placeholder.png"/>
 //   </div>
@@ -28,4 +31,10 @@
   flex-direction: column;
 
   padding: 0 $Theme-spacing-small;
+}
+
+.Media.Media--noImageSpace {
+  .Media-image {
+    padding: 0;
+  }
 }

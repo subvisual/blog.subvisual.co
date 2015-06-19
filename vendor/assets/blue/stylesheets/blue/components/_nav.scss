@@ -194,6 +194,10 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 }
 
 @include media('<=tablet') {
+  .Nav {
+    padding: 0 $Theme-spacing-small;
+  }
+
   .Nav.is-open {
     position: fixed;
     top: 0;
