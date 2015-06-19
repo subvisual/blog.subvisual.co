@@ -66,6 +66,7 @@ $Search-tags-count-desktop: 11;
     display: none;
   }
 }
+
 @include media('>tablet') {
   .Search-tag:nth-child(n+#{$Search-tags-count-desktop}) {
     display: none;
