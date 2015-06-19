@@ -21,7 +21,6 @@ class Post < ActiveRecord::Base
 
   delegate :name, to: :author, prefix: true
 
-
   scope :published, -> { where('published_at IS NOT NULL') }
   scope :unpublished, -> { where('published_at IS NULL') }
   scope :recent, -> { limit(POSTS_LIMIT) }
