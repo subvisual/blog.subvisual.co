@@ -1,4 +1,6 @@
 $Search-placeholder-color: #b5c9d6;
+$Search-tags-count-mobile: 6;
+$Search-tags-count-desktop: 11;
 
 .Search-fieldWrapper {
   position: relative;
@@ -57,6 +59,17 @@ $Search-placeholder-color: #b5c9d6;
 .Search-tag {
   padding: 0 $Theme-spacing-xSmall;
   margin-bottom: $Theme-spacing-xSmall;
+}
+
+@include media('<=tablet') {
+  .Search-tag:nth-child(n+#{$Search-tags-count-mobile}) {
+    display: none;
+  }
+}
+@include media('>tablet') {
+  .Search-tag:nth-child(n+#{$Search-tags-count-desktop}) {
+    display: none;
+  }
 }
 
 .Search {
