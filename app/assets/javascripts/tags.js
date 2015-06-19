@@ -1,7 +1,8 @@
 $(function() {
   $search = $('#Search');
   $tags   = $('#Search-tagsWrapper');
-$search.bind({
+
+  $search.bind({
     focusin: function(event) {
       if ($search.hasClass('is-focused')) {
         return;

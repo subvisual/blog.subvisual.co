@@ -1,0 +1,10 @@
+{
+  "preset": "airbnb",
+  "safeContextKeyword": null,
+  "requirePaddingNewLinesAfterBlocks": null,
+  "requirePaddingNewLinesBeforeLineComments": null,
+  "validateQuoteMarks": { "mark": "'", "escape": true },
+  "disallowMultipleVarDecl": "exceptUndefined",
+
+  "excludeFiles": ["node_modules/**", "bower_components/**", "vendor/assets/**"]
+}
