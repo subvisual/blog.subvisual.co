@@ -1,0 +1,27 @@
+.u-doubleLargePadding {
+  padding-bottom: $Theme-spacing-large * 2;
+}
+
+.u-smallPadding {
+  padding-bottom: $Theme-spacing-small;
+}
+
+.u-defaultPadding {
+  padding-bottom: $Theme-spacing-default;
+}
+
+.u-defaultThenLargePadding {
+  padding-bottom: $Theme-spacing-default;
+
+  @include media('>tablet') {
+    padding-bottom: $Theme-spacing-large;
+  }
+}
+
+.u-largeThenDoubleLargePadding {
+  padding-bottom: $Theme-spacing-large;
+
+  @include media('>tablet') {
+    padding-bottom: $Theme-spacing-large * 2;
+  }
+}
