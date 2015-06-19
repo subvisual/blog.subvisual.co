@@ -296,6 +296,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    scss_lint (0.39.0)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
     simple-random (1.0.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
@@ -389,6 +392,7 @@ DEPENDENCIES
   rubocop
   sass (~> 3.4.0)
   sass-rails (~> 5.0.0)
+  scss_lint
   simple-random
   simplecov
   slim-rails

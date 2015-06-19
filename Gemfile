@@ -58,6 +58,7 @@ group :development, :test do
   gem 'jasmine-rails'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'scss_lint', require: false
 end
 
 group :production do

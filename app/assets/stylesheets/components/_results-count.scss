@@ -1,9 +1,10 @@
 .ResultsCount {
   @include font-properties(subvisual, small);
-  font-weight: bold;
-  text-transform: uppercase;
 
   color: $Theme-color-poloBlue;
+
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 @each $tag, $color in $Theme-tags-color {
