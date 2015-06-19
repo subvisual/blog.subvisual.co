@@ -8,8 +8,14 @@
 
 .Newsletter-input {
   flex: 2;
-  margin-right: $Theme-spacing-small;
 }
+
+@include media(">=desktop") {
+  .Newsletter-input {
+    margin-right: $Theme-spacing-small;
+  }
+}
+
 
 @include media("<tablet") {
   .Newsletter {
@@ -18,7 +24,6 @@
   }
   .Newsletter-input {
     width: 100%;
-    margin: 0;
     padding: 0 $Theme-spacing-small;
   }
   .Newsletter-submit {
