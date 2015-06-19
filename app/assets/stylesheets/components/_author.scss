@@ -13,11 +13,10 @@ $Author-width: 600px;
 
 .Author--small {
   .Author-left {
+    width: 70px;
     display: flex;
     align-items: center;
-    width: 70px;
   }
-
   .Author-picture {
     width: 50px;
     height: 50px;
@@ -26,21 +25,35 @@ $Author-width: 600px;
 
 .Author--large {
   .Author-left {
+    width: 140px;
     display: flex;
     justify-content: center;
-    width: 140px;
   }
-
   .Author-right {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-    margin-left: $Theme-spacing-small;
   }
-
   .Author-picture {
     width: 120px;
     height: 120px;
+  }
+}
+
+@include media(">=desktop") {
+  .Author-right {
+    margin-left: $Theme-spacing-small;
+  }
+}
+
+
+@include media("<tablet") {
+  .Author {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .Author-right {
+    margin-top: $Theme-spacing-small;
+    text-align: center;
   }
 }
