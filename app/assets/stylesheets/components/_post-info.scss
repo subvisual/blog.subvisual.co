@@ -1,12 +1,9 @@
 .PostInfo {
+  @include font-properties(heading, base, $Theme-font-sizes-extra);
+
   color: $Color-info;
 
-  font-size: 20px;
   font-style: italic;
-
-  @include media('<tablet') {
-    font-size: 12px;
-  }
 }
 
 .PostInfo-authorName {
@@ -14,9 +11,5 @@
 }
 
 .PostInfo-date {
-  font-size: 16px;
-
-  @include media('<tablet') {
-    font-size: 12px;
-  }
+  opacity: 0.5;
 }
