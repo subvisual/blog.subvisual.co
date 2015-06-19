@@ -1,0 +1,12 @@
+.AltText {
+  @include font-properties(heading, small, $Theme-font-sizes-extra);
+  color: $Theme-palette-text-body-alt;
+}
+
+.AltText--link {
+  font-weight: bold;
+}
+
+.AltText--bold {
+  font-weight: bold;
+}

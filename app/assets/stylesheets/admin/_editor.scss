@@ -1,0 +1,41 @@
+$Editor-textarea-border-color: #f00;
+
+.Editor {
+  display: flex;
+  width: 100%;
+}
+
+.Editor-textareaWrapper,
+.Editor-preview {
+  width: 50%;
+}
+
+.Editor-textarea {
+  @include font-properties(code, base, $Theme-font-sizes-extra);
+  width: calc(100% - 2 * #{$Theme-spacing-small});
+  margin: $Theme-spacing-small;
+  resize: vertical;
+
+  border: 0;
+
+  min-height: 1000px;
+
+  &:focus {
+    border: solid 1px $Editor-textarea-border-color;
+  }
+}
+
+.Editor-preview {
+  margin-top: $Theme-spacing-small;
+
+  .Post img {
+    max-width: 100%;
+
+    transform: translateX(0);
+  }
+
+  .Post pre {
+    padding-right: $Theme-spacing-small;
+    padding-left: $Theme-spacing-small;
+  }
+}

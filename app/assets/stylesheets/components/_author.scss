@@ -1,0 +1,46 @@
+$Author-width: 600px;
+
+.Author {
+  display: flex;
+  align-items: center;
+  max-width: $Author-width;
+  margin: auto;
+}
+
+.Author-right {
+  flex: 1;
+}
+
+.Author--small {
+  .Author-left {
+    display: flex;
+    align-items: center;
+    width: 70px;
+  }
+
+  .Author-picture {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.Author--large {
+  .Author-left {
+    display: flex;
+    justify-content: center;
+    width: 140px;
+  }
+
+  .Author-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin-left: $Theme-spacing-small;
+  }
+
+  .Author-picture {
+    width: 120px;
+    height: 120px;
+  }
+}

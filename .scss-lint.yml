@@ -25,6 +25,9 @@ linters:
   PropertySortOrder:
     order:
       - content
+      - counter-increment
+      - counter-reset
+      - counter-set
       -
       - position
       - top
@@ -117,9 +120,6 @@ linters:
       - caret-color
       - clip
       - color
-      - counter-increment
-      - counter-reset
-      - counter-set
       - cursor
       - fill
       - list-style

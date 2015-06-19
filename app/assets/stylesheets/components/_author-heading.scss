@@ -1,0 +1,13 @@
+$AuthorHeading-color: $Theme-palette-text-body-default;
+$AuthorHeading-name-color: $Theme-color-brightTurquoise;
+
+.AuthorHeading {
+  @include font-properties(subvisual, base);
+
+  font-weight: $Theme-typography-fontWeight-medium;
+  text-transform: uppercase;
+}
+
+.AuthorHeading-name {
+  color: $AuthorHeading-name-color;
+}

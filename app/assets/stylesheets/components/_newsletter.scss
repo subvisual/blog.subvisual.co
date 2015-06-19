@@ -1,0 +1,37 @@
+.Newsletter {
+  display: flex;
+  flex-wrap: wrap;
+
+  max-width: 600px;
+  margin: auto;
+}
+
+.Newsletter-input {
+  flex: 2;
+  margin-right: $Theme-spacing-small;
+
+  .Input {
+    width: 100%;
+
+    padding: $Theme-spacing-xSmall $Theme-spacing-small;
+
+    border: 1px solid $Theme-color-poloBlue;
+    border-radius: 4px;
+  }
+}
+
+.Newsletter-submit {
+  flex: 1;
+}
+
+@include media('<tablet') {
+  .Newsletter {
+    display: none;
+    align-items: stretch;
+  }
+}
+
+
+.Newsletter ::placeholder {
+  color: $Theme-color-poloBlue;
+}

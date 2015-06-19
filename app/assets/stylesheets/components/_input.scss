@@ -1,0 +1,12 @@
+$Input-border-color: #ccc;
+
+.Input {
+  @include font-properties(heading, small);
+
+  padding: 0 10px;
+  margin-right: $Theme-spacing-default;
+
+  border: solid 2px $Input-border-color;
+
+  color: $Theme-palette-text-body-alt;
+}

@@ -1,0 +1,9 @@
+$BackToIndex-color: rgba($Theme-color-white, 0.6);
+
+.BackToIndex {
+  @include font-properties(subvisual, small);
+
+  color: $BackToIndex-color;
+
+  text-decoration: none;
+}

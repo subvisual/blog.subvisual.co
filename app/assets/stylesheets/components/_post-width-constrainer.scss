@@ -1,0 +1,10 @@
+.PostWidthConstrainer {
+  width: 100%;
+  max-width: 650px;
+
+  padding-right: $Theme-spacing-small;
+  padding-left: $Theme-spacing-small;
+
+  margin-right: auto;
+  margin-left: auto;
+}

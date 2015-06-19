@@ -1,0 +1,19 @@
+$Separator-simple-width: 600px;
+
+.Separator--simple {
+  display: block;
+  width: 100%;
+  height: 2px;
+
+  background-color: rgba(#b5c9d6, 0.25);
+}
+
+.Separator--subvisual {
+  width: 64px;
+  height: 55px;
+  margin: auto;
+
+  background-image: image-url('subvisual/separator.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

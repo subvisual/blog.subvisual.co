@@ -1,0 +1,33 @@
+$RelatedPosts-border-color: $Color-catskillWhite;
+
+@include media('>=desktop') {
+  .RelatedPosts {
+    display: flex;
+  }
+
+  .RelatedPosts-column {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    width: 50%;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .RelatedPosts-post {
+    flex: 1;
+    width: 100%;
+
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+    border-color: $RelatedPosts-border-color;
+  }
+
+  .RelatedPosts-column:not(:last-child) .RelatedPosts-post {
+    border-right: solid 1px $RelatedPosts-border-color;
+  }
+}

@@ -1,0 +1,22 @@
+.PostInfo {
+  color: $Color-info;
+
+  font-size: 20px;
+  font-style: italic;
+
+  @include media('<tablet') {
+    font-size: 12px;
+  }
+}
+
+.PostInfo-authorName {
+  font-weight: bold;
+}
+
+.PostInfo-date {
+  font-size: 16px;
+
+  @include media('<tablet') {
+    font-size: 12px;
+  }
+}

@@ -21,6 +21,10 @@ $NavLogo-desktop-mono:    image-path('blue/subvisual_logo_mono_with_name.svg');
 $Theme-font-sizes-extra: (
   mobile: (
     heading: (
+      small: (
+        font-size: 12px,
+        line-height: 22px
+      ),
       base: (
         font-size: 16px,
         line-height: 26px
@@ -57,6 +61,10 @@ $Theme-font-sizes-extra: (
   ),
   desktop: (
     heading: (
+      small: (
+        font-size: 16px,
+        line-height: 28px
+      ),
       base: (
         font-size: 20px,
         line-height: 32px
