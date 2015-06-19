@@ -6,6 +6,13 @@
 
 .Newsletter-input
   flex: 2
+  margin-right: $Theme-spacing-small
+
+  .Input
+    width: 100%
+    padding: $Theme-spacing-xSmall $Theme-spacing-small
+    border: 1px solid $Theme-color-poloBlue
+    border-radius: 4px
 
 .Newsletter-submit
   flex: 1
@@ -14,3 +21,18 @@
   .Newsletter
     align-items: stretch
     display: none
+
+.Newsletter
+  ::-webkit-input-placeholder
+    color: $Theme-color-poloBlue
+
+  :-moz-placeholder
+    color: $Theme-color-poloBlue
+    opacity:  1
+
+  ::-moz-placeholder
+    color: $Theme-color-poloBlue
+    opacity:  1
+
+  :-ms-input-placeholder
+    color: $Theme-color-poloBlue
