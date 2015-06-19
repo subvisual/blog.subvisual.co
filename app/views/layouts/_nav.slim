@@ -1,20 +1,24 @@
+.NavOverlay
+  = nav_overlay_item 'Work', 'https://subvisual.co/work'
+  = nav_overlay_item 'Company', 'https://subvisual.co/company'
+  = nav_overlay_item 'Community', 'https://subvisual.co/community'
+  = nav_overlay_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
+  = nav_overlay_item 'Blog', root_url, class: ('is-selected' if admin_controller?)
+  - if can? :manage, Post
+    = nav_overlay_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
+
 nav#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{content_for(:nav_class)}"
   = link_to 'https://subvisual.co', class: 'Nav-logo'
     .NavLogo class="#{content_for(:nav_logo_class)}"
+  .Nav-menu
+    .Burger
+      .Burger-line
+      .Burger-line
+      .Burger-line
   ul.Nav-items
-    li.Nav-item
-    li.Nav-item
-      = link_to 'Work', 'https://subvisual.co/work', class: 'Nav-link'
-    li.Nav-item
-      = link_to 'Company', 'https://subvisual.co/company', class: 'Nav-link'
-    li.Nav-item
-      = link_to 'Community', 'https://subvisual.co/community', class: 'Nav-link'
-    li.Nav-item
-      = link_to 'Apprenticeship', 'https://subvisual.co/apprenticeship', class: 'Nav-link'
-    li.Nav-item class="#{'is-selected' unless admin_controller?}"
-      = link_to 'Blog', root_url, class: 'Nav-link'
-    - if can? :manage, Post
-      li.Nav-item class="#{'is-selected' if admin_controller?}"
-        = link_to 'Admin', admin_dashboard_path, class: 'Nav-link'
-
-
+    = nav_item 'Work', 'https://subvisual.co/work'
+    = nav_item 'Company', 'https://subvisual.co/company'
+    = nav_item 'Community', 'https://subvisual.co/community'
+    = nav_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
+    = nav_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
+    = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')

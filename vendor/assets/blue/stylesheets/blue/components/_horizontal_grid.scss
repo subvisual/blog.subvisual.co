@@ -39,11 +39,13 @@
   border-top: 2px solid $color;
   border-bottom: 2px solid $color;
 
-  .HorizontalGrid-cell:not(:last-child) {
-    border-bottom: 2px solid $color;
+  @include media('<=tablet') {
+    .HorizontalGrid-cell:not(:last-child) {
+      border-bottom: 2px solid $color;
+    }
   }
 
-  @include media('>=tablet') {
+  @include media('>tablet') {
     .HorizontalGrid-cell {
       border-left: 2px solid $color;
     }
@@ -60,7 +62,7 @@
 
   width: 100%;
 
-  @include media('>=tablet') {
+  @include media('>tablet') {
     flex-direction: row;
   }
 }
