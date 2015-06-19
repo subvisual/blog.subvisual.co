@@ -1,31 +1,33 @@
 .Newsletter {
-  max-width: 600px;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  max-width: 600px;
+  margin: auto;
 }
 
 .Newsletter-input {
   flex: 2;
 }
 
-@include media(">=desktop") {
+@include media('>=desktop') {
   .Newsletter-input {
     margin-right: $Theme-spacing-small;
   }
 }
 
 
-@include media("<tablet") {
+@include media('<tablet') {
   .Newsletter {
     flex-direction: column;
     align-items: center;
   }
+
   .Newsletter-input {
     width: 100%;
     padding: 0 $Theme-spacing-small;
   }
+
   .Newsletter-submit {
     width: 100%;
     padding: $Theme-spacing-small;
@@ -34,18 +36,8 @@
 
 
 .Newsletter {
-  ::-webkit-input-placeholder {
-    color: $Theme-color-poloBlue;
-  }
-  -moz-placeholder: {
-    color: $Theme-color-poloBlue;
-    opacity: 1;
-  };
-  ::-moz-placeholder {
+  ::placeholder {
     color: $Theme-color-poloBlue;
     opacity: 1;
   }
-  -ms-input-placeholder: {
-    color: $Theme-color-poloBlue;
-  };
 }

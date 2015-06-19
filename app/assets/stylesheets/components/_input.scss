@@ -1,8 +1,11 @@
 .Input {
   @include font-properties(heading, small);
-  color: $Theme-palette-text-body-alt;
   width: 100%;
+
   padding: $Theme-spacing-xSmall $Theme-spacing-small;
+
   border: 1px solid $Theme-color-poloBlue;
   border-radius: 4px;
+
+  color: $Theme-palette-text-body-alt;
 }
