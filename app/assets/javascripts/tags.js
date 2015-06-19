@@ -9,7 +9,7 @@ $search.bind({
 
       $tags
         .velocity('slideDown', { easing: 'ease-out' })
-        .velocity('fadeIn', { queue: false });
+        .velocity('fadeIn', { queue: false, duration: 1000 });
       $search.addClass('is-focused');
     },
 
@@ -24,7 +24,7 @@ $search.bind({
         $tags
           .velocity('slideUp', { easing: 'ease-out' })
           .velocity('fadeOut', { queue: false });
-      }, 1000);
+      }, 0);
     }
   });
 

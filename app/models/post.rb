@@ -60,6 +60,6 @@ class Post < ActiveRecord::Base
 
   def set_extra_tags
     tag_list.remove(secondary_tags)
-    tag_list.add(extra_tags)
+    tag_list.add(extra_tags, parse: true)
   end
 end

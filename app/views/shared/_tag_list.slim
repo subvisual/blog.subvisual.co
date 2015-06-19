@@ -1,2 +1,5 @@
-- tag_list.each do |tag|
+- tag_list.first.tap do |tag|
+  = link_to tag_list.first, tag_path(tag), class: "Tag Tag--#{tag}"
+- tag_list.drop(1).each do |tag|
+  ' ,
   = link_to tag, tag_path(tag), class: "Tag Tag--#{tag}"
