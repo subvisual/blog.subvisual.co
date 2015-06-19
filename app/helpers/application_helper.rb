@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def nav_item(text, url, options = {})
     options[:class] ||= ''
     options[:class] << ' Nav-item'

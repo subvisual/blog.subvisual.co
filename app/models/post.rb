@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  index_name [Rails.env, model_name.collection.gsub(%r(/), '-')].join('_')
 
   default_scope  { order('published_at DESC') }
 
