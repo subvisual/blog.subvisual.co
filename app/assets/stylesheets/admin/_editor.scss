@@ -3,13 +3,13 @@ $Editor-textarea-border-color: #f00;
 .Editor-textarea {
   @include font-properties(code, base, $Theme-font-sizes-extra);
   width: calc(100% - 2 * #{$Theme-spacing-small});
+  min-height: 1000px;
+
   margin: $Theme-spacing-small;
   resize: vertical;
 
   border: 0;
   outline: none;
-
-  min-height: 1000px;
 
   &:focus {
     background-color: rgba($Theme-color-polar, 0.1);

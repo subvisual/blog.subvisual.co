@@ -13,3 +13,7 @@
 .HorizontalGrid.HorizontalGrid--verticallyCentered {
   align-items: center;
 }
+
+.HorizontalGrid.HorizontalGrid--spaceBetween {
+  justify-content: space-between;
+}

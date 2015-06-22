@@ -2,11 +2,11 @@
 - content_for :url, post_url(post)
 - content_for :image_url, post.author.photo_url
 - content_for :description, post.description
-- content_for :hero_class, 'Hero--large Hero--center'
-- content_for :hero
-  = render 'post_hero', post: post
+
+= render 'post_hero', post: post
 
 .u-xSmallThenSmallMargin
+
 .PostWidthConstrainer
   = render 'shared/tag_list', tag_list: post.tag_list
 .u-defaultMargin

@@ -10,6 +10,12 @@ $PostHeading-color: $Theme-palette-text-body-default;
   @include font-properties(heading, huge, $Theme-font-sizes-extra);
 }
 
+.PostHeading--light {
+  color: $Theme-color-white;
+
+  text-shadow: 0 1px rgba(102, 102, 102, 0.5);
+}
+
 .PostHeading--small {
   @include font-properties(heading, large, $Theme-font-sizes-extra);
 }

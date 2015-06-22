@@ -14,3 +14,4 @@ spec/tmp
 .envrc
 puppet/*.yaml
 vendor/assets/bower_components
+public/uploads

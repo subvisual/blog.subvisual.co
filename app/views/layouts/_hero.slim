@@ -1,3 +1,9 @@
-.Hero class="#{content_for(:hero_class)}"
-  = content_for :hero
-  .u-defaultThenLargePadding
+.Hero(
+  class="#{content_for(:hero_class)}"
+  style="background-image: url('#{content_for(:hero_image)}')"
+  )
+  - if content_for?(:hero_image)
+    = image_tag content_for(:hero_image), class: 'Hero-hiddenImage'
+    .Hero-overlay
+  .Hero-content
+    = content_for :hero

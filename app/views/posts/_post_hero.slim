@@ -1,17 +1,30 @@
-.PostWidthConstrainer
-  .u-largeThenDoubleLargePadding
-  h1.PostHeading.PostHeading--large = post.title
-  .PostInfo
-    .u-smallThenDefaultMargin
-    .PostInfo-author
-      ' by
-      span.PostInfo-authorName = post.author.full_name
-    - if post.published?
-      .PostInfo-date
-        ' on
-        = l(post.published_at, format: :publish_date)
-    - else
-      .PostInfo-date
-        = '(draft)'
-        br
-        = link_to 'Edit', edit_admin_post_path(post), class: 'Link'
+- content_for :hero_class, ' Hero--center'
+
+- if post.hero.image.url
+  - content_for :hero_class, ' Hero--withBackgroundImage'
+  - content_for :hero_image, post.hero.image.url
+  - content_for :nav_class, 'Nav--transparent'
+  - content_for :burger_class, 'Burger--light'
+  - content_for :post_info_class, ' PostInfo--light'
+  - content_for :post_heading_class, ' PostHeading--light'
+- else
+  - content_for :hero_class, ' Hero--large'
+
+- content_for :hero
+  .PostWidthConstrainer
+    h1.PostHeading.PostHeading--large class="#{content_for(:post_heading_class)}"
+      = post.title
+    .PostInfo class="#{content_for(:post_info_class)}"
+      .u-smallThenDefaultMargin
+      .PostInfo-author
+        ' by
+        span.PostInfo-authorName = post.author.full_name
+      - if post.published?
+        .PostInfo-date
+          ' on
+          = l(post.published_at, format: :publish_date)
+      - else
+        .PostInfo-date
+          = '(draft)'
+          br
+          = link_to 'Edit', edit_admin_post_path(post), class: 'Link'

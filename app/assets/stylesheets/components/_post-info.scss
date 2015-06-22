@@ -1,9 +1,18 @@
+$Color-info: #5a8aa3;
+$Color-info-light: $Theme-color-white;
+
 .PostInfo {
   @include font-properties(heading, base, $Theme-font-sizes-extra);
 
   color: $Color-info;
 
   font-style: italic;
+}
+
+.PostInfo.PostInfo--light {
+  color: $Color-info-light;
+
+  text-shadow: 0 1px rgba(102, 102, 102, 0.5);
 }
 
 .PostInfo-authorName {

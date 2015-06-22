@@ -1,32 +1,38 @@
 = form_for [:admin, post.object], method: post.form_method, multipart: true do |f|
-
-  .Hero.Hero--center
-    .u-largeThenDoubleLargePadding
-    = f.fields_for :hero, post.object.hero do |hero_form|
-      = hero_form.file_field :image
-    .u-defaultThenLargePadding
-
-  .u-defaultMargin
+  .u-largeMargin
 
   .AdminWidthConstrainer
-    .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
-      .HorizontalGrid-cell
-        = link_to 'Go back', admin_posts_path, class: 'ButtonSecondary'
-      - unless post.new?
-        .HorizontalGrid-cell = f.submit 'Preview', value: :preview, class: 'ButtonSecondary'
-        - if post.published?
-          .HorizontalGrid-cell = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'
-        - else
-          .HorizontalGrid-cell = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'ButtonSecondary'
-      .HorizontalGrid-cell = f.submit 'Save', class: 'ButtonPrimary'
-
-    .u-smallMargin
-
     - if post.object.errors.any?
       .ErrorMsg
         - post.object.errors.each do |field, message|
           .ContentFormatter.ContentFormatter--center
             = [field, message].join(' ')
+
+      .u-smallMargin
+
+    .HorizontalGrid.HorizontalGrid--spaceBetween.HorizontalGrid--verticallyCentered
+      .HorizontalGrid-cell
+        = f.fields_for :hero, post.hero do |hero_form|
+          .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--verticallyCentered
+            .HorizontalGrid-cell
+              span Hero Image:
+            - if post.hero.image.url
+              .HorizontalGrid-cell
+                = hero_form.label :image
+                  = image_tag post.hero.image.url(:thumb), class: ''
+            .HorizontalGrid-cell
+              = hero_form.file_field :image
+
+      .HorizontalGrid-cell
+        .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
+          .HorizontalGrid-cell
+          - unless post.new?
+            .HorizontalGrid-cell = f.submit 'Preview', value: :preview, class: 'ButtonSecondary'
+            - if post.published?
+              .HorizontalGrid-cell = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'
+            - else
+              .HorizontalGrid-cell = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'ButtonSecondary'
+          .HorizontalGrid-cell = f.submit 'Save', class: 'ButtonPrimary'
 
   .u-smallMargin
 

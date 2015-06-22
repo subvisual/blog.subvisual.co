@@ -12,7 +12,7 @@ if %w(development test).include? Rails.env
 
   RuboCop::RakeTask.new
   SCSSLint::RakeTask.new do |t|
-    t.config = '.scss-lint.yml'
+    t.config = Rails.root.join('.scss-lint.yml').to_s
   end
 
   desc 'Lint code'

@@ -1,0 +1,74 @@
+$Hero-fixed-height: 400px;
+$Hero-min-height: 300px;
+$Hero-min-height-large: 600px;
+$Hero-background-color-tag: #8db6cb;
+
+.Hero {
+  position: relative;
+
+  min-height: $Hero-min-height;
+  margin: auto;
+
+  background-color: $Color-catskillWhite;
+
+}
+
+.Hero--tag {
+  background-color: $Hero-background-color-tag;
+}
+
+@each $tag, $color in $Theme-tags-color {
+  .Hero--#{$tag} {
+    background-color: $color;
+  }
+}
+
+.Hero--fixed {
+  height: $Hero-fixed-height;
+}
+
+.Hero--large {
+  min-height: $Hero-min-height-large;
+}
+
+.Hero--pushBottom {
+  display: flex;
+  align-items: flex-end;
+}
+
+.Hero.Hero--withBackgroundImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Hero-hiddenImage {
+  display: block;
+  visibility: hidden;
+  width: 100%;
+}
+
+.Hero-content {
+  width: 100%;
+}
+
+.Hero--center .Hero-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  text-align: center;
+
+  transform: translateY(-50%);
+}
+
+.Hero-overlay {
+  position: absolute;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
