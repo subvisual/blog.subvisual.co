@@ -11,12 +11,16 @@ gem 'cancan'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'clearance', '1.10.1'
+gem 'dotenv-rails'
 gem 'draper', '~> 1.3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'headquarters'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'omniauth'
+gem 'omniauth-headquarters'
 gem 'pg'
 gem 'piet'
 gem 'piet-binary'
@@ -63,7 +67,6 @@ group :development, :test do
 end
 
 group :production do
-  gem 'dotenv-rails'
   gem 'foreman'
 end
 

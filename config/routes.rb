@@ -3,6 +3,9 @@ GbBlog::Application.routes.draw do
 
   get '/' => redirect('/blog')
 
+  get '/blog/auth/:provider/callback', to: 'sessions#create'
+  # get '/blog/auth/headquarters', to: 'hq_authorize'
+
   scope '/blog' do
     root to: "posts#index"
 

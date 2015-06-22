@@ -4,6 +4,11 @@
     h2.Heading = t '.title'
     .u-smallMargin
 
+    .ContentFormatter.ContentFormatter--centerHorizontally
+      = link_to 'Sign in with Headquarters', '/blog/auth/headquarters', class: 'ButtonPrimary'
+
+    .u-smallMargin
+
     = form_for :session, :url => session_path do |form|
       = form.label :email
       = form.text_field :email, type: 'email', class: 'Input'
