@@ -8,10 +8,12 @@
 
     def new
       @post = Post.new author: current_user
+      @post.build_hero unless @post.hero
     end
 
     def edit
       @post = Post.find params[:id]
+      @post.build_hero unless @post.hero
     end
 
     def create
@@ -58,6 +60,6 @@
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :extra_tags, tag_list: [])
+      params.require(:post).permit(:title, :body, :extra_tags, tag_list: [], hero_attributes: [:image])
     end
   end

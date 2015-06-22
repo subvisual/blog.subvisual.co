@@ -1,4 +1,12 @@
-= form_for [:admin, post.object], method: post.form_method do |f|
+= form_for [:admin, post.object], method: post.form_method, multipart: true do |f|
+
+  .Hero.Hero--center
+    .u-largeThenDoubleLargePadding
+    = f.fields_for :hero, post.object.hero do |hero_form|
+      = hero_form.file_field :image
+    .u-defaultThenLargePadding
+
+  .u-defaultMargin
 
   .AdminWidthConstrainer
     .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right

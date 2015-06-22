@@ -13,7 +13,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, class_name: 'User'
   belongs_to :category
+  has_one :hero, class_name: 'PostImage'
   acts_as_taggable
+
+  accepts_nested_attributes_for :hero
 
   validates :author_id, :body, :title, presence: true
   validate :ensure_primary_tag_exists
