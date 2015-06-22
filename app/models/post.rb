@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
   validates :author_id, :body, :title, presence: true
-  validate :has_primary_tag
+  validate :ensure_primary_tag_exists
 
   after_validation :preprocess
   before_save :set_extra_tags
@@ -60,6 +60,10 @@ class Post < ActiveRecord::Base
     tag_list.reject { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
   end
 
+  def primary_tag?
+    tag_list.any? { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
+  end
+
   private
 
   def set_extra_tags
@@ -67,8 +71,8 @@ class Post < ActiveRecord::Base
     tag_list.add(extra_tags, parse: true)
   end
 
-  def has_primary_tag
-    return if tag_list.any? { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
+  def ensure_primary_tag_exists
+    return if primary_tag?
 
     errors.add(:tags, 'must include at least one primary tag')
   end
