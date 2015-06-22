@@ -2,6 +2,8 @@
 
   .AdminWidthConstrainer
     .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
+      .HorizontalGrid-cell
+        = link_to 'Go back', admin_posts_path, class: 'ButtonSecondary'
       - unless post.new?
         .HorizontalGrid-cell = f.submit 'Preview', value: :preview, class: 'ButtonSecondary'
         - if post.published?

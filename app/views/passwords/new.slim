@@ -1,12 +1,16 @@
-#clearance.password-reset
-  h2 = t '.title'
+.PostWidthConstrainer
+  .u-doubleLargeMargin
+  #clearance
+    h2.Heading = t '.title'
+    .u-smallMargin
 
-  p = t '.description'
-
-  = form_for :password, :url => passwords_path do |form|
-    .text-field
+    = form_for :password, :url => passwords_path do |form|
       = form.label :email
-      = form.text_field :email, :type => 'email'
+      = form.text_field :email, :type => 'email', class: 'Input'
 
-    .submit-field
-      = form.submit
+      .u-smallMargin
+      .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
+        .HorizontalGrid-cell
+          = link_to 'Forgot Password', new_password_path, class: 'ButtonSecondary'
+        .HorizontalGrid-cell
+          = form.submit 'Submit', class: 'ButtonPrimary'

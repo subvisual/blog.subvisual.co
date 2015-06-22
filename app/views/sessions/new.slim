@@ -1,17 +1,21 @@
-/* .default-page.admin-page#clearance.sign-in */
-.default-page.admin-page
-  .SignIn#clearance
-    h2 = t '.title'
+.PostWidthConstrainer
+  .u-doubleLargeMargin
+  #clearance
+    h2.Heading = t '.title'
+    .u-smallMargin
 
     = form_for :session, :url => session_path do |form|
-      .SignIn-field
-        = form.label :email, class: 'SignIn-fieldLabel'
-        = form.text_field :email, type: 'email', class: 'SignIn-fieldInput'
+      = form.label :email
+      = form.text_field :email, type: 'email', class: 'Input'
 
-      .SignIn-field
-        = form.label :password, class: 'SignIn-fieldLabel'
-        = form.password_field :password, class: 'SignIn-fieldInput'
+      .u-smallMargin
 
-      .SignIn-actions
-        = form.submit class: 'Btn Btn--submit'
-        = link_to 'Forgot Password', new_password_path, class: 'Btn'
+      = form.label :password
+      = form.password_field :password, class: 'Input'
+
+      .u-smallMargin
+      .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
+        .HorizontalGrid-cell
+          = link_to 'Forgot Password', new_password_path, class: 'ButtonSecondary'
+        .HorizontalGrid-cell
+          = form.submit class: 'ButtonPrimary'

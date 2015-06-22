@@ -1,6 +1,4 @@
 .AdminWidthConstrainer
-
-  .u-smallPadding
   .ContentFormatter.ContentFormatter--right
       = link_to 'New post', new_admin_post_path, class: 'ButtonPrimary'
 
@@ -10,18 +8,15 @@
     h1.Heading Your Drafts
 
     table.PostsTable
-      colgroup
-        col width="80"
-        col width="40"
-        col width="40"
-        col width="20"
       tbody
-        - @drafts.each do |draft|
+        - @drafts.each do |post|
           tr
-            td.PostTable-title = link_to draft.title, post_path(draft), class: 'Link'
-            td &nbsp;
-            td = l draft.updated_at, format: :publish_date
-            td = link_to 'Edit', edit_admin_post_path(draft), class: 'Link'
+            td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
+            td.PostTable-title
+              = link_to edit_admin_post_path(post), class: 'Link'
+                .fa.fa-pencil
+              =< link_to post.title, post_path(post), class: 'Link'
+            td = render 'shared/tag_list', tag_list: post.tag_list
 
   .u-smallMargin
 
@@ -32,8 +27,10 @@
       - @posts.each do |post|
         tr
           td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
-          td.PostTable-title 
+          td.PostTable-title
             = link_to edit_admin_post_path(post), class: 'Link'
               .fa.fa-pencil
             =< link_to post.title, post_path(post), class: 'Link'
           td = render 'shared/tag_list', tag_list: post.tag_list
+
+  .u-defaultPadding

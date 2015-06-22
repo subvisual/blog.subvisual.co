@@ -21,11 +21,15 @@ html.Theme lang="en"
   body
     section
       = render '/layouts/nav'
-      = render '/layouts/hero'
+      - unless params[:controller].match('clearance')
+        = render '/layouts/hero'
+
       = yield
-      .SubvisualTheme
-        = render '/layouts/sitemap'
-      = render '/layouts/footer'
+
+      - unless params[:controller].match('clearance')
+        .SubvisualTheme
+          = render '/layouts/sitemap'
+        = render '/layouts/footer'
 
     = javascript_include_tag "application"
 
