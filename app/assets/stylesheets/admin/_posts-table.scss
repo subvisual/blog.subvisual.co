@@ -1,0 +1,30 @@
+.PostsTable {
+  width: 100%;
+
+  border-spacing: 0;
+
+  text-align: left;
+
+  td {
+    padding: 5px;
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    img {
+      height: 1.5em;
+
+      vertical-align: text-top;
+    }
+
+    a {
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba($Theme-color-cerulean, 0.1);
+  }
+}

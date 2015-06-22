@@ -1,29 +1,50 @@
 = form_for [:admin, post.object], method: post.form_method do |f|
+
   .AdminWidthConstrainer
-    = f.submit 'Save', class: 'ButtonPrimary'
-    - unless post.new?
-      - if post.published?
-        = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'
-      - else
-        = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'ButtonSecondary'
+    .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
+      - unless post.new?
+        .HorizontalGrid-cell = f.submit 'Preview', value: :preview, class: 'ButtonSecondary'
+        - if post.published?
+          .HorizontalGrid-cell = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'
+        - else
+          .HorizontalGrid-cell = link_to 'Publish', admin_post_publish_path(post), method: :patch, class: 'ButtonSecondary'
+      .HorizontalGrid-cell = f.submit 'Save', class: 'ButtonPrimary'
+
+    .u-smallMargin
+
+    - if post.object.errors.any?
+      .ErrorMsg
+        - post.object.errors.each do |field, message|
+          .ContentFormatter.ContentFormatter--center
+            = [field, message].join(' ')
 
   .u-smallMargin
 
   .AdminWidthConstrainer
-    - Post::PRIMARY_TAGS.each do |tag|
-      = f.check_box :tag_list, { multiple: true, checked: post.tag_list.include?(tag.to_s) }, tag
-      = f.label "tag_list_#{tag}", tag.to_s, class: "Tag Tag--#{tag}"
-      br
+    .HorizontalGrid.HorizontalGrid--variableWidth.HorizontalGrid--innerGutters.HorizontalGrid--verticallyCentered
+      - Post::PRIMARY_TAGS.each do |tag|
+        .HorizontalGrid-cell
+          .TagCheckbox
+            = f.check_box :tag_list, { multiple: true, checked: post.tag_list.include?(tag.to_s) }, tag, nil
+            = f.label "tag_list_#{tag}", tag.to_s, class: "Tag Tag--#{tag}"
+      .HorizontalGrid-cell
+        = f.text_field :extra_tags, placeholder: 'Extra tags (comma separated)', class: 'Input', autocomplete: :off, value: post.secondary_tags.join(', ')
 
-    = f.text_field :extra_tags, placeholder: 'Extra tags', class: 'Input', autocomplete: :off, value: post.secondary_tags
+    .u-smallMargin
 
-    = f.text_field :title, placeholder: 'Title', class: 'Input', autocomplete: :off
+    = f.text_field :title, placeholder: 'Title', class: 'TitleInput', autocomplete: :off
+
+  .u-smallMargin
+
   .Editor#Editor
-    .Editor-textareaWrapper
-      = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'Editor-textarea', 'v-model' => 'input', class: 'Editor-textarea'
-    .Editor-preview
-      .Post
-        .Post-body v-html='input | marked'
+    .HorizontalGrid
+      .HorizontalGrid-cell
+        .Editor-textareaWrapper
+          = f.text_area :body, placeholder: 'Mark down your thoughts', id: 'Editor-textarea', 'v-model' => 'input', class: 'Editor-textarea'
+      .HorizontalGrid-cell
+        .Editor-preview
+          .Post
+            .Post-body v-html='input | marked'
 
 - content_for :page_script
   javascript:

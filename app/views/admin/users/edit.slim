@@ -1,0 +1,8 @@
+.PostWidthConstrainer
+  .ContentFormatter.ContentFormatter--centerHorizontally
+    h1.Heading = user.full_name
+    .u-smallMargin
+    = image_tag current_user.decorate.photo_url, alt: current_user.decorate.full_name, class: 'UserForm-picture'
+    .u-smallMargin
+
+  = render 'form', user: user

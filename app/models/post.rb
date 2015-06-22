@@ -16,8 +16,9 @@ class Post < ActiveRecord::Base
   acts_as_taggable
 
   validates :author_id, :body, :title, presence: true
+  validate :has_primary_tag
 
-  before_validation :preprocess
+  after_validation :preprocess
   before_save :set_extra_tags
 
   delegate :name, to: :author, prefix: true
@@ -36,6 +37,8 @@ class Post < ActiveRecord::Base
   end
 
   def preprocess
+    return if errors.any?
+
     Services::PostProcessor.new(self).process
   end
 
@@ -62,5 +65,11 @@ class Post < ActiveRecord::Base
   def set_extra_tags
     tag_list.remove(secondary_tags)
     tag_list.add(extra_tags, parse: true)
+  end
+
+  def has_primary_tag
+    return if tag_list.any? { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
+
+    errors.add(:tags, 'must include at least one primary tag')
   end
 end

@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
   decorates_assigned :user
 
-  def show
+  def edit
     @user = current_user
   end
 

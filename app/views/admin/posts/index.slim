@@ -1,0 +1,39 @@
+.AdminWidthConstrainer
+
+  .u-smallPadding
+  .ContentFormatter.ContentFormatter--right
+      = link_to 'New post', new_admin_post_path, class: 'ButtonPrimary'
+
+  .u-smallMargin
+
+  - if @drafts.any? || 1 == 1
+    h1.Heading Your Drafts
+
+    table.PostsTable
+      colgroup
+        col width="80"
+        col width="40"
+        col width="40"
+        col width="20"
+      tbody
+        - @drafts.each do |draft|
+          tr
+            td.PostTable-title = link_to draft.title, post_path(draft), class: 'Link'
+            td &nbsp;
+            td = l draft.updated_at, format: :publish_date
+            td = link_to 'Edit', edit_admin_post_path(draft), class: 'Link'
+
+  .u-smallMargin
+
+  h1.Heading All posts
+
+  table.PostsTable
+    tbody
+      - @posts.each do |post|
+        tr
+          td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
+          td.PostTable-title 
+            = link_to edit_admin_post_path(post), class: 'Link'
+              .fa.fa-pencil
+            =< link_to post.title, post_path(post), class: 'Link'
+          td = render 'shared/tag_list', tag_list: post.tag_list

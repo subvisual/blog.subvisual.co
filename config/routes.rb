@@ -38,13 +38,13 @@ GbBlog::Application.routes.draw do
     namespace :admin do
       get '/', to: 'application#dashboard', as: :dashboard
 
-      resources :posts, only: [:show, :new, :create, :edit, :update] do
+      resources :posts, except: %i(destroy) do
         patch :publish
         patch :unpublish
       end
 
       patch 'me', to: 'users#update', as: :update_me
-      resources :users, only: [:update]
+      resources :users, only: [:edit, :update]
 
       defaults format: :json do
         resources :post_images, only: [:create]

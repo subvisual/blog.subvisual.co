@@ -1,0 +1,17 @@
+.TitleInput {
+  @include font-properties(heading, veryLarge, $Theme-font-sizes-extra);
+
+  width: 100%;
+
+  padding: 0 $Theme-spacing-small;
+
+  border: 0;
+  border-bottom: solid 1px $Theme-color-poloBlue;
+  outline: none;
+
+  &:focus {
+    border-bottom-width: 2px;
+  }
+}
+
+

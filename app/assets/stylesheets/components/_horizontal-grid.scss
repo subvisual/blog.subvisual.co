@@ -6,6 +6,10 @@
   }
 }
 
+.HorizontalGrid.HorizontalGrid--right {
+  justify-content: flex-end;
+}
+
 .HorizontalGrid.HorizontalGrid--verticallyCentered {
   align-items: center;
 }

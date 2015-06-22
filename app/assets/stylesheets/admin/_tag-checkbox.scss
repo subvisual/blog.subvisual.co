@@ -1,0 +1,19 @@
+.TagCheckbox {
+  input {
+    display: none;
+  }
+
+  label {
+    padding: $Theme-spacing-xSmall;
+
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  @each $tag, $color in $Theme-tags-color {
+    input:checked + .Tag--#{$tag} {
+      background-color: $color;
+      color: $Theme-color-white;
+    }
+  }
+}

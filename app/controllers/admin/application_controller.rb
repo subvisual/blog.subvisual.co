@@ -5,8 +5,6 @@ class Admin::ApplicationController < ::ApplicationController
   decorates_assigned :posts, :drafts, :user
 
   def dashboard
-    @drafts = current_user.posts.unpublished
-    @posts = Post.published
   end
 
   def admin_controller?
