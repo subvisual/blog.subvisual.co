@@ -1,5 +1,6 @@
-require 'pygmentize'
 require 'redcarpet'
+require 'rouge'
+require 'rouge/plugins/redcarpet'
 
 module Services
   class PostProcessor
@@ -9,7 +10,7 @@ module Services
 
     def process
       extensions = { autolink: true, fenced_code_blocks: true }
-      redcarpet = Redcarpet::Markdown.new(HTMLPygmentizedRenderer, extensions)
+      redcarpet = Redcarpet::Markdown.new(SyntaxHighlightedRenderer, extensions)
       post.processed_body = redcarpet.render(post.body)
 
       return unless post.respond_to?(:processed_intro=)
@@ -25,10 +26,8 @@ module Services
       post.body.split(/((\r)?\n){2}/)[0]
     end
 
-    class HTMLPygmentizedRenderer < Redcarpet::Render::HTML
-      def block_code(code, language)
-        Pygmentize.process(code, language)
-      end
+    class SyntaxHiglightedRenderer < Redcarpet::Render::HTML
+      include Rouge::Plugins::Redcarpet
     end
   end
 end

@@ -262,6 +262,7 @@ GEM
     redcarpet (3.2.3)
     request_store (1.1.0)
     rmagick (2.15.0)
+    rouge (1.9.0)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -393,6 +394,7 @@ DEPENDENCIES
   rails (~> 4.2.1)
   redcarpet
   rmagick
+  rouge
   rspec-html-matchers
   rspec-rails
   rubocop

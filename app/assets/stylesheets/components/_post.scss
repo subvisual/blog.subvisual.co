@@ -85,16 +85,19 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     font-family: 'SourceCodePro-Regular';
   }
 
-  .highlight pre { // scss-lint:disable SelectorFormat
-    @include PostMaxWidth($Post-code-max-width);
+  .highlight { // scss-lint:disable SelectorFormat
+    pre,
+    code {
+      @include PostMaxWidth($Post-code-max-width);
 
-    max-width: 100%;
+      max-width: 100%;
 
-    padding-right: $Theme-spacing-small;
-    padding-left: $Theme-spacing-small;
+      padding-right: $Theme-spacing-small;
+      padding-left: $Theme-spacing-small;
 
-    white-space: pre-wrap;
-    word-wrap: break-word;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
   }
 
   blockquote {
