@@ -4,6 +4,8 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
 
 @mixin PostMaxWidth($width: $Post-default-max-width) {
   // scss-lint:disable ImportantRule
+  display: block;
+
   max-width: $width !important;
 
   margin-left: auto !important;
