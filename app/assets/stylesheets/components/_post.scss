@@ -6,7 +6,7 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
   // scss-lint:disable ImportantRule
   display: block;
 
-  max-width: $width !important;
+  max-width: $width;
 
   margin-left: auto !important;
   margin-right: auto !important;
@@ -61,18 +61,15 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     }
   }
 
-  > p img {
-    display: block;
-    margin: auto;
+  > .Post-imageWrapper {
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
 
     @include media(">=#{$Post-img-max-width}") {
       max-width: $Post-img-max-width;
-
-      transform: translateX(-($Post-img-max-width - $Post-default-max-width) * 0.5);
-
-      @include media("<#{$Post-img-max-width}") {
-        max-width: 100%;
-      }
     }
   }
 

@@ -28,6 +28,10 @@ module Services
 
     class SyntaxHighlightedRenderer < Redcarpet::Render::HTML
       include Rouge::Plugins::Redcarpet
+
+      def postprocess(full_doc)
+        full_doc.gsub(%r{<p><img}, '<p class="Post-imageWrapper"><img')
+      end
     end
   end
 end
