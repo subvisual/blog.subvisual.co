@@ -21,4 +21,5 @@ nav#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{conten
     = nav_item 'Community', 'https://subvisual.co/community'
     = nav_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
     = nav_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
-    = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
+    - if can? :manage, Post
+      = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')

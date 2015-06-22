@@ -3,6 +3,11 @@
     .HorizontalGrid-cell
       = link_to 'Posts', admin_posts_path, class: 'ButtonPrimary'
     .HorizontalGrid-cell
-      = link_to 'My Profile', edit_admin_user_path(current_user), class: 'ButtonPrimary'
+      = link_to 'My Profile', edit_admin_user_path(current_user), class: 'ButtonSecondary'
+  .u-defaultMargin
+  .HorizontalGrid.HorizontalGrid--withGutters
+    .HorizontalGrid-cell
+    .HorizontalGrid-cell
+      = link_to 'Log out', sign_out_path, class: 'ButtonSecondary', method: :delete
 
 
