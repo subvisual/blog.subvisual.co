@@ -21,9 +21,8 @@ gem 'pg'
 gem 'piet'
 gem 'piet-binary'
 gem 'puma'
-gem 'pygmentize', require: false
 gem 'redcarpet', require: false
-gem 'rouge'
+gem 'rouge', require: false
 gem 'rmagick'
 gem 'sass-rails', '~> 5.0.0'
 gem 'sass', '~> 3.4.0'
