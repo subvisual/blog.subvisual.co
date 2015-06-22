@@ -32,7 +32,7 @@ RSpec.describe Services::PostProcessor do
 
       Services::PostProcessor.new(post).process
 
-      post.processed_body.should have_tag('div', with: { class: 'highlight' })
+      post.processed_body.should have_tag('pre', with: { class: 'highlight' })
     end
   end
 end
