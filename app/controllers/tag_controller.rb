@@ -4,8 +4,6 @@ class TagController < ApplicationController
     @tag = params[:tag]
     @posts = Post.published.tagged_with(@tag)
 
-    if @posts.none?
-      redirect_to posts_path
-    end
+    redirect_to posts_path if @posts.none?
   end
 end
