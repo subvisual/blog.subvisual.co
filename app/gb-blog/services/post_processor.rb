@@ -26,7 +26,7 @@ module Services
       post.body.split(/((\r)?\n){2}/)[0]
     end
 
-    class SyntaxHiglightedRenderer < Redcarpet::Render::HTML
+    class SyntaxHighlightedRenderer < Redcarpet::Render::HTML
       include Rouge::Plugins::Redcarpet
     end
   end

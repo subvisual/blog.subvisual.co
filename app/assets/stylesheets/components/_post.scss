@@ -52,8 +52,11 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     color: inherit;
   }
 
-  > p:not(:last-child) {
-    margin-bottom: $Theme-spacing-small;
+  > p,
+  > iframe {
+    &:not(:last-child) {
+      margin-bottom: $Theme-spacing-small;
+    }
   }
 
   > p img {
