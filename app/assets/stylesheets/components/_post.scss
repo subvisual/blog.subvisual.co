@@ -64,13 +64,14 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
   > .Post-imageWrapper {
     text-align: center;
 
+    @include media(">=#{$Post-img-max-width}") {
+      max-width: $Post-img-max-width;
+    }
+
     img {
       max-width: 100%;
     }
 
-    @include media(">=#{$Post-img-max-width}") {
-      max-width: $Post-img-max-width;
-    }
   }
 
   .highlight, // scss-lint:disable SelectorFormat
