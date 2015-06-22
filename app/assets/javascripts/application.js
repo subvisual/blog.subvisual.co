@@ -4,3 +4,4 @@
 //= require velocity
 //= require blue
 //= require tags
+//= require bugherd
