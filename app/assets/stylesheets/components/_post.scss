@@ -93,8 +93,6 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     code {
       @include PostMaxWidth($Post-code-max-width);
 
-      max-width: 100%;
-
       padding-right: $Theme-spacing-small;
       padding-left: $Theme-spacing-small;
 
