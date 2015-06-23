@@ -67,6 +67,10 @@ class Post < ActiveRecord::Base
     tag_list.any? { |tag| PRIMARY_TAGS.include?(tag.to_sym) }
   end
 
+  def hero?
+    hero && hero.image && hero.image.url.present?
+  end
+
   private
 
   def set_extra_tags

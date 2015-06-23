@@ -1,6 +1,6 @@
 - content_for :hero_class, ' Hero--center'
 
-- if post.hero.image.url
+- if post.hero?
   - content_for :hero_class, ' Hero--withBackgroundImage'
   - content_for :hero_image, post.hero.image.url
   - content_for :nav_class, 'Nav--transparent'
