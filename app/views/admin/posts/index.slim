@@ -14,8 +14,7 @@
           tr
             td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
             td.PostTable-title
-              = link_to edit_admin_post_path(post), class: 'Link'
-                .fa.fa-pencil
+              = link_to '(edit)', edit_admin_post_path(post), class: 'Link'
               =< link_to post.title, post_path(post), class: 'Link'
             td = render 'shared/tag_list', tag_list: post.tag_list
 
@@ -29,8 +28,7 @@
         tr
           td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
           td.PostTable-title
-            = link_to edit_admin_post_path(post), class: 'Link'
-              .fa.fa-pencil
+            = link_to '(edit)', edit_admin_post_path(post), class: 'Link'
             =< link_to post.title, post_path(post), class: 'Link'
           td = render 'shared/tag_list', tag_list: post.tag_list
 

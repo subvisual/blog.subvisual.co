@@ -10,8 +10,7 @@
       .Search-fieldWrapper
         = form.text_field :q, class: 'Search-field', placeholder: 'Search our blog', autocomplete: :off, value: query
         - if query.present?
-          = link_to posts_path, class: 'Search-clear'
-            .fa.fa-icon.fa-times
+          = link_to 'clear', posts_path, class: 'Search-clear'
 
       .Search-tagsWrapper#Search-tagsWrapper
         .Search-tags
