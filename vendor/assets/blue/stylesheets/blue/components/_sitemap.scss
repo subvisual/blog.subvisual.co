@@ -15,9 +15,13 @@
 @import '../reset';
 @import '../theme_vars';
 
+.Sitemap {
+  color: $Theme-palette-text-body-subvisual;
+}
+
 .SitemapTopic-heading {
   @include font-properties(subvisual, small);
-  color: $Theme-color-horizon;
+  color: $Theme-color-limedSpruce;
 
   font-weight: $Theme-typography-fontWeight-bold;
   text-transform: uppercase;

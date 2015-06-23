@@ -27,8 +27,8 @@ html.Theme lang="en"
       = yield
 
       - unless params[:controller].match('clearance')
-        .SubvisualTheme
-          = render '/layouts/sitemap'
+        = render '/layouts/sitemap'
+        .u-largeThenDoubleLargeMargin
         = render '/layouts/footer'
 
     = javascript_include_tag "application"
