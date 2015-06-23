@@ -6,6 +6,7 @@
 // .Heading--small - Smaller font
 // .Heading--brand - Subvisual font
 // .Heading--brandLarge - Larger Subvisual font
+// .Heading--brandSmall - Small Subvisual font
 // .Heading--uvp - To be used as a sub heading in the UVP section
 //
 // markup:
@@ -44,6 +45,11 @@
 
 .Heading.Heading--brandLarge {
   @include font-properties(subvisual, large);
+  text-transform: uppercase;
+}
+
+.Heading.Heading--brandSmall {
+  @include font-properties(subvisual, small);
   text-transform: uppercase;
 }
 

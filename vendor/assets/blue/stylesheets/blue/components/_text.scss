@@ -3,11 +3,16 @@
 // Styles body text's font and color properties.
 //
 // default - Most commonly used text
+// .Text--small - Text with a small font size
+// .Text--large - Text with a large font size
+// .Text--light - Text with a light color
+// .Text--dark - Text with a dark color
+// .Text--caption - Text to be used as a caption for images
+// .Text--strong - Text with a strong emphasis
+// .Text--italic - Text with italics
+// .Text--brand - Subvisual font and small font size
 // .Text--engagement - Text to engage with the end-user
 // .Text--extraInfo - Text that stands out, but not as much as the engagement
-// .Text--tag - Text that represents some sort of tag
-// .Text--light - Text with a light color
-// .Text--strong - Text with a strong emphasis
 //
 // markup:
 // <div class="Text {$modifiers} styleguide-grid-unit">
@@ -26,8 +31,28 @@
   font-weight: $Theme-typography-fontWeight-regular;
 }
 
+.Text.Text--small {
+  @include font-properties(bodyText, small);
+}
+
 .Text.Text--large {
   @include font-properties(bodyText, large);
+}
+
+.Text.Text--strong {
+  font-weight: $Theme-typography-fontWeight-bold;
+}
+
+.Text.Text--italic {
+  font-style: italic;
+}
+
+.Text.Text--light {
+  color: $Theme-color-white;
+}
+
+.Text.Text--dark {
+  color: $Theme-color-horizon;
 }
 
 .Text.Text--engagement {
@@ -53,12 +78,4 @@
 
 .Text.Text--caption {
   color: $Theme-color-silverChalice;
-}
-
-.Text.Text--light {
-  color: $Theme-color-white;
-}
-
-.Text.Text--strong {
-  font-weight: $Theme-typography-fontWeight-bold;
 }

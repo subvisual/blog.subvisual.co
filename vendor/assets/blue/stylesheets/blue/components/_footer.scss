@@ -80,23 +80,3 @@
 
   color: $Theme-color-limedSpruce;
 }
-
-.Footer-work-text {
-  @include font-properties(subvisual, small);
-  color: $Theme-color-white;
-
-  font-weight: $Theme-typography-fontWeight-bold;
-  text-decoration: none;
-  text-transform: uppercase;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:after {
-    @include right-arrow();
-
-    padding-left: $Theme-spacing-small;
-  }
-}
-

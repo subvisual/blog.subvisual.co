@@ -3,6 +3,7 @@
 // A burger icon that transform into a close icon.
 //
 // default - Burger icon.
+// Burger--light - White burger icon.
 // .is-open - Close icon.
 //
 // markup:
@@ -79,3 +80,8 @@
   }
 }
 
+.Burger.Burger--light {
+  .Burger-line {
+    background-color: $Theme-color-white;
+  }
+}

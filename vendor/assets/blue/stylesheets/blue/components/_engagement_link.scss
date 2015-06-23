@@ -4,8 +4,12 @@
 // users to see.<br>
 // It has an icon to better achieve its goal.
 //
+// default - Icon on the left
+// .EngagementLink--iconRight - Icon on the right
+// .EngagementLink--light - The same element but to be used with dark backgrounds
+//
 // markup:
-// <a href="/link" class="EngagementLink">Learn more</a>
+// <a href="/link" class="EngagementLink {$modifiers}">Learn more</a>
 //
 // Styleguide 1.9
 
@@ -15,7 +19,12 @@
 
 .EngagementLink {
   @include font-properties(subvisual, small);
+
+  position: relative;
+
   width: 100%;
+
+  padding-left: $Theme-spacing-default;
 
   color: $Theme-color-yellowOrange;
 
@@ -26,10 +35,28 @@
   &:before {
     @include right-arrow();
 
-    padding-right: $Theme-spacing-small;
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform: translateY(-50%);
   }
 
   &:hover {
     text-decoration: underline;
   }
+}
+
+.EngagementLink.EngagementLink--iconRight {
+  padding-right: $Theme-spacing-default;
+  padding-left: 0;
+
+  &:before {
+    right: 0;
+    left: initial;
+  }
+}
+
+.EngagementLink.EngagementLink--light {
+  color: $Theme-color-white;
 }

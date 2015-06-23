@@ -9,6 +9,7 @@
 // .HorizontalGrid--lightFrame - Adds a light colored border
 // .HorizontalGrid--darkFrame - Adds a dark colored border
 // .HorizontalGrid--noTopFrame - Removes the top border
+// .HorizontalGrid--noBottomFrame - Removes the bottom border
 // .HorizontalGrid--withGutters - Applies gutters
 // .HorizontalGrid--variableWidth - Each cell has the width defined by its content
 //
@@ -38,6 +39,14 @@
 @mixin HorizontalGrid-frameStyles($color) {
   border-top: 2px solid $color;
   border-bottom: 2px solid $color;
+
+  &.HorizontalGrid--noTopFrame {
+    border-top-width: 0;
+  }
+
+  &.HorizontalGrid--noBottomFrame {
+    border-bottom-width: 0;
+  }
 
   @include media('<=tablet') {
     .HorizontalGrid-cell:not(:last-child) {
@@ -79,10 +88,6 @@
 
 .HorizontalGrid.HorizontalGrid--darkFrame {
   @include HorizontalGrid-frameStyles($Theme-color-polar);
-}
-
-.HorizontalGrid.HorizontalGrid--noTopFrame {
-  border-top-width: 0;
 }
 
 .HorizontalGrid.HorizontalGrid--variableWidth {
