@@ -28,3 +28,9 @@
 
   margin-top: $Theme-spacing-xSmall;
 }
+
+@include media('<tablet') {
+  .Sitemap {
+    display: none;
+  }
+}
