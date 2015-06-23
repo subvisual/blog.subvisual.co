@@ -194,10 +194,6 @@ $Theme-font-sizes: (
 //
 // Styleguide 3.2
 @mixin right-arrow() {
-  @include fa-icon();
-
   font-size: 24px; // The icon is bigger than the text of the link
   vertical-align: middle;
-
-  content: $fa-var-arrow-circle-right;
 }

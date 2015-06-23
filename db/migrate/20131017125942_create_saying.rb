@@ -6,6 +6,8 @@ class CreateSaying < ActiveRecord::Migration
       t.timestamps
     end
 
-    Saying.create!(saying: 'Sharing ideas can change the world. It definitely changes us')
+    if defined?(Saying)
+      Saying.create!(saying: 'Sharing ideas can change the world. It definitely changes us')
+    end
   end
 end
