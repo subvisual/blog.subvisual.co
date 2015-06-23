@@ -64,4 +64,9 @@ $imported-modules: () !default;
   svg {
     vertical-align: bottom;
   }
+
+  input {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
 }
