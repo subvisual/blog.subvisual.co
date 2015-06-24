@@ -27,7 +27,7 @@ $NavOverlay-item-space: $Theme-spacing-default;
 
 .NavOverlay {
   position: fixed;
-  top: $Theme-nav-height;
+  top: $Theme-nav-height-mobile;
   left: 0;
 
   flex-direction: column;
@@ -37,7 +37,7 @@ $NavOverlay-item-space: $Theme-spacing-default;
   width: 100%;
   // addded extra 200px because the navigation bar, on mobile browsers, sometimes disappears,
   // leaving an empty space on the bottom that the overlay doesn't cover
-  height: calc(100% - #{$Theme-nav-height} + 200px);
+  height: calc(100% - #{$Theme-nav-height-mobile} + 200px);
   padding: $Theme-spacing-default 0;
 
   opacity: 0;

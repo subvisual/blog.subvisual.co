@@ -1,21 +1,26 @@
 // Points of reassembly
 @import 'include-media/dist/include-media';
 
+$breakpoints: (
+  'tablet': 650px,
+  'desktop': 1024px
+);
+
 // Colors
 //
 // This section describes the brand colors
 //
-// $Theme-color-brightTurquoise - Used for
-// $Theme-color-caribbeanGreen - Used for
-// $Theme-color-cerulean - Used for
-// $Theme-color-horizon - Used for
-// $Theme-color-limedSpruce - Used for
-// $Theme-color-ming - Used for
-// $Theme-color-polar - Used for
-// $Theme-color-poloBlue - Used for
-// $Theme-color-tulipTree - Used for
-// $Theme-color-white - Used for
-// $Theme-color-yellowOrange - Used for
+// $Theme-color-brightTurquoise - Main palette
+// $Theme-color-horizon - Main palette
+// $Theme-color-limedSpruce - Main palette
+// $Theme-color-polar - Main palette
+// $Theme-color-poloBlue - Main palette
+// $Theme-color-white - Main palette
+// $Theme-color-yellowOrange - Main palette
+// $Theme-color-caribbeanGreen - Blog related
+// $Theme-color-cerulean - Blog related
+// $Theme-color-ming - Blog related
+// $Theme-color-tulipTree - Blog related
 //
 // markup:
 // <div style="background: {$modifiers};" class="styleguide-color">{$modifiers}</div>
@@ -67,7 +72,8 @@ $Theme-typography-fontWeight-medium: 500;
 $Theme-typography-fontWeight-regular: 400;
 
 // Components variables
-$Theme-nav-height: 80px;
+$Theme-nav-height-desktop: 80px;
+$Theme-nav-height-mobile: 60px;
 // styleguide:ignore:end
 
 // Theme mixins
@@ -102,12 +108,12 @@ $Theme-font-sizes: (
         line-height: 24px
       ),
       base: (
-        font-size: 16px,
-        line-height: 28px
-      ),
-      large: (
         font-size: 20px,
         line-height: 32px
+      ),
+      large: (
+        font-size: 24px,
+        line-height: 36px
       )
     ),
     heading: (
@@ -186,14 +192,4 @@ $Theme-font-sizes: (
     font-size: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'font-size');
     line-height: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'line-height');
   }
-}
-
-// right-arrow()
-//
-// Adds the arrow pointing right icon.
-//
-// Styleguide 3.2
-@mixin right-arrow() {
-  font-size: 24px; // The icon is bigger than the text of the link
-  vertical-align: middle;
 }

@@ -140,6 +140,38 @@
   margin-bottom: $Theme-spacing-large * 2;
 }
 
+// u-noneThenLargeMargin
+//
+// No margin that turns into a large margin on desktop.
+//
+// markup:
+// <div class="u-noneThenLargeMargin"></div>
+//
+// Styleguide 4.3.10
+
+.u-noneThenLargeMargin {
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large;
+  }
+}
+
+// u-smallTheNoneMargin
+//
+// Insert a small margin that turns into no margin on desktop.
+//
+// markup:
+// <div class="u-smallThenNoneMargin"></div>
+//
+// Styleguide 4.3.11
+
+.u-smallThenNoneMargin {
+  margin-bottom: $Theme-spacing-small;
+
+  @include media('>tablet') {
+    margin-bottom: 0;
+  }
+}
+
 // u-navPlaceholder
 //
 // Insert the height of the navbar. It's usefull has a placeholder on the top of the page.
@@ -147,8 +179,12 @@
 // markup:
 // <div class="u-navPlaceholder"></div>
 //
-// Styleguide 4.3.10
+// Styleguide 4.3.12
 
 .u-navPlaceholder {
-  margin-bottom: $Theme-nav-height;
+  margin-bottom: $Theme-nav-height-mobile;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-nav-height-desktop;
+  }
 }

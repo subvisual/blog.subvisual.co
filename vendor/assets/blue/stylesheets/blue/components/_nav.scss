@@ -47,7 +47,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   justify-content: space-between;
 
   width: 100%;
-  height: $Theme-nav-height;
+  height: $Theme-nav-height-mobile;
   padding: 0 $Theme-spacing-default;
 
   background: transparent;
@@ -74,7 +74,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
   @keyframes slidedown {
     from {
-      transform: translateY(-$Theme-nav-height);
+      transform: translateY(-$Theme-nav-height-mobile);
     }
 
     to {
@@ -92,7 +92,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
       }
 
       to {
-        transform: translateY(-$Theme-nav-height);
+        transform: translateY(-$Theme-nav-height-mobile);
       }
     }
   }
@@ -115,7 +115,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
 .Nav.Nav--hint {
   position: fixed;
-  top: -$Theme-nav-height;
+  top: -$Theme-nav-height-mobile;
 
   box-shadow: 0 3px 11px rgba(0, 0, 0, 0.2);
 }
@@ -187,6 +187,38 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 }
 
 @include media('>=tablet') {
+  .Nav {
+    height: $Theme-nav-height-desktop;
+  }
+
+  .Nav.Nav--fixed {
+    @keyframes slidedown {
+      from {
+        transform: translateY(-$Theme-nav-height-desktop);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    &.Nav--animateUp {
+      @keyframes slideup {
+        from {
+          transform: translateY(0);
+        }
+
+        to {
+          transform: translateY(-$Theme-nav-height-desktop);
+        }
+      }
+    }
+  }
+
+  .Nav.Nav--hint {
+    top: -$Theme-nav-height-desktop;
+  }
+
   .Nav-item:not(:first-child) {
     display: flex;
     align-items: center;

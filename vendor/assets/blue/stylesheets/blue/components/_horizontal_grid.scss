@@ -6,6 +6,7 @@
 //
 // default - Full width and borderless
 // .HorizontalGrid--limited - Limits the grid width to 1280px and centers itself
+// .HorizontalGrid--inverted - Swaps the first and last cells places only on desktop
 // .HorizontalGrid--lightFrame - Adds a light colored border
 // .HorizontalGrid--darkFrame - Adds a dark colored border
 // .HorizontalGrid--noTopFrame - Removes the top border
@@ -120,6 +121,19 @@
     padding: 0 $halfGutterSize;
   }
 }
+
+@include media('>tablet') {
+  .HorizontalGrid.HorizontalGrid--inverted {
+    .HorizontalGrid-cell:first-child {
+      order: 2;
+    }
+
+    .HorizontalGrid-cell:last-child {
+      order: 1;
+    }
+  }
+}
+
 
 .HorizontalGrid-cell {
   flex: 1;

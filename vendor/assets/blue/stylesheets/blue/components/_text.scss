@@ -7,6 +7,7 @@
 // .Text--large - Text with a large font size
 // .Text--light - Text with a light color
 // .Text--dark - Text with a dark color
+// .Text--blog - Text with the blog's body text color
 // .Text--caption - Text to be used as a caption for images
 // .Text--strong - Text with a strong emphasis
 // .Text--italic - Text with italics
@@ -78,4 +79,8 @@
 
 .Text.Text--caption {
   color: $Theme-color-silverChalice;
+}
+
+.Text.Text--blog {
+  color: $Theme-color-limedSpruce;
 }

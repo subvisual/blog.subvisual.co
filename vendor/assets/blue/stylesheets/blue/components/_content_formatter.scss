@@ -4,6 +4,7 @@
 //
 // default - Aligns the text to the left
 // .ContentFormatter--centerHorizontally - Content is always centered horizontally
+// .ContentFormatter--centerHorizontallyThenLeft - Content is centered horizontally in smaller resolutions and aligned left on larger ones
 // .ContentFormatter--center - Content is always centered horizontally and vertically
 // .ContentFormatter--right - Aligns text to the right
 //
@@ -36,4 +37,12 @@
 
 .ContentFormatter.ContentFormatter--right {
   text-align: right;
+}
+
+.ContentFormatter.ContentFormatter--centerHorizontallyThenLeft {
+  text-align: center;
+
+  @include media('>tablet') {
+    text-align: left;
+  }
 }

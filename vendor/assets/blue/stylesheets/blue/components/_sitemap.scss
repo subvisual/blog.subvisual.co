@@ -15,13 +15,9 @@
 @import '../reset';
 @import '../theme_vars';
 
-.Sitemap {
-  color: $Theme-palette-text-body-subvisual;
-}
-
 .SitemapTopic-heading {
   @include font-properties(subvisual, small);
-  color: $Theme-color-limedSpruce;
+  color: $Theme-color-horizon;
 
   font-weight: $Theme-typography-fontWeight-bold;
   text-transform: uppercase;
@@ -31,10 +27,4 @@
   @include font-properties(bodyText, small);
 
   margin-top: $Theme-spacing-xSmall;
-}
-
-@include media('<tablet') {
-  .Sitemap {
-    display: none;
-  }
 }

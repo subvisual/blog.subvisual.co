@@ -8,6 +8,7 @@
 // .Heading--brandLarge - Larger Subvisual font
 // .Heading--brandSmall - Small Subvisual font
 // .Heading--uvp - To be used as a sub heading in the UVP section
+// .Heading--blog - Blog's body text color
 //
 // markup:
 // <div class="Heading {$modifiers} styleguide-grid-unit">
@@ -51,6 +52,10 @@
 .Heading.Heading--brandSmall {
   @include font-properties(subvisual, small);
   text-transform: uppercase;
+}
+
+.Heading.Heading--blog {
+  color: $Theme-color-limedSpruce;
 }
 
 .Heading-highlight {

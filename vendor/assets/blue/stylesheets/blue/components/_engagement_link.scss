@@ -7,6 +7,7 @@
 // default - Icon on the left
 // .EngagementLink--iconRight - Icon on the right
 // .EngagementLink--light - The same element but to be used with dark backgrounds
+// .EngagementLink--customIcon - Accepts a different icon other than the default
 //
 // markup:
 // <a href="/link" class="EngagementLink {$modifiers}">Learn more</a>
@@ -16,14 +17,12 @@
 @import '../reset';
 @import '../theme_vars';
 
+$EngagementLink-width-icon: 25px;
+
 .EngagementLink {
   @include font-properties(subvisual, small);
 
-  position: relative;
-
-  width: 100%;
-
-  padding-left: $Theme-spacing-default;
+  display: inline-flex;
 
   color: $Theme-color-yellowOrange;
 
@@ -32,13 +31,16 @@
   text-transform: uppercase;
 
   &:before {
-    @include right-arrow();
+    content: '';
 
-    position: absolute;
-    top: 50%;
-    left: 0;
+    width: $EngagementLink-width-icon;
+    height: $EngagementLink-width-icon;
+    margin-right: $Theme-spacing-small;
 
-    transform: translateY(-50%);
+    background-image: url('/link-arrow.svg');
+    background-image: image-url('link-arrow.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   &:hover {
@@ -47,12 +49,39 @@
 }
 
 .EngagementLink.EngagementLink--iconRight {
-  padding-right: $Theme-spacing-default;
-  padding-left: 0;
-
   &:before {
-    right: 0;
-    left: initial;
+    order: 2;
+
+    margin-right: 0;
+    margin-left: $Theme-spacing-small;
+  }
+}
+
+.EngagementLink.EngagementLink--customIcon {
+  .EngagementLink-icon {
+    width: $EngagementLink-width-icon;
+    height: $EngagementLink-width-icon;
+    margin-right: $Theme-spacing-small;
+  }
+}
+
+.EngagementLink.EngagementLink--iconRight.EngagementLink--customIcon {
+  .EngagementLink-icon {
+    order: 2;
+
+    margin-right: 0;
+    margin-left: $Theme-spacing-small;
+  }
+
+  .EngagementLink-text {
+    order: 1;
+  }
+}
+
+.EngagementLink.EngagementLink--customIcon,
+.EngagementLink.EngagementLink--iconRight.EngagementLink--customIcon {
+  &:before {
+    display: none;
   }
 }
 
