@@ -54,11 +54,14 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     color: inherit;
   }
 
-  > p,
-  > iframe {
+  > p {
     &:not(:last-child) {
       margin-bottom: $Theme-spacing-small;
     }
+  }
+
+  > iframe {
+    margin-bottom: $Theme-spacing-small !important;
   }
 
   > .Post-imageWrapper {
