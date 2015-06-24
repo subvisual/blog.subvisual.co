@@ -9,7 +9,7 @@
       .RelatedPosts-post
         .PostWidthConstrainer
           .u-defaultMargin
-          = render 'related_post', post: Post.find(12).decorate
+          = render 'related_post', post: post.related_by_author.decorate
           .u-defaultMargin
   - if post.related_by_tags
     .RelatedPosts-column
