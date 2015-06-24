@@ -34,6 +34,7 @@ gem 'slim-rails'
 gem 'simple-random'
 gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
+gem 'truncate_html'
 gem 'uglifier', '>= 1.0.3'
 
 group :production do

@@ -2,6 +2,6 @@ h1.PostHeading.PostHeading--small = link_to post.title, post_path(post), class: 
 .u-smallMargin
 .Post.Post--noPadding
   .Post-body
-    = raw(post.processed_intro.truncate(140, separator: ' '))
+    = raw(truncate_html(post.processed_intro, length: 140))
 .u-smallMargin
 = render 'shared/tag_list', tag_list: post.tag_list
