@@ -22,6 +22,11 @@
                   = image_tag post.hero.image.url(:thumb), class: ''
             .HorizontalGrid-cell
               = hero_form.file_field :image
+            .HorizontalGrid-cell
+              label
+                = hero_form.check_box :remove_image, class: 'Checkbox'
+                ' Remove hero image
+
 
       .HorizontalGrid-cell
         .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right

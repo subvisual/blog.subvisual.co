@@ -60,6 +60,6 @@
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :extra_tags, tag_list: [], hero_attributes: [:id, :image])
+      params.require(:post).permit(:title, :body, :extra_tags, tag_list: [], hero_attributes: [:id, :image, :remove_image])
     end
   end
