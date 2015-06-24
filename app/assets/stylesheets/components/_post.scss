@@ -61,6 +61,7 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
   }
 
   > iframe {
+    // scss-lint:disable ImportantRule
     margin-bottom: $Theme-spacing-small !important;
   }
 
