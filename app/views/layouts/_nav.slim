@@ -3,7 +3,7 @@
   = nav_overlay_item 'Company', 'https://subvisual.co/company'
   = nav_overlay_item 'Community', 'https://subvisual.co/community'
   = nav_overlay_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
-  = nav_overlay_item 'Blog', root_url, class: ('is-selected' if admin_controller?)
+  = nav_overlay_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
   - if can? :manage, Post
     = nav_overlay_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
 
