@@ -1,9 +1,23 @@
-.Icon--goBack {
-  width: 25px;
-  height: 25px;
+@mixin Icon($name, $size) {
+  width: $size;
+  height: $size;
 
-  background-image: image-url('icons/arrow-back.svg');
   background-position: center;
-  background-repeat: no-repeat;
   background-size: contain;
+  background-repeat: no-repeat;
+  background-image: image-url('icons/#{$name}.svg');
+}
+
+.Icon.Icon--goBack {
+  @include Icon('arrow-back', 25px)
+}
+
+.Icon.Icon--clearSearch {
+  @include media('<=tablet') {
+    @include Icon('clear-search', 15px);
+  }
+
+  @include media('>tablet') {
+    @include Icon('clear-search', 20px);
+  }
 }

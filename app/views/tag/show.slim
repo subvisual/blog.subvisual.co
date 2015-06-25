@@ -8,7 +8,6 @@
 .PostWidthConstrainer
   .u-smallMargin
   .ResultsCount class="ResultsCount--#{@tag}"
-    => posts.count
-    | posts
+    => pluralize(posts.count, 'post')
 
 = render '/shared/posts_page', posts: posts

@@ -3,7 +3,7 @@
 .PostWidthConstrainer
   .u-smallMargin
   .ResultsCount
-    => posts.count
-    | results found
+    => pluralize(posts.count, 'result')
+    | found
 
 = render '/shared/posts_page', posts: posts

@@ -13,7 +13,6 @@ $Search-tags-count-desktop: 11;
   padding-bottom: $Theme-spacing-xSmall;
 
   background-color: transparent;
-
   border: 0;
   border-bottom: solid 2px rgba($Search-placeholder-color, 0.25);
 
@@ -25,6 +24,7 @@ $Search-tags-count-desktop: 11;
 .Search-clear {
   @include font-properties(heading, veryLarge, $Theme-font-sizes-extra);
   position: absolute;
+  top: 50%;
   right: 0;
 
   padding-right: $Theme-spacing-small;
@@ -33,8 +33,10 @@ $Search-tags-count-desktop: 11;
 
   font-weight: normal;
 
-  .fa:before { // scss-lint:disable SelectorFormat
-    font-size: 20px;
+  transform: translateY(-50%);
+
+  @include media('<=tablet') {
+    padding-bottom: $Theme-spacing-xSmall;
   }
 }
 
