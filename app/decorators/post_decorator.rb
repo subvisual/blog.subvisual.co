@@ -4,7 +4,7 @@ class PostDecorator < Draper::Decorator
   delegate :title, :published?, :published_at, :created_at, :updated_at, :persisted?, :id, :tag_list, :related_by_author, :related_by_tags, :secondary_tags, :hero, :hero?
 
   def page_title
-    "#{title}, by #{author.full_name} of Group Buddies"
+    "#{title}, by #{author.full_name} of Subvisual"
   end
 
   def publish_date
@@ -21,22 +21,6 @@ class PostDecorator < Draper::Decorator
 
   def update_date
     format_date(updated_at, :timestamp)
-  end
-
-  def info
-    h.raw(
-      if published?
-        "Written by #{author_link} on #{publish_date}"
-      elsif persisted?
-        "Being drafted by #{author_link} since #{creation_date} (last updated at #{update_date})"
-      else
-        "Being drafted by #{author_link} (never saved)"
-      end
-    )
-  end
-
-  def author_link
-    h.link_to author.first_name, h.author_path(author.full_name.gsub(' ', '-')), class: 'Link'
   end
 
   def author_photo
