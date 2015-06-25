@@ -1,8 +1,16 @@
 .HorizontalGrid.HorizontalGrid--innerGutters {
   $gutterSize: $Theme-spacing-xSmall;
 
-  .HorizontalGrid-cell:not(:last-child) {
-    padding-right: $gutterSize;
+  @include media('>=desktop') {
+    .HorizontalGrid-cell:not(:last-child) {
+      padding-right: $gutterSize;
+    }
+  }
+
+  @include media('<desktop') {
+    .HorizontalGrid-cell:not(:last-child) {
+      padding-bottom: $gutterSize;
+    }
   }
 }
 
