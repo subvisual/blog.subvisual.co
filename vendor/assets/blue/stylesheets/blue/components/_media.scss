@@ -4,6 +4,7 @@
 //
 // default - Default media component.
 // .Media--noImageSpace - Media without space around the image.
+// .Media--flag - Centers content vertically
 //
 // markup:
 // <div class="Media {$modifiers}">
@@ -18,7 +19,7 @@
 // Styleguide 1.7
 
 .Media {
-  display: flex;
+  display: inline-flex;
 }
 
 .Media-image {
@@ -36,5 +37,11 @@
 .Media.Media--noImageSpace {
   .Media-image {
     padding: 0;
+  }
+}
+
+.Media.Media--flag {
+  .Media-content {
+    justify-content: center;
   }
 }

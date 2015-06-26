@@ -3,6 +3,7 @@
 // A burger icon that transform into a close icon.
 //
 // default - Burger icon.
+// Burger--light - White burger icon.
 // .is-open - Close icon.
 //
 // markup:
@@ -41,13 +42,13 @@
     border-radius: 2px;
     opacity: 1;
 
-    transform: rotate(0deg) translate(0px, 0px);
+    transform: rotate(0deg) translate(0, 0);
 
     transition: .25s ease-in-out;
   }
 
   .Burger-line:nth-child(1) {
-    transform: translateY(0px);
+    transform: translateY(0);
 
     transform-origin: left center;
   }
@@ -79,3 +80,10 @@
   }
 }
 
+.Burger.Burger--light {
+  &:not(.is-open) {
+    .Burger-line {
+      background-color: $Theme-color-white;
+    }
+  }
+}

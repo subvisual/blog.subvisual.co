@@ -18,6 +18,8 @@
 @import '../theme_vars';
 
 $EngagementLink-width-icon: 25px;
+$EngagementLink-arrow: 'blue/link-arrow.svg' !default;
+$EngagementLink-arrow-white: 'blue/link-arrow-white.svg' !default;
 
 .EngagementLink {
   @include font-properties(subvisual, small);
@@ -31,14 +33,14 @@ $EngagementLink-width-icon: 25px;
   text-transform: uppercase;
 
   &:before {
+    @include background-image($EngagementLink-arrow);
     content: '';
 
     width: $EngagementLink-width-icon;
+    min-width: $EngagementLink-width-icon;
     height: $EngagementLink-width-icon;
     margin-right: $Theme-spacing-small;
 
-    background-image: url('/link-arrow.svg');
-    background-image: image-url('link-arrow.svg');
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -87,4 +89,8 @@ $EngagementLink-width-icon: 25px;
 
 .EngagementLink.EngagementLink--light {
   color: $Theme-color-white;
+
+  &:before {
+    @include background-image($EngagementLink-arrow-white);
+  }
 }

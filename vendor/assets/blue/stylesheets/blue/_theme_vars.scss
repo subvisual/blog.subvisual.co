@@ -127,6 +127,10 @@ $Theme-font-sizes: (
       )
     ),
     bodyText: (
+      extraSmall: (
+        font-size: 12px,
+        line-height: 24px
+      ),
       small: (
         font-size: 16px,
         line-height: 28px
@@ -136,9 +140,14 @@ $Theme-font-sizes: (
         line-height: 28px
       ),
       large: (
-        font-size: 24px,
-        line-height: 36px
+        font-size: 20px,
+        line-height: 32px
+      ),
+      extraLarge: (
+        font-size: 20px,
+        line-height: 32px
       )
+
     )
   ),
   desktop: (
@@ -167,6 +176,10 @@ $Theme-font-sizes: (
       )
     ),
     bodyText: (
+      extraSmall: (
+        font-size: 14px,
+        line-height: 26px
+      ),
       small: (
         font-size: 16px,
         line-height: 28px
@@ -178,6 +191,10 @@ $Theme-font-sizes: (
       large: (
         font-size: 24px,
         line-height: 36px
+      ),
+      extraLarge: (
+        font-size: 40px,
+        line-height: 52px
       )
     )
   )
@@ -192,4 +209,20 @@ $Theme-font-sizes: (
     font-size: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'font-size');
     line-height: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'line-height');
   }
+}
+
+// background-image()
+//
+// Applies a background-image
+// Also, it applies a temporary workaround for having these assets available to the styleguide, which cannot exist with sprockets helpers right now
+//
+// $imagePath - The path for the image
+//
+// Styleguide 3.2
+
+@mixin background-image($imagePath) {
+  // FIXME: temporary workaround for having these assets available to the styleguide;
+  // TODO: find a way of being able to keep using Sprocket's helpers
+  background-image: url("/#{$imagePath}");
+  background-image: image-url($imagePath);
 }

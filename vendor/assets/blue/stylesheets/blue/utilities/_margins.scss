@@ -97,6 +97,40 @@
   }
 }
 
+// u-defaultThenDoubleLargeMargin
+//
+// Insert a default margin that turns into a double large margin on desktop.
+//
+// markup:
+// <div class="u-defaultThenDoubleLargeMargin"></div>
+//
+// Styleguide 4.3.7
+
+.u-defaultThenDoubleLargeMargin {
+  margin-bottom: $Theme-spacing-default;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large * 2;
+  }
+}
+
+// u-defaultThenNoneMargin
+//
+// Insert a default margin that turns into no margin on desktop.
+//
+// markup:
+// <div class="u-defaultThenNoneMargin"></div>
+//
+// Styleguide 4.3.8
+
+.u-defaultThenNoneMargin {
+  margin-bottom: $Theme-spacing-default;
+
+  @include media('>tablet') {
+    margin-bottom: 0;
+  }
+}
+
 // u-largeMargin
 //
 // Insert a large margin.
@@ -104,7 +138,7 @@
 // markup:
 // <div class="u-largeMargin"></div>
 //
-// Styleguide 4.3.7
+// Styleguide 4.3.9
 
 .u-largeMargin {
   margin-bottom: $Theme-spacing-large;
@@ -117,7 +151,7 @@
 // markup:
 // <div class="u-largeThenDoubleLargeMargin"></div>
 //
-// Styleguide 4.3.8
+// Styleguide 4.3.10
 
 .u-largeThenDoubleLargeMargin {
   margin-bottom: $Theme-spacing-large;
@@ -134,10 +168,25 @@
 // markup:
 // <div class="u-doubleLargeMargin"></div>
 //
-// Styleguide 4.3.9
+// Styleguide 4.3.11
 
 .u-doubleLargeMargin {
   margin-bottom: $Theme-spacing-large * 2;
+}
+
+// u-noneThenDefaultMargin
+//
+// No margin that turns into a default margin on desktop.
+//
+// markup:
+// <div class="u-noneThenDefaultMargin"></div>
+//
+// Styleguide 4.3.12
+
+.u-noneThenDefaultMargin {
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-default;
+  }
 }
 
 // u-noneThenLargeMargin
@@ -147,11 +196,26 @@
 // markup:
 // <div class="u-noneThenLargeMargin"></div>
 //
-// Styleguide 4.3.10
+// Styleguide 4.3.13
 
 .u-noneThenLargeMargin {
   @include media('>tablet') {
     margin-bottom: $Theme-spacing-large;
+  }
+}
+
+// u-noneThenDoubleLargeMargin
+//
+// No margin that turns into a double large margin on desktop.
+//
+// markup:
+// <div class="u-noneThenDoubleLargeMargin"></div>
+//
+// Styleguide 4.3.14
+
+.u-noneThenDoubleLargeMargin {
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large * 2;
   }
 }
 
@@ -162,13 +226,30 @@
 // markup:
 // <div class="u-smallThenNoneMargin"></div>
 //
-// Styleguide 4.3.11
+// Styleguide 4.3.15
 
 .u-smallThenNoneMargin {
   margin-bottom: $Theme-spacing-small;
 
   @include media('>tablet') {
     margin-bottom: 0;
+  }
+}
+
+// u-smallTheLargeMargin
+//
+// Insert a small margin that turns into large margin on desktop.
+//
+// markup:
+// <div class="u-smallThenLargeMargin"></div>
+//
+// Styleguide 4.3.16
+
+.u-smallThenLargeMargin {
+  margin-bottom: $Theme-spacing-small;
+
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-large;
   }
 }
 
@@ -179,7 +260,7 @@
 // markup:
 // <div class="u-navPlaceholder"></div>
 //
-// Styleguide 4.3.12
+// Styleguide 4.3.17
 
 .u-navPlaceholder {
   margin-bottom: $Theme-nav-height-mobile;

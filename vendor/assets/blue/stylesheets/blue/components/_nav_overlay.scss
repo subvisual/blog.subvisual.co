@@ -29,6 +29,7 @@ $NavOverlay-item-space: $Theme-spacing-default;
   position: fixed;
   top: $Theme-nav-height-mobile;
   left: 0;
+  z-index: -2;
 
   flex-direction: column;
   align-items: center;
@@ -41,7 +42,6 @@ $NavOverlay-item-space: $Theme-spacing-default;
   padding: $Theme-spacing-default 0;
 
   opacity: 0;
-  z-index: -2;
 
   transition: all 0.2s ease-in-out;
 }
@@ -75,6 +75,8 @@ $NavOverlay-item-space: $Theme-spacing-default;
     padding-bottom: $NavOverlay-item-space;
 
     &:after {
+      content: ' ';
+
       position: absolute;
       // positions the divider in the middle of the space between each item
       bottom: $NavOverlay-item-space / 2 - $NavOverlay-item-border-height / 2;
@@ -87,8 +89,6 @@ $NavOverlay-item-space: $Theme-spacing-default;
       background-color: $Theme-color-polar;
 
       transform: translateX(-50%);
-
-      content: ' ';
     }
   }
 }

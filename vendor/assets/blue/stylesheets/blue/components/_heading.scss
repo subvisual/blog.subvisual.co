@@ -12,7 +12,7 @@
 //
 // markup:
 // <div class="Heading {$modifiers} styleguide-grid-unit">
-//   Lorem Ipsum <span class="Heading-highlight">is simply dummy text</span> of the printing and <span class="Heading-light">typesetting industry</span>.
+//   Lorem Ipsum <span class="Heading-highlight">is simply dummy text</span> of the printing and <span class="Heading-light">typesetting</span> <span class="Heading-dimLight">industry</span>.
 // </div>
 //
 // Styleguide 1.5
@@ -41,16 +41,22 @@
 
 .Heading.Heading--brand {
   @include font-properties(subvisual, base);
+
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .Heading.Heading--brandLarge {
   @include font-properties(subvisual, large);
+
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .Heading.Heading--brandSmall {
   @include font-properties(subvisual, small);
+
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
@@ -64,4 +70,9 @@
 
 .Heading-light {
   color: $Theme-color-white;
+}
+
+.Heading-dimLight {
+  color: $Theme-color-white;
+  opacity: 0.25;
 }

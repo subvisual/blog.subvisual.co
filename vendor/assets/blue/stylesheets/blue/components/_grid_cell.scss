@@ -5,6 +5,8 @@
 // default - Aligns content to the left
 // .GridCell--alignCenter - Centers the content
 // .GridCell--alignRight - Aligns content to the right
+// .GridCell--image - The content limit is adjusted for large images
+// .GridCell--video - The content limit is adjusted for 720px width videos
 //
 // markup:
 // <div class="GridCell {$modifiers}">
@@ -44,4 +46,16 @@
 .GridCell-content {
   width: 100%;
   max-width: 600px;
+}
+
+.GridCell.GridCell--image {
+  .GridCell-content {
+    max-width: 800px;
+  }
+}
+
+.GridCell.GridCell--video {
+  .GridCell-content {
+    max-width: 720px;
+  }
 }

@@ -7,12 +7,15 @@
 // default - Full width and borderless
 // .HorizontalGrid--limited - Limits the grid width to 1280px and centers itself
 // .HorizontalGrid--inverted - Swaps the first and last cells places only on desktop
-// .HorizontalGrid--lightFrame - Adds a light colored border
-// .HorizontalGrid--darkFrame - Adds a dark colored border
-// .HorizontalGrid--noTopFrame - Removes the top border
-// .HorizontalGrid--noBottomFrame - Removes the bottom border
+// .HorizontalGrid--lightFrame - Adds a light colored inner border
+// .HorizontalGrid--darkFrame - Adds a dark colored inner border
+// .HorizontalGrid--topFrame - Adds a top border
+// .HorizontalGrid--bottomFrame - Adds a bottom border
 // .HorizontalGrid--withGutters - Applies gutters
+// .HorizontalGrid--withExtraSmallGutters - Applies extra smaller gutters
+// .HorizontalGrid--withLargeGutters - Applies larger gutters
 // .HorizontalGrid--variableWidth - Each cell has the width defined by its content
+// .HorizontalGrid--noStack - Doesn't stack children on mobile resolutions
 //
 // markup:
 // <div class="HorizontalGrid {$modifiers}">
@@ -37,31 +40,26 @@
 @import '../reset';
 @import '../theme_vars';
 
-@mixin HorizontalGrid-frameStyles($color) {
-  border-top: 2px solid $color;
-  border-bottom: 2px solid $color;
+$HorizontalGrid-border-width: 1px;
 
-  &.HorizontalGrid--noTopFrame {
-    border-top-width: 0;
+@mixin HorizontalGrid-frameStyles($color) {
+  &.HorizontalGrid--topFrame {
+    border-top: $HorizontalGrid-border-width solid $color;
   }
 
-  &.HorizontalGrid--noBottomFrame {
-    border-bottom-width: 0;
+  &.HorizontalGrid--bottomFrame {
+    border-bottom: $HorizontalGrid-border-width solid $color;
   }
 
   @include media('<=tablet') {
     .HorizontalGrid-cell:not(:last-child) {
-      border-bottom: 2px solid $color;
+      border-bottom: $HorizontalGrid-border-width solid $color;
     }
   }
 
   @include media('>tablet') {
-    .HorizontalGrid-cell {
-      border-left: 2px solid $color;
-    }
-
-    .HorizontalGrid-cell:last-child {
-      border-right: 2px solid $color;
+    .HorizontalGrid-cell:not(:first-child) {
+      border-left: $HorizontalGrid-border-width solid $color;
     }
   }
 }
@@ -112,6 +110,16 @@
   }
 }
 
+.HorizontalGrid.HorizontalGrid--withExtraSmallGutters {
+  $halfGutterSize: $Theme-spacing-xSmall;
+
+  padding: 0 $halfGutterSize;
+
+  .HorizontalGrid-cell {
+    padding: 0 $halfGutterSize;
+  }
+}
+
 .HorizontalGrid.HorizontalGrid--withLargeGutters {
   $halfGutterSize: $Theme-spacing-default;
 
@@ -134,7 +142,6 @@
   }
 }
 
-
 .HorizontalGrid-cell {
   flex: 1;
   display: flex;
@@ -143,4 +150,8 @@
   @include media('<=tablet') {
     flex: initial;
   }
+}
+
+.HorizontalGrid.HorizontalGrid--noStack {
+  flex-direction: row;
 }

@@ -52,8 +52,10 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
   background: transparent;
 
-  transition: background-color 0.2s ease-in-out;
+  // scss-lint:disable VendorPrefix
   -webkit-transform: translateZ(0);
+  // scss-lint:enable VendorPrefix
+  transition: background-color 0.2s ease-in-out;
 }
 
 .Nav.Nav--topPositioned {
@@ -180,6 +182,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   .Nav-item:hover,
   .Nav-item.is-selected {
     border-bottom-color: $Theme-color-white;
+
     .Nav-link {
       color: $Theme-color-white;
     }

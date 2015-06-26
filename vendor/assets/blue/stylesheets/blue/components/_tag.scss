@@ -16,18 +16,18 @@
 //
 // Styleguide 1.16
 
+$Tag-color: map-get($Theme-tags-color, general);
 
 .Tag {
   @include font-properties(subvisual, small);
 
   display: inline-block;
 
-  color: map-get($Theme-tags-color, general);
-
-  text-decoration: none;
-  text-transform: uppercase;
+  color: $Tag-color;
 
   letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .Tag--alt {
