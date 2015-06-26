@@ -5,4 +5,3 @@
 //= require blue
 //= require tags
 //= require bugherd
-

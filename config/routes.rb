@@ -1,16 +1,10 @@
 GbBlog::Application.routes.draw do
-
-
   get '/' => redirect('/blog')
-
   get '/blog/auth/:provider/callback', to: 'sessions#create'
-  # get '/blog/auth/headquarters', to: 'hq_authorize'
 
   scope '/blog' do
     root to: "posts#index"
 
-
-    resources :users, controller: :users, only: [:create]
     resources :posts, only: %i(index show) do
       collection do
         resources :tag, only: [:show], param: :tag
@@ -18,20 +12,14 @@ GbBlog::Application.routes.draw do
       end
     end
 
-    scope controller: :archive do
-      get '/archive' => 'archives#show', as: :archive
-      get '/author/:author' => 'archives#show', as: :author
+    defaults format: :rss do
+      get '/feed' => 'feed#index', as: :feed
     end
-
-    get '/feed' => 'posts#feed'
 
     resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
     resource :session, controller: 'clearance/sessions', only: [:create]
-
-    resources :users, controller: 'clearance/users', only: [:create] do
-      resource :password,
-        controller: 'clearance/passwords',
-        only: [:create, :edit, :update]
+    resources :users, controller: 'clearance/users', only: [] do
+      resource :password, controller: 'clearance/passwords', only: %i(create edit update)
     end
 
     get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
@@ -46,16 +34,11 @@ GbBlog::Application.routes.draw do
         patch :unpublish
       end
 
-      patch 'me', to: 'users#update', as: :update_me
       resources :users, only: [:edit, :update]
 
       defaults format: :json do
         resources :post_images, only: [:create]
       end
-    end
-
-    namespace :api, defaults: { format: :json }, constraints: { format: :json } do
-      resources :posts, only: [:create, :update]
     end
 
     mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
