@@ -4,6 +4,12 @@ Our blog. Live @ [blog.groupbuddies.com](blog.groupbuddies.com)
 
 # Development Setup
 
+## Dependencies
+
+  The app currently depends on elasticsearch being running. Errors may occur during development/test if it isn't
+
+## Setup
+
     git clone git@github.com/groupbuddies/gb-blog
     cd gb-blog
     bin/setup
