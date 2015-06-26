@@ -1,6 +1,6 @@
 if %w(production).include?(Rails.env)
   ActionMailer::Base.raise_delivery_errors = true
-  ActionMailer::Base.delivery_method :smtp
+  ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     address:              ENV['MAILER_ADDRESS'],
     port:                 ENV['MAILER_PORT'],
