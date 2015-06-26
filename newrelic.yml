@@ -1,6 +1,6 @@
 common: &default_settings
   license_key: <%= ENV['NEWRELIC_KEY'] %>
-  app_name: GB Blog
+  app_name: blog.subvisual.co
   monitor_mode: true
   developer_mode: false
   log_level: info
@@ -12,7 +12,7 @@ common: &default_settings
 development:
   <<: *default_settings
   monitor_mode: true
-  app_name: GB Blog (Development)
+  app_name: (dev) blog.subvisual.co
   developer_mode: true
 
 test:
@@ -22,9 +22,4 @@ test:
 production:
   <<: *default_settings
   monitor_mode: true
-  app_name: GB Blog
-
-staging:
-  <<: *default_settings
-  monitor_mode: true
-  app_name: GB Blog (Staging)
+  app_name: blog.subvisual.co
