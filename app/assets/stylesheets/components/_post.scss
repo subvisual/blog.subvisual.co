@@ -1,5 +1,5 @@
 $Post-default-max-width: 600px + $Theme-spacing-small * 2;
-$Post-code-max-width: 800px + $Theme-spacing-small * 2;
+$Post-code-max-width: 600px + $Theme-spacing-small * 2;
 $Post-img-max-width: 800px + $Theme-spacing-small * 2;
 
 @mixin PostMaxWidth($width: $Post-default-max-width) {
