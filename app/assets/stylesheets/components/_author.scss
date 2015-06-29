@@ -43,7 +43,7 @@ $Author-width: 600px;
   }
 }
 
-@include media('>=desktop') {
+@include media('>=tablet') {
   .Author-right {
     margin-left: $Theme-spacing-small;
   }

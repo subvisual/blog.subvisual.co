@@ -10,12 +10,11 @@
   flex: 2;
 }
 
-@include media('>=desktop') {
+@include media('>=tablet') {
   .Newsletter-input {
     margin-right: $Theme-spacing-small;
   }
 }
-
 
 @include media('<tablet') {
   .Newsletter {
@@ -33,7 +32,6 @@
     padding: $Theme-spacing-small;
   }
 }
-
 
 .Newsletter {
   ::placeholder {

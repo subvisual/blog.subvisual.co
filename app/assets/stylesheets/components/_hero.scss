@@ -28,7 +28,9 @@ $Hero-background-color-tag: #8db6cb;
 }
 
 .Hero--large {
-  min-height: $Hero-min-height-large;
+  @include media('>tablet') {
+    min-height: $Hero-min-height-large;
+  }
 }
 
 .Hero--pushBottom {
@@ -50,6 +52,11 @@ $Hero-background-color-tag: #8db6cb;
 
 .Hero-content {
   width: 100%;
+  margin-top: $Theme-nav-height-mobile * 0.5;
+
+  @include media('>=tablet') {
+    margin-top: $Theme-nav-height-desktop * 0.5;
+  }
 }
 
 .Hero--center .Hero-content {

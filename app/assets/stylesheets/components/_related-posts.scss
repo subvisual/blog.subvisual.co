@@ -8,7 +8,7 @@ $RelatedPosts-border-color: $Color-catskillWhite;
 
 @include media('<desktop') {
   .RelatedPosts-column:not(:last-child) {
-    margin-bottom: $Theme-spacing-default;
+    margin-bottom: $Theme-spacing-large;
   }
 }
 

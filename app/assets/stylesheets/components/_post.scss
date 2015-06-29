@@ -55,9 +55,7 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
   }
 
   > p {
-    &:not(:last-child) {
-      margin-bottom: $Theme-spacing-small;
-    }
+    margin-bottom: $Theme-spacing-small;
   }
 
   > iframe {
@@ -75,7 +73,13 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     img {
       max-width: 100%;
     }
+  }
 
+  .Post-imageWrapper,
+  .highlight, // scss-lint:disable SelectorFormat
+  > pre {
+    margin-top: $Theme-spacing-default;
+    margin-bottom: $Theme-spacing-default;
   }
 
   .highlight, // scss-lint:disable SelectorFormat
@@ -83,9 +87,6 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     @include font-properties(code, base, $Theme-font-sizes-extra);
 
     padding: $Theme-spacing-small 0;
-
-    margin-top: $Theme-spacing-small;
-    margin-bottom: $Theme-spacing-default;
 
     background-color: $Color-catskillWhite;
 
