@@ -13,7 +13,7 @@ meta property="og:url"         content="#{content_for(:url) ? yield(:url) : root
 meta property="og:title"       content="#{content_for(:title) ? yield(:title) : t('meta.title')}"
 meta property="og:description" content="#{content_for(:description) ? yield(:description) : t('meta.description')}"
 meta property="og:site_name"   content="Subvisual Website"
-meta property="og:image"       content="#{content_for(:image_url) ? yield(:image_url) : asset_path('logo.svg')}"
+meta property="og:image"       content="#{content_for(:image_url) ? yield(:image_url) : asset_path('logo-hero.png')}"
 meta property="og:type"        content="blog"
 
 // Twitter
@@ -22,7 +22,7 @@ meta property="twitter:site"        content="@subvisual"
 meta property="twitter:title"       content="#{content_for(:title) ? yield(:title) : t('meta.title')}"
 meta property="twitter:description" content="#{content_for(:description) ? yield(:description) : t('meta.description')}"
 meta property="twitter:creator"     content="#{content_for(:twitter_creator) ? yield(:twitter_creator) : '@subvisual'}"
-meta property="twitter:image"       content="#{content_for(:image_url) ? yield(:image_url) : asset_path('logo.svg')}"
+meta property="twitter:image"       content="#{content_for(:image_url) ? yield(:image_url) : asset_path('logo-hero.png')}"
 
 // Google Plus
 meta itemprop="name"        content="#{content_for(:title) ? yield(:title) : t('meta.title')}"
