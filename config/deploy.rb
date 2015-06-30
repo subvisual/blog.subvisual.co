@@ -1,4 +1,4 @@
-set :repo_url, 'git@github-blog.subvisual.co:groupbuddies/blog.subvisual.co.git'
+set :repo_url, 'git@github-blog.subvisual.co:subvisual/blog.subvisual.co.git'
 set :application, 'blog.subvisual.co'
 set :stage, :production
 set :branch, (ENV['DEPLOY_BRANCH'] || :master)
