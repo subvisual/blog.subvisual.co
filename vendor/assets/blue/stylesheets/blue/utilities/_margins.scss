@@ -174,6 +174,21 @@
   margin-bottom: $Theme-spacing-large * 2;
 }
 
+// u-noneThenSmallMargin
+//
+// No margin that turns into a small margin on desktop.
+//
+// markup:
+// <div class="u-noneThenSmallMargin"></div>
+//
+// Styleguide 4.3.12
+
+.u-noneThenSmallMargin {
+  @include media('>tablet') {
+    margin-bottom: $Theme-spacing-small;
+  }
+}
+
 // u-noneThenDefaultMargin
 //
 // No margin that turns into a default margin on desktop.
@@ -181,7 +196,7 @@
 // markup:
 // <div class="u-noneThenDefaultMargin"></div>
 //
-// Styleguide 4.3.12
+// Styleguide 4.3.13
 
 .u-noneThenDefaultMargin {
   @include media('>tablet') {
@@ -196,7 +211,7 @@
 // markup:
 // <div class="u-noneThenLargeMargin"></div>
 //
-// Styleguide 4.3.13
+// Styleguide 4.3.14
 
 .u-noneThenLargeMargin {
   @include media('>tablet') {
@@ -211,7 +226,7 @@
 // markup:
 // <div class="u-noneThenDoubleLargeMargin"></div>
 //
-// Styleguide 4.3.14
+// Styleguide 4.3.15
 
 .u-noneThenDoubleLargeMargin {
   @include media('>tablet') {
@@ -226,7 +241,7 @@
 // markup:
 // <div class="u-smallThenNoneMargin"></div>
 //
-// Styleguide 4.3.15
+// Styleguide 4.3.16
 
 .u-smallThenNoneMargin {
   margin-bottom: $Theme-spacing-small;
@@ -243,7 +258,7 @@
 // markup:
 // <div class="u-smallThenLargeMargin"></div>
 //
-// Styleguide 4.3.16
+// Styleguide 4.3.17
 
 .u-smallThenLargeMargin {
   margin-bottom: $Theme-spacing-small;
@@ -260,7 +275,7 @@
 // markup:
 // <div class="u-navPlaceholder"></div>
 //
-// Styleguide 4.3.17
+// Styleguide 4.3.18
 
 .u-navPlaceholder {
   margin-bottom: $Theme-nav-height-mobile;

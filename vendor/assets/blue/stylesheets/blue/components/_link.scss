@@ -4,6 +4,7 @@
 //
 // default - Default link
 // .Link--highlight - Hightlights the link
+// .Link--noWrap - Prevents line breaks within the link
 //
 // markup:
 // <div class="Link {$modifiers}">Lorem Ipsum</div>
@@ -28,4 +29,8 @@
 
 .Link.Link--highlight {
   color: $Theme-color-brightTurquoise;
+}
+
+.Link.Link--noWrap {
+  white-space: nowrap;
 }

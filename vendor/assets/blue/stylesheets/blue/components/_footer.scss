@@ -8,9 +8,9 @@
 //     <span class="Footer-handcrafted">Handcrafted by</span>
 //     <span class="Footer-subvisual">SUBVISUAL</span>
 //   </div>
-//   <div class="Footer-work">
+//   <a href="#" class="Footer-work">
 //     <span class="Footer-interested">Interested in our services?</span>
-//     <a class="Footer-workText" href="#">Let's get to work</a>
+//     <span class="Footer-workText">Let's get to work</span>
 //   </div>
 // </div>
 //
@@ -41,6 +41,16 @@
 
 .Footer-work {
   display: none;
+
+  text-decoration: none;
+
+  &:hover {
+    .Footer-workText {
+      color: $Theme-color-white;
+
+      text-decoration: underline;
+    }
+  }
 }
 
 @include media('>=tablet') {

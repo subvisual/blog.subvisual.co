@@ -42,10 +42,10 @@ Regular git submodule usage. Learn about it [here](https://chrisjean.com/git-sub
 To load the logo in the navbar you need to setup the following variables before including blue.
 
 ```
-$NavLogo-mobile-colored: image-path('subvisual_logo_no_name.svg');
-$NavLogo-mobile-mono: image-path('subvisual_logo_mono_no_name.svg');
-$NavLogo-desktop-colored: image-path('subvisual_logo_with_name.svg');
-$NavLogo-desktop-mono: image-path('subvisual_logo_mono_with_name.svg');
+$NavLogo-mobile-colored: image-path('blue/subvisual_logo_no_name.svg');
+$NavLogo-mobile-mono: image-path('blue/subvisual_logo_mono_no_name.svg');
+$NavLogo-desktop-colored: image-path('blue/subvisual_logo_with_name.svg');
+$NavLogo-desktop-mono: image-path('blue/subvisual_logo_mono_with_name.svg');
 
 @import 'blue';
 ```

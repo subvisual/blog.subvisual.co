@@ -3,6 +3,10 @@ $(function(){
   window.subvisual.nav = window.subvisual.nav || {};
   window.subvisual.nav.visibility = (function() {
     function updateAfterAnimation($element) {
+      if (!$element[0]) {
+        return;
+      }
+
       $element[0].addEventListener("animationend", function(e) {
         if (e.animationName == 'slideup') {
           $element.addClass('Nav--hint');

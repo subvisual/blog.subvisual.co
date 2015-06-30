@@ -12,10 +12,13 @@
 // .HorizontalGrid--topFrame - Adds a top border
 // .HorizontalGrid--bottomFrame - Adds a bottom border
 // .HorizontalGrid--withGutters - Applies gutters
+// .HorizontalGrid--noOuterGutters - Removes gutters from the edges, leaving only inner gutters
 // .HorizontalGrid--withExtraSmallGutters - Applies extra smaller gutters
 // .HorizontalGrid--withLargeGutters - Applies larger gutters
 // .HorizontalGrid--variableWidth - Each cell has the width defined by its content
 // .HorizontalGrid--noStack - Doesn't stack children on mobile resolutions
+// .HorizontalGrid--centered - Centers vertically and horizontally all cells
+// .HorizontalGrid--centeredOnNonMobile - Same as .HorizontalGrid--centered but only on non mobile resolutions
 //
 // markup:
 // <div class="HorizontalGrid {$modifiers}">
@@ -100,12 +103,21 @@ $HorizontalGrid-border-width: 1px;
   justify-content: center;
 }
 
+.HorizontalGrid.HorizontalGrid--centeredOnNonMobile {
+  @include media('>=tablet') {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .HorizontalGrid.HorizontalGrid--withGutters {
   $halfGutterSize: $Theme-spacing-small;
 
-  padding: 0 $halfGutterSize;
-
   .HorizontalGrid-cell {
+    padding: 0 $halfGutterSize;
+  }
+
+  @include media('>=tablet') {
     padding: 0 $halfGutterSize;
   }
 }
@@ -127,6 +139,18 @@ $HorizontalGrid-border-width: 1px;
 
   .HorizontalGrid-cell {
     padding: 0 $halfGutterSize;
+  }
+}
+
+.HorizontalGrid.HorizontalGrid--noOuterGutters {
+  padding: 0;
+
+  .HorizontalGrid-cell:first-child {
+    padding-left: 0;
+  }
+
+  .HorizontalGrid-cell:last-child {
+    padding-right: 0;
   }
 }
 

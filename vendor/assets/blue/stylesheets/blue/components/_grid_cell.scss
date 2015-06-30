@@ -5,6 +5,7 @@
 // default - Aligns content to the left
 // .GridCell--alignCenter - Centers the content
 // .GridCell--alignRight - Aligns content to the right
+// .GridCell--small - Limits the content to a smaller width
 // .GridCell--image - The content limit is adjusted for large images
 // .GridCell--video - The content limit is adjusted for 720px width videos
 //
@@ -33,13 +34,19 @@
   .GridCell {
     padding: 0 $Theme-spacing-default;
   }
+}
 
-  .GridCell.GridCell--alignCenter {
-    justify-content: center;
-  }
+.GridCell.GridCell--alignCenter {
+  justify-content: center;
+}
 
-  .GridCell.GridCell--alignRight {
-    justify-content: flex-end;
+.GridCell.GridCell--alignRight {
+  justify-content: flex-end;
+}
+
+.GridCell.GridCell--small {
+  .GridCell-content {
+    max-width: 460px;
   }
 }
 

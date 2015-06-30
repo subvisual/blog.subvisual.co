@@ -16,7 +16,6 @@
 // .Text--italic - Text with italics
 // .Text--brand - Subvisual font and small font size
 // .Text--engagement - Text to engage with the end-user
-// .Text--extraInfo - Text that stands out, but not as much as the engagement
 //
 // markup:
 // <div class="Text {$modifiers} styleguide-grid-unit">
@@ -75,13 +74,6 @@
 .Text.Text--engagement {
   @include font-properties(heading, base);
   color: $Theme-color-white;
-
-  font-weight: $Theme-typography-fontWeight-bold;
-}
-
-.Text.Text--extraInfo {
-  @include font-properties(heading, base);
-  color: $Theme-color-horizon;
 
   font-weight: $Theme-typography-fontWeight-bold;
 }

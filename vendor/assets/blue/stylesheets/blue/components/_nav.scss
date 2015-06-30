@@ -145,6 +145,8 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   display: flex;
   align-items: center;
 
+  margin-left: $Theme-spacing-small;
+
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   cursor: pointer;
@@ -160,8 +162,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
     }
   }
 
-  &:not(:first-child) {
-    display: flex;
+  @include media('>desktop') {
     margin-left: $Theme-spacing-default;
   }
 }
@@ -189,7 +190,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   }
 }
 
-@include media('>=tablet') {
+@include media('>=smallDesktop') {
   .Nav {
     height: $Theme-nav-height-desktop;
   }
@@ -228,7 +229,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   }
 }
 
-@include media('<=tablet') {
+@include media('<=smallDesktop') {
   .Nav {
     padding: 0 $Theme-spacing-small;
   }
