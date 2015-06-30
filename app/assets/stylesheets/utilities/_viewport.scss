@@ -1,0 +1,6 @@
+.u-exceptSmall {
+  @include media('<tablet') {
+    display: none;
+    display: none;
+  }
+}
