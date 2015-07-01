@@ -5,6 +5,7 @@
 // default - Most commonly used heading
 // .Heading--small - Smaller font
 // .Heading--brand - Subvisual font
+// .Heading--brandSubBase - An order of magnitude lower than the base Subvisual font
 // .Heading--brandLarge - Larger Subvisual font
 // .Heading--brandSmall - Small Subvisual font
 // .Heading--uvp - To be used as a sub heading in the UVP section
@@ -39,25 +40,30 @@
   @include font-properties(heading, small);
 }
 
-.Heading.Heading--brand {
-  @include font-properties(subvisual, base);
-
+.Heading.Heading--brand,
+.Heading.Heading--brandSubBase,
+.Heading.Heading--brandLarge,
+.Heading.Heading--brandSmall {
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.Heading.Heading--brand {
+  @include font-properties(subvisual, base);
+}
+
+.Heading.Heading--brandSubBase {
+  @include font-properties(subvisual, subBase);
 }
 
 .Heading.Heading--brandLarge {
   @include font-properties(subvisual, large);
 
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .Heading.Heading--brandSmall {
   @include font-properties(subvisual, small);
-
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 .Heading.Heading--blog {

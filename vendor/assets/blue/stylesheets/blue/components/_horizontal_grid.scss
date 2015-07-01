@@ -125,19 +125,31 @@ $HorizontalGrid-border-width: 1px;
 .HorizontalGrid.HorizontalGrid--withExtraSmallGutters {
   $halfGutterSize: $Theme-spacing-xSmall;
 
-  padding: 0 $halfGutterSize;
+  .HorizontalGrid-cell + .HorizontalGrid-cell {
+    padding-top: $Theme-spacing-small;
+  }
 
-  .HorizontalGrid-cell {
+  @include media('>=tablet') {
     padding: 0 $halfGutterSize;
+
+    .HorizontalGrid-cell {
+      padding: 0 $halfGutterSize;
+    }
+
+    .HorizontalGrid-cell + .HorizontalGrid-cell {
+      padding-top: 0;
+    }
   }
 }
 
 .HorizontalGrid.HorizontalGrid--withLargeGutters {
   $halfGutterSize: $Theme-spacing-default;
 
-  padding: 0 $halfGutterSize;
-
   .HorizontalGrid-cell {
+    padding: 0 $halfGutterSize;
+  }
+
+  @include media('>=tablet') {
     padding: 0 $halfGutterSize;
   }
 }

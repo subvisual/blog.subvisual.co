@@ -6,6 +6,7 @@
 // .ContentFormatter--centerHorizontally - Content is always centered horizontally
 // .ContentFormatter--centerHorizontallyThenLeft - Content is centered horizontally in smaller resolutions and aligned left on larger ones
 // .ContentFormatter--centerHorizontallyTheRight - Content is centered horizontally in smaller resolutions and aligned right on larger ones
+// .ContentFormatter--leftThenRight - Aligns left in smaller resoltuions and right on larger ones
 // .ContentFormatter--center - Content is always centered horizontally and vertically
 // .ContentFormatter--right - Aligns text to the right
 //
@@ -50,6 +51,14 @@
 
 .ContentFormatter.ContentFormatter--centerHorizontallyThenRight {
   text-align: center;
+
+  @include media('>tablet') {
+    text-align: right;
+  }
+}
+
+.ContentFormatter.ContentFormatter--leftThenRight {
+  text-align: left;
 
   @include media('>tablet') {
     text-align: right;

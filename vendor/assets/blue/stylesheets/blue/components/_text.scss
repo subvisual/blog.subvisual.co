@@ -8,6 +8,7 @@
 // .Text--large - Text with a large font size
 // .Text--extraLarge - Text with an extra large font size
 // .Text--light - Text with a light color
+// .Text--highlight - Text with the highlight color
 // .Text--dark - Text with a dark color
 // .Text--blog - Text with the blog's body text color
 // .Text--dimLight - Text with a dim light color
@@ -74,13 +75,10 @@
 .Text.Text--engagement {
   @include font-properties(heading, base);
   color: $Theme-color-white;
-
-  font-weight: $Theme-typography-fontWeight-bold;
 }
 
 .Text.Text--brand {
   @include font-properties(subvisual, small);
-  color: $Theme-color-brightTurquoise;
 
   text-transform: uppercase;
 }
@@ -91,4 +89,8 @@
 
 .Text.Text--blog {
   color: $Theme-color-limedSpruce;
+}
+
+.Text.Text--highlight {
+  color: $Theme-color-brightTurquoise;
 }

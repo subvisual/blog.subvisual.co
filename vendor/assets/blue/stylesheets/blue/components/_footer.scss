@@ -7,6 +7,7 @@
 //   <div class="Footer-credits">
 //     <span class="Footer-handcrafted">Handcrafted by</span>
 //     <span class="Footer-subvisual">SUBVISUAL</span>
+//     <span class="Footer-copyright">© 2015 Copyright by Subvisual</span>
 //   </div>
 //   <a href="#" class="Footer-work">
 //     <span class="Footer-interested">Interested in our services?</span>
@@ -53,22 +54,6 @@
   }
 }
 
-@include media('>=tablet') {
-  .Footer-credits {
-    flex-basis: 70%;
-    align-items: flex-start;
-
-    background-color: $Theme-color-limedSpruce;
-  }
-
-  .Footer-work {
-    flex-basis: 30%;
-    display: flex;
-
-    background-color: $Theme-color-yellowOrange;
-  }
-}
-
 .Footer-handcrafted {
   @include font-properties(subvisual, small);
   color: $Theme-color-horizon;
@@ -84,9 +69,31 @@
   text-transform: uppercase;
 }
 
+.Footer-copyright {
+  @include font-properties(bodyText, extraSmall);
+  color: $Theme-color-white;
+  opacity: 0.5;
+}
+
 .Footer-interested {
   @include font-properties(bodyText, large);
   margin-bottom: $Theme-spacing-small;
 
   color: $Theme-color-limedSpruce;
+}
+
+@include media('>=tablet') {
+  .Footer-credits {
+    flex-basis: 70%;
+    align-items: flex-start;
+
+    background-color: $Theme-color-limedSpruce;
+  }
+
+  .Footer-work {
+    flex-basis: 30%;
+    display: flex;
+
+    background-color: $Theme-color-yellowOrange;
+  }
 }

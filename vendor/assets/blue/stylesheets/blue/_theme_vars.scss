@@ -104,9 +104,17 @@ $Theme-font-families: (
 $Theme-font-sizes: (
   mobile: (
     subvisual: (
+      extraSmall: (
+        font-size: 12px,
+        line-height: 24px
+      ),
       small: (
         font-size: 12px,
         line-height: 24px
+      ),
+      subBase: (
+        font-size: 16px,
+        line-height: 28px
       ),
       base: (
         font-size: 20px,
@@ -153,9 +161,17 @@ $Theme-font-sizes: (
   ),
   desktop: (
     subvisual: (
+      extraSmall: (
+        font-size: 12px,
+        line-height: 24px
+      ),
       small: (
         font-size: 16px,
         line-height: 28px
+      ),
+      subBase: (
+        font-size: 20px,
+        line-height: 32px
       ),
       base: (
         font-size: 24px,
@@ -201,14 +217,17 @@ $Theme-font-sizes: (
   )
 );
 
-@mixin font-properties($family, $size: 'base', $font-sizes: $Theme-font-sizes) {
+@mixin font-properties-on-resolution($family, $size: 'base', $resolution: 'mobile', $font-sizes: $Theme-font-sizes) {
   font-family: map-get($Theme-font-families, $family);
-  font-size: map-get(map-get(map-get(map-get($font-sizes, 'mobile'), $family), $size), 'font-size');
-  line-height: map-get(map-get(map-get(map-get($font-sizes, 'mobile'), $family), $size), 'line-height');
+  font-size: map-get(map-get(map-get(map-get($font-sizes, $resolution), $family), $size), 'font-size');
+  line-height: map-get(map-get(map-get(map-get($font-sizes, $resolution), $family), $size), 'line-height');
+}
+
+@mixin font-properties($family, $size: 'base', $font-sizes: $Theme-font-sizes) {
+  @include font-properties-on-resolution($family, $size, mobile, $font-sizes);
 
   @include media('>=tablet') {
-    font-size: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'font-size');
-    line-height: map-get(map-get(map-get(map-get($font-sizes, 'desktop'), $family), $size), 'line-height');
+    @include font-properties-on-resolution($family, $size, desktop, $font-sizes);
   }
 }
 
