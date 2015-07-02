@@ -18,7 +18,7 @@ $RelatedPosts-border-color: $Color-catskillWhite;
   }
 
   .RelatedPosts-column {
-    flex: 1 1 auto;
+    flex: 1 1 0%;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
@@ -31,7 +31,7 @@ $RelatedPosts-border-color: $Color-catskillWhite;
   }
 
   .RelatedPosts-post {
-    flex: 1;
+    flex: 1 0 0%;
     width: 100%;
   }
 

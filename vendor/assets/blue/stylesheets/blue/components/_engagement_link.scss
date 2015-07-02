@@ -36,9 +36,10 @@ $EngagementLink-arrow-white: 'blue/link-arrow-white.svg' !default;
     @include background-image($EngagementLink-arrow);
     content: '';
 
+    display: block;
     width: $EngagementLink-width-icon;
-    min-width: $EngagementLink-width-icon;
     height: $EngagementLink-width-icon;
+    min-width: $EngagementLink-width-icon;
     margin-right: $Theme-spacing-small;
 
     background-repeat: no-repeat;

@@ -45,8 +45,10 @@
 }
 
 .GridCell.GridCell--small {
-  .GridCell-content {
-    max-width: 460px;
+  @include media('<=tablet') {
+    .GridCell-content {
+      max-width: 460px;
+    }
   }
 }
 

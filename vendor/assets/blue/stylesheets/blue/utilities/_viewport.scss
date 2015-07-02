@@ -33,3 +33,19 @@
     display: none;
   }
 }
+
+.u-onlyResponsibleResponsiveDesignPicture {
+  @include media('<=tablet') {
+    display: none;
+  }
+  @include media('>1035px') {
+    display: none;
+  }
+}
+
+
+.u-onlyAboveResponsibleResponsiveDesignPicture {
+  @include media('<=1035px') {
+    display: none;
+  }
+}

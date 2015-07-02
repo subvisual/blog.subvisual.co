@@ -190,7 +190,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   }
 }
 
-@include media('>=smallDesktop') {
+@include media('>smallDesktop') {
   .Nav {
     height: $Theme-nav-height-desktop;
   }
