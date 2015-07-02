@@ -179,7 +179,7 @@ $HorizontalGrid-border-width: 1px;
 }
 
 .HorizontalGrid-cell {
-  flex: 1 0 0%;
+  flex: 1 0 auto;
   display: flex;
   flex-direction: column;
 
