@@ -1,8 +1,11 @@
-.Author.Author--large
-  .Author-left = image_tag author.photo_url, alt: author.full_name, class: 'Author-picture'
-  .Author-right
-    h2.AuthorHeading
-      ' About
-      span.AuthorHeading-name = author.full_name
-    .u-xSmallMargin
-    .AltText = author.bio
+.Media.Media--responsive
+  .Media-image
+    .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
+      = image_tag post.author.photo_url, alt: post.author.full_name, class: 'AuthorPicture'
+  .Media-content
+    .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
+      h2.AuthorHeading
+        ' About
+        span.AuthorHeading-name = author.full_name
+      .u-xSmallMargin
+      .AltText = author.bio
