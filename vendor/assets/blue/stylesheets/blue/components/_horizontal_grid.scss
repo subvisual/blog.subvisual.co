@@ -94,7 +94,7 @@ $HorizontalGrid-border-width: 1px;
 
 .HorizontalGrid.HorizontalGrid--variableWidth {
   .HorizontalGrid-cell {
-    flex: none;
+    flex: 0 0 auto;
   }
 }
 
@@ -179,12 +179,13 @@ $HorizontalGrid-border-width: 1px;
 }
 
 .HorizontalGrid-cell {
-  flex: 1 0 auto;
+  flex: 1 0 0%;
   display: flex;
   flex-direction: column;
 
   @include media('<=tablet') {
-    flex: initial;
+    flex-grow: 0;
+    flex-basis: auto;
   }
 }
 

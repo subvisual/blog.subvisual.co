@@ -12,6 +12,7 @@ $(function(){
           $element.addClass('Nav--hint');
           $element.removeClass('Nav--fixed');
           $element.removeClass('Nav--animateUp');
+          $element.find('.Burger').removeClass('Burger--fixed');
         }
       }, false);
     }
@@ -20,6 +21,7 @@ $(function(){
       if (isAtTheTop) {
         $element.removeClass('Nav--fixed');
         $element.removeClass('Nav--hint');
+        $element.find('.Burger').removeClass('Burger--fixed');
       }
     }
 
@@ -35,6 +37,7 @@ $(function(){
       if ((!hasPassedTheElement && $element.hasClass('Nav--fixed')) || hasPassedTheElement) {
         $element.addClass('Nav--fixed');
         $element.removeClass('Nav--hint');
+        $element.find('.Burger').addClass('Burger--fixed');
       } else if (!hasPassedTheElement) {
         $element.removeClass('Nav--hint');
       }

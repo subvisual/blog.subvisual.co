@@ -6,10 +6,10 @@ class PostsController < ApplicationController
   end
 
   def search
-    @query = search_params[:q]
+    @query = search_params[:q] || ''
     @posts = begin
       Post.search(@query, size: 20).records.published
-    rescue StandardError => e
+    rescue StandardError
       Post.none
     end
   end

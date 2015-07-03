@@ -81,7 +81,7 @@
 }
 
 .Burger.Burger--light {
-  &:not(.is-open) {
+  &:not(.is-open):not(.Burger--fixed) {
     .Burger-line {
       background-color: $Theme-color-white;
     }
