@@ -124,11 +124,19 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
 .Nav-link {
   @include font-properties(subvisual, small);
+  flex: 1 0 auto;
+
   color: $Theme-color-poloBlue;
 
   font-weight: $Theme-typography-fontWeight-bold;
   text-decoration: none;
   text-transform: uppercase;
+
+  transition: color 0.2s ease-in-out;
+
+  @include media('>tablet') {
+    line-height: $Theme-nav-height-desktop;
+  }
 }
 
 .Nav-logo {
@@ -143,7 +151,8 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
 .Nav-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   margin-left: $Theme-spacing-small;
 
@@ -169,6 +178,8 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
 
 .Nav-menu {
   display: none;
+
+  cursor: pointer;
 }
 
 .Nav.Nav--transparent:not(.Nav--fixed) {
@@ -188,6 +199,14 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
       color: $Theme-color-white;
     }
   }
+}
+
+.Nav-menu,
+.Nav-link {
+  padding-right: $Theme-spacing-small;
+  padding-left: $Theme-spacing-small;
+  margin-right: -$Theme-spacing-small;
+  margin-left: -$Theme-spacing-small;
 }
 
 @include media('>smallDesktop') {
@@ -249,5 +268,14 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
   .Nav-menu {
     display: flex;
     align-items: center;
+  }
+}
+
+@include media('<=desktop') {
+  .Nav-link {
+    padding-right: $Theme-spacing-xSmall;
+    padding-left: $Theme-spacing-xSmall;
+    margin-right: -$Theme-spacing-xSmall;
+    margin-left: -$Theme-spacing-xSmall;
   }
 }

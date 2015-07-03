@@ -53,6 +53,10 @@ $NavOverlay-item-space: $Theme-spacing-default;
   font-weight: $Theme-typography-fontWeight-bold;
   text-decoration: none;
   text-transform: uppercase;
+
+  &:hover {
+    color: $Nav-item-color-hover;
+  }
 }
 
 .NavOverlay-item {
@@ -64,7 +68,6 @@ $NavOverlay-item-space: $Theme-spacing-default;
 
   cursor: pointer;
 
-  &:hover,
   &.is-selected {
     .NavOverlay-link {
       color: $Nav-item-color-hover;

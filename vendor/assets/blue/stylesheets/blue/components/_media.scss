@@ -45,9 +45,3 @@
     justify-content: center;
   }
 }
-
-.Media.Media--responsive {
-  @include media('<tablet') {
-    flex-direction: column;
-  }
-}
