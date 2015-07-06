@@ -6,6 +6,7 @@
   "dependencies": {
     "include-media": "~1.1.2",
     "inline-attachment": "~2.0.1",
-    "velocity": "~1.2.2"
+    "velocity": "~1.2.2",
+    "picturefill": "~2.3.1"
   }
 }

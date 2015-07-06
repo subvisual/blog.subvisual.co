@@ -1,5 +1,10 @@
 .PostWidthConstrainer.Author.Author--small
-  .Author-left = image_tag post.author.photo_url, alt: post.author.full_name, class: 'Author-picture'
+  .Author-left
+    img(
+      src="#{image_path(post.author.photo_url('_50'))}"
+      srcset="#{image_path(post.author.photo_url('_50'))} 50w, #{image_path(post.author.photo_url('_100'))} 100w"
+      sizes="50px"
+    )
   .Author-right
     .AltText
       ' Written by

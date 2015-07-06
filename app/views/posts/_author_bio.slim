@@ -1,7 +1,11 @@
 .Media.Media--responsive
   .Media-image
     .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
-      = image_tag post.author.photo_url, alt: post.author.full_name, class: 'AuthorPicture'
+      img.AuthorPicture(
+        src="#{image_path(post.author.photo_url('_100'))}"
+        srcset="#{image_path(post.author.photo_url('_100'))} 100w, #{image_path(post.author.photo_url('_200'))} 200w"
+        sizes="100px"
+      )
   .Media-content
     .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
       h2.AuthorHeading
