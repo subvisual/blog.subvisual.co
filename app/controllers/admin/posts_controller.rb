@@ -1,5 +1,6 @@
   class Admin::PostsController < Admin::ApplicationController
     decorates_assigned :posts, :post
+    after_action :invalidate_cache, only: %i(create update)
 
     def index
       @drafts = current_user.posts.unpublished
@@ -61,5 +62,9 @@
 
     def post_params
       params.require(:post).permit(:title, :body, :extra_tags, tag_list: [], hero_attributes: [:id, :image, :remove_image])
+    end
+
+    def invalidate_cache
+      Rails.cache.delete('search_tags')
     end
   end

@@ -71,6 +71,10 @@ class Post < ActiveRecord::Base
     hero && hero.image && hero.image.url.present?
   end
 
+  def self.published_tags
+    all_tags.select { |tag| Post.published.tagged_with(tag).any? }
+  end
+
   private
 
   def set_extra_tags
