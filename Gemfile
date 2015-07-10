@@ -39,6 +39,7 @@ gem 'uglifier', '>= 1.0.3'
 
 group :production do
   gem 'newrelic_rpm'
+  gem 'skylight'
 end
 
 group :development do
