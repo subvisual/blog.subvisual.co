@@ -1,0 +1,19 @@
+// u-visuallyHidden
+//
+// Used to visually hide elements used for accessibility purposes. These will
+// usually be elements that add context to visual elements.
+//
+// Styleguide 4.4
+
+.u-visuallyHidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+
+  border: 0;
+  clip: rect(0 0 0 0);
+}

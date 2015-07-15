@@ -4,6 +4,8 @@ Subvisual's UI Kit.
 
 ## Install
 
+### Via git submodule
+
 Create the submodule's directory:
 
 ```bash
@@ -31,6 +33,17 @@ end
 %w(javascripts stylesheets images).each do |dir|
   Rails.application.config.assets.paths << Rails.root.join('vendor, 'assets, 'blue', dir)
 end
+```
+
+### Via pre-compiled distributables
+
+A pre-compiled version exists under `dist/`, with normal and minified versions of the CSS and JS libraries.
+
+You can import them directly using the following URLs:
+
+```
+https://raw.githubusercontent.com/subvisual/blue/master/dist/blue.css
+https://raw.githubusercontent.com/subvisual/blue/master/dist/blue.js
 ```
 
 ## Usage

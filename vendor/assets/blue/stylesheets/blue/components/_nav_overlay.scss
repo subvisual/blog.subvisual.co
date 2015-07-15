@@ -26,6 +26,7 @@ $NavOverlay-item-border-width: 50px;
 $NavOverlay-item-space: $Theme-spacing-default;
 
 .NavOverlay {
+  display: none;
   position: fixed;
   top: $Theme-nav-height-mobile;
   left: 0;

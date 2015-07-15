@@ -242,6 +242,10 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
     top: -$Theme-nav-height-desktop;
   }
 
+  .Nav-items {
+    height: $Theme-nav-height-desktop;
+  }
+
   .Nav-item:not(:first-child) {
     display: flex;
     align-items: center;
@@ -261,7 +265,7 @@ $Nav-item-color-hover: $Theme-color-yellowOrange;
     background-color: $Theme-color-white;
   }
 
-  .Nav-items {
+  .Nav-itemsWrapper {
     display: none;
   }
 

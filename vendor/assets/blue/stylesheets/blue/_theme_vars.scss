@@ -64,6 +64,7 @@ $Theme-tags-color: (
 );
 
 // Layers
+$Theme-layer-stripeTriangle: 4;
 $Theme-layer-stickyElement: 5;
 $Theme-layer-overlay: 6;
 
@@ -245,4 +246,12 @@ $Theme-font-sizes: (
   // TODO: find a way of being able to keep using Sprocket's helpers
   background-image: url("/#{$imagePath}");
   background-image: image-url($imagePath);
+}
+
+@mixin retina-background($filename, $extension: 'png') {
+  @include background-image("#{$filename}.#{$extension}");
+
+  @media (-o-min-device-pixel-ratio:5/4), (-webkit-min-device-pixel-ratio:1.2), (min-resolution:120dpi) {
+    @include background-image("#{$filename}@2x.#{$extension}");
+  }
 }

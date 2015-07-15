@@ -11,7 +11,7 @@
   - content_for :hero_class, ' Hero--large'
 
 - content_for :hero
-  .PostWidthConstrainer
+  .PostWidthConstrainer.PostWidthConstrainer--title
     h1.PostHeading.PostHeading--large class="#{content_for(:post_heading_class)}"
       = post.title
     .PostInfo class="#{content_for(:post_info_class)}"
