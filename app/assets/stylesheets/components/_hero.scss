@@ -24,10 +24,6 @@ $Hero-background-color-tag: #8db6cb;
 }
 
 .Hero--fixed {
-  height: $Hero-fixed-height;
-}
-
-.Hero--fixedSmall {
   height: $Hero-fixed-height * 0.5;
 
   @include media('>tablet') {
