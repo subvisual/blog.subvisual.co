@@ -21,15 +21,16 @@ html.Theme lang="en"
   body
     section
       = render '/layouts/nav'
-      - unless params[:controller].match('clearance')
-        = render '/layouts/hero'
+      main
+        - unless params[:controller].match('clearance')
+          = render '/layouts/hero'
 
-      = yield
+        = yield
 
-      - unless params[:controller].match('clearance')
-        = render '/layouts/sitemap'
-        .u-largeThenDoubleLargeMargin
-        = render '/layouts/footer'
+        - unless params[:controller].match('clearance')
+          = render '/layouts/sitemap'
+          .u-largeThenDoubleLargeMargin
+          = render '/layouts/footer'
 
     = javascript_include_tag "application"
 

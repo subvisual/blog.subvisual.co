@@ -7,7 +7,7 @@
   - if can? :manage, Post
     = nav_overlay_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
 
-nav#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{content_for(:nav_class)}"
+header#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{content_for(:nav_class)}"
   = link_to 'https://subvisual.co', class: 'Nav-logo'
     .NavLogo class="#{content_for(:nav_logo_class)}"
   .Nav-menu
@@ -15,11 +15,13 @@ nav#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{conten
       .Burger-line
       .Burger-line
       .Burger-line
-  ul.Nav-items
-    = nav_item 'Work', 'https://subvisual.co/work'
-    = nav_item 'Company', 'https://subvisual.co/company'
-    = nav_item 'Community', 'https://subvisual.co/community'
-    = nav_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
-    = nav_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
-    - if can? :manage, Post
-      = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
+
+  nav.Nav-itemsWrapper aria-label='Main navigation'
+    ul.Nav-items
+      = nav_item 'Work', 'https://subvisual.co/work'
+      = nav_item 'Company', 'https://subvisual.co/company'
+      = nav_item 'Community', 'https://subvisual.co/community'
+      = nav_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
+      = nav_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
+      - if can? :manage, Post
+        = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')

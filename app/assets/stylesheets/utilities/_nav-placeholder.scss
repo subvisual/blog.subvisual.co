@@ -1,0 +1,9 @@
+.u-navPlaceholder {
+  padding-bottom: $Theme-nav-height-mobile;
+  margin-bottom: 0;
+
+  @include media('>tablet') {
+    padding-bottom: $Theme-nav-height-desktop;
+    margin-bottom: 0;
+  }
+}
