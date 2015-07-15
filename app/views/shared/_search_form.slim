@@ -1,10 +1,10 @@
-- content_for :hero_class, 'Hero--fixed Hero--pushBottom'
+- content_for :hero_class, 'Hero--fixedSmall Hero--pushBottom'
 
 - query ||= ''
 
 - content_for :hero
   .PostWidthConstrainer
-    .u-doubleLargePadding
+    .u-largeThenDoubleLargePadding
 
     = form_for :search, url: search_posts_path, method: :get, html: { class: 'Search', id: 'Search' } do |form|
       .Search-fieldWrapper
