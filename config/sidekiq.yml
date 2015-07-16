@@ -1,0 +1,6 @@
+---
+:queues:
+  - default
+  - mailers
+  - assets
+:logfile: ./log/sidekiq.log

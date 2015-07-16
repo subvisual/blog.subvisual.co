@@ -37,6 +37,9 @@ GbBlog::Application.routes.draw do
       mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
     end
 
+    require 'sidekiq/web'
+    mount Sidekiq::Web, at: '/sidekiq'
+
     defaults format: :rss do
       get '/feed' => 'feed#index', as: :feed
     end
