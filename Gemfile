@@ -22,8 +22,6 @@ gem 'jquery-turbolinks'
 gem 'omniauth'
 gem 'omniauth-headquarters'
 gem 'pg'
-gem 'piet'
-gem 'piet-binary'
 gem 'puma'
 gem 'redcarpet', require: false
 gem 'rouge', require: false

@@ -2,10 +2,8 @@
 
 class PostImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
-  include Piet::CarrierWaveExtension
 
   storage :file
-  process :optimize
 
   version :thumb do
     process resize_to_fit: [0, 50]
