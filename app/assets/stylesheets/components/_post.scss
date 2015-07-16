@@ -54,7 +54,10 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     color: inherit;
   }
 
-  > p {
+  > p,
+  > ol,
+  > ul,
+  > div > iframe {
     margin-bottom: $Theme-spacing-small;
   }
 
