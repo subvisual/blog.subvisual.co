@@ -1,4 +1,4 @@
-# Subvisual Blog [![Build Status](https://semaphoreci.com/api/v1/projects/d4cb3462-8468-4dca-888f-9e311039ce8d/485095/badge.svg)](https://semaphoreci.com/gb/blog-subvisual-co)
+# Subvisual Blog [![Build Status](https://semaphoreci.com/api/v1/projects/d4cb3462-8468-4dca-888f-9e311039ce8d/430739/shields_badge.svg)](https://semaphoreci.com/gb/blog-subvisual-co)
 
 Our blog. Live @ [blog.subvisual.co](blog.subvisual.co)
 
