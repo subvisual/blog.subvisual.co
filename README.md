@@ -1,6 +1,6 @@
-# GB Blog [![Build Status](https://semaphoreapp.com/api/v1/projects/245a3016-039e-4141-b343-f7940cb7e3ff/302931/shields_badge.svg)](https://semaphoreapp.com/groupbuddies/gb-blog)
+# Subvisual Blog [![Build Status](https://semaphoreci.com/api/v1/projects/d4cb3462-8468-4dca-888f-9e311039ce8d/485095/badge.svg)](https://semaphoreci.com/gb/blog-subvisual-co)
 
-Our blog. Live @ [blog.groupbuddies.com](blog.groupbuddies.com)
+Our blog. Live @ [blog.subvisual.co](blog.subvisual.co)
 
 # Development Setup
 
@@ -10,8 +10,8 @@ Our blog. Live @ [blog.groupbuddies.com](blog.groupbuddies.com)
 
 ## Setup
 
-    git clone git@github.com/groupbuddies/gb-blog
-    cd gb-blog
+    git clone git@github.com/subvisual/blog.subvisual.co
+    cd blog.subvisual.co
     bin/setup
 
     # running the server
