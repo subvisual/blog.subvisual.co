@@ -7,6 +7,10 @@ class PostDecorator < Draper::Decorator
     "#{title}, by #{author.full_name} of Subvisual"
   end
 
+  def twitter_title
+    "#{title}, by @#{author.twitter_handle} of @subvisual"
+  end
+
   def publish_date
     format_date(published_at) if published?
   end

@@ -19,7 +19,7 @@ meta property="og:type"        content="blog"
 // Twitter
 meta property="twitter:card"        content="summary"
 meta property="twitter:site"        content="@subvisual"
-meta property="twitter:title"       content="#{content_for(:title) ? yield(:title) : t('meta.title')}"
+meta property="twitter:title"       content="#{content_for(:twitter_title) ? content_for(:twitter_title) : (content_for(:title) ? yield(:title) : t('meta.title'))}"
 meta property="twitter:description" content="#{content_for(:description) ? yield(:description) : t('meta.description')}"
 meta property="twitter:creator"     content="#{content_for(:twitter_creator) ? yield(:twitter_creator) : '@subvisual'}"
 meta property="twitter:image"       content="#{content_for(:image_url) ? yield(:image_url) : asset_path('logo-hero.png')}"
