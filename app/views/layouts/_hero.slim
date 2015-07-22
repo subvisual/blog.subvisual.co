@@ -1,6 +1,11 @@
+- if content_for?(:hero_image)
+  - style = "background-image: url('#{image_path(content_for(:hero_image))}')"
+- else
+  - style = ""
+
 .Hero(
   class="#{content_for(:hero_class)}"
-  style="background-image: url('#{image_path(content_for(:hero_image))}')"
+  style=style
   )
   .u-navPlaceholder
   - if content_for?(:hero_image)
