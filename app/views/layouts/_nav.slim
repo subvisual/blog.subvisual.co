@@ -9,7 +9,7 @@
 
 header#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{content_for(:nav_class)}"
   = link_to 'https://subvisual.co', class: 'Nav-logo'
-    .NavLogo class="#{content_for(:nav_logo_class)}"
+    = render '/layouts/nav/logo'
   .Nav-menu
     .Burger class="#{content_for(:burger_class)}"
       .Burger-line

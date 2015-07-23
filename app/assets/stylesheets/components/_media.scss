@@ -1,5 +1,14 @@
 .Media.Media--responsive {
+  flex: 1 0 auto;
+  display: flex;
+
   @include media('<tablet') {
     flex-direction: column;
+  }
+}
+
+.Media-content {
+  @include media('<tablet') {
+    flex: 1 0 auto;
   }
 }

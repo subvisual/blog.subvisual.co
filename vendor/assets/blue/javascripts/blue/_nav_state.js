@@ -17,6 +17,7 @@ $(function() {
     } else {
       closeOverlay();
     }
+    window.subvisual.nav.logo.update(nav);
   });
 
   // remove from accesibility tree when hidden.

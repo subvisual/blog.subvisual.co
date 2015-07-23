@@ -10,7 +10,7 @@ $(function() {
   setInterval(function() {
     if (didScroll) {
       currentScrollTop = $(document).scrollTop();
-      window.subvisual.nav.update(currentScrollTop, lastScrollTop);
+      window.subvisual.nav.bar.update(currentScrollTop, lastScrollTop);
       lastScrollTop = currentScrollTop;
 
       didScroll = false;

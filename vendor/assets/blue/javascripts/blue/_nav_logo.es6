@@ -2,29 +2,39 @@ $(function(){
   window.subvisual = window.subvisual || {};
   window.subvisual.nav = window.subvisual.nav || {};
   window.subvisual.nav.logo = (function() {
+
     function showMonoLogo($element) {
-      $element.find('.NavLogo').addClass('NavLogo--mono');
+      $element.removeClass('NavLogo--color').addClass('NavLogo--mono');
     }
 
-    function showColoredLogo($element) {
-      $element.find('.NavLogo').removeClass('NavLogo--mono');
+    function showColoredLogo($element, $navLogo) {
+      $element.removeClass('NavLogo--mono').addClass('NavLogo--color');
+    }
+
+    function backgroundIsLight($el) {
+      var
+        isOpen = $el.hasClass('is-open'),
+        isFixed = $el.hasClass('Nav--fixed'),
+        isTransparent = $el.hasClass('Nav--light') || $el.hasClass('Nav--transparent');
+
+      return isOpen || (isTransparent && isFixed) || (!isTransparent);
     }
 
     function update($element) {
-      if ($element.hasClass('Nav--light') || $element.hasClass('Nav--transparent')) {
-        if ($element.hasClass('Nav--fixed')) {
-          showColoredLogo($element);
-        } else {
-          showMonoLogo($element);
-        }
+      var $navLogo = $element.find('.NavLogo');
+
+      if (backgroundIsLight($element)) {
+        showColoredLogo($navLogo);
       } else {
-        showColoredLogo($element);
+        showMonoLogo($navLogo);
       }
     }
 
     function updateWithScroll(scrollState, $element) {
+      var $navLogo = $element.find('.NavLogo');
+
       if (scrollState.hasPassedTheElement($element.outerHeight())) {
-        showColoredLogo($element);
+        showColoredLogo($navLogo);
       } else {
         update($element);
       }

@@ -7,6 +7,7 @@
     "include-media": "~1.1.2",
     "inline-attachment": "~2.0.1",
     "velocity": "~1.2.2",
-    "picturefill": "~2.3.1"
+    "picturefill": "~2.3.1",
+    "gsap": "~1.17.0"
   }
 }

@@ -1,6 +1,7 @@
 $(function() {
   window.subvisual = window.subvisual || {};
-  window.subvisual.nav = (function() {
+  window.subvisual.nav = window.subvisual.nav || {};
+  window.subvisual.nav.bar = (function() {
     let $element = $('.Nav');
     let navLogo = window.subvisual.nav.logo;
     let navVisibility = window.subvisual.nav.visibility;
