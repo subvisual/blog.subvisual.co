@@ -219,20 +219,13 @@ $Theme-font-sizes: (
 );
 
 @mixin font-properties-on-resolution($family, $size: 'base', $resolution: 'mobile', $font-sizes: $Theme-font-sizes) {
+  font-family: map-get($Theme-font-families, $family);
   font-size: map-get(map-get(map-get(map-get($font-sizes, $resolution), $family), $size), 'font-size');
   line-height: map-get(map-get(map-get(map-get($font-sizes, $resolution), $family), $size), 'line-height');
 }
 
 @mixin font-properties($family, $size: 'base', $font-sizes: $Theme-font-sizes) {
-  $family-list: map-get($Theme-font-families, $family);
-
   @include font-properties-on-resolution($family, $size, mobile, $font-sizes);
-
-  font-family: nth($family-list, length($family-list));
-
-  @at-root.wf-active & {
-    font-family: nth($family-list, 1);
-  }
 
   @include media('>=tablet') {
     @include font-properties-on-resolution($family, $size, desktop, $font-sizes);
