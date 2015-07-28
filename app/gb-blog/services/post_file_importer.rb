@@ -3,7 +3,6 @@ module Services
     POSTS_DIR = Rails.root.join('posts')
 
     def import
-      binding.pry
       all_files.each do |file|
         PostFile.import(file)
       end
