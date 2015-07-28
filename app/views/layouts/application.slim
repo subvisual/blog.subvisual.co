@@ -11,10 +11,6 @@ html.Theme lang="en"
     - if Rails.env.production?
       = render 'layouts/analytics'
 
-    script src="//use.typekit.net/wbx6iwp.js"
-    javascript:
-      try{Typekit.load();}catch(e){}
-
   body
     section
       = render '/layouts/nav'
@@ -29,6 +25,9 @@ html.Theme lang="en"
           .u-largeThenDoubleLargeMargin
           = render '/layouts/footer'
 
+    script src="//use.typekit.net/wbx6iwp.js"
+    javascript:
+      try{Typekit.load();}catch(e){}
     = javascript_include_tag "application"
     - if content_for?(:page_script)
       = yield(:page_script)
