@@ -3,13 +3,14 @@
 [![Code Climate](https://codeclimate.com/github/subvisual/blog.subvisual.co/badges/gpa.svg)](https://codeclimate.com/github/subvisual/blog.subvisual.co)
 [![Test Coverage](https://codeclimate.com/github/subvisual/blog.subvisual.co/badges/coverage.svg)](https://codeclimate.com/github/subvisual/blog.subvisual.co/coverage)
 
-Our blog. Live @ [blog.subvisual.co](blog.subvisual.co)
+Our blog. Live @ [https://subvisual.co/blog](https://subvisual.co/blog)
 
 # Development Setup
 
 ## Dependencies
 
-  The app currently depends on elasticsearch being running. Errors may occur during development/test if it isn't
+  * **elasticsearch**: It's up to the developer to ensure this service is running. Errors may occur during development/test if it isn't
+  * **memcached (optional)**: Should not be necessary during development, unless you're interesting in testing the cache system
 
 ## Setup
 
