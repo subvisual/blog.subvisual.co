@@ -12,7 +12,7 @@
       tbody
         - @drafts.each do |post|
           tr
-            td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
+            td = image_tag post.author.decorate.photo_url('_50')
             td.PostTable-title
               = link_to '(edit)', edit_admin_post_path(post), class: 'Link'
               =< link_to post.title, post_path(post), class: 'Link'
@@ -26,7 +26,7 @@
     tbody
       - @posts.each do |post|
         tr
-          td = image_tag "authors/#{post.author.full_name.downcase.parameterize}.png"
+          td = image_tag post.author.decorate.photo_url('_50')
           td.PostTable-title
             = link_to '(edit)', edit_admin_post_path(post), class: 'Link'
             =< link_to post.title, post_path(post), class: 'Link'
