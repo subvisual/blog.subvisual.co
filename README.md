@@ -1,4 +1,7 @@
-# Subvisual Blog [![Build Status](https://semaphoreci.com/api/v1/projects/d4cb3462-8468-4dca-888f-9e311039ce8d/430739/shields_badge.svg)](https://semaphoreci.com/gb/blog-subvisual-co)
+# Subvisual Blog
+[![Build Status](https://semaphoreci.com/api/v1/projects/d4cb3462-8468-4dca-888f-9e311039ce8d/430739/shields_badge.svg)](https://semaphoreci.com/gb/blog-subvisual-co)
+[![Code Climate](https://codeclimate.com/github/subvisual/blog.subvisual.co/badges/gpa.svg)](https://codeclimate.com/github/subvisual/blog.subvisual.co)
+[![Test Coverage](https://codeclimate.com/github/subvisual/blog.subvisual.co/badges/coverage.svg)](https://codeclimate.com/github/subvisual/blog.subvisual.co/coverage)
 
 Our blog. Live @ [blog.subvisual.co](blog.subvisual.co)
 
