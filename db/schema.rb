@@ -11,23 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624150740) do
+ActiveRecord::Schema.define(version: 20150729010027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_keys", force: :cascade do |t|
-    t.string   "name"
-    t.string   "access_token"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "post_images", force: :cascade do |t|
     t.string  "image"
     t.integer "post_id"
-    t.integer "width"
-    t.integer "height"
+    t.string  "image_tmp"
   end
 
   create_table "posts", force: :cascade do |t|
