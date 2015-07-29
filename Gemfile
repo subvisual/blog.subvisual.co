@@ -49,6 +49,7 @@ group :development do
 end
 
 group :test do
+  gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner', '1.0.1', require: false
   gem 'elasticsearch-extensions'
   gem 'factory_girl_rails', '~> 4.0', require: false
