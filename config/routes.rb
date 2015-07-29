@@ -1,4 +1,4 @@
-GbBlog::Application.routes.draw do
+SubvisualBlog::Application.routes.draw do
   get '/' => redirect('/blog')
   get '/blog/auth/:provider/callback', to: 'sessions#create'
 
