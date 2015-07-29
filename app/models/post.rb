@@ -45,10 +45,6 @@ class Post < ActiveRecord::Base
     Services::PostProcessor.new(self).process
   end
 
-  def publication_year
-    published_at.year
-  end
-
   def related_by_author
     author.posts.published.where('id != ?', id).sample
   end

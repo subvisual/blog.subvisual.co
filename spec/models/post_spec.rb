@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 RSpec.describe Post, type: :model do
+  context '#to_param' do
+    it 'starts with the post id' do
+      post = create(:post)
+
+      param = post.to_param
+
+      expect(param).to match(/^#{post.id}/)
+    end
+  end
+
   context '.published' do
     it 'returns only posts that are published' do
       create_list(:post, 2)
