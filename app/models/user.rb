@@ -7,10 +7,6 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}".strip
   end
 
-  def full_name
-    name
-  end
-
   def name=(name)
     self.first_name, self.last_name = name.split(' ', 2)
   end

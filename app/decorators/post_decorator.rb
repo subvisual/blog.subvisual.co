@@ -4,7 +4,7 @@ class PostDecorator < Draper::Decorator
   delegate :title, :published?, :published_at, :created_at, :updated_at, :persisted?, :id, :tag_list, :related_by_author, :related_by_tags, :secondary_tags, :hero, :hero?
 
   def page_title
-    "#{title}, by #{author.full_name} of Subvisual"
+    "#{title}, by #{author.name} of Subvisual"
   end
 
   def twitter_title
