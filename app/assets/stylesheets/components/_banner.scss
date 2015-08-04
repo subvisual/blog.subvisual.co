@@ -7,7 +7,7 @@ $Banner-backgorund-color: #DEFEF0;
   padding: 0 $Theme-spacing-default;
 
   position: fixed;
-  top: $Banner-height;
+  top: -$Banner-height;
 
   display: flex;
   flex-direction: row;
@@ -32,4 +32,42 @@ $Banner-backgorund-color: #DEFEF0;
 .Banner-text {
   //futura, 16px and bold
   margin-left: $Theme-spacing-default;
+}
+
+.Banner--bellowNav {
+  top: $Banner-height;
+  animation-duration: 0.3s;
+  animation-name: slideDown;
+}
+
+.Banner--animateTop {
+  top: 0;
+  animation-duration: 0.3s;
+  animation-name: slideUp;
+}
+
+.Banner--show {
+  top: 0;
+  animation-duration: 0.3s;
+  animation-name: slideDown;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-$Banner-height);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY($Banner-height);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
