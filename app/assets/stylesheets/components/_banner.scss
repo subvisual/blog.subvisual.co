@@ -1,0 +1,35 @@
+$Banner-height: 80px;
+$Banner-backgorund-color: #DEFEF0;
+
+.Banner {
+  width: 100%;
+  height: $Banner-height;
+  padding: 0 $Theme-spacing-default;
+
+  position: fixed;
+  top: $Banner-height;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: $Banner-backgorund-color;
+
+  z-index: 2;
+}
+
+.Banner-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Banner-image {
+  height: 50px;
+}
+
+.Banner-text {
+  //futura, 16px and bold
+  margin-left: $Theme-spacing-default;
+}
