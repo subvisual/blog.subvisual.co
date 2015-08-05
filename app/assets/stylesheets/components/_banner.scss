@@ -1,4 +1,5 @@
 $Banner-height: 80px;
+$Banner-animation-time: 0.3s;
 $Banner-backgorund-color: #DEFEF0;
 
 .Banner {
@@ -19,7 +20,13 @@ $Banner-backgorund-color: #DEFEF0;
   z-index: 2;
 }
 
+.Banner-date {
+  font-weight: bold;
+}
+
 .Banner-content {
+  @include font-properties(subvisual, small);
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,44 +37,70 @@ $Banner-backgorund-color: #DEFEF0;
 }
 
 .Banner-text {
-  //futura, 16px and bold
   margin-left: $Theme-spacing-default;
 }
 
 .Banner--bellowNav {
-  top: $Banner-height;
-  animation-duration: 0.3s;
-  animation-name: slideDown;
+  animation-duration: $Banner-animation-time;
+  animation-name: bellowNav;
+  animation-fill-mode: forwards;
+
+  @keyframes bellowNav {
+    from {
+      transform: translateY($Banner-height);
+    }
+
+    to {
+      transform: translateY($Banner-height * 2);
+    }
+  }
 }
 
 .Banner--animateTop {
-  top: 0;
-  animation-duration: 0.3s;
+  animation-duration: $Banner-animation-time;
   animation-name: slideUp;
+  animation-fill-mode: forwards;
+
+  @keyframes slideUp {
+    from {
+      transform: translateY($Banner-height * 2);
+    }
+
+    to {
+      transform: translateY($Banner-height);
+    }
+  }
 }
 
 .Banner--show {
-  top: 0;
-  animation-duration: 0.3s;
-  animation-name: slideDown;
+  animation-duration: $Banner-animation-time;
+  animation-name: show;
+  animation-fill-mode: forwards;
+
+  @keyframes show {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY($Banner-height);
+    }
+  }
 }
 
-@keyframes slideDown {
-  from {
-    transform: translateY(-$Banner-height);
-  }
+.Banner--hide {
+  transform: translateY($Banner-height * 2);
+  animation-duration: $Banner-animation-time;
+  animation-name: hide;
+  animation-fill-mode: forwards;
 
-  to {
-    transform: translateY(0);
-  }
-}
+  @keyframes hide {
+    from {
+      opacity: 1;
+    }
 
-@keyframes slideUp {
-  from {
-    transform: translateY($Banner-height);
-  }
-
-  to {
-    transform: translateY(0);
+    to {
+      opacity: 0;
+    }
   }
 }
