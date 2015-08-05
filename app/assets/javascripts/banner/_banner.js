@@ -56,6 +56,8 @@ $(function(){
       }
     }
 
-    return { updateWithScroll };
+    return {
+      updateWithScroll: updateWithScroll
+    };
   })();
 });
