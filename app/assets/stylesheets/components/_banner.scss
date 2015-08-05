@@ -1,33 +1,31 @@
 $Banner-height: 80px;
 $Banner-height-mobile: 60px;
 $Banner-animation-time: 0.3s;
-$Banner-backgorund-color: #DEFEF0;
+$Banner-backgorund-color: #defef0;
 $Banner-image-height: 50px;
 $Banner-image-height-mobile: 30px;
 
 .Banner {
-  width: 100%;
-  height: $Banner-height;
-  padding: 0 $Theme-spacing-default;
-
   position: fixed;
   top: -$Banner-height;
+  z-index: 2;
 
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
+  width: 100%;
+  height: $Banner-height;
+  padding: 0 $Theme-spacing-default;
+
   background-color: $Banner-backgorund-color;
 
-  z-index: 2;
-
   @include media('<=smallDesktop') {
-    height: $Banner-height-mobile;
-    padding: $Theme-spacing-small;
-
     top: -$Banner-height-mobile;
 
+    height: $Banner-height-mobile;
+    padding: $Theme-spacing-small;
   }
 }
 
@@ -157,6 +155,7 @@ $Banner-image-height-mobile: 30px;
 
 .Banner--hide {
   transform: translateY($Banner-height * 2);
+
   animation-duration: $Banner-animation-time;
   animation-name: hide;
   animation-fill-mode: forwards;
