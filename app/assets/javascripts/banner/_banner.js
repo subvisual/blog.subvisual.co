@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   window.subvisual = window.subvisual || {};
   window.subvisual.banner = (function() {
     var $banner = $('.Banner');
