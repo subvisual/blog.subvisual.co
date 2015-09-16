@@ -13,7 +13,6 @@ $(function() {
       let scrollState = new ScrollState(currentScrollTop, lastScrollTop);
 
       navVisibility.update(scrollState, $element);
-      banner.updateWithScroll(scrollState, $element);
       navLogo.updateWithScroll(scrollState, $element);
     }
 
