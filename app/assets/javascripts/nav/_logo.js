@@ -3,7 +3,7 @@ $(function() {
 
   function onLoadAnimation() {
     $context = $('.NavLogo.is-animated')
-    if ($context.length == 0) {
+    if ($context.length === 0) {
       return;
     }
 

@@ -29,7 +29,8 @@ namespace :deploy do
   task :stop do
     begin
       invoke 'foreman:stop'
-    rescue
+    rescue StandardError => e
+      puts e.message
     end
   end
 
