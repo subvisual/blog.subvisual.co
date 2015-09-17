@@ -1,17 +1,6 @@
 $(function() {
   var isOverLogo = false;
 
-  function onLoadAnimation() {
-    $context = $('.NavLogo.is-animated')
-    if ($context.length === 0) {
-      return;
-    }
-
-    $context = $('.NavLogo.is-animated').show();
-    logoAnimation();
-    nameAnimation();
-  }
-
   function mouseOverAnimation() {
     if (isOverLogo) { return; }
     isOverLogo = true;
@@ -34,12 +23,6 @@ $(function() {
     $('.NavLogo-shadow').each(function() {
       TweenLite.fromTo(this, 0.5, { fillOpacity: 0 }, { fillOpacity: 1, delay: 0.8});
     });
-  }
-
-  function nameAnimation() {
-    TweenLite.set('.NavLogo-name', { fillOpacity: 0, x: 100 });
-    TweenLite.to('.NavLogo-name', 0.8, { x: 0, delay: 0.5 });
-    TweenLite.to('.NavLogo-name', 0.8, { fillOpacity: 1, delay: 0.5 });
   }
 
   $('.NavLogo').on('mouseenter', mouseOverAnimation);

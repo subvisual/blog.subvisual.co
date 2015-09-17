@@ -3,7 +3,7 @@ $(function() {
   $tags   = $('#Search-tagsWrapper');
 
   $search.bind({
-    focusin: function(event) {
+    focusin: function() {
       if ($search.hasClass('is-focused')) {
         return;
       }
@@ -14,7 +14,7 @@ $(function() {
       $search.addClass('is-focused');
     },
 
-    focusout: function(event) {
+    focusout: function() {
       setTimeout(function() {
         if (!$search.hasClass('is-focused') ||
             $search.find(':focus').length > 0) {
