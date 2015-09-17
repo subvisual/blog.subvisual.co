@@ -49,6 +49,7 @@ group :development do
 end
 
 group :test do
+  gem 'codacy-coverage', require: false
   gem 'codeclimate-test-reporter', require: false
   gem 'database_cleaner', '1.0.1', require: false
   gem 'elasticsearch-extensions'
