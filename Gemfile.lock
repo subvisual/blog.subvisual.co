@@ -112,8 +112,6 @@ GEM
       rails (>= 3.1)
     codacy-coverage (0.1.0)
       simplecov (~> 0.10.0)
-    codeclimate-test-reporter (0.4.7)
-      simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -389,7 +387,6 @@ DEPENDENCIES
   carrierwave
   clearance (= 1.10.1)
   codacy-coverage
-  codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   dotenv-rails
