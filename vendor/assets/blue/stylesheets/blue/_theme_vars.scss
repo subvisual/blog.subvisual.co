@@ -228,11 +228,11 @@ $Theme-font-sizes: (
 
   @include font-properties-on-resolution($family, $size, mobile, $font-sizes);
 
-  // font-family: nth($family-list, length($family-list));
+  font-family: nth($family-list, length($family-list));
 
-  // @at-root.wf-active & {
-  font-family: nth($family-list, 1);
-  // }
+  @at-root.wf-active & {
+    font-family: nth($family-list, 1);
+  }
 
   @include media('>=tablet') {
     @include font-properties-on-resolution($family, $size, desktop, $font-sizes);

@@ -1,5 +1,5 @@
 doctype html
-html.Theme lang="en"
+html lang="en"
   /! <![endif]
   head
     = render '/layouts/meta'
@@ -11,7 +11,7 @@ html.Theme lang="en"
     - if Rails.env.production?
       = render 'layouts/analytics'
 
-  body
+  body.Theme
     section
       = render '/layouts/nav'
       main
