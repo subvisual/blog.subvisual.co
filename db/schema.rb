@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 20150729010027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "post_files", force: :cascade do |t|
+    t.string   "filename",            null: false
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_file_timestamp"
+  end
+
   create_table "post_images", force: :cascade do |t|
     t.string  "image"
     t.integer "post_id"

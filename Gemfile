@@ -54,6 +54,7 @@ group :test do
   gem 'database_cleaner', '1.0.1', require: false
   gem 'elasticsearch-extensions'
   gem 'factory_girl_rails', '~> 4.0', require: false
+  gem 'fakefs', require: 'fakefs/safe'
   gem 'faker', require: false
   gem 'simplecov', require: false
   gem 'rspec-html-matchers', require: false

@@ -17,6 +17,8 @@ FactoryGirl.define do
   end
 
   factory :user do
+    first_name { Faker::Internet.name.split(' ').first }
+    last_name { Faker::Internet.name.split(' ').last }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
   end
