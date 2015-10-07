@@ -8,23 +8,23 @@
 
 = render 'post_hero', post: post
 
-- cache [post, 'show']
-  .u-xSmallThenSmallMargin
+/* - cache [post, 'show'] */
+.u-xSmallThenSmallMargin
 
-  .PostWidthConstrainer
-    = render 'shared/tag_list', tag_list: post.tag_list
-  .u-smallThenDefaultMargin
+.PostWidthConstrainer
+  = render 'shared/tag_list', tag_list: post.tag_list
+.u-smallThenDefaultMargin
 
-  .Post
-    .Post-body = post.processed_body
+.Post
+  .Post-body = post.processed_body
 
-  .PostWidthConstrainer
-    .u-defaultThenLargeMargin
-    .Separator.Separator--subvisual
-    .u-defaultThenLargeMargin
+.PostWidthConstrainer
+  .u-defaultThenLargeMargin
+  .Separator.Separator--subvisual
+  .u-defaultThenLargeMargin
 
-    = render 'author_bio', author: post.author
-    .u-defaultThenLargeMargin
+  = render 'author_bio', author: post.author
+  .u-defaultThenLargeMargin
 
 = render 'related_posts', post: post
 .u-largeMargin
