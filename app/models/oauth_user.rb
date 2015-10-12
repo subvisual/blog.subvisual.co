@@ -12,8 +12,6 @@ class OauthUser
       user.hq_id = data['id']
       user.email = data['email']
       user.name = data['name']
-      require 'securerandom'
-      user.password = SecureRandom.hex(8)
       user.save!
     end
   end
