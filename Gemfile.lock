@@ -23,6 +23,13 @@ GIT
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
 
+GIT
+  remote: git://github.com/subvisual/headquarters-ruby.git
+  revision: f51d7abdbe7b1b56cc3f09be54ea4aa53d796b50
+  specs:
+    headquarters (0.3.1)
+      httparty (>= 0.13.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,11 +176,9 @@ GEM
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hashie (3.4.1)
-    headquarters (0.3.0)
-      httparty (>= 0.13.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    httparty (0.13.5)
+    httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -281,6 +286,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.4.2)
+    rb-readline (0.5.3)
     redcarpet (3.2.3)
     request_store (1.1.0)
     rest-client (1.8.0)
@@ -409,7 +415,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   foreman
-  headquarters
+  headquarters!
   jasmine-jquery-rails
   jasmine-rails
   jquery-rails
@@ -426,6 +432,7 @@ DEPENDENCIES
   quiet_assets
   rack-mini-profiler
   rails (~> 4.2.1)
+  rb-readline
   redcarpet
   rest-client
   rmagick

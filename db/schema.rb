@@ -11,15 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729010027) do
+ActiveRecord::Schema.define(version: 20151012150004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "post_files", force: :cascade do |t|
+    t.string   "filename",            null: false
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_file_timestamp"
+  end
+
   create_table "post_images", force: :cascade do |t|
     t.string  "image"
     t.integer "post_id"
-    t.string  "image_tmp"
+    t.integer "width"
+    t.integer "height"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150729010027) do
     t.string   "last_name",                      default: "", null: false
     t.string   "twitter_handle"
     t.text     "bio"
+    t.integer  "hq_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

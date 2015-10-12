@@ -15,7 +15,7 @@ gem 'dotenv-rails'
 gem 'draper', '~> 1.3'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-gem 'headquarters'
+gem 'headquarters', github: 'subvisual/headquarters-ruby'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
@@ -67,6 +67,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'scss_lint', require: false
+  gem 'rb-readline'
 end
 
 group :production do
