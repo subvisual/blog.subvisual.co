@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
   end
 
   def rack_mini_profiler_for_admins
-    if current_user
-      Rack::MiniProfiler.authorize_request
-    end
+    return unless current_user
+
+    Rack::MiniProfiler.authorize_request
   end
 end
