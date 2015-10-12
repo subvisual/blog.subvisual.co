@@ -20,7 +20,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem 'omniauth'
-gem 'omniauth-headquarters'
+gem 'omniauth-headquarters', github: 'subvisual/omniauth-headquarters'
 gem 'pg'
 gem 'puma'
 gem 'redcarpet', require: false

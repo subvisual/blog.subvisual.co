@@ -8,11 +8,13 @@ class OauthUser
   def headquarters(auth_hash)
     data = hq_user_data(auth_hash.info.email)
 
-    User.where(email: data['email']).first_or_create do |user|
+    User.where(hq_id: data['id']).first_or_initialize.tap do |user|
+      user.hq_id = data['id']
       user.email = data['email']
-      user.name = data['name'].split(' ', 2)
+      user.name = data['name']
       require 'securerandom'
       user.password = SecureRandom.hex(8)
+      user.save!
     end
   end
 
