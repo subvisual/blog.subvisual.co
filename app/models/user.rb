@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, foreign_key: :author_id
 
-  before_create :reset_password!
+  before_validation :reset_password!
 
   def name
     "#{first_name} #{last_name}".strip
@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   end
 
   def reset_password!
+    return if persisted?
+
     require 'securerandom'
     self.password = SecureRandom.hex(8)
   end
