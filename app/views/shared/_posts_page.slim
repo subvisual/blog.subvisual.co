@@ -1,7 +1,6 @@
 .u-defaultMargin
 
 - cache posts.map(&:model)
-  - binding.pry
   - posts.each_with_index do |post, post_index|
     - if post_index > 0
       .PostWidthConstrainer
