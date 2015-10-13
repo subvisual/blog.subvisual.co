@@ -6,6 +6,6 @@
 //= require picturefill
 //= require velocity
 //= require nav/_logo
-//= require blue
+//= require blue/javascripts/blue
 //= require tags
 //= require bugherd
