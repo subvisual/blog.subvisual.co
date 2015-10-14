@@ -4,7 +4,7 @@
 
     def index
       @drafts = current_user.posts.unpublished
-      @posts = Post.published
+      @posts = Post.published.includes(:tags)
     end
 
     def new

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   decorates_assigned :posts, :post
 
   def index
-    @posts = Post.recent.published
+    @posts = Post.recent.published.includes(:tags)
   end
 
   def search
