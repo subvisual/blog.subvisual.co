@@ -64,11 +64,17 @@ class Post < ActiveRecord::Base
   end
 
   def hero?
-    hero && hero.image && hero.image.url.present?
+    hero && hero.image_url.present?
   end
 
-  def self.published_tags
-    all_tags.select { |tag| Post.published.tagged_with(tag).any? }
+  def hero_url
+    hero.try(:image, :url)
+  end
+
+  def self.sorted_published_tags
+    all_tags.
+      select { |tag| Post.published.tagged_with(tag).any? }.
+      sort_by { |tag| Post::PRIMARY_TAGS.include?(tag.name.to_sym) ? 0 : 1 }
   end
 
   private

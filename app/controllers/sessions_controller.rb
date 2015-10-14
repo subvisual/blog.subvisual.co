@@ -1,6 +1,6 @@
 class SessionsController < Clearance::SessionsController
   def create
-    @user = OauthUser.new.find_or_create_from_oauth_hash(auth_hash)
+    @user = OauthUser.new.find_or_create_from_oauth_hash(auth_hash.provider, auth_hash.info)
     sign_in(@user)
     redirect_back_or url_after_create
   end

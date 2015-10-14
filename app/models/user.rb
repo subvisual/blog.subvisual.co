@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, foreign_key: :author_id
 
-  before_validation :reset_password!
+  before_validation :reset_password
 
   def name
     "#{first_name} #{last_name}".strip
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     self.first_name, self.last_name = name.split(' ', 2)
   end
 
-  def reset_password!
+  def reset_password
     return if persisted?
 
     require 'securerandom'

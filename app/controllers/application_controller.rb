@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def load_tags
     @all_tags ||= Rails.cache.fetch('search_tags') do
-      Post.published_tags.sort_by { |tag| Post::PRIMARY_TAGS.include?(tag.name.to_sym) ? 0 : 1 }.first(10)
+      Post.sorted_published_tags.first(10)
     end
   end
 
