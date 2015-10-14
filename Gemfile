@@ -50,6 +50,7 @@ group :development do
 end
 
 group :test do
+  gem 'codeclimate-test-reporter', require: false
   gem 'codacy-coverage', require: false
   gem 'rest-client'
   gem 'database_cleaner', '1.0.1', require: false

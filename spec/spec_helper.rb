@@ -1,4 +1,6 @@
 if ENV['CI']
+  require 'codeclimate-test-reporter'
+  CodeClimate::TestReporter.start
   require 'codacy-coverage'
   Codacy::Reporter.start
 else
