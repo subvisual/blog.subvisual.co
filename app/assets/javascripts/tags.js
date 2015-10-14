@@ -29,5 +29,5 @@ $(function() {
     }
   });
 
-  $search.on('mousedown', '.Search-clear', function() { return false; })
+  $search.on('mousedown', '.Search-clear', function() { return false; });
 });

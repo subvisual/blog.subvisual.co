@@ -1,7 +1,7 @@
 $(function() {
   var isOverLogo = false;
 
-  function logoAnimation(timeline) {
+  function logoAnimation() {
     $('.NavLogo-piece').each(function() {
       TweenLite.set(this, { fillOpacity: 0, strokeDasharray: this.getTotalLength(), strokeDashoffset: this.getTotalLength() });
       TweenLite.to(this, 0.5, { strokeDashoffset: 0 });
