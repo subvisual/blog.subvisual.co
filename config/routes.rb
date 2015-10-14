@@ -34,7 +34,7 @@ SubvisualBlog::Application.routes.draw do
         resources :users, only: [:edit, :update]
       end
     end
-s
+
     defaults format: :rss do
       get '/feed' => 'feed#index', as: :feed
     end
