@@ -33,10 +33,8 @@ SubvisualBlog::Application.routes.draw do
 
         resources :users, only: [:edit, :update]
       end
-
-      mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
     end
-
+s
     defaults format: :rss do
       get '/feed' => 'feed#index', as: :feed
     end

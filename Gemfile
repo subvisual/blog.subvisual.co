@@ -63,8 +63,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'jasmine-jquery-rails'
-  gem 'jasmine-rails'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'scss_lint', require: false
