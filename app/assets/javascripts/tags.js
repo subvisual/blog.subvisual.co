@@ -1,6 +1,6 @@
 $(function() {
-  $search = $('#Search');
-  $tags   = $('#Search-tagsWrapper');
+  var $search = $('#Search');
+  var $tags   = $('#Search-tagsWrapper');
 
   $search.bind({
     focusin: function() {

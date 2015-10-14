@@ -1,18 +1,6 @@
 $(function() {
   var isOverLogo = false;
 
-  function mouseOverAnimation() {
-    if (isOverLogo) { return; }
-    isOverLogo = true;
-    logoAnimation();
-  }
-
-  function mouseLeave() {
-    setTimeout(function() {
-      isOverLogo = false;
-    }, 1000);
-  }
-
   function logoAnimation(timeline) {
     $('.NavLogo-piece').each(function() {
       TweenLite.set(this, { fillOpacity: 0, strokeDasharray: this.getTotalLength(), strokeDashoffset: this.getTotalLength() });
@@ -23,6 +11,18 @@ $(function() {
     $('.NavLogo-shadow').each(function() {
       TweenLite.fromTo(this, 0.5, { fillOpacity: 0 }, { fillOpacity: 1, delay: 0.8});
     });
+  }
+
+  function mouseOverAnimation() {
+    if (isOverLogo) { return; }
+    isOverLogo = true;
+    logoAnimation();
+  }
+
+  function mouseLeave() {
+    setTimeout(function() {
+      isOverLogo = false;
+    }, 1000);
   }
 
   $('.NavLogo').on('mouseenter', mouseOverAnimation);
