@@ -4,7 +4,8 @@ html lang="en"
   head
     = render '/layouts/meta'
     = csrf_meta_tags
-    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag :application,    'data-turbolinks-track': true, media: :all
+    = javascript_include_tag :application, 'data-turbolinks-track': true
     = favicon_link_tag 'favicon.ico'
     = auto_discovery_link_tag :rss, feed_url(:rss), title: 'Subvisual Blog'
 
@@ -28,7 +29,6 @@ html lang="en"
     script src="//use.typekit.net/wbx6iwp.js"
     javascript:
       try{Typekit.load();}catch(e){}
-    = javascript_include_tag "application"
     - if content_for?(:page_script)
       = yield(:page_script)
 

@@ -35,6 +35,7 @@ gem 'simple-random'
 gem 'sprockets'
 gem 'sprockets-es6', require: 'sprockets/es6'
 gem 'truncate_html'
+gem 'turbolinks'
 gem 'uglifier', '>= 1.0.3'
 
 group :production do

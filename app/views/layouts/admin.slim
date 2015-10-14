@@ -5,7 +5,8 @@ html.Theme lang="en"
     = render '/layouts/meta'
     = csrf_meta_tags
 
-    = stylesheet_link_tag    "admin"
+    = stylesheet_link_tag :admin,    'data-turbolinks-track': true, media: :all
+    = javascript_include_tag :admin, 'data-turbolinks-track': true
 
     = favicon_link_tag 'favicon.ico'
 
@@ -22,7 +23,6 @@ html.Theme lang="en"
     script src="//use.typekit.net/wbx6iwp.js"
     javascript:
       try{Typekit.load();}catch(e){}
-    = javascript_include_tag "admin"
 
     - if content_for?(:page_script)
       = content_for(:page_script)

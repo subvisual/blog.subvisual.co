@@ -1,6 +1,8 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery-ui
 //= require jquery_ujs
+//= require turbolinks
 //= require gsap/src/minified/TweenLite.min
 //= require gsap/src/minified/plugins/CSSPlugin.min
 //= require picturefill
