@@ -1,4 +1,5 @@
 if %w(production).include?(Rails.env)
+  # :nocov:
   ActionMailer::Base.raise_delivery_errors = true
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
@@ -10,4 +11,5 @@ if %w(production).include?(Rails.env)
     authentication:       :plain,
     enable_starttls_auto: true
   }
+  # :nocov:
 end

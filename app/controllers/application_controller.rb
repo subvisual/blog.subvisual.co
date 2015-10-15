@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   helper_method :admin_controller?
 
   def load_tags
-    @all_tags ||= Rails.cache.fetch('search_tags') do
+    Rails.cache.fetch('search_tags') do
       Post.sorted_published_tags.first(10)
     end
   end

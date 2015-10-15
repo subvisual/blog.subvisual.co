@@ -63,6 +63,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'capybara'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'scss_lint', require: false
