@@ -1,5 +1,4 @@
 class Admin::PostsController < Admin::ApplicationController
-  decorates_assigned :posts, :post
   after_action :invalidate_cache, only: %i(create update)
 
   def index

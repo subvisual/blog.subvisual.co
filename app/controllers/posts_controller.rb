@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  decorates_assigned :posts, :post
-
   def index
     @posts = Post.recent.published.includes(:tags)
     respond_to do |format|

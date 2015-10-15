@@ -5,7 +5,7 @@
     h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
   .u-smallMargin
   .Post-body
-    = post.processed_intro
+    = raw(post.processed_intro)
   .u-smallMargin
   .PostWidthConstrainer
     = render 'shared/tag_list', tag_list: post.tag_list

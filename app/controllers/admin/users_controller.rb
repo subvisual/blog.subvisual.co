@@ -1,6 +1,4 @@
 class Admin::UsersController < Admin::ApplicationController
-  decorates_assigned :user
-
   def edit
     @user = current_user
   end

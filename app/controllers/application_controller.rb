@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     Rack::MiniProfiler.authorize_request if current_user
   end
 
-  decorates_assigned :categories
-
   def admin_controller?
     false
   end

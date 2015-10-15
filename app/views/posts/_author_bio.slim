@@ -2,8 +2,8 @@
   .Media-image
     .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
       img.AuthorPicture(
-        src="#{image_path(post.author.photo_url('_100'))}"
-        srcset="#{image_path(post.author.photo_url('_100'))} 100w, #{image_path(post.author.photo_url('_200'))} 200w"
+        src="#{user_photo_path(author, '_100')}"
+        srcset="#{user_photo_path(author, '_100')} 100w, #{user_photo_path(author, '_200')} 200w"
         sizes="100px"
       )
   .Media-content
