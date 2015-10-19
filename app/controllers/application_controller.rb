@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :rack_mini_profiler_for_admins
   before_action :load_tags
 
   decorates_assigned :categories
@@ -18,11 +17,5 @@ class ApplicationController < ActionController::Base
     @all_tags ||= Rails.cache.fetch('search_tags') do
       Post.sorted_published_tags.first(10)
     end
-  end
-
-  def rack_mini_profiler_for_admins
-    return unless current_user
-
-    Rack::MiniProfiler.authorize_request
   end
 end

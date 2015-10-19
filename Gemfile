@@ -25,7 +25,6 @@ gem 'pg'
 gem 'puma'
 gem 'redcarpet', require: false
 gem 'rouge', require: false
-gem 'rack-mini-profiler'
 gem 'rmagick'
 gem 'sass-rails', '~> 5.0.0'
 gem 'sass', '~> 3.4.0'
@@ -46,6 +45,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'quiet_assets'
+  gem 'rack-mini-profiler'
 end
 
 group :test do
