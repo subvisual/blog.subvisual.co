@@ -1,13 +1,12 @@
 class OauthUser
   def find_or_create_from_oauth_hash(provider, info)
-    return unless %w(headquarters).include?(provider)
+    return unless %i(headquarters).include?(provider)
 
     public_send(provider, info.email)
   end
 
   def headquarters(email)
     data = hq_user_data(email)
-
     User.where(hq_id: data['id']).first_or_initialize.tap do |user|
       user.update_attributes(data.slice(:email, :name))
     end
