@@ -4,7 +4,6 @@ gem 'rails', '~> 4.2.4'
 
 gem 'acts-as-taggable-on'
 gem 'analytics-ruby', require: 'segment/analytics'
-gem 'appsignal', github: 'groupbuddies/appsignal', branch: 'server-notify'
 gem 'autoprefixer-rails'
 gem 'bower'
 gem 'cancan'

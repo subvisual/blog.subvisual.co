@@ -1,5 +1,4 @@
 default: &defaults
-  push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
   name: "blog.subvisual.co"
   enable_front_end_error_catching: true
 

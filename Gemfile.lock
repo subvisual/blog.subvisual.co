@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/groupbuddies/appsignal.git
-  revision: 8f4ef669d3ca5e5d1804a007b80551d4fbf16762
-  branch: server-notify
-  specs:
-    appsignal (0.11.11)
-      rack
-      thread_safe
-
-GIT
   remote: git://github.com/groupbuddies/capistrano-bower.git
   revision: 677032ddfe301616d52a7ab63b87acb398dcf040
   specs:
@@ -494,7 +485,6 @@ DEPENDENCIES
   acts-as-taggable-on
   airbrake
   analytics-ruby
-  appsignal!
   autoprefixer-rails
   better_errors
   binding_of_caller
