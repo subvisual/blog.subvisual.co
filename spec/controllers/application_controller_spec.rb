@@ -37,24 +37,4 @@ RSpec.describe ApplicationController, type: :controller do
       expect(first_tag_list).not_to eq(second_tag_list)
     end
   end
-
-  context '#rack_mini_profile_for_admins' do
-    it 'does nothing for guests' do
-      allow(controller).to receive(:current_user).and_return(nil)
-      allow(Rack::MiniProfiler).to receive :authorize_request
-
-      controller.rack_mini_profiler_for_admins
-
-      expect(Rack::MiniProfiler).not_to have_received(:authorize_request)
-    end
-
-    it 'runs for admins' do
-      allow(controller).to receive(:current_user).and_return(create(:user))
-      allow(Rack::MiniProfiler).to receive :authorize_request
-
-      controller.rack_mini_profiler_for_admins
-
-      expect(Rack::MiniProfiler).to have_received(:authorize_request)
-    end
-  end
 end
