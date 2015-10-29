@@ -15,7 +15,7 @@
 
       .Search-tagsWrapper#Search-tagsWrapper
         .Search-tags
-          - @all_tags.each do |tag|
+          - all_tags.each do |tag|
             .Search-tag = link_to tag, tag_path(tag.name), class: "Tag Tag--alt Tag--#{tag}"
 
       .u-smallMargin
