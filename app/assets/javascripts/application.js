@@ -9,3 +9,4 @@
 //= require blue
 //= require tags
 //= require bugherd
+//= require intercom
