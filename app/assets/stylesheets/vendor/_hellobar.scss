@@ -1,4 +1,4 @@
 // scss-lint:disable all
-media @include('<=700px') {
+@include media('<=700px') {
   .HB-Slider { display: none !important; }
 }
