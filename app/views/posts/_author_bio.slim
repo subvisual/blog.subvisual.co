@@ -10,6 +10,6 @@
     .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
       h2.AuthorHeading
         ' About
-        span.AuthorHeading-name = author.name
+        = link_to author.name, twitter_url(username: post.author.twitter_handle), class: 'AuthorHeading-name', target: '_blank'
       .u-xSmallMargin
       .AltText = author.bio
