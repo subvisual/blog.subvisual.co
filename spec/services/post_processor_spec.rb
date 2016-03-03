@@ -34,6 +34,14 @@ RSpec.describe Services::PostProcessor do
 
       post.processed_body.should have_tag('pre', with: { class: 'highlight' })
     end
+
+    it 'creates links targeting a new browser tab' do
+      post = build :post, body: markdown_code_block
+
+      Services::PostProcessor.new(post).process
+
+      post.processed_body.should have_tag('a', with: { target: '_blank', href: 'link' })
+    end
   end
 end
 
@@ -43,5 +51,7 @@ def markdown_code_block
 def x
 end
 ```
+
+[text](link)
   '''
 end

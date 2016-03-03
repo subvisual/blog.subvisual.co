@@ -30,7 +30,9 @@ module Services
       include Rouge::Plugins::Redcarpet
 
       def postprocess(full_doc)
-        full_doc.gsub(/<p><img/, '<p class="Post-imageWrapper"><img')
+        full_doc.
+          gsub(/<p><img/, '<p class="Post-imageWrapper"><img').
+          gsub(/<a /, '<a target="_blank" ')
       end
     end
   end
