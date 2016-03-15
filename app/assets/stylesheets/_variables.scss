@@ -16,8 +16,8 @@ $NavLogo-desktop-mono:    image-path('blue/subvisual_logo_mono_with_name.svg');
 
 @font-face {
   font-family: 'SourceCodePro-Regular';
-  src: url('SourceCodePro-Regular.ttf') format('truetype'),
-       url('SourceCodePro-Regular.woff') format('woff');
+  src: font_url('SourceCodePro-Regular.ttf') format('truetype'),
+       font_url('SourceCodePro-Regular.woff') format('woff');
 }
 
 $Theme-font-sizes-extra: (
