@@ -2,6 +2,8 @@ $Post-default-max-width: 600px + $Theme-spacing-small * 2;
 $Post-code-max-width: 600px + $Theme-spacing-small * 2;
 $Post-img-max-width: 800px + $Theme-spacing-small * 2;
 
+$Post-inlineCodeBgColor: rgba(0, 0, 0, 0.04);
+
 @mixin PostMaxWidth($width: $Post-default-max-width) {
   // scss-lint:disable ImportantRule
   display: block;
@@ -96,6 +98,18 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
     font-family: 'SourceCodePro-Regular';
   }
 
+  code {
+    padding: 0.2em;
+    margin: 0;
+
+    background-color: $Post-inlineCodeBgColor;
+
+    border-radius: 3px;
+
+    font-family: 'SourceCodePro-Regular';
+    font-size: 85%;
+  }
+
   .highlight { // scss-lint:disable SelectorFormat
     pre,
     code {
@@ -106,6 +120,15 @@ $Post-img-max-width: 800px + $Theme-spacing-small * 2;
 
       white-space: pre-wrap;
       word-wrap: break-word;
+    }
+
+    code {
+      @include font-properties(code, base, $Theme-font-sizes-extra);
+
+      padding-top: 0;
+      padding-bottom: 0;
+
+      background-color: transparent;
     }
   }
 
