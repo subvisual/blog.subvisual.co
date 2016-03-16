@@ -11,6 +11,22 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  context '#title' do
+    it 'returns a sanitized title without HTML tags' do
+      post = Post.new(title: 'Title<br> with tags')
+
+      expect(post.title).to eq('Title with tags')
+    end
+  end
+
+  context '#raw_title' do
+    it 'returns the raw title, with HTML tags' do
+      post = Post.new(title: 'Title<br> with tags')
+
+      expect(post.raw_title).to eq('Title<br> with tags')
+    end
+  end
+
   context '.published' do
     it 'returns only posts that are published' do
       create_list(:post, 2)

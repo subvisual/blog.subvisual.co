@@ -53,7 +53,7 @@
 
     .u-smallMargin
 
-    = f.text_field :title, placeholder: 'Title', class: 'TitleInput', autocomplete: :off
+    = text_field_tag :title, post.raw_title, name: "post[title]", placeholder: 'Title', class: 'TitleInput', autocomplete: :off
 
   .u-smallMargin
 

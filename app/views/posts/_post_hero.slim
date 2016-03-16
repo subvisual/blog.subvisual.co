@@ -13,7 +13,7 @@
 - content_for :hero
   .PostWidthConstrainer.PostWidthConstrainer--title
     h1.PostHeading.PostHeading--large class="#{content_for(:post_heading_class)}"
-      = raw post.title
+      = raw post.raw_title
     .PostInfo class="#{content_for(:post_info_class)}"
       .u-smallThenDefaultMargin
       .PostInfo-author

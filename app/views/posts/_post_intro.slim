@@ -2,7 +2,7 @@
 
 .Post
   .PostWidthConstrainer
-    h1.PostHeading = link_to sanitize(post.title, tags: []), post_path(post), class: 'PostHeading-link'
+    h1.PostHeading = link_to post.title, post_path(post), class: 'PostHeading-link'
   .u-smallMargin
   .Post-body
     = post.processed_intro

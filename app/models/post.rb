@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   include Elasticsearch::Model::Callbacks
   index_name [Rails.env, model_name.collection.gsub(%r{/}, '-')].join('_')
 
+  include ActionView::Helpers::SanitizeHelper
+
   default_scope  { order('published_at DESC') }
 
   belongs_to :author, class_name: 'User'
@@ -33,6 +35,14 @@ class Post < ActiveRecord::Base
 
   def to_param
     "#{id} #{title}".parameterize
+  end
+
+  def title
+    sanitize(read_attribute(:title), tags: [])
+  end
+
+  def raw_title
+    read_attribute(:title)
   end
 
   def published?
