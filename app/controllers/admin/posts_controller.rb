@@ -22,6 +22,7 @@
       @post.author = current_user
 
       if @post.save
+        github_adapter.create_pr
         handle_save_redirect
       else
         render :new
@@ -32,6 +33,7 @@
       @post = Post.find params[:id]
 
       if @post.update(post_params)
+        github_adapter.update_pr
         handle_save_redirect
       else
         render :edit
@@ -41,6 +43,7 @@
     def publish
       @post = Post.find params[:post_id]
       @post.update_attribute :published_at, Time.now
+      github_adapter.close_pr
       redirect_to post_path(@post), alert: 'Post successfully published'
     end
 
@@ -51,6 +54,10 @@
     end
 
     private
+
+    def github_adapter
+      Github.adapter.new(@post)
+    end
 
     def handle_save_redirect
       if params[:commit] == 'preview'

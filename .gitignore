@@ -16,3 +16,4 @@ puppet/*.yaml
 vendor/assets/bower_components
 public/uploads
 node_modules
+.env
