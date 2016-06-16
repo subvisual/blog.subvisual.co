@@ -11,8 +11,12 @@ class Github::Adapter
   end
 
   def update_pr
-    new_tree_sha = create_tree(branch_sha)
-    create_commit(new_tree_sha, branch_sha)
+    if branch_sha
+      new_tree_sha = create_tree(branch_sha)
+      create_commit(new_tree_sha, branch_sha)
+    else
+      create_pr
+    end
   end
 
   def close_pr
@@ -29,6 +33,8 @@ class Github::Adapter
 
   def branch_sha
     @_branch_sha ||= client.ref(repo, "heads/#{branch_name}").object.sha
+  rescue Octokit::NotFound
+    false
   end
 
   def create_branch(sha)
