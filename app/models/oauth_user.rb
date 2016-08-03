@@ -8,7 +8,7 @@ class OauthUser
   def headquarters(email)
     data = hq_user_data(email)
     User.where(hq_id: data['id']).first_or_initialize.tap do |user|
-      user.update_attributes(data.slice(:email, :name))
+      user.update_attributes(data.slice('email', 'name'))
     end
   end
 
