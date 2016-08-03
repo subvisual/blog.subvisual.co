@@ -1,10 +1,20 @@
 #!/bin/sh
 
-
+echo "== Installing dependencies =="
 if hash rvm 2>/dev/null && -f .ruby-version; then
   rvm install $(cat .ruby-version)
 fi
+
 bundle install
+bower install
+
+echo "\n== Preparing database =="
 bundle exec rake db:create
 bundle exec rake db:setup
-bower install
+
+echo "\n== Copying .env =="
+cp .env.sample .env
+
+echo "\n== Removing old logs and tempfiles =="
+rm -rf log/*
+rm -rf tmp/cache
