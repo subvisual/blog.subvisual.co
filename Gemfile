@@ -66,6 +66,7 @@ end
 group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
+  gem 'pry-remote'
   gem 'rspec-rails'
   gem 'scss_lint', require: false
   gem 'rb-readline'
