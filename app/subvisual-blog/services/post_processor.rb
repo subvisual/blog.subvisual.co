@@ -9,7 +9,7 @@ module Services
     end
 
     def process
-      extensions = { autolink: true, fenced_code_blocks: true }
+      extensions = { autolink: true, fenced_code_blocks: true, tables: true }
       redcarpet = Redcarpet::Markdown.new(SyntaxHighlightedRenderer, extensions)
       post.processed_body = redcarpet.render(post.body)
 
@@ -32,7 +32,22 @@ module Services
       def postprocess(full_doc)
         full_doc.
           gsub(/<p><img/, '<p class="Post-imageWrapper"><img').
-          gsub(/<a /, '<a target="_blank" ')
+          gsub(/<a /, '<a target="_blank" ').
+          gsub(%r{(<table>(.|\n)*?</table>)}) { wrap_table(Regexp.last_match[0]) }
+      end
+
+      private
+
+      def wrap_table(table)
+        <<-HTML
+        <div class='PostTable'>
+          <div class='highlight'>
+            #{table}
+          </div>
+          <p class='PostTable-caption u-onlySmall'>You can scroll the table
+          horizontally to see remaining values</p>
+        </div>
+        HTML
       end
     end
   end

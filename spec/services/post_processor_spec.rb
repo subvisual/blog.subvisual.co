@@ -42,6 +42,15 @@ RSpec.describe Services::PostProcessor do
 
       post.processed_body.should have_tag('a', with: { target: '_blank', href: 'link' })
     end
+
+    it 'wraps the generated table in a PostTable component' do
+      post = build :post, body: markdown_table
+
+      Services::PostProcessor.new(post).process
+
+      post.processed_body.should have_tag('table')
+      post.processed_body.should have_tag('div', with: { class: 'PostTable' })
+    end
   end
 end
 
@@ -53,5 +62,14 @@ end
 ```
 
 [text](link)
+  '''
+end
+
+def markdown_table
+  '''
+|   | A |
+|---|---|
+| 1 | x |
+| 2 | o |
   '''
 end

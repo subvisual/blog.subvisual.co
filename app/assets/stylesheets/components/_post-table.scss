@@ -1,0 +1,63 @@
+$PostTable-spacing-small: 5px;
+$PostTable-spacing-base: 20px;
+
+.PostTable {
+  padding: 0;
+  margin-top: $Theme-spacing-default;
+  margin-bottom: $Theme-spacing-default;
+  overflow-x: scroll;
+
+  > div {
+    margin: 0;
+    overflow-x: scroll;
+  }
+
+  table {
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+    font-feature-settings: "tnum" 1;
+    font-size: 16px;
+  }
+
+  .PostTable-caption {
+    @include PostMaxWidth;
+    @include font-properties(code, base, $Theme-font-sizes-extra);
+
+    padding-right: $Theme-spacing-small;
+    padding-left: $Theme-spacing-small;
+
+    // .highlight adds an unwanted margin
+    margin-top: -$Theme-spacing-default;
+
+    color: $Theme-palette-text-body-alt;
+
+    font-style: italic;
+  }
+
+  td:first-child {
+    min-width: 140px;
+    padding-left: $PostTable-spacing-base;
+
+    text-align: left;
+  }
+
+  td,
+  th {
+    min-width: 100px;
+    padding: $PostTable-spacing-small $PostTable-spacing-base
+      $PostTable-spacing-small 0;
+
+    text-align: right;
+  }
+
+  th {
+    font-weight: $Theme-typography-fontWeight-bold;
+    text-transform: uppercase;
+  }
+
+  tr:nth-child(even) {
+    background-color: $Theme-color-pale-grey;
+  }
+}

@@ -1,6 +1,13 @@
 .u-exceptSmall {
+  // scss-lint:disable ImportantRule
   @include media('<tablet') {
-    display: none;
-    display: none;
+    display: none !important;
+  }
+}
+
+.u-onlySmall {
+  // scss-lint:disable ImportantRule
+  @include media('>tablet') {
+    display: none !important;
   }
 }

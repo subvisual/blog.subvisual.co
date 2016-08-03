@@ -21,7 +21,8 @@ $Post-inlineCodeBgColor: rgba(0, 0, 0, 0.04);
   }
 }
 
-.Post-body > :not(.highlight) {
+// both tables and highlights are not limited to the specified grid
+.Post-body > :not(.highlight):not(.PostTable) {
   @include PostMaxWidth;
 }
 
