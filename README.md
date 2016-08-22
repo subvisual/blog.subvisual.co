@@ -9,7 +9,7 @@ Our blog. Live @ [https://subvisual.co/blog](https://subvisual.co/blog)
 
 ## Dependencies
 
-  * **elasticsearch**: It's up to the developer to ensure this service is running. Errors may occur during development/test if it isn't
+  * **PG unaccent**: This extension is used to allow case-insensitive searches
   * **memcached (optional)**: Should not be necessary during development, unless you're interesting in testing the cache system
 
 ## Setup

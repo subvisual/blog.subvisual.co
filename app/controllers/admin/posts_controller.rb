@@ -50,7 +50,7 @@ class Admin::PostsController < Admin::ApplicationController
   def unpublish
     @post = Post.find params[:post_id]
     @post.update_attribute :published_at, nil
-    redirect_to admin_post_path(@post), alert: "Post successfully unpublished"
+    redirect_to edit_admin_post_path(@post), alert: "Post successfully unpublished"
   end
 
   private

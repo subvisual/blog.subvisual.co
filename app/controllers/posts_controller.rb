@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def search
     @query = search_params[:q] || ""
     @posts = begin
-      Post.search(@query, size: 20).records.published
+      PgSearch.multisearch(@query).limit(20).map(&:searchable)
     rescue StandardError
       Post.none
     end
