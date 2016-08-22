@@ -44,13 +44,13 @@ class Admin::PostsController < Admin::ApplicationController
     @post = Post.find params[:post_id]
     @post.update_attribute :published_at, Time.now
     github_adapter.close_pr
-    redirect_to post_path(@post), alert: 'Post successfully published'
+    redirect_to post_path(@post), alert: "Post successfully published"
   end
 
   def unpublish
     @post = Post.find params[:post_id]
     @post.update_attribute :published_at, nil
-    redirect_to admin_post_path(@post), alert: 'Post successfully unpublished'
+    redirect_to admin_post_path(@post), alert: "Post successfully unpublished"
   end
 
   private
@@ -66,10 +66,10 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def handle_save_redirect
-    if params[:commit] == 'preview'
+    if params[:commit] == "preview"
       redirect_to post_path(@post)
     else
-      redirect_to edit_admin_post_path(@post), alert: 'Post successfully saved'
+      redirect_to edit_admin_post_path(@post), alert: "Post successfully saved"
     end
   end
 
@@ -78,6 +78,6 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def invalidate_cache
-    Rails.cache.delete('search_tags')
+    Rails.cache.delete("search_tags")
   end
 end

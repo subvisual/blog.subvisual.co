@@ -7,8 +7,8 @@ class OauthUser
 
   def headquarters(email)
     data = hq_user_data(email)
-    User.where(hq_id: data['id']).first_or_initialize.tap do |user|
-      user.update_attributes(data.slice('email', 'name'))
+    User.where(hq_id: data["id"]).first_or_initialize.tap do |user|
+      user.update_attributes(data.slice("email", "name"))
     end
   end
 
@@ -16,8 +16,8 @@ class OauthUser
 
   def hq_user_data(email)
     Headquarters::Client::Members.new(
-      client_id: ENV['HQ_APP_ID'],
-      client_secret: ENV['HQ_APP_SECRET']
+      client_id: ENV["HQ_APP_ID"],
+      client_secret: ENV["HQ_APP_SECRET"],
     ).search(email).first
   end
 end

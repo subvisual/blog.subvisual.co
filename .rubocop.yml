@@ -1,13 +1,17 @@
 AllCops:
   Include:
-    - '**/Rakefile'
-    - '**/config.ru'
+    - "**/Rakefile"
+    - "**/config.ru"
   Exclude:
-    - 'db/**/*'
-    - 'config/**/*'
-    - 'script/**/*'
-    - 'bin/**/*'
-    - 'vendor/**/*'
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "bin/**/*"
+    - "vendor/**/*"
+    - "node_modules/**/*"
+    - "spec/factories.rb"
+    - "slack_bot/**/*"
+  TargetRubyVersion: 2.3
 
 Metrics/LineLength:
   Enabled: false
@@ -25,4 +29,36 @@ Style/DotPosition:
   EnforcedStyle: trailing
 
 Style/IfUnlessModifier:
+  Enabled: false
+
+Style/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+    - have_
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MutableConstant:
   Enabled: false

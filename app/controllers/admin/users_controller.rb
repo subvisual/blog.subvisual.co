@@ -9,7 +9,7 @@ class Admin::UsersController < Admin::ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to admin_dashboard_path, alert: 'Author successfully saved'
+      redirect_to admin_dashboard_path, alert: "Author successfully saved"
     else
       redirect_to :index
     end

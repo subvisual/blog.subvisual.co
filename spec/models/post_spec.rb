@@ -1,8 +1,8 @@
-require 'spec_helper'
+require "spec_helper"
 
 RSpec.describe Post, type: :model do
-  context '#to_param' do
-    it 'starts with the post id' do
+  context "#to_param" do
+    it "starts with the post id" do
       post = create(:post)
 
       param = post.to_param
@@ -11,39 +11,39 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  context '#title' do
-    it 'returns a sanitized title without HTML tags' do
-      post = Post.new(title: 'Title<br> with tags')
+  context "#title" do
+    it "returns a sanitized title without HTML tags" do
+      post = Post.new(title: "Title<br> with tags")
 
-      expect(post.title).to eq('Title with tags')
+      expect(post.title).to eq("Title with tags")
     end
   end
 
-  context '#raw_title' do
-    it 'returns the raw title, with HTML tags' do
-      post = Post.new(title: 'Title<br> with tags')
+  context "#raw_title" do
+    it "returns the raw title, with HTML tags" do
+      post = Post.new(title: "Title<br> with tags")
 
-      expect(post.raw_title).to eq('Title<br> with tags')
+      expect(post.raw_title).to eq("Title<br> with tags")
     end
   end
 
-  context '.published' do
-    it 'returns only posts that are published' do
+  context ".published" do
+    it "returns only posts that are published" do
       create_list(:post, 2)
-      published_posts   = create_list(:published_post, 2)
+      published_posts = create_list(:published_post, 2)
 
       Post.published.should match_array(published_posts)
     end
   end
 
-  context '#published?' do
-    it 'returns false for an unpublished post' do
+  context "#published?" do
+    it "returns false for an unpublished post" do
       post = create :post
 
       post.should_not be_published
     end
 
-    it 'returns false for an unpublished post' do
+    it "returns false for an unpublished post" do
       post = create :published_post
 
       post.should be_published

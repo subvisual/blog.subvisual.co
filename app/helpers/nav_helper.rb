@@ -1,18 +1,18 @@
 module NavHelper
   def nav_item(text, url, options = {})
-    generic_nav_item('Nav-item', options) do
-      nav_link(text, url, 'Nav-link')
+    generic_nav_item("Nav-item", options) do
+      nav_link(text, url, "Nav-link")
     end
   end
 
   def nav_overlay_item(text, url, options = {})
-    generic_nav_item('NavOverlay-item', options) do
-      nav_link(text, url, 'NavOverlay-link')
+    generic_nav_item("NavOverlay-item", options) do
+      nav_link(text, url, "NavOverlay-link")
     end
   end
 
   def generic_nav_item(css_class, options)
-    (options[:class] ||= '') << " #{css_class}"
+    (options[:class] ||= "") << " #{css_class}"
 
     content_tag :li, options do
       yield if block_given?

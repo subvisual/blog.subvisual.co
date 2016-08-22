@@ -10,6 +10,6 @@ class UsersController < Clearance::UsersController
   private
 
   def handle_disabled_registration
-    redirect_to sign_in_path, notice: t('flashes.registration_disabled')
+    redirect_to sign_in_path, notice: t("flashes.registration_disabled")
   end
 end

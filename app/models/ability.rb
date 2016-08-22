@@ -13,9 +13,7 @@ class Ability
   attr_reader :user
 
   def user_abilities
-    can :read, Post do |post|
-      post.published?
-    end
+    can :read, Post, &:published?
   end
 
   def admin_abilities

@@ -1,4 +1,4 @@
-require 'carrierwave/orm/activerecord'
+require "carrierwave/orm/activerecord"
 
 class PostImage < ActiveRecord::Base
   belongs_to :post

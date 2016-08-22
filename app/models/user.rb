@@ -10,13 +10,13 @@ class User < ActiveRecord::Base
   end
 
   def name=(name)
-    self.first_name, self.last_name = name.split(' ', 2)
+    self.first_name, self.last_name = name.split(" ", 2)
   end
 
   def reset_password
     return if persisted?
 
-    require 'securerandom'
+    require "securerandom"
     self.password = SecureRandom.hex(8)
   end
 end

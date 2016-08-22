@@ -1,7 +1,7 @@
 class UserDecorator < Draper::Decorator
   delegate :first_name, :last_name, :bio, :has_twitter?, :twitter_handle, :name
 
-  def photo_url(suffix = '')
+  def photo_url(suffix = "")
     h.image_url(photo_name(suffix))
   end
 
@@ -11,7 +11,7 @@ class UserDecorator < Draper::Decorator
 
   private
 
-  def photo_name(suffix = '')
+  def photo_name(suffix = "")
     "authors/#{name.downcase.parameterize}#{suffix}.png"
   end
 end

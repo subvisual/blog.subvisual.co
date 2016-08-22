@@ -1,6 +1,6 @@
-require 'redcarpet'
-require 'rouge'
-require 'rouge/plugins/redcarpet'
+require "redcarpet"
+require "rouge"
+require "rouge/plugins/redcarpet"
 
 module Services
   class PostProcessor

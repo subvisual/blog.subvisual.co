@@ -28,7 +28,7 @@ class Github::Adapter
   attr_reader :post
 
   def master_sha
-    @_master_sha ||= client.ref(repo, 'heads/master').object.sha
+    @_master_sha ||= client.ref(repo, "heads/master").object.sha
   end
 
   def branch_sha
@@ -44,8 +44,8 @@ class Github::Adapter
   def create_tree(base_sha)
     client.create_tree(
       repo,
-      [{ path: "post-#{post.id}.markdown", mode: '100644', type: 'blob', content: post.body }],
-      base_tree: base_sha
+      [{ path: "post-#{post.id}.markdown", mode: "100644", type: "blob", content: post.body }],
+      base_tree: base_sha,
     ).sha
   end
 
@@ -55,7 +55,7 @@ class Github::Adapter
   end
 
   def create_pull_request
-    client.create_pull_request(repo, 'refs/heads/master', "refs/heads/#{branch_name}", post.title, '')
+    client.create_pull_request(repo, "refs/heads/master", "refs/heads/#{branch_name}", post.title, "")
   end
 
   def branch_name
@@ -67,6 +67,6 @@ class Github::Adapter
   end
 
   def repo
-    @_repo ||= ENV.fetch('GH_CONTENT_REPO')
+    @_repo ||= ENV.fetch("GH_CONTENT_REPO")
   end
 end

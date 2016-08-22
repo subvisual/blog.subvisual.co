@@ -1,4 +1,4 @@
-require 'elasticsearch/model'
+require "elasticsearch/model"
 
 class Post < ActiveRecord::Base
   POSTS_LIMIT = 10
@@ -7,15 +7,15 @@ class Post < ActiveRecord::Base
 
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  index_name [Rails.env, model_name.collection.gsub(%r{/}, '-')].join('_')
+  index_name [Rails.env, model_name.collection.gsub(%r{/}, "-")].join("_")
 
   include ActionView::Helpers::SanitizeHelper
 
-  default_scope  { order('published_at DESC') }
+  default_scope { order("published_at DESC") }
 
-  belongs_to :author, class_name: 'User'
+  belongs_to :author, class_name: "User"
   belongs_to :category
-  has_one :hero, class_name: 'PostImage'
+  has_one :hero, class_name: "PostImage"
   acts_as_taggable
 
   accepts_nested_attributes_for :hero
@@ -28,8 +28,8 @@ class Post < ActiveRecord::Base
 
   delegate :name, to: :author, prefix: true
 
-  scope :published, -> { where('published_at IS NOT NULL') }
-  scope :unpublished, -> { where('published_at IS NULL') }
+  scope :published, -> { where("published_at IS NOT NULL") }
+  scope :unpublished, -> { where("published_at IS NULL") }
   scope :recent, -> { limit(POSTS_LIMIT) }
   scope :by_author, ->(author) { published.where(author_id: author) }
 
@@ -56,7 +56,7 @@ class Post < ActiveRecord::Base
   end
 
   def related_by_author
-    author.posts.published.where('id != ?', id).sample
+    author.posts.published.where("id != ?", id).sample
   end
 
   def related_by_tags
@@ -97,6 +97,6 @@ class Post < ActiveRecord::Base
   def ensure_primary_tag_exists
     return if primary_tag?
 
-    errors.add(:tags, 'must include at least one primary tag')
+    errors.add(:tags, "must include at least one primary tag")
   end
 end
