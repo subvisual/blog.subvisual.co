@@ -2,7 +2,7 @@ class UserDecorator < Draper::Decorator
   delegate :first_name, :last_name, :bio, :has_twitter?, :twitter_handle, :name
 
   def photo_url(suffix = '')
-    h.image_url(photo_name(suffix))
+    h.image_url("blue/" + photo_name(suffix))
   end
 
   def twitter_url
