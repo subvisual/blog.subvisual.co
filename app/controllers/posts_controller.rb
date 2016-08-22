@@ -3,6 +3,10 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.recent.published.includes(:tags)
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
   end
 
   def search

@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "rails", "~> 4.2.4"
 
+gem "active_model_serializers", "~> 0.10.0"
 gem "acts-as-taggable-on"
 gem "analytics-ruby", require: "segment/analytics"
 gem "autoprefixer-rails"

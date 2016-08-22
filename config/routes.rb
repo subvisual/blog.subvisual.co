@@ -3,6 +3,10 @@ SubvisualBlog::Application.routes.draw do
   get '/blog/auth/:provider/callback', to: 'sessions#create'
 
   scope '/blog' do
+    constraints format: :json do
+      resources :posts, only: %i(index)
+    end
+
     constraints format: :html do
       root to: "posts#index"
 
