@@ -1,13 +1,13 @@
-require "elasticsearch/model"
-
 class Post < ActiveRecord::Base
   POSTS_LIMIT = 10
   MIN_INTRO_SIZE = 140
   PRIMARY_TAGS = %i(development design community general)
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-  index_name [Rails.env, model_name.collection.gsub(%r{/}, "-")].join("_")
+  include PgSearch
+  multisearchable(
+    against: %i(title processed_body author_name tags),
+    if: :published?,
+  )
 
   include ActionView::Helpers::SanitizeHelper
 

@@ -13,9 +13,8 @@ gem "coffee-rails", "~> 4.0.0"
 gem "clearance", "1.10.1"
 gem "dotenv-rails"
 gem "draper", "~> 1.3"
-gem "elasticsearch-model"
-gem "elasticsearch-rails"
 gem "fog"
+gem "foreman"
 gem "headquarters", github: "subvisual/headquarters-ruby"
 gem "jquery-rails"
 gem "jquery-ui-rails"
@@ -23,6 +22,7 @@ gem "octokit"
 gem "omniauth"
 gem "omniauth-headquarters", github: "subvisual/omniauth-headquarters"
 gem "pg"
+gem "pg_search"
 gem "puma"
 gem "redcarpet", require: false
 gem "rollbar"
@@ -55,7 +55,6 @@ group :test do
   gem "codacy-coverage", require: false
   gem "rest-client"
   gem "database_cleaner", "1.0.1", require: false
-  gem "elasticsearch-extensions"
   gem "factory_girl_rails", "~> 4.0", require: false
   gem "faker", require: false
   gem "simplecov", require: false
@@ -71,10 +70,6 @@ group :development, :test do
   gem "rspec-rails"
   gem "scss_lint", require: false
   gem "rb-readline"
-end
-
-group :production do
-  gem "foreman"
 end
 
 group :deploy do
