@@ -25,6 +25,7 @@ gem "omniauth-headquarters", github: "subvisual/omniauth-headquarters"
 gem "pg"
 gem "puma"
 gem "redcarpet", require: false
+gem "rollbar"
 gem "rouge", require: false
 gem "rmagick"
 gem "sass-rails", "~> 5.0.0"
@@ -37,7 +38,6 @@ gem "truncate_html"
 gem "uglifier", ">= 1.0.3"
 
 group :production do
-  gem "airbrake"
   gem "newrelic_rpm"
   gem "skylight"
 end

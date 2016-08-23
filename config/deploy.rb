@@ -24,6 +24,10 @@ set :foreman_options, {
 
 set :bower_bin, '/usr/bin/bower'
 
+set :rollbar_token, ENV.fetch("ROLLBAR_ACCESS_TOKEN")
+set :rollbar_env, Proc.new { fetch :stage }
+set :rollbar_role, Proc.new { :app }
+
 namespace :deploy do
   task :stop do
     begin

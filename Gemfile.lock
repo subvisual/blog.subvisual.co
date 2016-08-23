@@ -76,9 +76,6 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     addressable (2.3.8)
-    airbrake (3.1.14)
-      builder
-      json
     analytics-ruby (2.0.12)
     ansi (1.5.0)
     arel (6.0.3)
@@ -407,6 +404,8 @@ GEM
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
     rmagick (2.15.0)
+    rollbar (2.12.0)
+      multi_json
     rouge (1.9.0)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
@@ -507,7 +506,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   acts-as-taggable-on
-  airbrake
   analytics-ruby
   autoprefixer-rails
   better_errors
@@ -556,6 +554,7 @@ DEPENDENCIES
   redcarpet
   rest-client
   rmagick
+  rollbar
   rouge
   rspec-html-matchers
   rspec-rails
