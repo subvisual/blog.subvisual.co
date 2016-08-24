@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :first_name, :last_name,
+  attributes :id, :first_name, :last_name,
     :twitter_handle, :photo_url
 
   def photo_url
