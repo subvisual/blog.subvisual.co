@@ -303,7 +303,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.8.1)
+    minitest (5.9.0)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -444,7 +444,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    skylight (0.6.1)
+    skylight (1.0.0.beta5)
       activesupport (>= 3.0.0)
     slim (3.0.3)
       temple (~> 0.7.3)
@@ -548,7 +548,7 @@ DEPENDENCIES
   scss_lint
   simple-random
   simplecov
-  skylight
+  skylight (~> 1.0.0.beta5)
   slim-rails
   sprockets
   sprockets-es6
