@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   multisearchable(
     against: %i(title processed_body author_name tags),
     if: :published?,
+    order_within_rank: "posts.published_at DESC",
   )
 
   include ActionView::Helpers::SanitizeHelper
