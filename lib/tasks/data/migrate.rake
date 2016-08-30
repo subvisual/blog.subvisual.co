@@ -22,5 +22,17 @@ namespace :data do
 
       puts "### DONE ###"
     end
+
+    task destroy_old_post_images: :environment do
+      ensure_date(Date.new(2016, 8, 30))
+
+      puts "Deleting old PostImage records migrated into Hero"
+
+      ActiveRecord::Base.transaction do
+        PostImage.where("post_id IS NOT NULL").destroy_all
+      end
+
+      puts "### DONE ###"
+    end
   end
 end

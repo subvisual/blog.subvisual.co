@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, class_name: "User"
   belongs_to :category
-  has_one :hero, class_name: "PostImage"
+  has_one :hero
   acts_as_taggable
 
   accepts_nested_attributes_for :hero
