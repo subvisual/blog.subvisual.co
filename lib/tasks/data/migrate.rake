@@ -14,7 +14,7 @@ namespace :data do
 
       ActiveRecord::Base.transaction do
         PostImage.where("post_id IS NOT NULL").find_each do |post_image|
-          hero = Hero.create(post_image.attributes.slice(:post_id, :width, :height))
+          hero = Hero.create(post_image.attributes.slice("post_id", "width", "height"))
           hero.image = post_image.image
           hero.save
         end
