@@ -15,5 +15,6 @@ spec/tmp
 puppet/*.yaml
 vendor/assets/bower_components
 public/uploads
+public/blog
 node_modules
 .env

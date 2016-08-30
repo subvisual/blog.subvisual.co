@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class PostImageUploader < CarrierWave::Uploader::Base
+class HeroImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   version :thumb do
@@ -8,10 +8,10 @@ class PostImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "blog/#{model.class.to_s.underscore}/#{model.id}"
+    "blog/hero/#{model.id}"
   end
 
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w(jpg jpeg png)
   end
 end

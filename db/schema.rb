@@ -11,11 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160822175235) do
+ActiveRecord::Schema.define(version: 20160830111452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
+
+  create_table "heros", force: :cascade do |t|
+    t.string   "image"
+    t.integer  "post_id"
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pg_search_documents", force: :cascade do |t|
     t.text     "content"

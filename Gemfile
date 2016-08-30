@@ -24,6 +24,7 @@ gem "omniauth-headquarters", github: "subvisual/omniauth-headquarters"
 gem "pg"
 gem "pg_search"
 gem "puma"
+gem "rack-mini-profiler", require: false
 gem "redcarpet", require: false
 gem "rollbar"
 gem "rouge", require: false
@@ -47,7 +48,6 @@ group :development do
   gem "binding_of_caller"
   gem "meta_request"
   gem "quiet_assets"
-  gem "rack-mini-profiler"
 end
 
 group :test do
