@@ -1,15 +1,16 @@
-- if content_for?(:hero_image)
-  - style = "background-image: url('#{image_path(content_for(:hero_image))}')"
-- else
-  - style = ""
+css:
+  .Hero-cover {
+    background-image: url('#{content_for(:hero_regular_image)}');
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      background-image: url('#{content_for(:hero_retina_image)}');
+    }
+  }
 
-.Hero(
-  class="#{content_for(:hero_class)}"
-  style=style
-  )
-  .u-navPlaceholder
-  - if content_for?(:hero_image)
-    = image_tag content_for(:hero_image), class: 'Hero-hiddenImage'
+.Hero class="#{content_for(:hero_class)}"
+  - if content_for?(:hero_regular_image)
+    .Hero-cover
+    img.Hero-hiddenImage src=content_for(:hero_regular_image)
     .Hero-overlay
+  .u-navPlaceholder
   .Hero-content
     = content_for :hero

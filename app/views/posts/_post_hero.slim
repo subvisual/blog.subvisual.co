@@ -1,8 +1,8 @@
 - content_for :hero_class, ' Hero--center'
 
 - if post.hero?
-  - content_for :hero_class, ' Hero--withBackgroundImage'
-  - content_for :hero_image, post.hero.image.url
+  - content_for :hero_regular_image, post.hero.image.url(:regular)
+  - content_for :hero_retina_image, post.hero.image.url(:retina)
   - content_for :nav_class, 'Nav--transparent'
   - content_for :burger_class, 'Burger--light'
   - content_for :post_info_class, ' PostInfo--light'
