@@ -11,13 +11,13 @@ class PostImageUploader < CarrierWave::Uploader::Base
   version :retina do
     process resize_to_limit: [600 * 2, nil]
     def full_filename(file = model.logo.file)
-      "image@2x.#{file.extension}"
+      "image@2x#{File.extname(file)}"
     end
   end
   version :regular do
     process resize_to_limit: [600, nil]
     def full_filename(file = model.logo.file)
-      "image.#{file.extension}"
+      "image#{File.extname(file)}"
     end
   end
   process optimize: [quality: 80, level: 3]
