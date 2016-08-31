@@ -5,16 +5,24 @@ class HeroImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::ImageOptimizer
 
   def filename
-    "image.#{model.image.file.extension}" if original_filename
+    "original.#{model.image.file.extension}" if original_filename
   end
 
   version :retina do
     process resize_to_limit: [1920 * 2, nil]
-    process :convert_to_progressive_jpg
+    process convert: "jpg"
+    process :convert_to_progressive
+    def full_filename(_file = model.logo.file)
+      "image@2x.jpg"
+    end
   end
   version :regular do
     process resize_to_limit: [1920, nil]
-    process :convert_to_progressive_jpg
+    process convert: "jpg"
+    process :convert_to_progressive
+    def full_filename(_file = model.logo.file)
+      "image.jpg"
+    end
   end
   process optimize: [quality: 80, level: 3]
 
@@ -28,7 +36,7 @@ class HeroImageUploader < CarrierWave::Uploader::Base
 
   private
 
-  def convert_to_progressive_jpg
+  def convert_to_progressive
     manipulate! do |img|
       return img unless img.mime_type =~ %r{image/jpeg}
 

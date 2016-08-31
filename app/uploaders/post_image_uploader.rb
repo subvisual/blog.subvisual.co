@@ -5,14 +5,20 @@ class PostImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::ImageOptimizer
 
   def filename
-    "image.#{model.image.file.extension}" if original_filename
+    "original.#{model.image.file.extension}" if original_filename
   end
 
   version :retina do
     process resize_to_limit: [600 * 2, nil]
+    def full_filename(file = model.logo.file)
+      "image@2x.#{file.extension}"
+    end
   end
   version :regular do
     process resize_to_limit: [600, nil]
+    def full_filename(file = model.logo.file)
+      "image.#{file.extension}"
+    end
   end
   process optimize: [quality: 80, level: 3]
 

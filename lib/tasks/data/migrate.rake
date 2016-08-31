@@ -34,5 +34,25 @@ namespace :data do
 
       puts "### DONE ###"
     end
+
+    task recreate_images: :environment do
+      Hero.find_each do |h|
+        begin
+          h.image.recreate_versions!
+          h.save
+        rescue StandardError
+          puts "Warning. failed for Hero with id=#{i.id}"
+        end
+      end
+
+      PostImage.find_each do |i|
+        begin
+          i.image.recreate_versions!
+          i.save
+        rescue StandardError
+          puts "Warning. failed for PostImage with id=#{i.id}"
+        end
+      end
+    end
   end
 end
