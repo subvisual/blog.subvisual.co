@@ -1,7 +1,7 @@
 module PostHelper
   def post_description(post)
     strip_tags(post.processed_body).
-      gsub(/\n+/, ' ')[0...150].
+      gsub(/\n+/, " ")[0...150].
       strip
   end
 
