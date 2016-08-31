@@ -14,7 +14,7 @@ class PostImageUploader < CarrierWave::Uploader::Base
   version :regular do
     process resize_to_limit: [600, nil]
   end
-  process optimize: [quality: 80]
+  process optimize: [quality: 80, level: 3]
 
   def store_dir
     "blog/#{model.class.to_s.underscore}/#{model.id}"
