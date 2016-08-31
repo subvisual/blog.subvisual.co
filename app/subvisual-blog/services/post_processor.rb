@@ -33,6 +33,7 @@ module Services
         full_doc.
           gsub(/<p><img/, '<p class="Post-imageWrapper"><img').
           gsub(/<a /, '<a target="_blank" ').
+          gsub(/<img src="([^"]+)"([^>]+)>/) { img_with_link(Regexp.last_match[1]) }.
           gsub(%r{(<table>(.|\n)*?</table>)}) { wrap_table(Regexp.last_match[0]) }
       end
 
@@ -47,6 +48,14 @@ module Services
           <p class='PostTable-caption u-onlySmall'>You can scroll the table
           horizontally to see remaining values</p>
         </div>
+        HTML
+      end
+
+      def img_with_link(url)
+        <<-HTML
+        <a href="#{url}" target="_blank">
+          <img src="#{url}">
+        </a>
         HTML
       end
     end

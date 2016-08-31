@@ -2,10 +2,19 @@
 
 class PostImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
+  include CarrierWave::ImageOptimizer
 
-  version :thumb do
-    process resize_to_fit: [0, 50]
+  def filename
+    "image.#{model.image.file.extension}" if original_filename
   end
+
+  version :retina do
+    process resize_to_limit: [600 * 2, nil]
+  end
+  version :regular do
+    process resize_to_limit: [600, nil]
+  end
+  process optimize: [quality: 80]
 
   def store_dir
     "blog/#{model.class.to_s.underscore}/#{model.id}"

@@ -19,7 +19,7 @@
             - if post.hero.image.url
               .HorizontalGrid-cell
                 = hero_form.label :image
-                  = image_tag post.hero.image.url(:thumb), class: ''
+                  = image_tag post.hero.image.url, height: '50'
             .HorizontalGrid-cell
               = hero_form.file_field :image
             .HorizontalGrid-cell
