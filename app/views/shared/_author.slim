@@ -1,8 +1,8 @@
 .PostWidthConstrainer.Author.Author--small
   .Author-left
     img(
-      src="#{image_path(post.author.photo_url('_50'))}"
-      srcset="#{image_path(post.author.photo_url('_50'))} 50w, #{image_path(post.author.photo_url('_100'))} 100w"
+      src="#{user_photo_path(post.author, '_50')}"
+      srcset="#{user_photo_path(post.author, '_50')} 50w, #{user_photo_path(post.author, '_100')} 100w"
       sizes="50px"
     )
   .Author-right

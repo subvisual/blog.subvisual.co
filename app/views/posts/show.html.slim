@@ -1,32 +1,32 @@
-- content_for :title, post.page_title
-- content_for :twitter_title, post.twitter_title
-- content_for :url, post_url(post)
-- content_for :image_url, post.author.photo_url
-- content_for :description, post.description
-- content_for :twitter_description, post.description
-- content_for :twitter_creator, "@#{post.author.twitter_handle}"
+- content_for :title, "#{@post.title}, by @#{@post.author.twitter_handle} of Subvisual"
+- content_for :twitter_title, "#{@post.title}, by @#{@post.author.twitter_handle} of @subvisual"
+- content_for :url, post_url(@post)
+- content_for :image_url, user_photo_path(@post.author)
+- content_for :description, post_description(@post)
+- content_for :twitter_description, post_description(@post)
+- content_for :twitter_creator, "@#{@post.author.twitter_handle}"
 
-= render 'post_hero', post: post
+= render 'post_hero', post: @post
 
-- cache [post.model, 'show']
+- cache [@post, 'show']
   .u-xSmallThenSmallMargin
 
   .PostWidthConstrainer
-    = render 'shared/tag_list', tag_list: post.tag_list
+    = render 'shared/tag_list', tag_list: @post.tag_list
   .u-smallThenDefaultMargin
 
   .Post
-    .Post-body = post.processed_body
+    .Post-body = raw(@post.processed_body)
 
   .PostWidthConstrainer
     .u-defaultThenLargeMargin
     .Separator.Separator--subvisual
     .u-defaultThenLargeMargin
 
-    = render 'author_bio', author: post.author
+    = render 'author_bio', author: @post.author
     .u-defaultThenLargeMargin
 
-= render 'related_posts', post: post
+= render 'related_posts', post: @post
 .u-largeMargin
 
 .PostWidthConstrainer
@@ -39,5 +39,5 @@
 = render '/shared/newsletter'
 .u-largeMargin
 
-= render 'shared/disqus', post: post
+= render 'shared/disqus', post: @post
 .u-largeMargin

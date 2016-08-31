@@ -1,10 +1,10 @@
-= form_for [:admin, post.object], method: post.form_method, multipart: true do |f|
+= form_for [:admin, post], method: post_form_method(post), multipart: true do |f|
   .u-largeMargin
 
   .AdminWidthConstrainer
-    - if post.object.errors.any?
+    - if post.errors.any?
       .ErrorMsg
-        - post.object.errors.each do |field, message|
+        - post.errors.each do |field, message|
           .ContentFormatter.ContentFormatter--center
             = [field, message].join(' ')
 
@@ -31,7 +31,7 @@
       .HorizontalGrid-cell
         .HorizontalGrid.HorizontalGrid--innerGutters.HorizontalGrid--variableWidth.HorizontalGrid--right
           .HorizontalGrid-cell
-          - unless post.new?
+          - if post.persisted?
             .HorizontalGrid-cell = f.submit 'Preview', value: :preview, class: 'ButtonSecondary'
             - if post.published?
               .HorizontalGrid-cell = link_to 'Unpublish', admin_post_unpublish_path(post), method: :patch, class: 'ButtonSecondary'

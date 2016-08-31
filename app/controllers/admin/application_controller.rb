@@ -2,8 +2,6 @@ class Admin::ApplicationController < ::ApplicationController
   layout "admin"
   before_filter :verify_admin
 
-  decorates_assigned :posts, :drafts, :user
-
   def dashboard
   end
 
