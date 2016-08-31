@@ -16,7 +16,7 @@ class HeroImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [1920, nil]
     process :convert_to_progressive_jpg
   end
-  process optimize: [quality: 80]
+  process optimize: [quality: 80, level: 3]
 
   def store_dir
     "blog/hero/#{model.id}"
