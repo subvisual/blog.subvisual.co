@@ -3,7 +3,7 @@ class Admin::PostImagesController < Admin::ApplicationController
 
   def create
     post = PostImage.create image_params
-    render json: { filename: post.image }
+    render json: { filename: post.image.url }
   end
 
   private
