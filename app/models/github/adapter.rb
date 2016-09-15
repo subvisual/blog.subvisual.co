@@ -32,7 +32,17 @@ class Github::Adapter
   end
 
   def branch_sha
+    updated_branch_sha || deprecated_branch_sha
+  end
+
+  def updated_branch_sha
     @_branch_sha ||= client.ref(repo, "heads/#{branch_name}").object.sha
+  rescue Octokit::NotFound
+    false
+  end
+
+  def deprecated_branch_sha
+    @_branch_sha ||= client.ref(repo, "heads/#{deprecated_branch_name}").object.sha
   rescue Octokit::NotFound
     false
   end
@@ -59,6 +69,10 @@ class Github::Adapter
   end
 
   def branch_name
+    @_branch_name ||= "#{post.author.name.parameterize}-#{post.id}"
+  end
+
+  def deprecated_branch_name
     @_branch_name ||= post.title.parameterize
   end
 
