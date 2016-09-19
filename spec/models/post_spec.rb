@@ -36,6 +36,10 @@ RSpec.describe Post, type: :model do
     end
   end
 
+  context "#valid?" do
+    it "does not allow main"
+  end
+
   context "#published?" do
     it "returns false for an unpublished post" do
       post = create :post
@@ -47,6 +51,32 @@ RSpec.describe Post, type: :model do
       post = create :published_post
 
       post.should be_published
+    end
+  end
+
+  context "::MAIN_HEADING_REGEX" do
+    it "catches posts with main heading tags" do
+      post = build :post, body: "# title"
+
+      match = post.body.match(Post::MAIN_HEADING_REGEX)
+
+      expect(match).to be
+    end
+
+    it "catches posts with main headings not on the first line" do
+      post = build :post, body: "text\n\n# title"
+
+      match = post.body.match(Post::MAIN_HEADING_REGEX)
+
+      expect(match).to be
+    end
+
+    it "does not catch posts with secondary headings" do
+      post = build :post, body: "## title"
+
+      match = post.body.match(Post::MAIN_HEADING_REGEX)
+
+      expect(match).not_to be
     end
   end
 end

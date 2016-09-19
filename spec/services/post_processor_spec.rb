@@ -11,11 +11,11 @@ RSpec.describe Services::PostProcessor do
     end
 
     it "parses markdown" do
-      post = build :post, body: "# title"
+      post = build :post, body: "## title"
 
       Services::PostProcessor.new(post).process
 
-      post.processed_body.should have_tag "h1"
+      post.processed_body.should have_tag "h2"
     end
 
     it "parses the first paragraph" do
@@ -72,6 +72,20 @@ def markdown_table
 |---|---|
 | 1 | x |
 | 2 | o |
+  '""
+end
+
+def body_with_main_heading
+  ""'
+# Main heading
+## Secondary heading
+  '""
+end
+
+def body_without_main_heading
+  ""'
+## Main heading
+### Secondary heading
   '""
 end
 # rubocop:enable Lint/ImplicitStringConcatenation

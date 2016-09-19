@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   POSTS_LIMIT = 10
   MIN_INTRO_SIZE = 140
   PRIMARY_TAGS = %i(development design community general)
+  MAIN_HEADING_REGEX = /^#[^#]/
 
   include PgSearch
   multisearchable(

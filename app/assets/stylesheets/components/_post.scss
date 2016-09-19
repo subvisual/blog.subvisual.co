@@ -32,24 +32,24 @@ $Post-inlineCodeBgColor: rgba(0, 0, 0, 0.04);
     padding-left: $Theme-spacing-small;
   }
 
-  h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     padding-top: $Theme-spacing-small;
     padding-bottom: $Theme-spacing-small;
   }
 
-  h1:not(:first-child) {
+  h2:not(:first-child) {
     @include font-properties(heading, veryLarge, $Theme-font-sizes-extra);
 
     margin-top: $Theme-spacing-small;
   }
 
-  h2 {
+  h3 {
     @include font-properties(heading, large, $Theme-font-sizes-extra);
   }
 
-  h3 {
+  h4 {
     @include font-properties(heading, base, $Theme-font-sizes-extra);
   }
 

@@ -54,5 +54,21 @@ namespace :data do
         end
       end
     end
+
+    task remove_main_headings: :environment do
+      puts "Downgrading all post's h1 tags to h2, and so on..."
+
+      ActiveRecord::Base.transaction do
+        Post.find_each do |post|
+          next unless post.body =~ /^#[^#]/
+
+          updated_body = post.body.gsub(/^#/, "##")
+
+          post.update body: updated_body
+        end
+      end
+
+      puts "Done!"
+    end
   end
 end
