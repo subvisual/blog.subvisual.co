@@ -39,7 +39,7 @@ $Post-inlineCodeBgColor: rgba(0, 0, 0, 0.04);
     padding-bottom: $Theme-spacing-small;
   }
 
-  h2:not(:first-child) {
+  h2 {
     @include font-properties(heading, veryLarge, $Theme-font-sizes-extra);
 
     margin-top: $Theme-spacing-small;
