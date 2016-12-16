@@ -4,7 +4,9 @@ RSpec.describe "data:migrate:remove_main_headings" do
   include_context "rake"
 
   it "migrates posts with main headings" do
-    post = create :post, body: "# title"
+    post = create :post
+    # force a main heading, skipping validations
+    post.update_attribute :body, "# title"
 
     subject.invoke
 

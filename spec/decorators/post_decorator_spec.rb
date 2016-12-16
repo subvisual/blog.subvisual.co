@@ -25,7 +25,7 @@ RSpec.describe PostDecorator do
 
   context "#description" do
     it "returns the body without html tags" do
-      post_decorator = create(:post, body: "# title").decorate
+      post_decorator = create(:post, body: "## title").decorate
 
       post_decorator.description.should eq "title"
     end

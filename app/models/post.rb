@@ -24,6 +24,7 @@ class Post < ActiveRecord::Base
 
   validates :author_id, :body, :title, presence: true
   validate :ensure_primary_tag_exists
+  validate :ensure_no_primary_heading_exists
 
   after_validation :preprocess
   before_save :set_extra_tags
@@ -100,5 +101,11 @@ class Post < ActiveRecord::Base
     return if primary_tag?
 
     errors.add(:tags, "must include at least one primary tag")
+  end
+
+  def ensure_no_primary_heading_exists
+    return unless body =~ MAIN_HEADING_REGEX
+
+    errors.add(:body, "cannot have main headings")
   end
 end

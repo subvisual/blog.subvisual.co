@@ -37,7 +37,11 @@ RSpec.describe Post, type: :model do
   end
 
   context "#valid?" do
-    it "does not allow main"
+    it "is false if post has main headings" do
+      post = build :post, body: "# title"
+
+      expect(post).not_to be_valid
+    end
   end
 
   context "#published?" do
