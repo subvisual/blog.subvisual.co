@@ -5,6 +5,7 @@
         src="#{image_path(post.author.photo_url('_100'))}"
         srcset="#{image_path(post.author.photo_url('_100'))} 100w, #{image_path(post.author.photo_url('_200'))} 200w"
         sizes="100px"
+        alt="#{post.author.name}'s photo"
       )
   .Media-content
     .ContentFormatter.ContentFormatter--centerHorizontallyThenLeft
