@@ -10,3 +10,4 @@
 //= require tags
 //= require bugherd
 //= require intercom.min
+//= require full_story
