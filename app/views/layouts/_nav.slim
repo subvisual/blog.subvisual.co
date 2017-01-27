@@ -2,7 +2,6 @@
   = nav_overlay_item 'Work', 'https://subvisual.co/work'
   = nav_overlay_item 'Company', 'https://subvisual.co/company'
   = nav_overlay_item 'Community', 'https://subvisual.co/community'
-  = nav_overlay_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
   = nav_overlay_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
   - if can? :manage, Post
     = nav_overlay_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
@@ -21,7 +20,6 @@ header#main-nav.Nav.Nav--topPositioned aria-label='Main navigation' class="#{con
       = nav_item 'Work', 'https://subvisual.co/work'
       = nav_item 'Company', 'https://subvisual.co/company'
       = nav_item 'Community', 'https://subvisual.co/community'
-      = nav_item 'Apprenticeship', 'https://subvisual.co/apprenticeship'
       = nav_item 'Blog', root_url, class: (admin_controller? ? '' : 'is-selected')
       - if can? :manage, Post
         = nav_item 'Admin', admin_dashboard_path, class: (admin_controller? ? 'is-selected' : '')
