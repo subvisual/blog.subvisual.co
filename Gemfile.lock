@@ -403,8 +403,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rollbar (2.12.0)
-      multi_json
     rouge (1.9.0)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
@@ -450,6 +448,8 @@ GEM
     scss_lint (0.39.0)
       rainbow (~> 2.0)
       sass (~> 3.4.1)
+    sentry-raven (2.3.0)
+      faraday (>= 0.7.6, < 1.0)
     simple-random (1.0.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
@@ -552,7 +552,6 @@ DEPENDENCIES
   rb-readline
   redcarpet
   rest-client
-  rollbar
   rouge
   rspec-html-matchers
   rspec-rails
@@ -560,6 +559,7 @@ DEPENDENCIES
   sass (~> 3.4.0)
   sass-rails (~> 5.0.0)
   scss_lint
+  sentry-raven
   simple-random
   simplecov
   skylight (~> 1.0.0.beta5)
@@ -570,4 +570,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
 
 BUNDLED WITH
-   1.12.5
+   1.13.7

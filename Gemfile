@@ -29,10 +29,10 @@ gem "pg_search"
 gem "puma"
 gem "rack-mini-profiler", require: false
 gem "redcarpet", require: false
-gem "rollbar"
 gem "rouge", require: false
 gem "sass-rails", "~> 5.0.0"
 gem "sass", "~> 3.4.0"
+gem "sentry-raven"
 gem "slim-rails"
 gem "simple-random"
 gem "sprockets"
