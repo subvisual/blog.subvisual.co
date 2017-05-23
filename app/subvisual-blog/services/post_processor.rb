@@ -32,7 +32,7 @@ module Services
       def postprocess(full_doc)
         full_doc.
           gsub(/<p><img/, '<p class="Post-imageWrapper"><img').
-          gsub(/<a /, '<a target="_blank" ').
+          gsub(/<a href="([^#])/, '<a target="_blank" href="\1').
           gsub(/<img src="([^"]+)"([^>]+)>/) { img_with_link(Regexp.last_match[1]) }.
           gsub(%r{(<table>(.|\n)*?</table>)}) { wrap_table(Regexp.last_match[0]) }
       end

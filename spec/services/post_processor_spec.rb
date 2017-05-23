@@ -43,6 +43,15 @@ RSpec.describe Services::PostProcessor do
       post.processed_body.should have_tag("a", with: { target: "_blank", href: "link" })
     end
 
+    it "does not open anchor links in a new browser tab" do
+      post = build :post, body: markdown_code_block
+
+      Services::PostProcessor.new(post).process
+
+      post.processed_body.should have_tag("a", with: { href: "#anchor-link" })
+      post.processed_body.should_not have_tag("a", with: { target: "_blank", href: "#anchor-link" })
+    end
+
     it "wraps the generated table in a PostTable component" do
       post = build :post, body: markdown_table
 
@@ -63,6 +72,7 @@ end
 ```
 
 [text](link)
+[anchor-text](#anchor-link)
   '""
 end
 

@@ -36,18 +36,8 @@ ActiveRecord::Schema.define(version: 20160830145454) do
 
   add_index "pg_search_documents", ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
 
-  create_table "post_files", force: :cascade do |t|
-    t.string   "filename",            null: false
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "last_file_timestamp"
-  end
-
   create_table "post_images", force: :cascade do |t|
-    t.string  "image"
-    t.integer "width"
-    t.integer "height"
+    t.string "image"
   end
 
   create_table "posts", force: :cascade do |t|
