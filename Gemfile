@@ -32,7 +32,6 @@ gem "redcarpet", require: false
 gem "rouge", require: false
 gem "sass-rails", "~> 5.0.0"
 gem "sass", "~> 3.4.0"
-gem "sentry-raven"
 gem "slim-rails"
 gem "simple-random"
 gem "sprockets"
@@ -41,8 +40,8 @@ gem "truncate_html"
 gem "uglifier", ">= 1.0.3"
 
 group :production do
-  gem "newrelic_rpm"
   gem "skylight", "~> 1.0.0.beta5"
+  gem "sentry-raven"
 end
 
 group :development do
