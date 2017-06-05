@@ -5,6 +5,7 @@ class PostSerializer < ActiveModel::Serializer
   belongs_to :author
 
   def path
-    post_path(object)
+    post_path(object).
+      gsub(%r{/blog/blog}, "/blog")
   end
 end
