@@ -1,7 +1,7 @@
 # Subvisual Blog (Deprecated)
 
 **Notice: This blog has since been reimplemented as a static page. Visit the new
-repo [here](https://github.com/subvisual/blog)**. Bye bye Rails, its's been
+repo [here](https://github.com/subvisual/blog)**. Bye bye Rails, it's been
 a good run...
 
 # Development Setup
