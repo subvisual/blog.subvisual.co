@@ -1,5 +1,7 @@
 # Subvisual Blog (Deprecated)
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 **Notice: This blog has since been reimplemented as a static page. Visit the new
 repo [here](https://github.com/subvisual/blog)**. Bye bye Rails, it's been
 a good run...
